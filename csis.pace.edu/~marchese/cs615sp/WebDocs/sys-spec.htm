@@ -1,0 +1,1313 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Introduction</TITLE>
+</HEAD>
+<BODY>
+
+<B><I><FONT FACE="Arial" SIZE=5><P ALIGN="CENTER">System Specification</P>
+</I></FONT><FONT SIZE=4><P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">Introduction</P>
+</B></FONT>
+<B><P ALIGN="JUSTIFY">Goals and Objectives</P>
+<P ALIGN="JUSTIFY"></P>
+</B><P ALIGN="JUSTIFY">GameForge is a graphical tool used to aid programmers in the design and creation of video games.  A game designer with little or no experience with Microsoft DirectX and/or Visual C++ programming can use GameForge to construct his or her own 2D-arcade games.  GameForge also assists experienced programmers by generating the Microsoft DirectX code and Microsoft Windows9x overhead necessary for basic game construction, allowing them to concentrate on more detailed game design issues and implementation.  The idea is to limit the amount of actual code written by the game designer, while providing an interface that is easy to use yet complete enough to remain functional.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">As a short-term goal, GameForge is intended to assist students in completing their final game design assignments in CIS 587.  As a long-term goal, PA Software hopes GameForge will be among the first in a growing selection of ‘do-everything’ game builders.</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">System Statement of Scope</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">GameForge is a graphical tool used to aid in the design and creation of video games.  A user with limited Microsoft DirectX and/or Visual C++ programming knowledge will be able to construct a basic 2D-arcade game.  The idea is to limit the amount of actual code written by the user.  It will also assist experienced programmers in generating the Microsoft DirectX and Microsoft Windows9x overhead necessary for basic game construction, allowing them to concentrate on more detailed game design issues and implementation.</P>
+<B><P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The software will consist of a number of inputs, graphically assisting the user in creating on-screen objects including the following:</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+
+
+<UL>
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>User Created Objects (player character, creatures, static objects)</LI></P></UL>
+</UL>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">-  Bitmaps (with animation)</P>
+<P ALIGN="JUSTIFY">-  Collision Detection Areas</P>
+<B><P ALIGN="JUSTIFY">-  </B>Movement Routines</P>
+<P ALIGN="JUSTIFY">-  Additional Object Attributes</P></DIR>
+</DIR>
+
+
+<UL>
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Backgrounds</LI></P>
+<P ALIGN="JUSTIFY"><LI>Input Device Setup</LI></P>
+<P ALIGN="JUSTIFY"><LI>Sound Events</LI></P></UL>
+</UL>
+
+<P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">The software will also consist of a number of graphical processing functionalities including the following:</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+
+
+<UL>
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Defining/Editing Objects (including characteristics)</LI></P>
+<P ALIGN="JUSTIFY"><LI>Object Positioning</LI></P>
+<P ALIGN="JUSTIFY"><LI>Opening/Closing/Saving Game Project Files</LI></P>
+<P ALIGN="JUSTIFY"><LI>Exporting Game Projects to compileable C++ Files</LI></P></UL>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Outputs include:</P>
+<P ALIGN="JUSTIFY"></P>
+
+<UL>
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>User Created Sprite Objects</LI></P>
+<P ALIGN="JUSTIFY"><LI>Bitmaps</LI></P>
+<P ALIGN="JUSTIFY"><LI>Flat text data files that are readable by the Microsoft VC++ engine</LI></P>
+<P ALIGN="JUSTIFY"><LI>Game Project Files</LI></P>
+<P ALIGN="JUSTIFY"><LI>Visual C++ header files containing necessary system initializations</LI></P>
+<P ALIGN="JUSTIFY"><LI>Database Files</LI></P></UL>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">System Context</P>
+</B><P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">GameForge is being marketed as a CASE tool, to allow software developers to ‘build’ rather than code their game.  It is not necessary for developers to have prior knowledge with DirectX or Visual C++, as long as they have a good art team and high production values.  GameForge will be commercially distributed via the GameForge website (for information regarding the URL, see the Appendix.)</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">GameForge will be available free for educational use. It will be distributed for use in CIS 587, Computer Game Design and Implementation, at the University of Michigan-Dearborn. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P></DIR>
+</DIR>
+
+<B><P ALIGN="JUSTIFY">Major Constraints</P>
+</B><FONT SIZE=2>
+</FONT><I><P ALIGN="JUSTIFY">Performance/Behavior Issues</P>
+</I><P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">GameForge is designed to be compatible with the Microsoft Windows 9x operating system.  Microsoft Windows NT 4.0 and earlier versions will not be supported (Windows NT only supports Microsoft DirectX up to version 3.0.  DirectInput had not been implemented at this time, making this version of DirectX very limited.)  Microsoft Windows 2000 should also be compatible.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">GameForge also requires Microsoft DirectX 7.0 or above.  Users may also want to obtain the DirectX 7.0 SDK if they plan on expanding the GameForge library files beyond their original scope.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">GameForge also requires the Microsoft Visual C++ 6.0 compiler.  GameForge’s VC++ code may be compilable using Borland or some other VC++ compiler, but functionality is not guaranteed.</P>
+<B><P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+</B><I><P ALIGN="JUSTIFY">Management and Technical Constraints</P>
+</I><P ALIGN="JUSTIFY">&#9;</P>
+<P ALIGN="JUSTIFY">&#9;&#9;GameForge has a drop-dead delivery date of 04/17/00.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="CENTER">&nbsp;</P>
+<B><FONT SIZE=4><P ALIGN="CENTER">Functional and Data Description</P>
+</B></FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;<B>System Architecture</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Architecture Model</P>
+</B><P ALIGN="JUSTIFY">&#9;&#9;</P>
+<P ALIGN="JUSTIFY"><IMG SRC="Image40.gif" WIDTH=681 HEIGHT=479></P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P><DIR>
+<DIR>
+
+<B><P ALIGN="JUSTIFY">Subsystem Overview</P>
+<P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The following page includes brief descriptions of each subsystem illustrated on the Architecture model, as well as the nature of their specific interfaces.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;User Interface Processing</P>
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Input wizards – </LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">There are a number of wizards provided to guide the novice user through the necessary steps for game development. </P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL>
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>New World Wizard – </LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">This wizard allows the user to begin creating a new world.  General settings (like screen resolution and transparent color) are set here.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL>
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>New Level Wizard – </LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">This wizard allows the user to create a new level within their game.  Level specific attributes (like background color and level size) are set here.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL>
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>New Sprite Wizard –</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">This wizard assists the user in the creation of a new sprite. The user can select attributes and movement options.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Sprite Wizard (Animation Wizard) – </LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">The user is assisted in the animation process. They can create an animation cycle frame by frame, and test the result.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Sprite Wizard (Collision Area Wizard) –</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">The user sets the collision area. It is displayed over the sprite.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Level Editor – </LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">The main interface displays the level/game the user is designing. A tree-view of all objects is also represented. All other interface options are accessed from this screen.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Help/Tutorial Files –</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">These files contain FAQ’s, Tutorial, descriptions of objects and VC++ code, and a search engine to find the information.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;Input Processing</P>
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Databases – GameForge utilizes a Microsoft Access database to store sound libraries and image libraries, as well as pre-designed sprites. The database is accessed by the user interface.</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;Process and Control Functions</P>
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>VB interface – The interface is the subsystem the user interacts with. It creates a project space for all project files to be stored in. It gathers all necessary data from the user, as well as interacting with the access databases. The interface then generates data files containing all specifications of all the sprites, as well as input device information and sound information. All necessary files such as .wav files and .bmp files are moved to the project directory. This subsystem contains the screen representing the game and a list of all sprites and their attributes.</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>C++ engine – This subsystem is the meat of the system. The engine creates a .cpp file for the game. The file contains references to the data files generated by the user interface and references to DirectX code contained in header files. </LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;Output Processing</P>
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Flat Text Data files – a file containing information specified by the user that is read by the C++ code. The files are generated by the user interface. The user’s game can be tweaked by editing this file rather than rewriting code.  These files include:</LI></P>
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>World Information</LI></P>
+<P ALIGN="JUSTIFY"><LI>Sprite Information</LI></P>
+<P ALIGN="JUSTIFY"><LI>Player Information</LI></P></UL>
+</UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Program Files – Files are stored with a unique extension to be used exclusively by GameForge. This file is actually a Microsoft Access database, and is generated as temporary storage during game creation. They are generated by the user interface.</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>.cpp Files – Finished projects can be saved as a .cpp file that can be compiled with Microsoft’s Visual C++ compiler to create an executable file for the game. This file is generated by the C++ engine.</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;Maintenance and Self-Test</P>
+<P ALIGN="JUSTIFY"></P>
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>No maintenance subsystems are planned for this version of GameForge.  However, any patches that are released after GameForge will be available from the official GameForge website.</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">Data Description</P>
+</B><P ALIGN="JUSTIFY">&#9;</P>
+<P ALIGN="JUSTIFY">&#9;<B><I>Major Data Objects</P>
+</B></I><P ALIGN="JUSTIFY">&#9;&#9;</P><DIR>
+<DIR>
+
+<B><P>Sprites:  </P>
+</B><P>Sprites consist of the following attributes:</P>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<B><P>Name </B>(Primary Key) – Name of the sprite.</P></DIR>
+</DIR>
+
+<B><P>Image </B>– Name of the Image file displayed representing the sprite.</P>
+<B><P>Width </B>– The width of the sprite in pixels.</P>
+<B><P>Height </B>– The height of the sprite in pixels.</P><DIR>
+<DIR>
+
+<B><P>DestinationX </B>– The X coordinate for the destination of the placement of the sprite.</P>
+<B><P>DestinationY </B>– The Y coordinate for the destination of the placement of the sprite.</P></DIR>
+</DIR>
+
+<B><P>Framerate </B>– The framerate of the sprite.</P>
+<B><P>NumOfDir </B>– The number of directions the sprite has.</P>
+<B><P>NumOfFrames – </B>The number of frames per direction.</P>
+<B><P>Solid </B>– Whether or not the sprite is a solid object.</P>
+<B><P>KillsPlayer –</B> Whether or not the sprite kills the player.</P>
+<B><P>PlayerCanKill –</B> Whether or not the player can kill this sprite.</P><DIR>
+<DIR>
+
+<B><P>OtherCanKill – </B>Whether or not other sprites (other than the player) can kill this sprite.</P></DIR>
+</DIR>
+
+<B><P>Obtainable </B>– Whether or not the sprite can be picked up.</P>
+<B><P>Visible </B>– Whether or not the sprite is visible on the screen.</P><DIR>
+<DIR>
+
+<B><P>AffectsScore </B>– Whether or not the sprite has an effect on the score.</P></DIR>
+</DIR>
+
+<B><P>SoundAttached </B> - Index of the sound is attached to this sprite.</P><DIR>
+<DIR>
+
+<B><P>ReactsToGravity </B>– Whether or not the sprite is affected by gravity.</P>
+<B><P>ReactsToFriction –</B> Whether or not the sprite is affected by Friction.</P>
+<B><P>ReactionToPlayer - </B>Index determining how the sprite reacts to the player’s position.</P>
+<B><P>Bounces </B>– Whether or not the sprite changes direction when contacting another sprite.</P>
+<B><P>Random </B>– Whether or not the sprite has random movement.</P>
+<B></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;Surfaces:</P>
+<P>&#9;&#9;</B>Surface consist of the following attributes:</P>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<B><P>Alias</B> (Primary Key) – The filename of the image.</P>
+<B><P>Path</B> – The directory that the image is found in.</P>
+<B><P>Height – </B>The height of the image in pixels.</P>
+<B><P>Width </B>– The width of the image in pixels.</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<B><P>&#9;Messages:</P>
+<P>&#9;&#9;</B>Messages consist of the following attributes:</P>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<B><P>String</B> (Primary Key) – The actual text to be displayed.</P><DIR>
+<DIR>
+
+<B><P>DestX - </B>The X coordinate for the destination of where the string will be placed.</P>
+<B><P>DestY</B> – The Y coordinate for the destination of where the string will be placed.</P></DIR>
+</DIR>
+
+<B><P>ForeRGB </B>– The RGB value of the foreground color of the text.</P>
+<B><P>BackRGB </B>– The RGB value of the background color of the text.</P><DIR>
+<DIR>
+
+<B><P>Transparent </B>–<B> </B>The background of the text can be made transparent.</P></DIR>
+</DIR>
+
+<B><P>Visible </B>– Whether or not the text is visible on the screen.</P>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<B><P>&#9;Sounds:</P>
+</B><P>&#9;&#9;Sounds consist of the following attributes:</P>
+
+<B><P>&#9;&#9;Alias </B>(Primary Key) – The filename of the sound.</P>
+<B><P>&#9;&#9;Path</B> – The directory that the sound is found in.</P>
+<B><P>&#9;&#9;&#9;Buffer – </B>The buffer to load the sound onto.</P>
+<B><P>&#9;&#9;&#9;Notifications</B> – Breaks up sound into pieces for streaming.</P>
+<B><P>&#9;&#9;&#9;State</B> – Determines play state (playing, not playing, looping).</P>
+<B>
+<P>&#9;Levels:</P>
+<P>&#9;&#9;</B>Levels consist of the following attributes:</P>
+
+<B><P>&#9;&#9;Name</B> (Primary Key) – The name of the level.</P>
+<B><P>&#9;&#9;Width </B>Overall width of the level (in pixels).</P>
+<B><P>&#9;&#9;&#9;Height</B> Overall height of the level (in pixels).</P>
+<B><P>&#9;&#9;&#9;GoalSprite </B>Index of the goal sprite.</P>
+<B><P>&#9;&#9;&#9;GoalScore </B>Value of the goal score.</P>
+<P>&#9;&#9;<B>Relationships</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY"><IMG SRC="Image41.gif" WIDTH=781 HEIGHT=391></P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+</B><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&#9;<B>Interface Description</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>External Machine Interfaces</P>
+</B><P ALIGN="JUSTIFY">&#9;&#9;&#9;None identified.</P>
+<P ALIGN="JUSTIFY"> </P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>External System Interfaces</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">GameForge requires a number of additional system components to operate. These include the following:</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Microsoft Visual Basic runtimes - necessary to use the user interface</LI></P>
+<P ALIGN="JUSTIFY"><LI>Microsoft DirectX 7 libraries - these include information needed to compile and run a created game.</LI></P>
+<P ALIGN="JUSTIFY"><LI>Microsoft Visual C++ - required to compile .cpp files to create an executable file for the game.</LI></P>
+<P ALIGN="JUSTIFY"><LI>Any text editor – used to edit data file if necessary</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>User Interface</P>
+</B><P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">The interface will have on the left side of the screen, a treeview control, which displays elements in a directory tree structure.  Placed in this treeview will be categories with which the sprites that user has input will be categorized.  The user will be able to click on these categories and see the expanded list of the sprites that are under that particular category.  In addition the user will be able to click on a particular sprite and bring up all of that sprite’s properties.  When the sprite wizard is up, the right side of the screen will be the sprite’s image, and an area where that image can be placed on the screen, onto any of the particular backgrounds that the user has chosen.  There will be a standard menu bar that is present on nearly every Microsoft Windows application, along with a toolbar for quicker access to the commands embedded under the various menu options.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><FONT SIZE=4><P ALIGN="CENTER">&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="CENTER">Subsystem Description</P>
+</B></FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;<B>Description for Access Databases</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Subsystem Scope</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">There are three databases used by GameForge, one for sprites, one for images, and one for sounds. Each database contains the locations of files, either data files describing the sprite, bitmap files for images, or sound files in .wav format. </P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Subsystem Flow Diagram</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY"><IMG SRC="Image42.gif" WIDTH=703 HEIGHT=225></P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Access Database Components</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Sprite Database Description (Processing Narrative)</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The sprite database contains the locations of data files. These data files contain specifications for sprites, either pre-defined, or user-defined. This allows users to use existing sprites in their games, or to save the sprites they create.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Sprite Database Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The sprite database is referenced and written to be the user interface. The interface is written in Microsoft Visual Basic, which allows for easy interaction with Microsoft Access databases.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Image Database Description (Processing Narrative)</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The image database contains the locations of bitmap image files. These files are the part of the sprite that is seen on screen. They can be files supplied by GameForge, or can be created by the user.</P>
+<P ALIGN="JUSTIFY"> </P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Image Database Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The image database is referenced and written to be the user interface. The interface is written in Microsoft Visual Basic, which allows for easy interaction with Microsoft Access databases.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Sound Database Description (Processing Narrative)</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The sound database contains the locations of sound files in .wav format. These files can be supplied by the system, or created by the user. The sounds are tied to events in the game.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Sound Database Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The sound database is referenced and written to be the user interface. The interface is written in Microsoft Visual Basic, which allows for easy interaction with Microsoft Access databases.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Performance Issues</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The C++ engine must access the database. Any problems encountered in this interface must be minimized.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Design Constraints </P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The databases contain only the locations of the files. Problems could occur if the files are moved. Special note should be included in the manual instructing the user to not delete files from the libraries.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Allocation for Access Databases</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The databases will be created using Microsoft Access, and referenced by Microsoft Visual Basic. </P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;</P>
+<P ALIGN="JUSTIFY">&#9;<B>Description for User Interface</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Subsystem Scope</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The user interface must present the user with an easy to use way to implement game design. It is a GUI that shows the user where things are, and what they do in the game. It gives the novice user a better understanding of what happens in the game. Wizards are supplied to guide the user through all necessary steps in game construction. Game design is not a primary function of GameForge, preliminary design should be completed before construction.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;</P>
+<P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+
+<B><P ALIGN="JUSTIFY">Subsystem Flow Diagram</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P></DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY"><IMG SRC="Image43.gif" WIDTH=826 HEIGHT=241></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>User Interface Components</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Sprite wizard Description (Processing Narrative)</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The sprite wizard is a tool that guides the user through the creation of a sprite. It prompts the user for a number of inputs including the following:</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+
+<UL>
+<P ALIGN="JUSTIFY"><LI>Bitmap image for the sprite</LI></P>
+<P ALIGN="JUSTIFY"><LI>Initial location of the sprite</LI></P>
+<P ALIGN="JUSTIFY"><LI>Sprite movement</LI></P>
+<P ALIGN="JUSTIFY"><LI>If the sprite is solid or not</LI></P>
+<P ALIGN="JUSTIFY"><LI>Visibility of the sprite</LI></P>
+<P ALIGN="JUSTIFY"><LI>Many other options</LI></P></UL>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</UL>
+
+<P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P ALIGN="JUSTIFY">The wizard then creates a data file containing the information supplied by the user. Any necessary files are moved to the project space.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Sprite wizard Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The sprite wizard is a part of the user interface; it interacts directly with the databases to gather necessary information. It then moves the information to the game data file in the project space.</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Project wizard Description (Processing Narrative)</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The project wizard guides the user through the creation of the primary surface, sprite placement, game logic, and input. It prompts the user for information on these subjects, which is written to a data file in the project space.</P>
+<P ALIGN="JUSTIFY">  </P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Project wizard Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The project wizard is a part of the user interface; it interacts directly with the databases to gather necessary information. It then moves the information to the game data file in the project space.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Performance Issues</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The primary performance requirement is a screen refresh rate of 30 frames per second.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Design Constraints </P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">No special design constraints impact the user interface subsystem.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Allocation for User Interface</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The interface will be implemented in Visual Basic. This will ensure proper interaction with the databases. It will also utilize DirectX to help translate the user’s game to executable code. </P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;<B>Description for C++ Engine</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Subsystem Scope</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The C++ engine is the meat of the system. It is designed to be as modular as possible. A majority of the DirectX code is contained in header files to limit what has to be written by the engine. It gathers information from the data files, and uses it to create the balance of the code needed for the user’s game.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Subsystem Flow Diagram</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY"><IMG SRC="Image44.gif" WIDTH=691 HEIGHT=211></P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&#9;&#9;<B>C++ Engine Components</P>
+</B><P ALIGN="JUSTIFY"></P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<B><P ALIGN="JUSTIFY">Window Creation Component Description </P>
+</B><P ALIGN="JUSTIFY">This component is responsible for the overhead involved in the creation of a window for the user’s game to operate in. it allows the size to be specified, as well as a title for the window.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Window Creation Component Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The necessary code for window creation will be contained in a header file. Any additional information will be extracted from the data file created by the user interface.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>DirectX Component Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">This component handles all DirectX functions used in GameForge. These include DirectDraw, DirectInput, and DirectSound. These functions are responsible for the largest part of the game files. All on screen movement, all images, all sounds, are a result of the DirectX components.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<B><P ALIGN="JUSTIFY">&#9;&#9;&#9;DirectX Component Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The necessary code for the DirectX components will be contained in a header file. Any additional information needed will be extracted from the data file created by the user interface.</P>
+<B><P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+</B><P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Data File Component Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">This component reads the data file created by the user interface, and uses the information to adapt the C++ code to the user’s game.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<B><P ALIGN="JUSTIFY">&#9;&#9;&#9;Data File Component Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The component interacts with the data file created by the user interface. The information in the document is used to create a main file for the game.</P>
+<B><P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+</B><P ALIGN="JUSTIFY">&#9;&#9;&#9;<B>Game Logic Component Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The game logic component keeps track of what every sprite and sound does, and when. it uses the data file to dictate the process order for all objects in the game. The logic can be modified directly in the .cpp file if necessary.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<B><P ALIGN="JUSTIFY">&#9;&#9;&#9;Game Logic Component Interface Description</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The game logic component is created in the same way as the other C++ components. The necessary header files are accessed. Any holes in the code are filled with information gathered form the game data file.</P>
+<B><P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+</B><P ALIGN="JUSTIFY">&#9;&#9;<B>Performance Issues</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The refresh rate of 30 frames per second must be maintained to have a playable game.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Design Constraints </P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The code created by the C++ Engine must be compatible with Microsoft’s Visual C++ compiler, and DirectX 7. </P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;&#9;<B>Allocation for C++ Engine</P>
+</B><P ALIGN="JUSTIFY">&#9;&#9;&#9;The engine will be created using Microsoft Visual C++. </P>
+<P ALIGN="JUSTIFY">&#9;&#9;</P>
+<P ALIGN="JUSTIFY"></P>
+<B><FONT SIZE=4><P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">System Modeling and Simulation Results</P>
+</B></FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;<B>Description of System Modeling Approach </P><DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY"><IMG SRC="Image45.gif" WIDTH=719 HEIGHT=285>System modeling takes place during early team meetings. No special tools will be used. The model will be developed on paper.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P></DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;<B>Simulation Results</P>
+</B><P ALIGN="JUSTIFY">&#9;&#9;No simulations were used.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;<B>Special Performance Issues</P>
+</B><P ALIGN="JUSTIFY">&#9;&#9;Refresh rate of 30 frames per second.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;<B>Prototyping Requirements</P><DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">The interface prototype will be created using Microsoft Visual Basic.  The C++ portion will be developed in modules that will be individually tested.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><FONT SIZE=4><P ALIGN="CENTER">&nbsp;</P></DIR>
+</DIR>
+
+<P ALIGN="CENTER">Project Issues</P>
+</B></FONT>
+<P>&#9;<B>Projected Development Costs</P>
+</B><P>&#9;&#9;<I>Function Point estimations:</P><DIR>
+<DIR>
+
+</I><P>&#9;&#9;<FONT FACE="MS Sans Serif" SIZE=2>Interface: 243.04</P><DIR>
+<DIR>
+
+<P>Engine: 303.45</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;&#9;&#9;Total FP: <B>546.49</P>
+</B>
+<P>&#9;&#9;<I>Reference FP calculations:</P>
+</I><P>&#9;&#9;&#9;Demon Tree FP: 121.03</P>
+<P>&#9;&#9;&#9;Demon Tree Person Months: 2.5</P>
+
+<P>&#9;&#9;<I>Estimated Person Months:</P>
+</I><P>&#9;&#9;&#9;Avg. FP per Person Month: 48.412</P>
+<P>&#9;&#9;&#9;GameForge est. Person Months: 11.288</P>
+
+<P>&#9;&#9;<I>Cost in Person months</I>:</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>Industry average cost per Person Month: $8,000.00</P>
+<P>GameForge est. total cost (w/o equipment): <B>$90,306.54</P>
+</B></FONT></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>&#9;<B>Project Schedule</P>
+</B>
+
+<UL><DIR>
+<DIR>
+
+
+<UL>
+<LI>Engine construction / Interface construction / Database construction</LI>
+<LI>System integration</LI>
+<LI>Alpha testing / customer evaluation</LI>
+<LI>Library creation</LI>
+<LI>Help/tutorial construction / manual</LI>
+<LI>Beta testing / customer evaluation</LI>
+<LI>Documentation revision</LI>
+<LI>Delivery&#9;</LI></UL>
+</DIR>
+</DIR>
+</UL>
+
+<DIR>
+<DIR>
+
+<P>Note: dates have yet to be established<FONT SIZE=2>.</P>
+</FONT><B><FONT SIZE=4><P ALIGN="CENTER"></P></DIR>
+</DIR>
+
+<P ALIGN="CENTER">Appendices</P>
+</B></FONT><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;<B>Product Strategies</P><DIR>
+<DIR>
+
+</B><P ALIGN="JUSTIFY">GameForge may be distributed freely or as low-cost shareware. This decision will be made nearer to the project’s completion.  If GameForge is distributed as low-cost shareware, Professor Bruce Maxim will receive a free educational copy for use with CIS 587 at University of Michigan – Dearborn.  The software will also be posted on PA Software’s web site.  There will be no additional commercial distribution of the system.</P>
+<P ALIGN="JUSTIFY"></P></DIR>
+</DIR>
+
+<P ALIGN="JUSTIFY">&#9;<B>Supplementary Information</P>
+<P ALIGN="JUSTIFY">&#9;&#9;</B>None at this time.</P></BODY>
+</HTML>

@@ -1,0 +1,3020 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./CS835fin_files/filelist.xml">
+<title>CS835 - Data and Document Representation &amp; Processing</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Frank Marchese</o:Author>
+  <o:LastAuthor>Frank Marchese</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>106</o:TotalTime>
+  <o:Created>2005-04-09T21:45:00Z</o:Created>
+  <o:LastSaved>2005-04-12T22:20:00Z</o:LastSaved>
+  <o:Pages>13</o:Pages>
+  <o:Words>3229</o:Words>
+  <o:Characters>18408</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>153</o:Lines>
+  <o:Paragraphs>36</o:Paragraphs>
+  <o:CharactersWithSpaces>22606</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	mso-font-kerning:0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Arial Unicode MS";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Arial Unicode MS";
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Arial Unicode MS";}
+p.intro, li.intro, div.intro
+	{mso-style-name:intro;
+	margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+p.bodychar, li.bodychar, div.bodychar
+	{mso-style-name:bodychar;
+	margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:74524056;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-68879924 -1580418366 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:227424946;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-103106732 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:298271012;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1949287382 1959920076 1807136332 469656054 -1961477724 -1271383492 1522681212 68171272 626431928 499406186;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:301078729;
+	mso-list-type:hybrid;
+	mso-list-template-ids:498640486 -1580418366 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4
+	{mso-list-id:379520859;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1484995950 -1580418366 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l5
+	{mso-list-id:390159237;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1556216492 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:446126172;
+	mso-list-type:hybrid;
+	mso-list-template-ids:580124818 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:453209379;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1541345832 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l8
+	{mso-list-id:519708683;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-491466948 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l9
+	{mso-list-id:523980507;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-654140422 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l10
+	{mso-list-id:542714654;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1755178526 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:548223215;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1147355204 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l12
+	{mso-list-id:571546915;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-323188878 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l13
+	{mso-list-id:588545872;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-248636660 -547581456 1093285768 -369449134 -2033314646 1005483098 246318876 -1494709744 -101948280 531543832;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l13:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l13:level3
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l13:level4
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l13:level5
+	{mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l13:level6
+	{mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-.25in;}
+@list l13:level7
+	{mso-level-tab-stop:3.25in;
+	mso-level-number-position:left;
+	margin-left:3.25in;
+	text-indent:-.25in;}
+@list l13:level8
+	{mso-level-tab-stop:3.75in;
+	mso-level-number-position:left;
+	margin-left:3.75in;
+	text-indent:-.25in;}
+@list l13:level9
+	{mso-level-tab-stop:4.25in;
+	mso-level-number-position:left;
+	margin-left:4.25in;
+	text-indent:-.25in;}
+@list l14
+	{mso-list-id:625165469;
+	mso-list-type:hybrid;
+	mso-list-template-ids:119291696 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l15
+	{mso-list-id:647708876;
+	mso-list-type:hybrid;
+	mso-list-template-ids:559298086 -1115358648 495091392 131609698 475971906 -1969329718 -426337942 662599350 -1244863188 1499483926;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l15:level3
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l15:level4
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l15:level5
+	{mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l15:level6
+	{mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-.25in;}
+@list l15:level7
+	{mso-level-tab-stop:3.25in;
+	mso-level-number-position:left;
+	margin-left:3.25in;
+	text-indent:-.25in;}
+@list l15:level8
+	{mso-level-tab-stop:3.75in;
+	mso-level-number-position:left;
+	margin-left:3.75in;
+	text-indent:-.25in;}
+@list l15:level9
+	{mso-level-tab-stop:4.25in;
+	mso-level-number-position:left;
+	margin-left:4.25in;
+	text-indent:-.25in;}
+@list l16
+	{mso-list-id:777801247;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1509657204 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l17
+	{mso-list-id:785002756;
+	mso-list-type:hybrid;
+	mso-list-template-ids:958987404 405287864 -1543188940 474355832 1016508890 -1935881844 1961154252 -751259954 -1889787936 1399196516;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l18
+	{mso-list-id:912276411;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1236141956 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l18:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l18:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l19
+	{mso-list-id:991834017;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1169548686 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l19:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l20
+	{mso-list-id:1055619884;
+	mso-list-type:hybrid;
+	mso-list-template-ids:447675232 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l20:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l21
+	{mso-list-id:1138381831;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1541345832 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l22
+	{mso-list-id:1281765878;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-611125714 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l22:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l23
+	{mso-list-id:1328442707;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-804853038 -1580418366 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l23:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l24
+	{mso-list-id:1391541798;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-445747504 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l24:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l25
+	{mso-list-id:1458260012;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-491466948 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l25:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l26
+	{mso-list-id:1463110194;
+	mso-list-type:hybrid;
+	mso-list-template-ids:958987404 67698689 -1543188940 474355832 1016508890 -1935881844 1961154252 -751259954 -1889787936 1399196516;}
+@list l26:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l26:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l26:level3
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l26:level4
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l26:level5
+	{mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l26:level6
+	{mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-.25in;}
+@list l26:level7
+	{mso-level-tab-stop:3.25in;
+	mso-level-number-position:left;
+	margin-left:3.25in;
+	text-indent:-.25in;}
+@list l26:level8
+	{mso-level-tab-stop:3.75in;
+	mso-level-number-position:left;
+	margin-left:3.75in;
+	text-indent:-.25in;}
+@list l26:level9
+	{mso-level-tab-stop:4.25in;
+	mso-level-number-position:left;
+	margin-left:4.25in;
+	text-indent:-.25in;}
+@list l27
+	{mso-list-id:1501313991;
+	mso-list-type:hybrid;
+	mso-list-template-ids:379212544 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l27:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l28
+	{mso-list-id:1554732131;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1525218598 645794344 294808480 1788245476 1342057538 1041250656 -1614797022 -1422082338 -504493412 1440410088;}
+@list l28:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l29
+	{mso-list-id:1688218507;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1695053508 -1580418366 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l29:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l29:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l30
+	{mso-list-id:1708724713;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1648040134 -1580418366 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l30:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.8in;
+	mso-level-number-position:left;
+	margin-left:.8in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l31
+	{mso-list-id:1890611069;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-696065948 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l31:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l32
+	{mso-list-id:1929999825;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1762570332 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l32:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l33
+	{mso-list-id:1955866771;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2033170830 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l33:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l34
+	{mso-list-id:2010056795;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2039931140 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l34:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l35
+	{mso-list-id:2021079708;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-248636660 67698689 1093285768 -369449134 -2033314646 1005483098 246318876 -1494709744 -101948280 531543832;}
+@list l35:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l35:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l35:level3
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l35:level4
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l35:level5
+	{mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l35:level6
+	{mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-.25in;}
+@list l35:level7
+	{mso-level-tab-stop:3.25in;
+	mso-level-number-position:left;
+	margin-left:3.25in;
+	text-indent:-.25in;}
+@list l35:level8
+	{mso-level-tab-stop:3.75in;
+	mso-level-number-position:left;
+	margin-left:3.75in;
+	text-indent:-.25in;}
+@list l35:level9
+	{mso-level-tab-stop:4.25in;
+	mso-level-number-position:left;
+	margin-left:4.25in;
+	text-indent:-.25in;}
+@list l36
+	{mso-list-id:2023774045;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1403649088 1138924208 -470801484 -120828170 -1091287058 -771993482 1150336274 -869509004 -944356792 904723590;}
+@list l36:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l36:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l36:level3
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l36:level4
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l36:level5
+	{mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l36:level6
+	{mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-.25in;}
+@list l36:level7
+	{mso-level-tab-stop:3.25in;
+	mso-level-number-position:left;
+	margin-left:3.25in;
+	text-indent:-.25in;}
+@list l36:level8
+	{mso-level-tab-stop:3.75in;
+	mso-level-number-position:left;
+	margin-left:3.75in;
+	text-indent:-.25in;}
+@list l36:level9
+	{mso-level-tab-stop:4.25in;
+	mso-level-number-position:left;
+	margin-left:4.25in;
+	text-indent:-.25in;}
+@list l37
+	{mso-list-id:2060207733;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1629283998 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l37:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l37:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l38
+	{mso-list-id:2064669654;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-653751290 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l38:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l39
+	{mso-list-id:2092310582;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-97857550 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l39:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027">
+  <o:colormru v:ext="edit" colors="#f8f8f8"/>
+  <o:colormenu v:ext="edit" fillcolor="#f8f8f8"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#f8f8f8" lang=EN-US link=blue vlink=purple style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<table border=0 cellspacing=0 cellpadding=0 bgcolor="#ffcc99" style='background:
+ #FFCC99;border-collapse:collapse;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=1050 valign=top style='width:629.7pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><span style='font-family:Arial'>CS835 - Data and Document Representation
+  &amp; Processing<o:p></o:p></span></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=1050 valign=top style='width:629.7pt;background:#FFFF99;padding:
+  0in 5.4pt 0in 5.4pt'>
+  <h1><span style='font-family:Arial'>Lecture 10 - Distribution and
+  Collaboration<o:p></o:p></span></h1>
+  </td>
+ </tr>
+</table>
+
+<h3 style='margin:0in;margin-bottom:.0001pt'><span style='font-size:12.0pt;
+mso-bidi-font-size:13.5pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h3>
+
+<h3 style='margin:0in;margin-bottom:.0001pt'><span style='font-size:12.0pt;
+mso-bidi-font-size:13.5pt;font-family:Arial'>Web Services Description Language
+(WSDL) from<o:p></o:p></span></h3>
+
+<h3 style='margin:0in;margin-bottom:.0001pt'><span style='font-size:12.0pt;
+mso-bidi-font-size:13.5pt;font-family:Arial'><a
+href="http://www.w3schools.com/wsdl/default.asp">http://www.w3schools.com/wsdl/default.asp</a><o:p></o:p></span></h3>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt'>What is WSDL?<o:p></o:p></span></h2>
+
+<ul type=square>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'>WSDL stands for Web Services
+     Description Language</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'>WSDL is written in XML</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'>WSDL is an XML document</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'>WSDL is used to describe Web
+     services</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'>WSDL is also used to locate
+     Web services</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'>WSDL is not yet a W3C standard</li>
+</ul>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt'>The WSDL Document
+Structure<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'>A WSDL document defines a web
+service using these major elements:</p>
+
+<table border=1 cellspacing=3 cellpadding=0 width="48%" bgcolor=white
+ style='width:48.92%;mso-cellspacing:1.5pt;background:white;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr>
+  <td width="26%" style='width:26.64%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Element</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width="72%" style='width:72.22%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Defines</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="26%" valign=top style='width:26.64%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;portType&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="72%" valign=top style='width:72.22%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The operations performed by the web service<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="26%" valign=top style='width:26.64%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;message&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="72%" valign=top style='width:72.22%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The messages used by the web service<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="26%" valign=top style='width:26.64%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;types&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="72%" valign=top style='width:72.22%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The data types used by the web service<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="26%" valign=top style='width:26.64%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;binding&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="72%" valign=top style='width:72.22%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The communication protocols used by the web service<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'>The main structure of a WSDL document
+looks like this:</p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="27%" bgcolor=white
+ style='width:27.78%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre>&lt;definitions&gt;</pre><pre>&lt;types&gt;</pre><pre><b><span style="mso-spacerun: yes">   </span>definition of types........<o:p></o:p></b></pre><pre>&lt;/types&gt;</pre><pre><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre>&lt;message&gt;</pre><pre><b><span style="mso-spacerun: yes">   </span>definition of a message....<o:p></o:p></b></pre><pre>&lt;/message&gt;</pre><pre><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre>&lt;portType&gt;</pre><pre><b><span style="mso-spacerun: yes">   </span>definition of a port.......<o:p></o:p></b></pre><pre>&lt;/portType&gt;</pre><pre><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre>&lt;binding&gt;</pre><pre><b><span style="mso-spacerun: yes">   </span>definition of a binding....<o:p></o:p></b></pre><pre>&lt;/binding&gt;</pre><pre><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre>&lt;/definitions&gt;</pre></td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>A
+WSDL document can contain other elements:<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='font-family:Arial'>extension elements and service
+element that makes it possible to group together the definitions of several web
+services in one single WSDL document.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>WSDL
+Ports<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level1 lfo19;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><b><span
+style='font-family:Arial'>&lt;portType&gt;</span></b><span style='font-family:
+Arial'> element - most important WSDL element <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level1 lfo19;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>defines :<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level2 lfo19;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>a web service<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level2 lfo19;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>the operations that can
+be performed<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level2 lfo19;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>the messages that are
+involved.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level1 lfo19;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>The &lt;portType&gt; element can be compared to a
+function library (or a module, or a class) in a traditional programming
+language.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>WSDL
+Messages<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level1 lfo19;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><b><span
+style='font-family:Arial'>&lt;message&gt;</span></b><span style='font-family:
+Arial'> element defines the data elements of an operation.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level1 lfo19;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Each messages can consist of one or more parts. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l29 level1 lfo19;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>The parts are comparable to the parameters of a
+function call in a traditional programming language. <o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>WSDL
+Types<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l23 level1 lfo20;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><b><span
+style='font-family:Arial'>&lt;types&gt;</span></b><span style='font-family:
+Arial'> element defines the data types that are used by the web service.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l23 level1 lfo20;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>WSDL uses XML Schema syntax to define data types.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>WSDL
+Bindings<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>&lt;binding&gt;</span></b><span
+style='font-family:Arial'> element defines the message format and protocol
+details for each port.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>WSDL
+Example<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>This
+is a simplified fraction of a WSDL document:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="44%" bgcolor=white
+ style='width:44.48%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;message name=&quot;getTermRequest&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;term&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/message&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;message name=&quot;getTermResponse&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;value&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/message&gt;<o:p></o:p></span></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;portType name=&quot;glossaryTerms&quot;&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></b></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;operation name=&quot;getTerm&quot;&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;input message=&quot;getTermRequest&quot;/&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;output message=&quot;getTermResponse&quot;/&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/operation&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/portType&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>portType</span></b><span
+style='font-family:Arial'> element defines:<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.75in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo21;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>&quot;glossaryTerms&quot; as the name of a <b>port</b><o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.75in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo21;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>&quot;getTerm&quot; as the name of an <b>operation</b><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>getTerm
+</span></b><span style='font-family:Arial'>operation has :<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.8in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l30 level1 lfo22;tab-stops:
+list .8in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>an <b>input message</b> called
+&quot;getTermRequest&quot;<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.8in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l30 level1 lfo22;tab-stops:
+list .8in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>an <b>output message</b> called
+&quot;getTermResponse&quot;<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>message</span></b><span
+style='font-family:Arial'> elements define the <b>parts</b> of each message and
+the associated data types.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l3 level1 lfo23;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>glossaryTerms is a like function library<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l3 level1 lfo23;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>&quot;getTerm&quot; is a function with
+&quot;getTermRequest&quot; as the input parameter <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l3 level1 lfo23;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>getTermResponse as the return parameter.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>WSDL
+Ports<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level1 lfo24;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><b><span
+style='font-family:Arial'>&lt;portType&gt;</span></b><span style='font-family:
+Arial'> element is the most important WSDL element. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level1 lfo24;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Defines:<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level2 lfo24;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>a web service</span></b><span
+style='font-family:Arial'><o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level2 lfo24;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>the <b>operations</b>
+that can be performed,<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level2 lfo24;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>the <b>messages</b>
+that are involved.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level1 lfo24;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>The port defines the connection point to a web
+service. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level1 lfo24;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Similar to a function library (or a module, or a
+class) in a traditional programming language. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level1 lfo24;tab-stops:
+list .25in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-bidi-font-family:Arial'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Each operation can be compared to a function in a
+traditional programming language.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Operation
+Types<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>The
+<b>request-response type</b> is the most common operation type, but WSDL
+defines four types:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=3 cellpadding=0 width="64%" bgcolor=white
+ style='width:64.5%;mso-cellspacing:1.5pt;background:white;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Type</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width="70%" style='width:70.3%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Definition</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>One-way<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="70%" valign=top style='width:70.3%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The operation can receive a message but will not return a
+  response<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Request-response<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="70%" valign=top style='width:70.3%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The operation can receive a request and will return a
+  response<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Solicit-response<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="70%" valign=top style='width:70.3%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The operation can send a request and will wait for a
+  response<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Notification<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="70%" valign=top style='width:70.3%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The operation can send a message but will not wait for a
+  response<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt'>One-Way Operation<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'>A one-way operation example:</p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="44%" bgcolor=white
+ style='width:44.48%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;message name=&quot;newTermValues&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;term&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;value&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/message&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;portType name=&quot;<b>glossaryTerms</b>&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;operation name=&quot;setTerm&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;input name=&quot;newTerm&quot; message=&quot;newTermValues&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;/operation&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/portType &gt;</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l39 level1 lfo25;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Port <b>glossaryTerms</b>
+defines a one-way operation called &quot;setTerm&quot;<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l39 level1 lfo25;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>&quot;setTerm&quot; operation
+allows input of new glossary terms messages using a &quot;newTermValues&quot;
+message with the input parameters &quot;term&quot; and &quot;value&quot;.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l39 level1 lfo25;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>No output is defined
+for the operation. <o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt'>Request-Response
+Operation<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'>A request-response operation
+example:</p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="43%" bgcolor=white
+ style='width:43.26%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;message name=&quot;getTermRequest&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;term&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/message&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;message name=&quot;getTermResponse&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;value&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/message&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;portType name=&quot;glossaryTerms&quot;&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;operation name=&quot;getTerm&quot;&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;input message=&quot;getTermRequest&quot;/&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;output message=&quot;getTermResponse&quot;/&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/operation&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/portType&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l38 level1 lfo26;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Port &quot;<b>glossaryTerms</b>&quot;
+defines a request-response operation called &quot;getTerm&quot;<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l38 level1 lfo26;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>&quot;<b>getTerm</b>&quot;
+operation requires an input message called &quot;getTermRequest&quot; with a
+parameter called &quot;term&quot;, and will return an output message called
+&quot;getTermResponse&quot; with a parameter called &quot;value&quot;.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=intro><span style='font-family:Arial'>WSDL bindings defines the
+message format and protocol details for a web service</span>.</p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt'>Binding to SOAP<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'>A request-response operation example:</p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="52%" bgcolor=white
+ style='width:52.14%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;message name=&quot;getTermRequest&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;term&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/message&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;message name=&quot;getTermResponse&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;part name=&quot;value&quot; type=&quot;xs:string&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/message&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;portType name=&quot;glossaryTerms&quot;&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;operation name=&quot;getTerm&quot;&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;input message=&quot;getTermRequest&quot;/&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;output message=&quot;getTermResponse&quot;/&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/operation&gt;<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></pre><pre><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/portType&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;binding type=&quot;glossaryTerms&quot; name=&quot;b1&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;<b>soap:binding</b> style=&quot;document&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>transport=&quot;http://schemas.xmlsoap.org/soap/http&quot; /&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;operation&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;soap:<b>operation</b><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">     </span>soapAction=&quot;http://example.com/getTerm&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;input&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;soap:body use=&quot;literal&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/input&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;output&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;soap:body use=&quot;literal&quot;/&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/output&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/operation&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/binding&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level1 lfo27;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The<b> binding</b> element
+has two attributes - the <b>name attribute</b> and the <b>type attribute</b>.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:1.0in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level2 lfo27;tab-stops:
+list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>name attribute</span></b><span
+style='font-family:Arial'> defines the name of the binding<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:1.0in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level2 lfo27;tab-stops:
+list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>type attribute</span></b><span
+style='font-family:Arial'> points to the port for the binding, in this case the
+&quot;glossaryTerms&quot; port.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level1 lfo27;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>soap:binding</span></b><span
+style='font-family:Arial'> element has two attributes - the style attribute and
+the transport attribute.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:1.0in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level2 lfo27;tab-stops:
+list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The style attribute can
+be &quot;rpc&quot; or &quot;document&quot;. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:1.0in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level2 lfo27;tab-stops:
+list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The transport attribute
+defines the SOAP protocol to use. In this case we use HTTP.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level1 lfo27;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The<b> operation</b>
+element defines each operation that the port exposes.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level1 lfo27;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>SOAP action has to be
+defined for each corresponding operation. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l18 level1 lfo27;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Must specify how the
+input and output are encoded. In this case we use &quot;literal&quot;.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>What
+is UDDI - Universal Description, Discovery and Integration<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l16 level1 lfo29;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI is a
+platform-independent framework for :<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l17 level1 lfo6;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Wingdings;mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Describing Services<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l17 level1 lfo6;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Wingdings;mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>discovering businesses<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l17 level1 lfo6;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Wingdings;mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>integrating business
+services by using the Internet. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo28;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI stands for
+Universal Description, Discovery and Integration<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo28;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI is a directory for
+storing information about web services<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo28;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI is a directory of
+web service interfaces described by WSDL<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo28;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI communicates via
+SOAP<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo28;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI is built into the
+Microsoft .NET platform<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>What
+is UDDI Based On?<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l31 level1 lfo30;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI uses World Wide
+Web Consortium (W3C) and Internet Engineering Task Force (IETF) Internet
+standards such as XML, HTTP, and DNS protocols. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l31 level1 lfo30;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI uses WSDL to
+describe interfaces to web services <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l31 level1 lfo30;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Cross platform
+programming features are addressed by adopting SOAP, known as XML Protocol
+messaging specifications found at the W3C Web site.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>UDDI
+Benefits<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l33 level1 lfo31;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Any industry or
+businesses of all sizes can benefit from UDDI<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l33 level1 lfo31;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Before UDDI, there was
+no Internet standard for businesses to reach their customers and partners with
+information about their products and services. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l33 level1 lfo31;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>There a no method for integrating diverse systems and
+processes</span>. </p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'>Problems the UDDI specification can
+help to solve: </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo32;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Making it possible to
+discover the right business from the millions currently online <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo32;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Defining how to enable
+commerce once the preferred business is discovered <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo32;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Reaching new customers
+and increasing access to current customers <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo32;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Expanding offerings and
+extending market reach <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo32;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Solving customer-driven
+need to remove barriers to allow for rapid participation in the global Internet
+economy <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo32;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Describing services and
+business processes programmatically in a single, open, and secure environment <o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>How
+can UDDI be Used<o:p></o:p></span></h2>
+
+<p class=bodychar style='margin:0in;margin-bottom:.0001pt'><span
+style='font-family:Arial'>Example – Airline Industry<o:p></o:p></span></p>
+
+<p class=bodychar style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l14 level1 lfo33;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If the industry
+published an UDDI standard for flight rate checking and reservation, airlines
+could register their services into an UDDI directory. <o:p></o:p></span></p>
+
+<p class=bodychar style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l14 level1 lfo33;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Travel agencies could
+then search the UDDI directory to find the airline's reservation interface. <o:p></o:p></span></p>
+
+<p class=bodychar style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l14 level1 lfo33;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>When the interface is
+found, the travel agency can communicate with the service immediately because
+it uses a well-defined reservation interface.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Who
+is Supporting UDDI?<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l19 level1 lfo34;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UDDI is a
+cross-industry effort driven by all major platform and software providers like
+Dell, Fujitsu, HP, Hitachi, IBM, Intel, Microsoft, Oracle, SAP, and Sun, as
+well as a large community of marketplace operators, and e-business leaders.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l19 level1 lfo34;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Over 220 companies are
+members of the UDDI community.<o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=660 valign=top style='width:395.7pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=intro>The full WSDL 1.2 syntax as described in the W3C Working Draft
+  is listed below.</p>
+  <pre><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+  "Courier New"'>&lt;wsdl:definitions name=&quot;nmtoken&quot;? targetNamespace=&quot;uri&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;import namespace=&quot;uri&quot; location=&quot;uri&quot;/&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;wsdl:types&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;xsd:schema .... /&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/wsdl:types&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;wsdl:message name=&quot;ncname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;part name=&quot;ncname&quot; element=&quot;qname&quot;? type=&quot;qname&quot;?/&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/wsdl:message&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;wsdl:portType name=&quot;ncname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:operation name=&quot;ncname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:input message=&quot;qname&quot;&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">                </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;/wsdl:input&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:output message=&quot;qname&quot;&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">                </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;/wsdl:output&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:fault name=&quot;ncname&quot; message=&quot;qname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">                </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;/wsdl:fault&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;/wsdl:operation&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/wsdl:portType&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;wsdl:serviceType name=&quot;ncname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:portType name=&quot;qname&quot;/&gt; +<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/wsdl:serviceType&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;wsdl:binding name=&quot;ncname&quot; type=&quot;qname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;-- binding details --&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:operation name=&quot;ncname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;-- binding details --&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:input&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">                </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span><span style="mso-spacerun: yes">              </span>&lt;-- binding details --&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;/wsdl:input&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:output&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">                </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">                </span>&lt;-- binding details --&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;/wsdl:output&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:fault name=&quot;ncname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span><span style="mso-spacerun: yes">        </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">                </span>&lt;-- binding details --&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;/wsdl:fault&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;/wsdl:operation&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/wsdl:binding&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;wsdl:service name=&quot;ncname&quot; serviceType=&quot;qname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;wsdl:port name=&quot;ncname&quot; binding=&quot;qname&quot;&gt; *<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;wsdl:documentation .... /&gt; ?<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">            </span>&lt;-- address details --&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">        </span>&lt;/wsdl:port&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/wsdl:service&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/wsdl:definitions&gt;<o:p></o:p></span></pre>
+  <p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=0 cellspacing=0 cellpadding=0 width=1350 bgcolor="#ffff99"
+ style='width:809.7pt;background:#FFFF99;border-collapse:collapse;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=1350 valign=top style='width:809.7pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+</table>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt'>What is SOAP?<o:p></o:p></span></h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP stands for <b>Simple Object Access Protocol</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is a <b>communication protocol</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is for communication <b>between applications</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is a format for <b>sending messages</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is designed to communicate <b>via Internet</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is <b>platform independent</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is <b>language independent</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is <b>based on XML</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP is <b>simple and extensible</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP allows you to <b>get around firewalls</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l28 level1 lfo12;tab-stops:list .5in'><span style='font-family:
+     Arial'>SOAP will be developed as a <b>W3C standard</b><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Why
+SOAP?<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l32 level1 lfo35;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Need to allow Internet
+communication between programs.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l32 level1 lfo35;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Applications
+communicate using Remote Procedure Calls (RPC) between objects like DCOM and
+CORBA<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l32 level1 lfo35;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>HTTP was not designed
+for this. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l32 level1 lfo35;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>RPC represents a compatibility
+and security problem - <span style="mso-spacerun: yes"> </span>firewalls and
+proxy servers will normally block this kind of traffic.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l32 level1 lfo35;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A better way to
+communicate between applications is over HTTP, because HTTP is supported by all
+Internet browsers and servers. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l32 level1 lfo35;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>SOAP was created to
+accomplish this.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l32 level1 lfo35;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>SOAP provides a way to
+communicate between applications running on different operating systems, with
+different technologies and programming languages.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial;
+mso-fareast-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>SOAP
+Building Blocks<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>A
+SOAP message is an ordinary XML document containing the following elements:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l36 level1 lfo15;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A required Envelope
+element that identifies the XML document as a SOAP message<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l36 level1 lfo15;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>An optional Header
+element that contains header information<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l36 level1 lfo15;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A required Body element
+that contains call and response information<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l36 level1 lfo15;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>An optional Fault
+element that provides information about errors that occurred while processing
+the message<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>All
+the elements above are declared in the default namespace for the SOAP envelope:<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><a
+href="http://www.w3.org/2001/12/soap-envelope" target="_blank">http://www.w3.org/2001/12/soap-envelope</a><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>and
+the default namespace for SOAP encoding and data types is:<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><a
+href="http://www.w3.org/2001/12/soap-encoding" target="_blank">http://www.w3.org/2001/12/soap-encoding</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Syntax
+Rules<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>Important
+syntax rules:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo18;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message MUST be
+encoded using XML<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo18;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message MUST use
+the SOAP Envelope namespace<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo18;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message MUST use
+the SOAP Encoding namespace<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo18;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message must NOT
+contain a DTD reference<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo18;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message must NOT
+contain XML Processing Instructions<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Skeleton
+SOAP Message<o:p></o:p></span></h2>
+
+<table border=1 cellspacing=0 cellpadding=0 width="61%" bgcolor=white
+ style='width:61.02%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;soap:Fault&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/soap:Fault&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+SOAP Envelope Element<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l10 level1 lfo36;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Required SOAP Envelope
+element is the root element of a SOAP message. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l10 level1 lfo36;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>It defines the XML
+document as a SOAP message.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l10 level1 lfo36;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Note the use of the
+xmlns:soap namespace. It should always have the value of:<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='font-family:Arial'>http://www.w3.org/2001/12/soap-envelope<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l6 level1 lfo37;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>it defines the Envelope
+as a SOAP Envelope:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="56%" bgcolor=white
+ style='width:56.58%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>Message information goes here<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+xmlns:soap Namespace<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l6 level1 lfo37;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message must
+always have an Envelope element associated with the &quot;http://www.w3.org/2001/12/soap-envelope&quot;
+namespace.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l6 level1 lfo37;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If a different
+namespace is used, the application must generate an error and discard the
+message.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+encodingStyle Attribute<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l5 level1 lfo38;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The SOAP encodingStyle
+attribute is used to define the data types used in the document. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l5 level1 lfo38;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>This attribute may appear
+on any SOAP element<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l5 level1 lfo38;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>It will apply to that
+element's contents and all child elements.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l5 level1 lfo38;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message has no
+default encoding.<o:p></o:p></span></p>
+
+<h4><span style='font-family:Arial'>Syntax<o:p></o:p></span></h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="46%" bgcolor=white
+ style='width:46.7%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;URI&quot;<o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<h4>Example</h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="61%" bgcolor=white
+ style='width:61.02%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Message information goes here<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+SOAP Header Element<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l24 level1 lfo39;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The optional SOAP
+Header element contains application specific information (like authentication,
+payment, etc) about the SOAP message. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l24 level1 lfo39;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If the Header element
+is present, it must be the first child element of the Envelope element.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l24 level1 lfo39;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>Note:</span></b><span
+style='font-family:Arial'> All immediate child elements of the Header element
+must be namespace-qualified.<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="59%" bgcolor=white
+ style='width:59.92%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;m:<b>Trans</b><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>xmlns:m=&quot;http://www.w3schools.com/transaction/&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>soap:<b>mustUnderstand=&quot;1&quot;</b>&gt;<b>234</b>&lt;/m:Trans&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>Above
+contains:<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l21 level1 lfo40;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>a header with a
+&quot;Trans&quot; element<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l21 level1 lfo40;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>a &quot;mustUnderstand&quot;
+attribute value of &quot;1&quot;<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l21 level1 lfo40;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>a value of 234<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l7 level1 lfo41;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>SOAP defines three
+attributes in the default namespace (&quot;http://www.w3.org/2001/12/soap-envelope&quot;)<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.75in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l7 level2 lfo41;tab-stops:
+list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Actor<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.75in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l7 level2 lfo41;tab-stops:
+list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>MustUnderstand<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.75in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l7 level2 lfo41;tab-stops:
+list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>encodingStyle<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l7 level1 lfo41;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The attributes defined
+in the SOAP Header defines how a recipient should process the SOAP message.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+actor Attribute<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l9 level1 lfo42;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP message may
+travel from a sender to a receiver by passing different endpoints along the
+message path<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l9 level1 lfo42;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Not all parts of the
+SOAP message may be intended for the ultimate endpoint of the SOAP message<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l9 level1 lfo42;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>They may be intended
+for one or more of the endpoints on the message path.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l9 level1 lfo42;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The SOAP actor
+attribute may be used to address the Header element to a particular endpoint.<o:p></o:p></span></p>
+
+<h4><span style='font-family:Arial'>Syntax<o:p></o:p></span></h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="45%" bgcolor=white
+ style='width:45.58%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:actor=&quot;URI&quot;<o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<h4>Example</h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="59%" bgcolor=white
+ style='width:59.92%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'> &lt;m:Trans<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>xmlns:m=&quot;http://www.w3schools.com/transaction/&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>soap:actor=&quot;http://www.w3schools.com/appml/&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>234<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'> &lt;/m:Trans&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+mustUnderstand Attribute<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l11 level1 lfo43;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The SOAP mustUnderstand
+attribute can be used to indicate whether a header entry is mandatory or
+optional for the recipient to process.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l11 level1 lfo43;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>&quot;mustUnderstand=&quot;1&quot;
+of a child element of the Header element indicates that the receiver processing
+the Header must recognize the element. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l11 level1 lfo43;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If the receiver does
+not recognize the element it must fail when processing the Header.<o:p></o:p></span></p>
+
+<h4>Syntax</h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="45%" bgcolor=white
+ style='width:45.58%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:mustUnderstand=&quot;0|1&quot;<o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<h4>Example</h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="59%" bgcolor=white
+ style='width:59.92%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;m:Trans<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>xmlns:m=&quot;http://www.w3schools.com/transaction/&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>soap:mustUnderstand=&quot;1&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>234<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/m:Trans&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Header&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>...<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+SOAP Body Element<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l12 level1 lfo44;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The required SOAP Body
+element contains the actual SOAP message intended for the ultimate endpoint of
+the message. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l12 level1 lfo44;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Immediate child
+elements of the SOAP Body element may be namespace-qualified<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l12 level1 lfo44;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>SOAP defines one
+element inside the Body element in the default namespace
+(&quot;http://www.w3.org/2001/12/soap-envelope&quot;). <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l12 level1 lfo44;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>This is the SOAP Fault
+element, which is used to indicate error messages.<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="58%" bgcolor=white
+ style='width:58.8%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'> &lt;soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;m:GetPrice xmlns:m=&quot;http://www.w3schools.com/prices&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;m:Item&gt;Apples&lt;/m:Item&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;/m:GetPrice&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'> &lt;/soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l27 level1 lfo45;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The example above
+requests the price of apples. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l27 level1 lfo45;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Note that the
+m:GetPrice and the Item elements above are application-specific elements. <o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>A
+SOAP response could look something like this:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="58%" bgcolor=white
+ style='width:58.8%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'> &lt;soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;m:GetPriceResponse xmlns:m=&quot;http://www.w3schools.com/prices&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;m:Price&gt;1.90&lt;/m:Price&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>&lt;/m:GetPriceResponse&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'> &lt;/soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+SOAP Fault Element<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l20 level1 lfo46;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>An error message from a
+SOAP message is carried inside a Fault element.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l20 level1 lfo46;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If a Fault element is
+present, it must appear as a child element of the Body element. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l20 level1 lfo46;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A Fault element can
+only appear once in a SOAP message.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l20 level1 lfo46;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The SOAP Fault element
+has the following sub elements:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="65%" bgcolor=white
+ style='width:65.62%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Sub Element</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Description</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;faultcode&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A code for identifying the fault<span style='font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;faultstring&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A human readable explanation of the fault<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;faultactor&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Information about who caused the fault to happen<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&lt;detail&gt;<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>Holds
+  application specific error information related to the Body element<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>SOAP
+Fault Codes<o:p></o:p></span></h3>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>The
+faultcode values defined below must be used in the faultcode element when
+describing faults:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="65%" bgcolor=white
+ style='width:65.62%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Error</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Description</b><b><span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>VersionMismatch<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Found an invalid namespace for the SOAP Envelope element<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>MustUnderstand<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>An immediate child element of the Header element, with the
+  mustUnderstand attribute set to &quot;1&quot;, was not understood<span
+  style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Client<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The message was incorrectly formed or contained incorrect
+  information<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="23%" valign=top style='width:23.68%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Server<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="76%" style='width:76.32%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>There was a problem with the server so the message could
+  not proceed<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>The
+HTTP Protocol<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l25 level1 lfo48;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>HTTP communicates over
+TCP/IP. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l25 level1 lfo48;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>An HTTP client connects
+to an HTTP server using TCP. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l25 level1 lfo48;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>After establishing a
+connection, the client can send an HTTP request message to the server:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="42%" bgcolor=white
+ style='width:42.24%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>POST /item HTTP/1.1<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Host: 189.123.345.239<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Type: text/plain<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Length: 200</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l1 level1 lfo49;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The server then
+processes the request and sends an HTTP response back to the client. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l1 level1 lfo49;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The response contains a
+status code that indicates the status of the request:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="42%" bgcolor=white
+ style='width:42.24%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>200 OK<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Type: text/plain<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Length: 200</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l22 level1 lfo50;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>In the example above,
+the server returned a status code of 200. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l22 level1 lfo50;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>This is the standard
+success code for HTTP.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l22 level1 lfo50;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If the server could not
+decode the request, it could have returned something like this:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="42%" bgcolor=white
+ style='width:42.24%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>400 Bad Request<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Length: 0<o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>SOAP
+HTTP Binding<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>A SOAP
+method is an HTTP request/response that complies with the SOAP encoding rules.<o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>HTTP
++ XML = SOAP<o:p></o:p></span></h3>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l37 level1 lfo51;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A SOAP request could be
+an HTTP POST or an HTTP GET request.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l37 level1 lfo51;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The HTTP POST request
+specifies at least two HTTP headers: <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:1.0in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l37 level2 lfo51;tab-stops:
+list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Content-Type<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:1.0in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l37 level2 lfo51;tab-stops:
+list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:Arial'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Content-Length.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Content-Type<o:p></o:p></span></h2>
+
+<h4><span style='font-family:Arial;font-weight:normal'>The Content-Type header
+for a SOAP request and response defines the MIME type for the message and the
+character encoding (optional) used for the XML body of the request or response.</span><span
+style='font-family:Arial'><o:p></o:p></span></h4>
+
+<h4>Syntax</h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="61%" bgcolor=white
+ style='width:61.02%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Type: MIMEType; charset=character-encoding<o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<h4>Example</h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="61%" bgcolor=white
+ style='width:61.02%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>POST /item HTTP/1.1<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Type: application/soap+xml; charset=utf-8</span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Content-Length<o:p></o:p></span></h2>
+
+<h4><span style='font-family:Arial;font-weight:normal'>The Content-Length
+header for a SOAP request and response specifies the number of bytes in the
+body of the request or response.</span><span style='font-family:Arial'><o:p></o:p></span></h4>
+
+<h4><span style='font-family:Arial'>Syntax<o:p></o:p></span></h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="36%" bgcolor=white
+ style='width:36.68%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Length: bytes<o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<h4>Example</h4>
+
+<table border=1 cellspacing=0 cellpadding=0 width="61%" bgcolor=white
+ style='width:61.02%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>POST /item HTTP/1.1<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Type: application/soap+xml; charset=utf-8<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Length: 250</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>A
+SOAP Example<o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l34 level1 lfo52;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A GetStockPrice request
+is sent to a server<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l34 level1 lfo52;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The request has a
+StockName parameter<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l34 level1 lfo52;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A Price parameter will
+be returned in the response. <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l34 level1 lfo52;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The namespace for the
+function is defined in &quot;http://www.stock.org/stock&quot; address.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l34 level1 lfo52;tab-stops:
+list .25in'><![if !supportLists]><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The SOAP request:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="56%" bgcolor=white
+ style='width:56.58%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>POST /InStock HTTP/1.1<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Host: www.stock.org<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Type: application/soap+xml; charset=utf-8<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Length: nnn<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;soap:Body xmlns:m=&quot;http://www.stock.org/stock&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;<span style="mso-spacerun: yes">  </span>&lt;m:GetStockPrice&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;m:StockName&gt;IBM&lt;/m:StockName&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/m:GetStockPrice&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'>A SOAP response:</p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="56%" bgcolor=white
+ style='width:56.58%;mso-cellspacing:0in;background:white;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:1.8pt 1.8pt 1.8pt 1.8pt'><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>HTTP/1.1 200 OK<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Type: application/soap; charset=utf-8<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>Content-Length: nnn<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;?&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;soap:Envelope<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>xmlns:soap=&quot;http://www.w3.org/2001/12/soap-envelope&quot;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>soap:encodingStyle=&quot;http://www.w3.org/2001/12/soap-encoding&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;soap:Body xmlns:m=&quot;http://www.stock.org/stock&quot;&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;m:GetStockPriceResponse&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>&lt;m:Price&gt;34.5&lt;/m:Price&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">    </span>&lt;/m:GetStockPriceResponse&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><span style="mso-spacerun: yes">  </span>&lt;/soap:Body&gt;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/soap:Envelope&gt;<o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

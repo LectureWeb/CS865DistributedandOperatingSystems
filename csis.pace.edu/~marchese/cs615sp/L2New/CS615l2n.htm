@@ -1,0 +1,1597 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./CS615l2n_files/filelist.xml">
+<link rel=Edit-Time-Data href="./CS615l2n_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CS615 – Software Engineering I</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Francis Marchese</o:Author>
+  <o:LastAuthor>Francis Marchese</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>106</o:TotalTime>
+  <o:Created>2005-09-13T18:15:00Z</o:Created>
+  <o:LastSaved>2005-09-13T18:15:00Z</o:LastSaved>
+  <o:Pages>9</o:Pages>
+  <o:Words>1506</o:Words>
+  <o:Characters>8589</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>71</o:Lines>
+  <o:Paragraphs>17</o:Paragraphs>
+  <o:CharactersWithSpaces>10547</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:Palatino;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"Book Antiqua";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:18.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	text-shadow:auto;
+	font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:18.0pt;
+	font-family:Palatino;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:#F3FF07;
+	text-shadow:auto;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#FFCC00;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:111944915;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1304817238 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:250049755;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1483154674 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:263852706;
+	mso-list-type:hybrid;
+	mso-list-template-ids:97314726 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3
+	{mso-list-id:326249149;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1614118914 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4
+	{mso-list-id:362362399;
+	mso-list-type:hybrid;
+	mso-list-template-ids:171080584 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:372465907;
+	mso-list-type:hybrid;
+	mso-list-template-ids:496938596 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:378674669;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2051973842 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:560561317;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1125518112 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:621696409;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1245711962 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l9
+	{mso-list-id:666520092;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1918365340 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10
+	{mso-list-id:799962060;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1596518464 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:990602986;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-298443574 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12
+	{mso-list-id:1111314704;
+	mso-list-type:hybrid;
+	mso-list-template-ids:672318588 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13
+	{mso-list-id:1137332586;
+	mso-list-type:hybrid;
+	mso-list-template-ids:918603188 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14
+	{mso-list-id:1155873580;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1760898386 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l15
+	{mso-list-id:1162938950;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1709547108 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16
+	{mso-list-id:1167554665;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1445199934 67698689 67698703 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l17
+	{mso-list-id:1197890662;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-108641978 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18
+	{mso-list-id:1273514261;
+	mso-list-type:hybrid;
+	mso-list-template-ids:51434424 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l18:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l19
+	{mso-list-id:1310284003;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1494712182 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l19:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l20
+	{mso-list-id:1386367914;
+	mso-list-type:hybrid;
+	mso-list-template-ids:302042046 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l20:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l21
+	{mso-list-id:1437602550;
+	mso-list-type:hybrid;
+	mso-list-template-ids:372288450 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l22
+	{mso-list-id:1475830409;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-369735072 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l22:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l23
+	{mso-list-id:1552419083;
+	mso-list-type:hybrid;
+	mso-list-template-ids:356787908 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l23:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l24
+	{mso-list-id:1614480937;
+	mso-list-type:hybrid;
+	mso-list-template-ids:488145980 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l24:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l25
+	{mso-list-id:1630168545;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1691260730 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l25:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l26
+	{mso-list-id:1640303201;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1222887498 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l26:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l27
+	{mso-list-id:1729526297;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-971198638 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l27:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l28
+	{mso-list-id:1736049844;
+	mso-list-type:hybrid;
+	mso-list-template-ids:667297840 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l28:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l29
+	{mso-list-id:1736780844;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1830269038 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l29:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l30
+	{mso-list-id:1784223039;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1987675590 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l30:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l31
+	{mso-list-id:1808039132;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1764296474 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l31:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l32
+	{mso-list-id:1895656785;
+	mso-list-type:hybrid;
+	mso-list-template-ids:524606408 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l32:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1028">
+  <o:colormru v:ext="edit" colors="#ddd,#eaeaea"/>
+  <o:colormenu v:ext="edit" fillcolor="#eaeaea"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#eaeaea" lang=EN-US link="#ffcc00" vlink=purple
+style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<table border=0 cellspacing=3 cellpadding=0 width="83%" bgcolor=silver
+ style='width:83.0%;mso-cellspacing:2.2pt;background:silver;mso-padding-alt:
+ 2.25pt 2.25pt 2.25pt 2.25pt'>
+ <tr>
+  <td style='background:#999999;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <h2>CS615 – Software Engineering I</h2>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Lecture 2<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Unified Process Model (Chapter 3, Pressman, 6<sup>th</sup> ed)</h3>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Unified Process</span></b><span
+style='font-family:Arial'>—a “use-case driven, architecture-centric, iterative
+and incremental” software process closely aligned with the Unified Modeling
+Language (UML)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1057" type="#_x0000_t75" style='width:6in;
+ height:348pt'>
+ <v:imagedata src="./CS615l2n_files/image001.jpg" o:title="up2"/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=464
+src="./CS615l2n_files/image001.jpg" v:shapes="_x0000_i1057"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2>UP Phases</h2>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1027" type="#_x0000_t75"
+  style='position:absolute;margin-left:0;margin-top:0;width:533.25pt;height:327.75pt;
+  z-index:1;mso-position-horizontal:left;mso-position-vertical:top'
+  o:allowoverlap="f">
+  <v:imagedata src="./CS615l2n_files/image002.jpg" o:title="up"/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><img width=711 height=437
+ src="./CS615l2n_files/image003.jpg" v:shapes="_x0000_s1027"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<h3>UP Work Products</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1056" type="#_x0000_t75" style='width:514.5pt;height:296.25pt'>
+ <v:imagedata src="./CS615l2n_files/image004.jpg" o:title="upwp"/>
+</v:shape><![endif]--><![if !vml]><img width=686 height=395
+src="./CS615l2n_files/image005.jpg" v:shapes="_x0000_i1056"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><a name="OLE_LINK1"><span style='font-size:12.0pt;mso-bidi-font-size:13.0pt'>Chapter
+4 -Agile Development (Pressman, 6th ed)</span></a><span style='mso-bookmark:
+OLE_LINK1'></span><span style='font-size:12.0pt;mso-bidi-font-size:13.0pt;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h3>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.0pt'>The Manifesto for Agile
+Software Development</span><span style='font-size:12.0pt;mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>“We are uncovering better
+ways of developing software by doing it and helping others do it.<span
+style="mso-spacerun: yes">  </span>Through this work we have come to value: </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l26 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:Arial'>Individuals and interactions over processes and
+     tools <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l26 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:Arial'>Working software over comprehensive
+     documentation <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l26 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:Arial'>Customer collaboration over contract negotiation
+     <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l26 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:Arial'>Responding to change over following a plan <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'>That is, while there is
+value in the items on the right, we value the items on the left more.” - Kent
+Beck et al<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>What is “Agility”?</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Effective (rapid and adaptive) response to
+     change<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Effective communication among all stakeholders<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Drawing the customer onto the team<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Organizing a team so that it is in control of
+     the work performed<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'>Yielding …<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:Arial'>Rapid, incremental delivery of software<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>An Agile Process</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:Arial'>Is driven by customer descriptions of what is
+     required (scenarios)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:Arial'>Recognizes that plans are short-lived<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:Arial'>Develops software iteratively with a heavy
+     emphasis on construction activities<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:Arial'>Delivers multiple ‘software increments’<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:Arial'>Adapts as changes occur<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Extreme Programming (XP)</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>The most widely used agile
+process, originally proposed by Kent Beck<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2>XP Planning</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>Begins with the creation of “user stories”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>Agile team assesses each story and assigns a cost<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>Stories are grouped to for a deliverable
+     increment<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>A commitment is made on delivery date<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>After the first increment “project velocity” is
+     used to help define subsequent delivery dates for other increments<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2>XP Design</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo6;tab-stops:list .5in'><span
+     style='font-family:Arial'>Follows the KIS principle<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo6;tab-stops:list .5in'><span
+     style='font-family:Arial'>Encourage the use of CRC cards (see Chapter 8)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo6;tab-stops:list .5in'><span
+     style='font-family:Arial'>For difficult design problems, suggests the
+     creation of “spike solutions”—a design prototype<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo6;tab-stops:list .5in'><span
+     style='font-family:Arial'>Encourages “refactoring”—an iterative refinement
+     of the internal program design<o:p></o:p></span></li>
+</ul>
+
+<h2>XP Coding</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l28 level1 lfo7;tab-stops:list .5in'><span
+     style='font-family:Arial'>Recommends the construction of a unit test for a
+     store before coding commences<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l28 level1 lfo7;tab-stops:list .5in'><span
+     style='font-family:Arial'>Encourages “pair programming”<o:p></o:p></span></li>
+</ul>
+
+<h2>XP Testing</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo8;tab-stops:list .5in'><span
+     style='font-family:Arial'>All unit tests are executed daily<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo8;tab-stops:list .5in'><span
+     style='font-family:Arial'>“Acceptance tests” are defined by the customer
+     and excuted to assess customer visible functionality<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1025" type="#_x0000_t75" style='width:6in;height:357.75pt'>
+ <v:imagedata src="./CS615l2n_files/image006.jpg" o:title="xp1"/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=477
+src="./CS615l2n_files/image007.jpg" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Adaptive Software Development</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo9;tab-stops:list .5in'><span
+     style='font-family:Arial'>Originally proposed by Jim Highsmith<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo9;tab-stops:list .5in'><span
+     style='font-family:Arial'>ASD — distinguishing<span style="mso-spacerun:
+     yes">  </span>features:<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Mission-driven planning<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Component-based focus<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Uses “time-boxing” (See Chapter 24)<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Explicit consideration of risks<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Emphasizes collaboration for requirements
+      gathering<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Emphasizes “learning” throughout the process<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial;display:none;mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:431.25pt;height:365.25pt'>
+ <v:imagedata src="./CS615l2n_files/image008.jpg" o:title="xp2"/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=487
+src="./CS615l2n_files/image009.jpg" v:shapes="_x0000_i1026"><![endif]></div>
+
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Dynamic Systems Development Method</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Promoted by the DSDM
+Consortium (<a href="http://www.dsdm.org/" target="_parent"><span
+style='color:windowtext;text-decoration:none;text-underline:none'>http://www.dsdm.org/</span></a>)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>DSDM—distinguishing features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:Arial'>Similar in most respects to XP and/or ASD<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:Arial'>Guiding principles:<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Active user involvement is imperative. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>DSDM teams must be empowered to make decisions.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>The focus is on frequent delivery of products. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Fitness for business purpose is the essential
+      criterion for acceptance of deliverables.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Iterative and incremental development is
+      necessary to converge on an accurate business solution.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>All changes during development are reversible.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Requirements are baselined at a high level<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo10;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Testing is integrated throughout the life-cycle.<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial;display:none;mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:540.75pt;height:340.5pt'>
+ <v:imagedata src="./CS615l2n_files/image010.jpg" o:title="lifecycle"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=721 height=454
+src="./CS615l2n_files/image011.jpg" v:shapes="_x0000_i1027"><![endif]></div>
+
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Scrum<span style='mso-fareast-font-family:"Arial Unicode MS";display:none;
+mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Originally proposed by
+Schwaber and Beedle<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Distinguishing features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:Arial'>Development work is partitioned into “packets”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:Arial'>Testing and documentation are on-going as the
+     product is constructed<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:Arial'>Work occurs in “sprints” and is derived from a “backlog”
+     of existing requirements<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:Arial'>Meetings are very short and sometimes conducted
+     without chairs<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:Arial'>“demos” are delivered to the customer with the
+     time-box allocated<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;display:none;mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:6in;height:247.5pt'>
+ <v:imagedata src="./CS615l2n_files/image012.jpg" o:title="scrum"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=330
+src="./CS615l2n_files/image013.jpg" v:shapes="_x0000_i1029"><![endif]></div>
+
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Crystal<span style='mso-fareast-font-family:"Arial Unicode MS";display:
+none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Proposed by Cockburn and
+Highsmith<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Crystal—distinguishing
+features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l13 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:Arial'>A family of process models that allow “maneuverability”
+     based on problem characteristics<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l13 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:Arial'>Face-to-face communication is emphasized<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l13 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:Arial'>Suggests the use of “reflection workshops” to
+     review the work habits of the team<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial;display:none;mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<h3></div>
+
+Feature Driven Development<span style='mso-fareast-font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Originally proposed by Peter
+Coad et al (<span style='color:blue'><a href="jmcuch06.pdf"><span
+style='color:blue'>PDF</span></a>)</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>FDD—distinguishing features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Emphasis is on defining “features”<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo13;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>a feature “is a client-valued function that can
+      be implemented in two weeks or less.”<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Uses a feature template<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo13;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>&lt;action&gt; the &lt;result&gt; &lt;by | for
+      | of | to&gt; a(n) &lt;object&gt;<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoBodyTextIndent>total the value of the sale<br>
+calculate the interest for the bank account<br>
+total the hours worked for the pilot</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>A features list is created and “plan by feature”
+     is conducted<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Design and construction merge in FDD<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial;display:none;mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial;
+mso-fareast-font-family:"Times New Roman"'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+ type="#_x0000_t75" style='width:431.25pt;height:3in'>
+ <v:imagedata src="./CS615l2n_files/image014.jpg" o:title="fdd"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=575 height=288
+src="./CS615l2n_files/image015.jpg" v:shapes="_x0000_i1030"><![endif]></div>
+
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Agile Modeling<span style='mso-fareast-font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Originally proposed by Scott
+Ambler <span style="mso-spacerun: yes"> </span>- <a
+href="http://www.agilemodeling.com/"><span style='color:windowtext'>http://www.agilemodeling.com/</span></a>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Suggests a set of agile
+modeling principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>Model with a purpose<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>Use multiple models<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>Travel light<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>Content is more important than representation<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>Know the models and the tools you use to create
+     them<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>Adapt locally<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Chapter 5 - Practice: A Generic View<span style='mso-special-format:lastCR'>
+<span style='font-family:"Arial Unicode MS";display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+</span>
+
+<h3>What is “Practice”?<span style='font-family:"Arial Unicode MS";display:
+none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:Arial'>Practice is a broad array of concepts,
+     principles, methods, and tools that you must consider as software is
+     planned and developed.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:Arial'>It represents the details—the technical considerations
+     and how to’s—that are below the surface of the software process—the things
+     that you’ll need to actually build high-quality computer software.<o:p></o:p></span></li>
+</ul>
+
+<h3>The Essence of Practice<span style='font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:Arial'>Understand the problem (communication and
+     analysis).<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:Arial'>Plan a solution (modeling and software design).<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:Arial'>Carry out the plan (code generation).<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:Arial'>Examine the result for accuracy (testing and
+     quality assurance)<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS";mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<h3></div>
+
+Core Software Engineering Principles<span style='font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:Arial'>Provide value to the customer and the user<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:Arial'>KIS—keep it simple!<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:Arial'>Maintain the product and project “vision”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:Arial'>What you produce, others will consume<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:Arial'>Be open to the future<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:Arial'>Plan ahead for reuse<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:Arial'>Think!<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS";mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<h3></div>
+
+Software Engineering Practices<span style='font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>The generic process
+framework<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>Communication<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>Planning<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>Modeling<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>Construction<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>Deployment<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Communication Practices<span style='font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<h2>Principles</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Listen<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Prepare before you communicate<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Facilitate the communication<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Face-to-face is best<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Take notes and document decisions<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Collaborate with the customer<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Stay focused<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Draw pictures when things are unclear<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Move on …<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>Negotiation works best when both parties win.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS";display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<h2>Initiation</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l32 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>The parties should be physically close to one
+     another<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l32 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Make sure communication is interactive<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l32 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Create solid team “ecosystems”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l32 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Use the right team structure<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2>An abbreviated task set</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>Identify who it is you need to speak with<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>Define the best mechanism for communication<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>Establish overall goals and objectives and
+     define the scope<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>Get more detailed<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>Have stakeholders define scenarios for usage<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>Extract major functions/features<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>Review the results with all stakeholders<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Planning Practices<span style='font-family:"Arial Unicode MS";display:none;
+mso-hide:all'><o:p></o:p></span></h3>
+
+
+<h2>Principles</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Understand the project scope<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Involve the customer (and other stakeholders)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Recognize that planning is iterative<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Estimate based on what you know<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Consider risk<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Be realistic<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Adjust granularity as you plan<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Define how quality will be achieved<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Define how you’ll accommodate changes<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:Arial'>Track what you’ve planned<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2>Initiation</h2>
+
+<p class=MsoNormal><span style='font-family:Arial'>Questions to ask<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>Why is the system begin developed?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>What will be done?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>When will it be accomplished?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>Who is responsible?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>Where are they located (organizationally)?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>How will the job be done technically and
+     managerially?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>How much of each resource is needed?<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Planning Practices</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Abbreviated task set<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Re-assess project scope<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Assess risks<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Evaluate functions/features<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Consider infrastructure functions/features<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Create a coarse granularity plan<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Number of software increments<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Overall schedule<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Delivery dates for increments<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Create fine granularity plan for first increment<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo24;tab-stops:list .5in'><span
+     style='font-family:Arial'>Track progress<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS";mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<h3></div>
+
+Modeling Practices<span style='font-family:"Arial Unicode MS";display:none;
+mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>We create models to gain a
+better understanding of the actual entity to be built<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo25;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Analysis models</span></b><span
+     style='font-family:Arial'> represent the customer requirements by
+     depicting the software in three different domains: the information domain,
+     the functional domain, and the behavioral domain. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo25;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Design models</span></b><span style='font-family:
+     Arial'> represent characteristics of the software that help practitioners
+     to construct it effectively: the architecture, the user interface, and
+     component-level detail.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Analysis Modeling Practices<span style='font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Analysis modeling principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:Arial'>Represent the information domain<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:Arial'>Represent software functions<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:Arial'>Represent software behavior<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:Arial'>Partition these representations<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:Arial'>Move from essence toward implementation<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:Arial'>Elements of the analysis model (Chapter 8)<o:p></o:p></span></li>
+ <ol style='margin-top:0in' start=1 type=1>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo26;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Data model<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo26;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Flow model<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo26;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Class model<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo26;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Behavior model<o:p></o:p></span></li>
+ </ol>
+</ul>
+
+<p class=MsoNormal><span style='font-size:5.5pt;font-family:Wingdings;
+text-shadow:auto'>n</span></span><span style='font-size:8.0pt;font-family:Palatino;
+display:none;mso-hide:all;text-shadow:auto'></span><o:p></o:p></span></p>
+
+</div>
+
+<h3>
+
+<div style='mso-line-spacing:"100 50 0";mso-margin-left-alt:216'><span
+style='mso-special-format:lastCR'>Design Modeling Practices<span
+style='font-family:"Arial Unicode MS";display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>Design must be traceable to the analysis model<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>Always consider architecture<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>Focus on the design of data<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>Interfaces (both user and internal) must be
+     designed<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>Components should exhibit functional
+     independence<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>Components should be loosely coupled<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>Design representation should be easily
+     understood<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:Arial'>The design model should be developed iteratively<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Elements of the design model<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:Arial'>Data design<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:Arial'>Architectural design<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:Arial'>Component design<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:Arial'>Interface design<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS";mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<h3></div>
+
+Construction Practices<span style='font-family:"Arial Unicode MS";display:none;
+mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Preparation principles: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.25in'><i><span style='font-family:Arial'>Before
+you write one line of code, be sure you:<o:p></o:p></span></i></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:Arial'>Understand of the problem you’re trying to solve
+     (see communication and modeling)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:Arial'>Understand basic design principles and concepts.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:Arial'>Pick a programming language that meets the needs
+     of the software to be built and the environment in which it will operate.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:Arial'>Select a programming environment that provides
+     tools that will make your work easier.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:Arial'>Create a set of unit tests that will be applied
+     once the component you code is completed.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Coding principles: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.25in'><i><span style='font-family:Arial'>As
+you begin writing code, be sure you:<o:p></o:p></span></i></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Constrain your algorithms by following
+     structured programming [BOH00] practice.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Select data structures that will meet the needs
+     of the design.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Understand the software architecture and create
+     interfaces that are consistent with it.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Keep conditional logic as simple as possible.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Create nested loops in a way that makes them
+     easily testable.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Select meaningful variable names and follow
+     other local coding standards.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Write code that is self-documenting.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>Create a visual layout (e.g., indentation and
+     blank lines) that aids understanding.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS";display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<p class=MsoNormal><span style='font-family:Arial'>Validation Principles:<span
+style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.25in'><i><span style='font-family:Arial'>After
+you’ve completed your first coding pass, be sure you:<o:p></o:p></span></i></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l27 level1 lfo31;tab-stops:list .5in'><span
+     style='font-family:Arial'>Conduct a code walkthrough when appropriate.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l27 level1 lfo31;tab-stops:list .5in'><span
+     style='font-family:Arial'>Perform unit tests and correct errors you’ve
+     uncovered.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l27 level1 lfo31;tab-stops:list .5in'><span
+     style='font-family:Arial'>Refactor the code. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS";mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";display:none;
+mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</span>
+
+<p class=MsoNormal><span style='font-family:Arial'></div>
+
+Testing Principles<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in;text-indent:-.25in;mso-list:l17 level1 lfo32;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+font-style:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-style:normal'>All tests should be
+traceable to requirements<o:p></o:p></span></h4>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:Arial'>Tests should be planned<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:Arial'>Testing begins “in the small” and moves toward
+     “in the large”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:Arial'>Exhaustive testing is not possible<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Deployment Practices<span style='font-family:"Arial Unicode MS";display:
+none;mso-hide:all'><o:p></o:p></span></h3>
+
+
+<p class=MsoNormal><span style='font-family:Arial'>Principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo33;tab-stops:list .5in'><span
+     style='font-family:Arial'>Manage customer expectations for each increment<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo33;tab-stops:list .5in'><span
+     style='font-family:Arial'>A complete delivery package should be assembled
+     and tested<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo33;tab-stops:list .5in'><span
+     style='font-family:Arial'>A support regime should be established<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo33;tab-stops:list .5in'><span
+     style='font-family:Arial'>Instructional materials must be provided to
+     end-users<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo33;tab-stops:list .5in'><span
+     style='font-family:Arial'>Buggy software should be fixed first, delivered
+     later <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

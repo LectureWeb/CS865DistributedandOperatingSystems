@@ -1,0 +1,4250 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="Lec11fina_files/filelist.xml">
+<link rel=Edit-Time-Data href="Lec11fina_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CS835 - Data and Document Representation &amp; Processing</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Frank Marchese</o:Author>
+  <o:LastAuthor>Francis Marchese</o:LastAuthor>
+  <o:Revision>17</o:Revision>
+  <o:TotalTime>635</o:TotalTime>
+  <o:Created>2005-07-17T16:48:00Z</o:Created>
+  <o:LastSaved>2007-01-23T22:21:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>3537</o:Words>
+  <o:Characters>20161</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>168</o:Lines>
+  <o:Paragraphs>47</o:Paragraphs>
+  <o:CharactersWithSpaces>23651</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Arial Unicode MS";
+	font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Arial Unicode MS";
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.paragraph, li.paragraph, div.paragraph
+	{mso-style-name:paragraph;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+span.inactive
+	{mso-style-name:inactive;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:59134601;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1050435728 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:108857553;
+	mso-list-template-ids:-898047472;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:165442203;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-687440514 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:215505311;
+	mso-list-template-ids:-677880606;}
+@list l4
+	{mso-list-id:289896839;
+	mso-list-type:hybrid;
+	mso-list-template-ids:321405338 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:337269267;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-655821406 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:368342182;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1287328480 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l6:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:372728957;
+	mso-list-template-ids:-856018658;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:492451428;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1264814982 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l8:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:493884746;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-820726442 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l9:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l9:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10
+	{mso-list-id:516768607;
+	mso-list-template-ids:-1535639282;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:572279389;
+	mso-list-template-ids:1272749112;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l11:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l12
+	{mso-list-id:651370015;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1807751236 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l12:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13
+	{mso-list-id:684478046;
+	mso-list-template-ids:2121032830;}
+@list l13:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14
+	{mso-list-id:1013458863;
+	mso-list-template-ids:1283388330;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l15
+	{mso-list-id:1019282691;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1767212100 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l15:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l15:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16
+	{mso-list-id:1061708780;
+	mso-list-type:hybrid;
+	mso-list-template-ids:672154664 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l16:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17
+	{mso-list-id:1068261013;
+	mso-list-template-ids:-2031612032;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l18
+	{mso-list-id:1072580264;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1742069186 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l18:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19
+	{mso-list-id:1074621366;
+	mso-list-type:hybrid;
+	mso-list-template-ids:61239544 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l19:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l19:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20
+	{mso-list-id:1105493109;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-651890510 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l20:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l20:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21
+	{mso-list-id:1121269161;
+	mso-list-template-ids:-1470735576;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l22
+	{mso-list-id:1128008116;
+	mso-list-template-ids:-1161684560;}
+@list l22:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l23
+	{mso-list-id:1143934457;
+	mso-list-template-ids:-2100159412;}
+@list l23:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l23:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l23:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l23:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l24
+	{mso-list-id:1165703352;
+	mso-list-template-ids:2004022738;}
+@list l24:level1
+	{mso-level-start-at:3;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25
+	{mso-list-id:1229225981;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-567645228 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l25:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l25:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26
+	{mso-list-id:1269847874;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1920550194 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l26:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l26:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27
+	{mso-list-id:1284996478;
+	mso-list-template-ids:678477878;}
+@list l27:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l27:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l28
+	{mso-list-id:1292327726;
+	mso-list-template-ids:-1674550530;}
+@list l28:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l29
+	{mso-list-id:1316494582;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1539868824 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l29:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l29:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30
+	{mso-list-id:1333295603;
+	mso-list-template-ids:1856788734;}
+@list l30:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l30:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l31
+	{mso-list-id:1396200080;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1810129192 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l31:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l31:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l32
+	{mso-list-id:1426263512;
+	mso-list-template-ids:-1267683386;}
+@list l32:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l33
+	{mso-list-id:1426802202;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1141007014 67698689 67698691 67698703 67698703 67698691 67698693 67698689 67698691 67698693;}
+@list l33:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l33:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l33:level3
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l33:level4
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l33:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l33:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l33:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l33:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l33:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34
+	{mso-list-id:1534926786;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-125924244 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l34:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l34:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l34:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35
+	{mso-list-id:1542284561;
+	mso-list-type:hybrid;
+	mso-list-template-ids:329659914 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l35:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l35:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l35:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l36
+	{mso-list-id:1583955660;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1273601380 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l36:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l36:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l36:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l36:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l36:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l36:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l36:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l36:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l36:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l37
+	{mso-list-id:1605991039;
+	mso-list-template-ids:1349914136;}
+@list l37:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l38
+	{mso-list-id:1665429939;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1781067654 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l38:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l38:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l38:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l38:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l38:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l38:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l38:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l38:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l38:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l39
+	{mso-list-id:1680814621;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2068152814 67698689 67698689 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l39:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l39:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l39:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l39:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l39:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l39:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l39:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l39:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l39:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l40
+	{mso-list-id:1710836839;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1264814982 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l40:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l40:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l40:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l40:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l40:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l40:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l40:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l40:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l40:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41
+	{mso-list-id:1718703736;
+	mso-list-type:hybrid;
+	mso-list-template-ids:592366980 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l41:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l41:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l41:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l42
+	{mso-list-id:1768577791;
+	mso-list-template-ids:-2031705862;}
+@list l42:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l43
+	{mso-list-id:1825930068;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1568013362 67698689 67698691 67698693 1467542276 67698691 67698693 67698689 67698691 67698693;}
+@list l43:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l43:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l43:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l43:level4
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+@list l43:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l43:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l43:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l43:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l43:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44
+	{mso-list-id:1847163293;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1510580102 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l44:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l44:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l44:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l45
+	{mso-list-id:1886793126;
+	mso-list-template-ids:-77275190;}
+@list l45:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l45:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l46
+	{mso-list-id:1955361637;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2088428272 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l46:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l46:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l46:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l46:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l46:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l46:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l46:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l46:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l46:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l47
+	{mso-list-id:1980574204;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-801063260 67698691 67698703 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l47:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l47:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l47:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l47:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l47:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l47:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l47:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l47:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l47:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l48
+	{mso-list-id:2003435822;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-556530570 67698689 67698691 67698703 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l48:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l48:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l48:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l48:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l48:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l48:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l48:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l48:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l48:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l49
+	{mso-list-id:2041664134;
+	mso-list-type:hybrid;
+	mso-list-template-ids:885540232 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l49:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l49:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l49:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l49:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l49:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l49:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l49:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l49:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l49:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l50
+	{mso-list-id:2075854469;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1364187522 952285070 1501093776 417523338 -247322730 211860290 -1944128362 -941197868 -1141188684 -1619987826;}
+@list l50:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l50:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l50:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l50:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l50:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l50:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l50:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l50:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l50:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l51
+	{mso-list-id:2078240731;
+	mso-list-template-ids:-55007198;}
+@list l51:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050">
+  <o:colormru v:ext="edit" colors="#f8f8f8"/>
+  <o:colormenu v:ext="edit" fillcolor="#f8f8f8"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#F8F8F8" lang=EN-US link=blue vlink=purple style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='background:#FFCC99;border-collapse:collapse;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td width=1188 valign=top style='width:891.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><span style='font-size:12.0pt;mso-bidi-font-size:24.0pt;font-family:Arial'>CS835
+  - Data and Document Representation &amp; Processing<o:p></o:p></span></h1>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=1188 valign=top style='width:891.0pt;background:#FFFF99;padding:
+  0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Lecture 11 - </span></b><b><span
+  style='mso-bidi-font-size:10.0pt;font-family:Arial'>Hypermedia V - Design:
+  OOHMD, RMM</span></b><b><span style='font-family:Arial'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-bidi-font-size:18.0pt;font-family:Arial'>Hypermedia
+application models (and methodologies)</span></b><span style='font-family:Arial'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>From: <a
+href="http://www.iua.upf.es/~jblat/material/doctorat/application_models.html">http://www.iua.upf.es/~jblat/material/doctorat/application_models.html</a><o:p></o:p></span></p>
+
+<h3>Data models and methodologies for hypermedia design </h3>
+
+<p><b><span style='mso-bidi-font-size:18.0pt;font-family:Arial'>The RMM – RMDM
+methodology and model</span></b><span style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l43 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>RMM - <b>R</b>elationship
+<b>M</b>anagement <b>M</b>ethodology<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l43 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>RMDM - <b>R</b>elationship
+<b>M</b>anagement <b>D</b>ata <b>M</b>odel<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l43 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Model is based on Entity-Relationship modeling:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l43 level3 lfo2;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:Wingdings;mso-bidi-font-family:Wingdings'><span
+style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Entities<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l43 level3 lfo2;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:Wingdings;mso-bidi-font-family:Wingdings'><span
+style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Attributes<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l43 level3 lfo2;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:Wingdings;mso-bidi-font-family:Wingdings'><span
+style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>one-one
+relationship<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l43 level3 lfo2;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:Wingdings;mso-bidi-font-family:Wingdings'><span
+style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>one-many
+associative relationship<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l43 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>RMDM adds:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l43 level3 lfo2;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:Wingdings;mso-bidi-font-family:Wingdings'><span
+style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>domain
+primitives (<i>slices</i>: attributes of entities are grouped for presentation)
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l43 level3 lfo2;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:Wingdings;mso-bidi-font-family:Wingdings'><span
+style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>access
+primitives which support navigation (unidirectional <i>link</i>, <i>bidirectional
+link</i>, <i>grouping</i>, <i>index</i> ...). <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l43 level3 lfo2;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:Wingdings;mso-bidi-font-family:Wingdings'><span
+style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Steps of the RMM
+methodology are: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l33 level4 lfo4;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>E-R design</span></i><span style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l33 level4 lfo4;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>slice design</span></i><span style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l33 level4 lfo4;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>navigation design</span></i><span style='font-family:
+Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l33 level4 lfo4;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>conversion protocol design</span></i><span
+style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l33 level4 lfo4;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>User-Interface Design</span></i><span
+style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l33 level4 lfo4;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>Run-time behavior design</span></i><span
+style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l33 level4 lfo4;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>construction</span></i><span style='font-family:Arial'><o:p></o:p></span></p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>Entity-relationship
+model</span></b><span style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l33 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Real life
+objects are abstracted into <i>entities( a.k.a rows)</i>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>e.g.
+Students, Employees, Airplanes, Cars, Hotels<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l33 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Entities are
+composed of several <i>attributes(also called columns)</i>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>e.g,
+attributes of the entity <i>Students </i>could be <i>Name, Surname, Identity
+number, Nationality, Date of birth</i>, ... <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l33 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Each entity can
+have an unlimited number of <i>rows</i> that are specific members of the entity<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>e.g,
+some of the rows of Students can be those corresponding to <i>Garrett, Dani,
+Claudia, ...</i> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l33 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Combining these
+three elements creates the classical structure of a <i>table</i>. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l33 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span>e.g., a simple example of a table. <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'>Table <b>Students</b>: <o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width=420 style='width:314.7pt;
+ mso-cellspacing:1.2pt;background:white;border:solid windowtext 1.0pt;
+ mso-border-alt:solid windowtext .5pt;mso-padding-alt:2.4pt 2.4pt 2.4pt 2.4pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td width="19%" valign=top style='width:19.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Name</span></b><span
+  style='font-family:Arial'><o:p></o:p></span></p>
+  </td>
+  <td width="25%" valign=top style='width:25.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Identity no</span></b><span
+  style='font-family:Arial'><o:p></o:p></span></p>
+  </td>
+  <td width="22%" valign=top style='width:22.5%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Nationality</span></b><span
+  style='font-family:Arial'><o:p></o:p></span></p>
+  </td>
+  <td width="30%" valign=top style='width:30.88%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Date of birth</span></b><span
+  style='font-family:Arial'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="19%" valign=top style='width:19.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Garrett<o:p></o:p></span></p>
+  </td>
+  <td width="25%" valign=top style='width:25.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>99.999.999<o:p></o:p></span></p>
+  </td>
+  <td width="22%" valign=top style='width:22.5%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Irish<o:p></o:p></span></p>
+  </td>
+  <td width="30%" valign=top style='width:30.88%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><st1:date Year="1969" Day="2" Month="2"><span
+   style='font-family:Arial'>2-2-1969</span></st1:date><span style='font-family:
+  Arial'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="19%" valign=top style='width:19.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p><span style='font-family:Arial'>Dani<o:p></o:p></span></p>
+  </td>
+  <td width="25%" valign=top style='width:25.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>88.888.888<o:p></o:p></span></p>
+  </td>
+  <td width="22%" valign=top style='width:22.5%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Spanish<o:p></o:p></span></p>
+  </td>
+  <td width="30%" valign=top style='width:30.88%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><st1:date Year="1968" Day="8" Month="8"><span
+   style='font-family:Arial'>8-8-1968</span></st1:date><span style='font-family:
+  Arial'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="19%" valign=top style='width:19.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Claudia<o:p></o:p></span></p>
+  </td>
+  <td width="25%" valign=top style='width:25.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>77.777.777<o:p></o:p></span></p>
+  </td>
+  <td width="22%" valign=top style='width:22.5%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Colombian<o:p></o:p></span></p>
+  </td>
+  <td width="30%" valign=top style='width:30.88%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><st1:date Year="1967" Day="7" Month="7"><span
+   style='font-family:Arial'>7-7-1967</span></st1:date><span style='font-family:
+  Arial'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+  <td width="19%" valign=top style='width:19.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>...<o:p></o:p></span></p>
+  </td>
+  <td width="25%" valign=top style='width:25.36%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="22%" valign=top style='width:22.5%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="30%" valign=top style='width:30.88%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-family:Arial'>Relationships among entities can be of three
+different types: <o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo7;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>1 to1</span></i><span style='font-family:Arial'>:
+     a row of a table (an object of an entity) is related to one row at most of
+     another table<o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>e.g.,
+the relationship capital of a country is 1 to 1<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<ol style='margin-top:0in' start=2 type=1>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo7;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>1 to N</span></i><span style='font-family:Arial'>:
+     a row of a table can be related to more than one row of another table. <o:p></o:p></span></li>
+</ol>
+
+<p class=MsoBodyTextIndent>e.g., the relationship nationality of a student:
+each student has a nationality (we suppose that h/she can have only one), but
+there can be several students of the same nationality. </p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<ol style='margin-top:0in' start=3 type=1>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo7;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>N to M</span></i><span style='font-family:Arial'>:
+     a row of an entity can be related to several rows of another one, and
+     reciprocally. <o:p></o:p></span></li>
+</ol>
+
+<p class=MsoBodyTextIndent>e.g., The relationship of a student being enrolled
+in a subject of a course is an example of this type. A student is usually
+enrolled in more than one subject (relation 1:N), and a subject has got several
+students (relation 1:M).</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The model can be
+represented <i>graphically </i>in the following way: <o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l50 level1 lfo14;tab-stops:list .5in'><span style='font-family:
+     Arial'>entities as boxes with the name inside<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Arial'><img
+border=0 width=85 height=39 id="_x0000_i1025"
+src="application_models_files/Image2.gif" nosave=""><o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l50 level1 lfo14;tab-stops:list .5in'><span style='font-family:
+     Arial'>relationships are represented as<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1026" type="#_x0000_t75" style='width:271.5pt;
+ height:32.25pt'>
+ <v:imagedata src="Lec11fina_files/image001.gif" o:title="er1"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=362 height=43
+src="Lec11fina_files/image023.jpg" v:shapes="_x0000_i1026"><![endif]><span
+style='mso-spacerun:yes'> </span>Relationship 1:1 <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in'><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+ style='width:271.5pt;height:33pt'>
+ <v:imagedata src="Lec11fina_files/image003.gif" o:title="er2"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=362 height=44
+src="Lec11fina_files/image024.jpg" v:shapes="_x0000_i1027"><![endif]><span
+style='mso-spacerun:yes'> </span><span style='font-family:Arial'>Relationship
+1:N</span> </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in'><!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75"
+ style='width:271.5pt;height:33pt'>
+ <v:imagedata src="Lec11fina_files/image005.gif" o:title="er3"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=362 height=44
+src="Lec11fina_files/image025.jpg" v:shapes="_x0000_i1028"><![endif]><span
+style='mso-spacerun:yes'> </span><span style='font-family:Arial'>Relationship
+M:N</span> </p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>RMDM</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The data model
+RMDM (Relationship Management Data Model)extends the E-R model for hypermedia
+information systems design. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>RMDM
+distinguishes two types of <i>primitives</i>: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>domain primitives</span></i><span style='font-family:
+Arial'> - model domains or classes of objects<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>access primitives</span></i><span style='font-family:
+Arial'> - support modeling for the navigation<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Domain
+primitives - RMDM includes: <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Entities<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Attributes<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>one-one associative relationship<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>one-many associative relationship<o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>New primitive
+called <i>slice</i>:<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>denotes attributes that are grouped together (mainly
+for presentation purposes). <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>The graphical representation of an entity and a
+specific slice is: <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><span style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1029"
+ type="#_x0000_t75" style='width:6in;height:229.5pt'>
+ <v:imagedata src="Lec11fina_files/image007.gif" o:title="er4"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=306
+src="Lec11fina_files/image026.jpg" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Access primitives support
+navigation:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=circle>
+ <li class=MsoNormal style='mso-list:l44 level1 lfo18;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>unidirectional </span></i><span
+     style='font-family:Arial'>and <i>bi-directional links</i> for access
+     between slices of an entity<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l44 level1 lfo18;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>grouping</span></i><span style='font-family:
+     Arial'> which is a construct supporting menu-like access or <i>index</i>,
+     which is a table of contents to a list of entities; <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l44 level1 lfo18;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>conditional index</span></i><span
+     style='font-family:Arial'>, an index which can be qualified by a
+     predicate, <i>guided tour</i>, defined as a linear path through a
+     collection of items; <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l44 level1 lfo18;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>conditional indexed guided tour</span></i><span
+     style='font-family:Arial'>, which represents a guided tour qualified by a
+     predicate. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Examples: <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=circle>
+ <li class=MsoNormal style='mso-list:l38 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>The hotel entity could be visited through a <i>Conditional
+     Index</i> : <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l38 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>The list of the hotels (of a certain category -
+     which is the condition -) appears on the screen and we can choose the one
+     we want to see. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l38 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:Arial'>The following diagram is used to represent this
+     type of access. <o:p></o:p></span></li>
+</ul>
+
+<p><span style='font-family:Arial'><img border=0 width=99 height=152
+id="_x0000_i1030" src="application_models_files/Image7.gif"><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l31 level1 lfo23;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><i><span style='font-family:Arial'>Conditional
+Guided Tour</span></i><span style='font-family:Arial'> - indicating that we go
+from the first hotel to the following one and so on; we can go forwards and
+backwards. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l31 level1 lfo23;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The graphical
+representation is: <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><img border=0 width=99 height=152
+id="_x0000_i1031" src="application_models_files/Image8.gif"><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l34 level1 lfo25;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><i><span style='font-family:Arial'>Conditional
+Indexed Guided Tour</span></i><span style='font-family:Arial'> as a hybrid
+solution of an index which leads to a (partial) guided tour. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l34 level1 lfo25;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The
+representation is: <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><img border=0 width=99 height=152
+id="_x0000_i1032" src="application_models_files/Image9.gif"><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><span style='font-family:Arial'>The g<i>rouping</i> primitive is used to
+model a menu: as many options as wished hang from this primitive, which is
+represented as an inverted triangle. <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><img border=0 width=73 height=72
+id="_x0000_i1033" src="application_models_files/Image10.gif"><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><span style='font-family:Arial'>A menu allowing the three types of access
+would be represented as: <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><img border=0 width=363 height=280
+id="_x0000_i1034" src="application_models_files/Image11.gif"><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'>The following table is a summary of the
+concepts and representations just seen:<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width=461 style='width:4.8in;
+ mso-cellspacing:1.2pt;background:white;mso-padding-alt:2.4pt 2.4pt 2.4pt 2.4pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Domain primitives<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Entity<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+   type="#_x0000_t75" style='width:88.5pt;height:45.75pt'>
+   <v:imagedata src="Lec11fina_files/image009.gif" o:title="er5"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=118 height=61
+  src="Lec11fina_files/image027.jpg" v:shapes="_x0000_i1035"><![endif]><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Attribute<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-bidi-font-size:7.5pt;font-family:Arial'>Attribute</span><span
+  style='font-family:Arial'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Slice<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'><img border=0 width=54 height=60 id="_x0000_i1036"
+  src="application_models_files/Image13.gif"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Access primitives<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Index<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'><img border=0 width=69 height=61 id="_x0000_i1037"
+  src="application_models_files/Image14.gif"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Guided tour<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'><img border=0 width=69 height=61 id="_x0000_i1038"
+  src="application_models_files/Image15.gif"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Indexed guided tour<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'><img border=0 width=69 height=61 id="_x0000_i1039"
+  src="application_models_files/Image16.gif"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Grouping<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'><img border=0 width=73 height=72 id="_x0000_i1040"
+  src="application_models_files/Image17.gif"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;mso-yfti-lastrow:yes'>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Link<o:p></o:p></span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.0%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'><img border=0 width=78 height=24 id="_x0000_i1041"
+  src="application_models_files/Image18.gif"><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l35 level1 lfo27;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The <i>links</i>,
+which represent connections between slices, are also called <i>structural</i>
+links. <o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l35 level1 lfo27;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The associative relationships
+interconnect different entity instances or different entities. <o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l35 level1 lfo27;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>When a user
+traverses an <i>associative</i> link, the information context changes. <o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l35 level1 lfo27;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>However, when a
+structural link is traversed, the information context remains within the same
+entity. <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>RMM</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l20 level1 lfo29;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>RMM (<i>Relationship
+Management Methodology</i>) is a methodology for hypermedia application design
+based on RMDM. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l20 level1 lfo29;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The different
+steps of the methodology<o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 0: Feasibility and requirements</span></b><span
+style='font-family:Arial'> <b>analysis</b><o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 1: E-R design</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l19 level1 lfo31;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>An E-R diagram
+is created, separating N:M relationships into two 1:N relationships. <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l19 level1 lfo31;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Hypermedia goal
+of this phase is to uncover the relationships of the objects, which potentially
+will indicate navigation paths later.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l19 level1 lfo31;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Consider an
+information system of hotels in a region<o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l19 level1 lfo31;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>There are five
+entities: Hotel, Town, Service, Room and Category; <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l19 level1 lfo31;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>the town-hotel,
+category-hotel, hotel-room are 1:N relationships<o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l19 level1 lfo31;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>service-hotel is
+a N:M relationship<o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1042"
+ type="#_x0000_t75" style='width:308.25pt;height:234pt'>
+ <v:imagedata src="Lec11fina_files/image011.gif" o:title="er6"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=411 height=312
+src="Lec11fina_files/image028.jpg" v:shapes="_x0000_i1042"><![endif]><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 2: Slice design</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The attributes
+of an entity are divided into slices. <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Structural links
+for navigation between slices are defined<o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Hypermedia point
+of view is that of the navigation. <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>e.g., <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l16 level2 lfo33;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>all hotel information could be in the same slice (we
+would need a window with scrolling to be able to show that)<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l16 level2 lfo33;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>alternative - general information in a slice, with
+another slice containing the name and multimedia material (e.g., video). <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l16 level2 lfo33;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>alternative - general information is too complex -
+choose a summary slice, and two other slices containing detailed textual
+information and multimedia information. <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>RMDM introduces
+the concept of <i>slice</i> <i>head</i> - default access to an entity <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>an example of
+hotel slices:<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width=360 style='width:269.7pt;
+ mso-cellspacing:1.2pt;background:white;mso-padding-alt:2.4pt 2.4pt 2.4pt 2.4pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>General * (<i>head</i>)<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Name<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Address<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Telephone<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Fax<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>E-mail<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>URL<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Number of floors<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Date of construction<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Number of rooms<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Situation<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>How to get there<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Distance to the beach<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Distance to the airport<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Distance to the main city<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Distance to the bus stop<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14;mso-yfti-lastrow:yes'>
+  <td width="39%" valign=top style='width:39.24%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Multimedia<o:p></o:p></span></p>
+  </td>
+  <td width="59%" valign=top style='width:59.42%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Video<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo35;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The structural
+links in this case could be as: <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1043"
+ type="#_x0000_t75" style='width:225pt;height:151.5pt'>
+ <v:imagedata src="Lec11fina_files/image013.gif" o:title="er9"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=300 height=202
+src="Lec11fina_files/image029.jpg" v:shapes="_x0000_i1043"><![endif]><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 3: Navigational design</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo35;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Relationships
+obtained in step 1 are replaced by RMDM access primitives.<o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo35;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Slice heads are
+defined in this step.<o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo35;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Suggestions
+about structure:<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l6 level2 lfo35;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>A guided tour is not advisable when there is a large
+number of instances, but it might be convenient for a small number. <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l6 level2 lfo35;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>An index should help when there is a large number;
+and a conditional guided tour could be a compromise. <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l6 level2 lfo35;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Group primitives are used for menus. <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l6 level2 lfo35;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Although a hierarchy can be created, extensive depth
+is counterintuitive for most users. <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo35;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Final result is
+in the RMDM diagram below. <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l6 level2 lfo35;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>The following diagram corresponds to an index for
+hotel-service and category-hotel, a guided tour for hotel-room and an indexed
+guided tour for town-hotel. <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1044"
+ type="#_x0000_t75" style='width:6in;height:293.25pt'>
+ <v:imagedata src="Lec11fina_files/image015.gif" o:title="er7"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=391
+src="Lec11fina_files/image030.jpg" v:shapes="_x0000_i1044"><![endif]><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo37;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Most &quot;backwards&quot; links are not explicit in
+this diagram, because they would be too redundant<o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo37;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Grouping for menus example - enable access either
+through towns (via conditional index) or hotel category (via index). <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo37;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>This would be represented as: <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1045"
+ type="#_x0000_t75" style='width:253.5pt;height:339pt'>
+ <v:imagedata src="Lec11fina_files/image017.gif" o:title="er8"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=338 height=452
+src="Lec11fina_files/image031.jpg" v:shapes="_x0000_i1045"><![endif]><o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 4: Conversion protocols design</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l47 level1 lfo39;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Steps 4 to 6 can be performed simultaneously from the
+RMDM diagram. <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l47 level1 lfo39;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Step 4 defines how to transform each RMDM element
+into the hardware-software platform chosen. <o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 5: User interface design</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l47 level1 lfo39;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Graphical designs of screens that represent the RMDM
+elements are obtained.<o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l47 level1 lfo39;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Important issues: slices, access structures, general
+navigation tools, anchor appearance, ... <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l47 level1 lfo39;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Prototyping in low-fidelity (paper) or high-fidelity
+(photoshop) should be of help. <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 6: Run-time behaviour design</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo41;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Defining the mechanisms (algorithms) to be
+implemented for traversing links, for keeping history, to allow backtracking,
+... <o:p></o:p></span></p>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Step 7: Construction and testing</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo41;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>This phase is the effective construction of
+databases, algorithm implementation, ... <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo41;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Testing. <o:p></o:p></span></p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>RMM and RMDM
+modifications and improvements</span></b><span style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Modifications proposed by the authors of
+RMM and RMDM</span></b><span style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l9 level1 lfo43;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Several modifications and improvements to the data
+model RMDM and methodology RMM. <o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>Hybrid slices</span></i><span style='font-family:
+Arial'> - combine attributes from different entities and access structures<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>minimal slices</span></i><span style='font-family:
+Arial'> - the minimal meaningful way of referring to a slice. <o:p></o:p></span></p>
+
+<p style='margin-left:.25in;text-indent:-.25in;mso-list:l9 level1 lfo43;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Limitations of RMM (from<span
+style='mso-spacerun:yes'>  </span><i><a href="7734060177.pdf">Russian Dolls and
+Hypertext</a>):</i><o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Inability to specify what information is to be shown
+as the content of an anchor<o:p></o:p></span></p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Inability to allow aggregation of attributes outside
+a single entity<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>No element can contain both attributes and access
+structures<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l9 level1 lfo43;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Solution - introduce <i>m-slices</i> - used to group
+information into meaningful units, replacing slices and group constructs. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>M-slices are owned (each by one specific entity)
+although they might contain attributes of other entities and access structures.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>They define what information is to be part of a
+construct and where to obtain it. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>M-slices do not say how this information is to be
+presented. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>They can be nested up to arbitrary levels. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Also anchoring is supported. <o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Modifications introduced in the CD-ROM <i><a
+href="agile2001.pdf">Atles de les Illes Balears</a></i></span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo45;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>Toni Navarrete introduced some modifications both to
+RMM and RMDM in his work for the Atles de les Illes Balears. <o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width=461 style='width:4.8in;
+ mso-cellspacing:1.5pt;background:white;mso-padding-alt:2.4pt 2.4pt 2.4pt 2.4pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td width="43%" valign=top style='width:43.54%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'><img border=0 width=84
+  height=24 id="_x0000_i1046" src="application_models_files/Image23.gif"><o:p></o:p></span></p>
+  </td>
+  <td width="55%" valign=top style='width:55.16%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Hyperlink inferred in hierarchical
+  relationships 1:N<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="43%" valign=top style='width:43.54%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'><img border=0 width=92
+  height=48 id="_x0000_i1047" src="application_models_files/Image24.gif"><o:p></o:p></span></p>
+  </td>
+  <td width="55%" valign=top style='width:55.16%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Random access<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="43%" valign=top style='width:43.54%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'><img border=0 width=92
+  height=48 id="_x0000_i1048" src="application_models_files/Image25.gif"><o:p></o:p></span></p>
+  </td>
+  <td width="55%" valign=top style='width:55.16%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Simultaneous access<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="43%" valign=top style='width:43.54%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'><img border=0 width=105
+  height=60 id="_x0000_i1049" src="application_models_files/Image51.gif"><o:p></o:p></span></p>
+  </td>
+  <td width="55%" valign=top style='width:55.16%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Multiple index<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="43%" valign=top style='width:43.54%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'><img border=0 width=105
+  height=64 id="_x0000_i1050" src="application_models_files/Image52.gif"><o:p></o:p></span></p>
+  </td>
+  <td width="55%" valign=top style='width:55.16%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Multiple guided tour<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="43%" valign=top style='width:43.54%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'><img border=0 width=105
+  height=64 id="_x0000_i1051" src="application_models_files/Image53.gif"><o:p></o:p></span></p>
+  </td>
+  <td width="55%" valign=top style='width:55.16%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Multiple indexed guided
+  tour<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+  <td width="43%" valign=top style='width:43.54%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'><img border=0 width=137
+  height=66 id="_x0000_i1052" src="application_models_files/Image54.gif"><o:p></o:p></span></p>
+  </td>
+  <td width="55%" valign=top style='width:55.16%;padding:2.4pt 2.4pt 2.4pt 2.4pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Access in relationships
+  N:M<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-size:18.0pt;font-family:Arial'>HDM</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l40 level1 lfo47;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The authors of
+HDM (<i>Hypertext Design Model</i>) were Garzotto, Paolini and Schwabe. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l40 level1 lfo47;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The model should
+be useful to design a hypertext or hypermedia application. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l40 level1 lfo47;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Use the
+following terminology: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l40 level2 lfo47;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>authoring-in-the-large</span></i><span
+style='font-family:Arial'> - denotes the specifications and design of the
+global or structural aspects of the application<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l40 level2 lfo47;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><i><span
+style='font-family:Arial'>authoring-in-the-small</span></i><span
+style='font-family:Arial'> - denotes the aspects of development of the content
+of the nodes. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>HDM primitives</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Entities and entity types</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l36 level1 lfo50;tab-stops:list .5in'><span
+     style='font-family:Arial'>An entity is a hierarchically structured
+     collection of components, in a tree structure<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l29 level1 lfo52;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><i><span style='font-family:Arial'>Entities</span></i><span
+style='font-family:Arial'> are information chunks of reasonable although
+minimal size, which are meaningful autonomously. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l29 level1 lfo52;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Entities are
+grouped into <i>entity types</i>. <o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:1.25in'>e.g. Painter, Artists'
+Live, Picture type, Subject.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l36 level1 lfo50;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Each entity is
+made of a hierarchy of <i>components</i><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l36 level1 lfo50;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Entities cannot be
+components of other entities.<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l36 level1 lfo50;tab-stops:list .5in'><span
+     style='font-family:Arial'>Components can be made of <i>units</i>. <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l36 level2 lfo50;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Units are the smallest pieces of information
+      and can be visualized from a specific <i>perspective</i>.<o:p></o:p></span></li>
+  <ul style='margin-top:0in' type=square>
+   <li class=MsoNormal style='mso-list:l36 level3 lfo50;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>The notion of perspective allows for different
+       presentations of the same content.<o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l36 level3 lfo50;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>e.g, in a multi-lingual presentation, the
+       different languages give different perspectives. <o:p></o:p></span></li>
+  </ul>
+ </ul>
+</ul>
+
+<p class=MsoNormal style='margin-left:2.0in'><span style='font-family:Arial'>The
+logical structure of the presentation is not altered. <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l36 level2 lfo50;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Most common relationship is part-all. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l36 level2 lfo50;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Units are information containers and components
+      are abstractions of sets of components. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l36 level2 lfo50;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>A unit corresponds to a component associated to
+      a specific perspective. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l36 level2 lfo50;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>A unit is characterised by its name (an <i>identifier</i>)
+      and a <i>body</i>. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l36 level2 lfo50;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>The bodies are the locations where the
+      information is stored; a unit usually combines atomic parts of information
+      which are shown together.<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Links and types of links</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo57;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Links</span></i><span style='font-family:Arial'>
+     are primitives in HDM<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo57;tab-stops:list .5in'><span
+     style='font-family:Arial'>Three types of links: <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo57;tab-stops:list 1.0in'><i><span
+      style='font-family:Arial'>Structural links</span></i><span
+      style='font-family:Arial'> are those connecting together components of
+      the same entity<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo57;tab-stops:list 1.0in'><i><span
+      style='font-family:Arial'>Perspective or component links</span></i><span
+      style='font-family:Arial'> are those connecting different units of the
+      same component. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo57;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>A<i>pplicative links</i> denote domain
+      dependent relationships<o:p></o:p></span></li>
+  <ul style='margin-top:0in' type=square>
+   <li class=MsoNormal style='mso-list:l4 level3 lfo57;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>Two broad categories: <o:p></o:p></span></li>
+   <ul style='margin-top:0in' type=disc>
+    <li class=MsoNormal style='mso-list:l4 level4 lfo57;tab-stops:list 2.0in'><i><span
+        style='font-family:Arial'>schema links</span></i><span
+        style='font-family:Arial'>, which have pre-defined syntactic and
+        semantic features<o:p></o:p></span></li>
+    <li class=MsoNormal style='mso-list:l4 level4 lfo57;tab-stops:list 2.0in'><i><span
+        style='font-family:Arial'>generic links</span></i><span
+        style='font-family:Arial'>, which are more specific. <o:p></o:p></span></li>
+   </ul>
+   <li class=MsoNormal style='mso-list:l4 level3 lfo57;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>e.g., <o:p></o:p></span></li>
+   <ul style='margin-top:0in' type=disc>
+    <li class=MsoNormal style='mso-list:l4 level4 lfo57;tab-stops:list 2.0in'><span
+        style='font-family:Arial'>if there is an entity type Historical Period,
+        and another one Painter, an applicative link might go from Goya to
+        XVIII and XIX Century<o:p></o:p></span></li>
+    <li class=MsoNormal style='mso-list:l4 level4 lfo57;tab-stops:list 2.0in'><span
+        style='font-family:Arial'>this link would be a schema link, as each
+        painter will be linked to his/her historical period. <o:p></o:p></span></li>
+    <li class=MsoNormal style='mso-list:l4 level4 lfo57;tab-stops:list 2.0in'><span
+        style='font-family:Arial'>A generic link maygo from Goya to Duquesa de
+        Alba <o:p></o:p></span></li>
+   </ul>
+  </ul>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo57;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Perspective, Structural and Schema links are
+      automatically derived from the structure<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo57;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Perspective, structural and applicative links
+      will have names, and will be specifically typed. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo57;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>The schema link could be called Historical period
+      of the painter <o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p><b><span style='font-family:Arial'>Collections</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo60;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Collections</span></i><span style='font-family:
+     Arial'> are ordered sets of objects (entities, components, other
+     collections). <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo60;tab-stops:list .5in'><span
+     style='font-family:Arial'>Used mainly for navigation. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo60;tab-stops:list .5in'><span
+     style='font-family:Arial'>In HDM there is a special one, dynamically
+     generated, which is the ordered set of units visited. <o:p></o:p></span></li>
+</ul>
+
+<p><b><span style='font-family:Arial'>Schemas</span></b><span style='font-family:
+Arial'> <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo63;tab-stops:list .5in'><span
+     style='font-family:Arial'>HDM specification of a hypertext application
+     consists of a <i>schema definition<o:p></o:p></i></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo63;tab-stops:list .5in'><span
+     style='font-family:Arial'>A <i>schema definition</i> specifies a set of
+     entity types and link types; and a set of <i>instance definitions</i><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo63;tab-stops:list .5in'><span
+     style='font-family:Arial'>An instance definition is is only allowed to be
+     inserted if the instance matches the constraints of the schema. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>Outlines</span></b><span
+style='font-family:Arial'> <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l41 level1 lfo66;tab-stops:list .5in'><span
+     style='font-family:Arial'>An application in HDM can be divided into: a <i>hyperbase</i>
+     of the structured nodes, links, and a set of <i>access structures<o:p></o:p></i></span></li>
+ <li class=MsoNormal style='mso-list:l41 level1 lfo66;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Access structures</span></i><span
+     style='font-family:Arial'> give entry points for navigation. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l41 level1 lfo66;tab-stops:list .5in'><span
+     style='font-family:Arial'>The only access structure defined in HDM is the <i>outline</i>,
+     which is a tree for the main access of the hyperbase. </span></li>
+</ul>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>HDM structure and
+browsing semantics</span></b><span style='font-family:Arial'> <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Entity types, structural and schema links, and
+     collections belong to structure-in-the-large<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Units and perspective links belong
+     structure-in-the-small. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Links maybe automatically generated. <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l48 level2 lfo69;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Structural link operators are up, down, upN,
+      downN, ... would create automatic patterns. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l48 level2 lfo69;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Operators such as inversion, composition, ...
+      would enable the computation of derived links and even of derived link
+      types. <o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Default <i>browsing semantics</i>: units are
+     identified as nodes (loci of navigation control) and perspective links
+     enable navigation from the nodes. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>There is a default representative of each unit,
+     ... and a default perspective; links become thus <i>concrete</i>. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Structural links become links between
+     corresponding perspectives of linked components.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>The structure-in-the-large is made of the
+     general organization (a set of collections) and structural and schema
+     links. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>The dynamics-in-the-large is the definition of:
+     the navigation of the collection, which can be through visiting one member
+     after the other - guided tour - or by index; and the structural and schema
+     link navigation. <o:p></o:p></span></li>
+</ul>
+
+<p><b><span style='font-size:16.0pt;mso-bidi-font-size:18.0pt'>OOHDM</span></b><span
+style='font-size:16.0pt;mso-bidi-font-size:12.0pt'> </span><span
+style='font-size:16.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- </span><b><span
+style='font-size:16.0pt;mso-bidi-font-size:12.0pt'>Object-Oriented Hypermedia
+Design Method</span></b><b><span style='font-size:16.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Evolution of HDM<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l25 level1 lfo72;tab-stops:
+list .5in'><![if !supportLists]><span style='font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Model-based
+approach for building hypermedia applications<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo72;tab-stops:list .5in'><span
+     style='font-family:Arial'>Comprises five different activities: <i>requirements
+     gathering</i>, <i>conceptual design</i>, <i>navigational design</i>, <i>abstract
+     interface design</i> and <i>implementation</i>. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo72;tab-stops:list .5in'><span
+     style='font-family:Arial'>See paper <i>Systematic Hypermedia Application
+     Design with OOHDM (<a
+     href="http://www-di.inf.puc-rio.br/schwabe/HT96WWW/section1.html">http://www-di.inf.puc-rio.br/schwabe/HT96WWW/section1.html</a>)
+     </i>, where the authors (Schwabe, Rossi, Barbosa) describe it using an
+     example, the Portinari Project about a famous Brazilian painter, as
+     illustration. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l25 level1 lfo72;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Each step
+focuses on a particular design concern, and an object-oriented model is built.
+Classification, aggregation and generalization/specialization are used
+throughout the process to enhance abstraction power and reuse opportunities. <o:p></o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l25 level1 lfo72;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The table below
+summarizes the steps, products, mechanisms and design concerns in OOHDM.<o:p></o:p></span></p>
+
+<p class=paragraph style='margin:0in;margin-bottom:.0001pt'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='mso-cellspacing:0in;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0'>
+  <td width=120 style='width:89.7pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Activities</span></b><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Products</span></b><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Formalisms</span></b><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Mechanisms</span></b><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Design
+  Concerns</span></b><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=120 style='width:89.7pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Requirements Gathering</span></b><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Use Cases, Annotations</span><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Scenarios; User Interaction Diagrams; Design Patterns</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Scenario and Use Case Analysis, Interviews, UID mapping to
+  Conceptual Model</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Capture the stakeholder requirements for the application.</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=120 style='width:89.7pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Conceptual Design</span></b><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Classes, sub-systems, relationships, attribute
+  perspectives</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Object-Oriented Modeling constructs; Design Patterns</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Classification, aggregation, generalization and
+  specialization</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Model the semantics of the application domain</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=120 style='width:89.7pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Navigational Design</span></b><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Nodes, links, access structures, navigational contexts,
+  navigational transformations</span><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Object-Oriented Views; Object-Oriented State charts;
+  Context Classes; Design Patterns; User Centered Scenarios</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Classification, Aggregation, generalization and specialization.</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Takes into account user profile and task. Emphasis on
+  cognitive aspects. Build the navigational structure of the application</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=120 style='width:89.7pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Abstract Interface Design</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Abstract interface objects, responses to external events,
+  interface transformations</span><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Abstract Data Views; Configuration Diagrams; ADV-Charts;
+  Design Patterns</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Mapping between navigation and perceptible objects</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  background:#FFFF99;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Model perceptible objects, implementing chosen metaphors.
+  Describe interface for navigational objects. Define lay-out of interface
+  objects</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
+  <td width=120 style='width:89.7pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Implementation</span></b><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Running application</span><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=168 style='width:1.75in;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Those supported by the target environment</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Those provided by the target environment</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=180 style='width:135.0pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Arial'>Performance, completeness</span><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>1
+Requirements Gathering<o:p></o:p></span></h3>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo75;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The first step
+is to gather the stakeholder requirements. <o:p></o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo75;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Necessary to
+first identify the actors (stakeholders) and the tasks they must perform. <o:p></o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo75;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Scenarios are
+collected (or drafted), for each task and type of actor. <o:p></o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo75;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Scenarios are
+then collected to form a Use Case, which is represented using User Interaction
+Diagrams. <o:p></o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level2 lfo75;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-family:Arial'>These diagrams provide a concise graphical
+representation of the interaction between the user and the system during the
+execution of a task.<o:p></o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo75;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>The UIDs are
+validated with the actors, and redesigned if necessary. <o:p></o:p></span></p>
+
+<p class=paragraph style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo75;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>In sequence, a
+set of guidelines are applied to the UIDs to extract a conceptual model. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>2 Conceptual Design<o:p></o:p></span></b></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo78;tab-stops:list .5in'><span
+     style='font-family:Arial'>A model of the application domain is built using
+     object-oriented modeling principles (OMT), augmented with some primitives
+     such as attribute perspectives and sub-systems. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo78;tab-stops:list .5in'><span
+     style='font-family:Arial'>Must capture the domain semantics as
+     &quot;neutrally&quot; as possible, with very little concern for the types
+     of users and tasks. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo78;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Product of this step - a class and instance
+     schema built out of Sub-Systems, Classes and Relationships</span></i><span
+     style='font-family:Arial'>. <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l46 level2 lfo78;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Portinari Project example - classes are
+      Artwork, Interview, ... <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l46 level2 lfo78;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>An attribute of Artwork is Description, which
+      has two perspectives - Text and Picture. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l46 level2 lfo78;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>There is a parallel with the concepts of HDM
+      (entity types, components, perspectives, ...) <o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo78;tab-stops:list .5in'><span
+     style='font-family:Arial'>The figure shows (a simplified version of) the
+     conceptual schema for the Portinari Project, where, for the sake of
+     conciseness, all attributes of all classes are not shown.<o:p></o:p></span></li>
+</ul>
+
+<p><span style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1053"
+ type="#_x0000_t75" style='width:304.5pt;height:306pt'>
+ <v:imagedata src="Lec11fina_files/image019.gif" o:title="fig6"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=406 height=408
+src="Lec11fina_files/image032.jpg" v:shapes="_x0000_i1053"><![endif]><o:p></o:p></span></p>
+
+<p><i><span style='mso-bidi-font-size:10.0pt;font-family:Arial'>The conceptual
+schema for the &quot;Portinari Project&quot;</span></i><span style='font-family:
+Arial'><o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>3 Navigational Design<o:p></o:p></span></b></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>Navigation design is expressed in two schemas -
+     the <i>navigational class schema</i>, and the <i>navigation context schema</i>.
+     <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>For the navigational class schema, there is a
+     set of pre-defined types of navigational classes: <i>nodes</i>, <i>links</i>,
+     and <i>access structures</i> (indexes and guided tours, ...). <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>In OOHDM, nodes are defined as object-oriented
+     views of the conceptual classes defined previously. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>The node can be defined by combining attributes
+     of different related classes in the conceptual schema. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>They contain single typed attributes and link anchors,
+     and may be atomic or composites. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>Links are also defined as views on relationships
+     in the conceptual schema. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>The relationships which are interesting for the
+     users are transformed into access structures. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>The second part of the navigational design proceeds
+     after introducing the notion of navigational context, which is a set of <i>nodes</i>,
+     <i>links</i>, <i>context classes</i> and other (nested) <i>navigational
+     contexts</i>. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>Navigational contexts play a similar role as
+     collections in HDM. Somehow, they allow to introduce the contexts (to
+     encapsulate the way the user navigates the application). <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>The figure shows three navigational class
+     definitions for the example.<span style='mso-tab-count:1'>  </span><a
+     name=fig7></a><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1054" type="#_x0000_t75" style='width:337.5pt;height:260.25pt'>
+ <v:imagedata src="Lec11fina_files/image021.gif" o:title="fig7"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=450 height=347
+src="Lec11fina_files/image033.jpg" v:shapes="_x0000_i1054"><![endif]><o:p></o:p></span></p>
+
+<p style='tab-stops:236.6pt 438.15pt'><i><span style='mso-bidi-font-size:10.0pt;
+font-family:Arial'>Figure: Navigational Class Schema for the Portinari Project
+application<o:p></o:p></span></i></p>
+
+<p style='tab-stops:236.6pt 438.15pt'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p><b><span style='font-family:Arial'>4 Abstract Interface Design<o:p></o:p></span></b></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l39 level1 lfo84;tab-stops:list .5in'><span
+     style='font-family:Arial'>Define the objects the user will perceive (e.g.
+     a picture, a city map, etc.) in terms of interface classes<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l39 level1 lfo84;tab-stops:list .5in'><span
+     style='font-family:Arial'>Interface classes are defined as aggregations of
+     primitives classes (such as text fields and buttons) and recursively of
+     interface classes. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l39 level1 lfo84;tab-stops:list .5in'><span
+     style='font-family:Arial'>Interface objects map to navigational objects,
+     providing a perceptible appearance. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l39 level1 lfo84;tab-stops:list .5in'><span
+     style='font-family:Arial'>Interface behavior is declared by specifying how
+     to handle external and user-generated events and how communication takes
+     place between interface and navigational objects.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l39 level2 lfo84;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Must design the
+way in which navigational objects will appear, which objects will activate
+navigation, the way in which multimedia objects will be synchronized and which
+transformations will take place, all at the visualization level, and thus we
+call those objects interface objects to differentiate them from the conceptual
+or navigational objects. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l39 level2 lfo84;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>OOHDM uses
+Abstract Data Views - formal, object-oriented models of interface objects and
+they are specified by showing: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l43 level4 lfo2;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>the static
+lay-out structure that implements the interface (with all the elements,
+including menus, ...), with perception properties as attributes or parts of an
+ADV <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l43 level4 lfo2;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>- how interface
+objects are related to navigation objects: Configuration Diagrams are used for
+that <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l43 level4 lfo2;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>how interface
+objects behave when reacting to external events; ADV-Charts that add both
+structural and behavioral nesting are used; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l43 level4 lfo2;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:Arial'>Petri-Net like
+notation is used for expressing synchronization issues. <o:p></o:p></span></p>
+
+<p><b><span style='font-family:Arial'>5 Implementation<o:p></o:p></span></b></p>
+
+<p><span style='font-family:Arial'>Map the navigational and abstract interface
+models into concrete objects available in the chosen implementation environment
+(or possible to build). <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

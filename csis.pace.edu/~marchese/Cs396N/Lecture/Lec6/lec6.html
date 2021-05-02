@@ -1,0 +1,1621 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec6</title>
+</head>
+<body text="#000000" bgcolor="#E8E8E8" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+13 - AWT Components</font></font></b></td>
+</tr>
+</table>
+
+<h2>
+<font face="Arial,Helvetica">Components</font></h2>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">User interface controls:</font></b></li>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">scroll bars</font></b></li>
+
+<li>
+<b><font face="Arial,Helvetica">labels</font></b></li>
+
+<li>
+<b><font face="Arial,Helvetica">text fields</font></b></li>
+
+<li>
+<b><font face="Arial,Helvetica">buttons</font></b></li>
+</ul>
+
+<li>
+<b><font face="Arial,Helvetica"><i>Component</i> class:</font></b></li>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">in&nbsp; awt package</font></b></li>
+
+<li>
+<b><font face="Arial,Helvetica">provides&nbsp; mechanism for creating components</font></b></li>
+</ul>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000000">Class</font></font></b></td>
+
+<td><b><font face="Arial,Helvetica"><font color="#000000">&nbsp; Description</font></font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">Button</font></b></td>
+
+<td><b><font color="#000000">A labeled button</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">TextField</font></b></td>
+
+<td><b><font color="#000000">A single editable line</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">Label</font></b></td>
+
+<td><b><font color="#000000">A component for placing text</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">TextArea</font></b></td>
+
+<td><b><font color="#000000">A multiline area for displayingtext</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">Checkbox</font></b></td>
+
+<td><b><font color="#000000">A graphical component thathas true/false state</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">CheckboxGroup</font></b></td>
+
+<td><b><font color="#000000">A graphics componentwhich works like radio
+buttons</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">Choice&nbsp;</font></b></td>
+
+<td><b><font color="#000000">A class used to present a pop-upmenu of choices</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">List</font></b></td>
+
+<td><b><font color="#000000">Used to design a scrolling listof text items</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">Canvas</font></b></td>
+
+<td><b><font color="#000000">A component used for paintinggraphics</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">Scroll pane</font></b></td>
+
+<td><b><font color="#000000">Containers with scrollbars</font></b></td>
+</tr>
+
+<tr>
+<td><b><font color="#000000">Scroll bars</font></b></td>
+
+<td><b><font color="#000000">Scroll bars to input values</font></b></td>
+</tr>
+</table>
+
+<h3>
+<font face="Arial,Helvetica">Component methods</font></h3>
+
+<ul>
+<li>
+<tt><font size=+1>setFont, setBackground() and setForeground()</font></tt></li>
+
+<li>
+<b>Other methods</b>:</li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method name</b></td>
+
+<td><b>Arguments</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>setBounds(x,y,w,h)</b></td>
+
+<td><b>x,y,w,h - integers&nbsp;</b></td>
+
+<td><b>Component will be placed at (x,y)(pixels). Component's width will
+be w, height h (pixels).</b></td>
+</tr>
+
+<tr>
+<td><b>setLocation(x,y)</b></td>
+
+<td><b>x,y - integers&nbsp;</b></td>
+
+<td><b>Component will be placed at (x,y) (pixels).</b></td>
+</tr>
+
+<tr>
+<td><b>setSize(w,h)</b></td>
+
+<td><b>w,h - integers&nbsp;</b></td>
+
+<td><b>Component's width will be w, height h (pixels).</b></td>
+</tr>
+
+<tr>
+<td><b>setVisible(b)</b></td>
+
+<td><b>b - true or false&nbsp;</b></td>
+
+<td><b>Component is visible if b is true; invisible otherwise.</b></td>
+</tr>
+
+<tr>
+<td><b>isVisible()</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Returns true if the component is visible.</b></td>
+</tr>
+</table>
+<b>To use setBounds(), setLocation() and setSize(), you must declare setLayout(null).</b>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica">Changing fonts and colors of components</font></h3>
+
+<ul>
+<li>
+setBackground() of the Component class is used to change the background
+color of a component.</li>
+
+<ul><b><tt>componentobject.setBackground(color_object)</tt></b>
+<li>
+where color_object is one of</li>
+</ul>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Color.black&nbsp;</b></td>
+
+<td><b>Color.blue</b></td>
+
+<td><b>Color.cyan</b></td>
+</tr>
+
+<tr>
+<td><b>Color.darkGray&nbsp;</b></td>
+
+<td><b>Color.gray&nbsp;</b></td>
+
+<td><b>Color.green</b></td>
+</tr>
+
+<tr>
+<td><b>Color.lightGray</b></td>
+
+<td><b>Color.magenta&nbsp;</b></td>
+
+<td><b>Color.orange</b></td>
+</tr>
+
+<tr>
+<td><b>Color.pink&nbsp;</b></td>
+
+<td><b>Color.red</b></td>
+
+<td><b>Color.white</b></td>
+</tr>
+
+<tr>
+<td><b>Color.yellow</b></td>
+
+<td></td>
+
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<ul>
+<ul>
+<li>
+Also, using the RGB values:</li>
+
+<br><b><tt>Color mycolor_object = new Color(R,G,B);</tt></b>
+<li>
+where R,G,B are integers, between 0 and 255, corresponding to red, green
+and blue.</li>
+</ul>
+
+<ul>&nbsp; setForeground() of the Component class is used to change the
+foreground color of the component. <b><tt>componentobject.setForeground(color_object)</tt></b></ul>
+
+<li>
+setFont() of the Component class is used to change the font of the component.</li>
+
+<ul><b><tt>componentobject.setFont(font_name,font_style,size)</tt></b>
+<li>
+font_name is a string, specifying the name of the font. Possible names
+are:</li>
+
+<ul>
+<li>
+Serif, SanSerif, Monospaced, Helvetica, TimesRoman, Courier, Dialog, DialogInput.</li>
+</ul>
+
+<li>
+font_style is an integer specifying the style. Possible values are:</li>
+
+<ul>
+<li>
+Font.PLAIN (0), Font.BOLD(1), Font.ITALIC(2) and Font.BOLD+Font.ITALIC
+(3).</li>
+</ul>
+</ul>
+</ul>
+
+<h3>
+<font color="#000099">Example - ColoredButtons</font></h3>
+<applet HEIGHT="150" WIDTH="150" CODE="ColoredButtons">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<p><b><tt>public class ColoredButtons extends Applet{</tt></b>
+<blockquote><b><tt>public void init(){</tt></b>
+<blockquote><b><tt>Button b1 = new Button("one");</tt></b>
+<br><b><tt>b1.setFont(new Font("Helvetica",Font.BOLD,12));</tt></b>
+<br><b><tt>b1.setBackground(Color.magenta);</tt></b>
+<br><b><tt>b1.setForeground(Color.yellow);</tt></b>
+<br><b><tt>Button b2 = new Button("two");</tt></b>
+<br><b><tt>b2.setFont(new Font("TimesRoman",Font.ITALIC,12));</tt></b>
+<br><b><tt>b2.setBackground(Color.blue);</tt></b>
+<br><b><tt>Button b3 = new Button("three");</tt></b>
+<br><b><tt>b3.setFont(new Font("Dialog",Font.BOLD+Font.ITALIC,12));</tt></b>
+<br><b><tt>b3.setBackground(Color.green);</tt></b>
+<br><b><tt>Button b4 = new Button("four");</tt></b>
+<br><b><tt>b4.setFont(new Font("Courier",1,12));</tt></b>
+<br><b><tt>b4.setBackground(Color.pink);</tt></b>
+<br><b><tt>Panel p1 = new Panel();</tt></b>
+<br><b><tt>p1.setLayout(new GridLayout(2,2,15,15));</tt></b>
+<br><b><tt>p1.setBackground(Color.red);</tt></b>
+<br><b><tt>p1.add(b1);</tt></b>
+<br><b><tt>p1.add(b2);</tt></b>
+<br><b><tt>p1.add(b3);</tt></b>
+<br><b><tt>p1.add(b4);</tt></b>
+<br><b><tt>add(p1);</tt></b></blockquote>
+<b><tt>}</tt></b></blockquote>
+<b><tt>}</tt></b>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica">The Canvas Component</font></h3>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">A Canvas component represents a blank rectangular
+area of the screen into which the application may draw.</font></li>
+
+<li>
+<font face="Arial,Helvetica">The Canvas class must be subclassed.</font></li>
+
+<li>
+<font face="Arial,Helvetica">The paint method (of Component class) must
+be overridden in order to perform custom graphics on the canvas.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Constructor: <i>Canvas() c</i>reates a canvas.</font></li>
+</ul>
+
+<h3>
+<font color="#000099">Example - C<b>reates a canvas and places it a particular
+location on screen</b></font></h3>
+<applet HEIGHT="300" WIDTH="300" CODE="CanvasExample1">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<br><b><tt>public class CanvasExample1 extends Applet implements ActionListener{</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; Button button = new Button("click");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Canvas myCanvas = new Canvas();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; TextField t1 = new TextField(20);</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void init(){</tt></b>
+<blockquote>
+<blockquote><b><tt>setLayout(null);</tt></b>
+<br><b><tt>myCanvas.setSize(100,100);</tt></b>
+<br><b><tt>myCanvas.setBackground(Color.magenta);</tt></b>
+<br><b><tt>myCanvas.setLocation(100,200);</tt></b>
+<br><b><tt>t1.setSize(100,50);</tt></b>
+<br><b><tt>t1.setBackground(Color.green);</tt></b>
+<br><b><tt>t1.setLocation(100,5);</tt></b>
+<br><b><tt>button.setSize(50,50);</tt></b>
+<br><b><tt>button.setBackground(Color.red);</tt></b>
+<br><b><tt>button.setLocation(5,110);</tt></b>
+<br><b><tt>add(t1);</tt></b>
+<br><b><tt>add(myCanvas);</tt></b>
+<br><b><tt>add(button);</tt></b>
+<br><b><tt>button.addActionListener(this);</tt></b></blockquote>
+</blockquote>
+<b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void actionPerformed(ActionEvent event){</tt></b>
+<blockquote><b><tt>&nbsp;&nbsp;&nbsp; Graphics g = myCanvas.getGraphics();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; g.drawString("NEW YORK",10,10);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Graphics g1 = getGraphics();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; t1.setText("You clicked...");</tt></b></blockquote>
+<b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<h3>
+<font face="Arial,Helvetica"><font color="#000099">Example - <b>Component
+(canvas) is hidden and then displayed</b></font></font></h3>
+<applet HEIGHT="300" WIDTH="300" CODE="CanvasExample2">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class CanvasExample2 extends Applet implements ActionListener{</tt></b>
+<blockquote><b><tt>Button button = new Button("click");</tt></b>
+<br><b><tt>Canvas myCanvas = new Canvas();</tt></b>
+<br><b><tt>TextField t1 = new TextField(20);</tt></b>
+<p><b><tt>public void init(){</tt></b>
+<blockquote><b><tt>setLayout(null);</tt></b>
+<br><b><tt>myCanvas.setSize(100,100);</tt></b>
+<br><b><tt>myCanvas.setBackground(Color.magenta);</tt></b>
+<br><b><tt>myCanvas.setLocation(100,200);</tt></b>
+<br><b><tt>t1.setSize(100,50);</tt></b>
+<br><b><tt>t1.setBackground(Color.green);</tt></b>
+<br><b><tt>t1.setLocation(100,5);</tt></b>
+<br><b><tt>button.setSize(50,50);</tt></b>
+<br><b><tt>button.setBackground(Color.red);</tt></b>
+<br><b><tt>button.setLocation(5,110);</tt></b>
+<br><b><tt>add(t1);</tt></b>
+<br><b><tt>add(myCanvas);</tt></b>
+<br><b><tt>myCanvas.setVisible(false);</tt></b>
+<p><b><tt>add(button);</tt></b>
+<br><b><tt>button.addActionListener(this);</tt></b></blockquote>
+<b><tt>}</tt></b>
+<p><b><tt>public void actionPerformed(ActionEvent event){</tt></b>
+<blockquote><b><tt>if (myCanvas.isShowing())</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; myCanvas.setVisible(false);</tt></b>
+<br><b><tt>else</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; myCanvas.setVisible(true);</tt></b>
+<p><b><tt>t1.setText("You clicked...");</tt></b></blockquote>
+<b><tt>}</tt></b></blockquote>
+<b><tt>}</tt></b>
+<h3>
+<font face="Arial,Helvetica"><font color="#000099">Example</font></font></h3>
+<applet HEIGHT="300" WIDTH="300" CODE="CanvasExample3">
+<br></applet>
+<p><b><tt>//The following example extends the Canvas class and writes to
+it.</tt></b>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<p><b><tt>public class CanvasExample3 extends Applet{</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void init(){</tt></b>
+<blockquote>
+<blockquote><b><tt>myCanvas can1 = new myCanvas();</tt></b>
+<br><b><tt>can1.setSize(200,100);</tt></b>
+<br><b><tt>can1.setBackground(Color.blue);</tt></b>
+<br><b><tt>add(can1);</tt></b>
+<br><b><tt>repaint();</tt></b></blockquote>
+<b><tt>}</tt></b></blockquote>
+<b><tt>}</tt></b>
+<p><b><tt>class myCanvas extends Canvas{</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void paint(Graphics g){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.cyan);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("New
+York... Westchester",10,10);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font size=+1>The Panel Class</font></font></h2>
+
+<h2>
+<font face="Arial,Helvetica"><font size=+1>The Container Class</font></font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Container is an abstract class that extends
+the Component class.</font></li>
+
+<li>
+<font face="Arial,Helvetica">A container can contain multiple components.</font></li>
+
+<li>
+<font face="Arial,Helvetica">A Layout manager determines how components
+are organized in a container.</font></li>
+
+<li>
+<font face="Arial,Helvetica">add() method&nbsp; is used to add a component
+to the Container class.</font></li>
+
+<ul><tt><font size=+1>add(component)</font></tt></ul>
+</ul>
+
+<h2>
+<font face="Arial,Helvetica"><font size=+1>The Applet Class</font></font></h2>
+
+<h2>
+<font face="Arial,Helvetica"><font size=+1>The Scrollpane Class</font></font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">The ScrollPane class allows creation of a
+container with scroll bars that includes only one component (called the
+child component).</font></li>
+
+<li>
+<font face="Arial,Helvetica">Scroll bars are used to view the contents
+of the component.</font></li>
+
+<li>
+<font face="Arial,Helvetica">This viewable area is called the viewport.</font></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Field&nbsp;</b></td>
+
+<td><b>Type</b></td>
+</tr>
+
+<tr>
+<td><b>SCROLLBARS_ALWAYS</b></td>
+
+<td><b>static final int</b></td>
+</tr>
+
+<tr>
+<td><b>SCROLLBARS_AS_NEEDED</b></td>
+
+<td><b>static final int</b></td>
+</tr>
+
+<tr>
+<td><b>SCROLLBARS_NEVER</b></td>
+
+<td><b>static final in</b><font face="Arial,Helvetica">t</font></td>
+</tr>
+</table>
+
+<p><b><font face="Arial,Helvetica">Constructors:</font></b>
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="82%" BGCOLOR="#99FF99" >
+<tr>
+<td><b>Constructor</b></td>
+
+<td><b>Arguments</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>ScrollPane()</b></td>
+
+<td><b>None&nbsp;</b></td>
+
+<td><b>Creates scroll pane with scroll bars as needed.</b></td>
+</tr>
+
+<tr>
+<td><b>ScrollPane(x)</b></td>
+
+<td><b>x - int one of the three fields</b></td>
+
+<td><b>Creates a scroll panewith the specified scroll bar display policy</b></td>
+</tr>
+</table>
+.
+<br><b><font face="Arial,Helvetica">Methods:</font></b>
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method&nbsp;</b></td>
+
+<td><b>Arguments&nbsp;</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>getViewportSize()&nbsp;</b></td>
+
+<td><b>None&nbsp;</b></td>
+
+<td><b>Returns dimensions (Dimension) of the viewport.</b></td>
+</tr>
+</table>
+
+<h3>
+<font color="#000099">Example - Displays a text field in a ScrollPane</font></h3>
+<applet HEIGHT="200" WIDTH="400" CODE="ScrollPane1">
+<br></applet>
+<p><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class ScrollPane1 extends Applet{</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; ScrollPane scrBar1;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; TextField text1;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; TextField text2;</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void init(){</tt></b>
+<blockquote><b><tt>&nbsp;&nbsp;&nbsp; scrBar1 = new ScrollPane();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; text1 = new TextField("New York, . . . .
+. . . . . . Westchester");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; text2 = new TextField("Pace University, .
+. . . . . . . . ,NY");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; scrBar1.add(text1);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(text2);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(scrBar1);</tt></b>
+<br><b><tt>}</tt></b></blockquote>
+<b><tt>&nbsp;&nbsp;&nbsp; public void paint(Graphics g){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dimension d = scrBar1.getViewportSize();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("height
+is = "+ d.height+" width is = "+d.width,200,200);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<h2>
+<font face="Arial,Helvetica"><font size=+1>The Checkbox Class</font></font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">The Checkbox class is a subclass of Component
+class.</font></li>
+
+<li>
+<font face="Arial,Helvetica">A check box is a graphical component that
+has an "on" (true) and "off" (false) state.</font></li>
+
+<li>
+<b><font face="Arial,Helvetica">Constructors:</font></b></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Constructor&nbsp;</b></td>
+
+<td><b>Arguments&nbsp;</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>Checkbox()&nbsp;</b></td>
+
+<td><b>None&nbsp;</b></td>
+
+<td><b>Creates a checkbox with no labels</b></td>
+</tr>
+
+<tr>
+<td><b>Checkbox(str)&nbsp;</b></td>
+
+<td><b>str - String&nbsp;</b></td>
+
+<td><b>Creates a checkbox with label str</b></td>
+</tr>
+</table>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">Methods:</font></b></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>getLabel()</b></td>
+
+<td><b>Returns the label (String) (null, if no label)</b></td>
+</tr>
+
+<tr>
+<td><b>getState()&nbsp;</b></td>
+
+<td><b>Returns true if the check box is checked; otherwise returns false</b></td>
+</tr>
+</table>
+
+<h3>
+<b><font color="#000099">Example - Displays check boxes for programming
+languages and asks the user to select all languages he/she knows</font></b></h3>
+<applet HEIGHT="200" WIDTH="400" CODE="CheckBoxes">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class CheckBoxes extends Applet implements ActionListener{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int total;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; TextField result = new TextField(40);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Button button = new Button("Submit");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox Pascal = new Checkbox("Pascal");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox FORTRAN = new Checkbox("FORTRAN");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox C = new Checkbox("C");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox CPLUS = new Checkbox("CPLUS");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox LISP = new Checkbox("LISP");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox ADA = new Checkbox("ADA");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox Java = new Checkbox("Java");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Checkbox cobol = new Checkbox("COBOL");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Panel panel = new Panel();</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void init(){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add( new Label("Click
+all computer programming languages you know:",Label.CENTER));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; panel.setLayout(new
+GridLayout(2,4,15,15));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; panel.add(Pascal);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; panel.add(FORTRAN);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; panel.add(C); panel.add(CPLUS);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; panel.add(LISP);
+panel.add(ADA);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; panel.add(Java);
+panel.add(cobol);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(panel); add(button);
+add(result);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void actionPerformed(ActionEvent event){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; total = 0;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(Pascal.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(FORTRAN.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(C.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(CPLUS.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(LISP.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(ADA.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(Java.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(cobol.getState())
+total++;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result.setText("You
+know "+total+" computer programming languages");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font size=+1>Check Box Group</font></font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">CheckboxGroup is used to group together a
+set of check boxes</font></li>
+
+<li>
+<font face="Arial,Helvetica">Check boxes behave like radio buttons - the
+selections you make are mutually exclusive</font></li>
+
+<li>
+<font face="Arial,Helvetica">Constructor:</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">CheckboxGroup();</font></li>
+
+<br><font face="Arial,Helvetica">Creates a new CheckboxGroup.</font></ul>
+
+<li>
+<font face="Arial,Helvetica">Method:</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">getSelectedCheckbox().getLabel();</font></li>
+
+<br><font face="Arial,Helvetica">Returns the label of the check box in
+this check box group that is currently "on"</font>
+<ul><font face="Arial,Helvetica">if all are off returns NULL.</font></ul>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">In practice:</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Create a CheckboxGroup object, using the following
+Syntax:</font></li>
+
+<ul><font face="Arial,Helvetica">CheckboxGroup groupname = new CheckboxGroup();</font></ul>
+
+<li>
+<font face="Arial,Helvetica">Create each Checkbox item, using the syntax:</font></li>
+
+<ul><font face="Arial,Helvetica">Checkbox boxname = new Checkbox("label",
+groupname, false);</font></ul>
+</ul>
+</ul>
+
+<h3>
+<font color="#000099">Example - Check boxes for programming languages.
+User asked to check his/her strongest language</font></h3>
+<applet HEIGHT="200" WIDTH="400" CODE="CheckboxGroup1">
+<br></applet>
+<h2>
+<font face="Arial,Helvetica"><font size=+1>Choice Menus</font></font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">The Choice class provides a way of presenting
+a pop-up menu of choices.</font></li>
+
+<li>
+<font face="Arial,Helvetica">The user can select any item from the menu.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Constructor:</font></li>
+
+<ul><font face="Arial,Helvetica">Choice();</font>
+<ul><font face="Arial,Helvetica">Creates a new choice menu.</font></ul>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Methods:</font></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method&nbsp;</b></td>
+
+<td><b>Argument&nbsp;</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>addItem(item)</b></td>
+
+<td><b>item - String&nbsp;</b></td>
+
+<td><b>adds item to menu</b></td>
+</tr>
+
+<tr>
+<td><b>getItemCount()&nbsp;</b></td>
+
+<td><b>None</b></td>
+
+<td><b>returns the numberof items (int) in the menu</b></td>
+</tr>
+
+<tr>
+<td><b>getItem(index)</b></td>
+
+<td><b>index - int</b></td>
+
+<td><b>returns theitem at index in the menu</b></td>
+</tr>
+
+<tr>
+<td><b>getSelectedIndex()&nbsp;</b></td>
+
+<td><b>None</b></td>
+
+<td><b>returns theindex (int) of the selected item</b></td>
+</tr>
+
+<tr>
+<td><b>getSelectedItem()&nbsp;</b></td>
+
+<td><b>None</b></td>
+
+<td><b>returns the selected item (String).</b></td>
+</tr>
+</table>
+
+<h3>
+<font color="#000099">Example - Choice Menu</font></h3>
+<applet HEIGHT="200" WIDTH="400" CODE="ChoiceMenu">
+<br></applet>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class ChoiceMenu extends Applet implements ActionListener
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Button button = new Button("Submit");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextField result = new
+TextField(50);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choice languageMenu = new
+Choice();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String str= " ";</tt></b>
+<p><b><tt>public void init(){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add( new Label("Select your strongest
+programming</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; language:",Label.CENTER));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("Pascal");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("FORTRAN");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("C");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("CPLUS");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("LISP");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("ADA");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("Java");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("COBOL");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("Perl");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("PL1");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("RPG");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("BASIC");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("JavaScript");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("VBScript");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.addItem("ActiveX");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(languageMenu);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(button);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(result);</tt></b>
+<br><b><tt>}</tt></b>
+<br><b><tt>public void actionPerformed(ActionEvent event){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; str = "number of items ="+languageMenu.getItemCount();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; str = str + "&nbsp;&nbsp; item
+selected =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "+languageMenu.getSelectedItem();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; str = str + "&nbsp;&nbsp; index
+of item = " +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; languageMenu.getSelectedIndex();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result.setText(str);</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><tt>}</tt></b>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font size=+1>List Boxes</font></font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica"><font size=+0>Provides&nbsp; a scrolling list
+of text of items.</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font size=+0>User can select multiple items
+from the list</font></font></li>
+
+<li>
+<font face="Arial,Helvetica">Constructor:</font></li>
+
+<ul><font face="Arial,Helvetica">List(rows,true)</font>
+<ul>
+<li>
+<font face="Arial,Helvetica">&nbsp;rows is an integer specifying the number
+of items to show.</font></li>
+
+<li>
+<font face="Arial,Helvetica">true -&nbsp; multiple selections.</font></li>
+
+<li>
+<font face="Arial,Helvetica">false - only one selection.</font></li>
+</ul>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Methods:</font></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method&nbsp;</b></td>
+
+<td><b>Argument&nbsp;</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>add(item)&nbsp;</b></td>
+
+<td><b>item - String</b></td>
+
+<td><b>Adds item tothe list</b></td>
+</tr>
+
+<tr>
+<td><b>getItemCount()&nbsp;</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Returns the number(int) of items in the list</b></td>
+</tr>
+
+<tr>
+<td><b>getItem(index)&nbsp;</b></td>
+
+<td><b>index - int&nbsp;</b></td>
+
+<td><b>Returnsthe item (String) at position index</b></td>
+</tr>
+
+<tr>
+<td><b>getSelectedIndex()</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Returns theindex (int) of selected item.</b></td>
+</tr>
+
+<tr>
+<td><b>getSelectedItem()</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Returns selecteditem (String).</b></td>
+</tr>
+
+<tr>
+<td><b>getSelectedIndexes()&nbsp;</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Returns anarray (int) of the index values of selected items.</b></td>
+</tr>
+
+<tr>
+<td><b>GetSelectedItems()&nbsp;</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Returns an array(String) of selected items.</b></td>
+</tr>
+</table>
+
+<h3>
+<font color="#000099">Example -&nbsp; Menu List</font></h3>
+<applet HEIGHT="400" WIDTH="500" CODE="menuList1">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class menuList1 extends Applet implements ActionListener
+{</tt></b>
+<blockquote><b><tt>Button button = new Button("Submit");</tt></b>
+<br><b><tt>TextArea result = new TextArea(15,40);</tt></b>
+<br><b><tt>List languageList = new List(5,true);</tt></b>
+<p><b><tt>public void init(){</tt></b>
+<blockquote><b><tt>button.addActionListener(this);</tt></b>
+<br><b><tt>add( new Label("Select all programming languages you know:",Label.CENTER));</tt></b>
+<br><b><tt>languageList.addItem("Pascal");languageList.addItem("FORTRAN");</tt></b>
+<br><b><tt>languageList.addItem("C"); languageList.addItem("CPLUS");</tt></b>
+<br><b><tt>languageList.addItem("LISP"); languageList.addItem("ADA");</tt></b>
+<br><b><tt>languageList.addItem("Java"); languageList.addItem("COBOL");</tt></b>
+<br><b><tt>languageList.addItem("Perl"); languageList.addItem("PL1");</tt></b>
+<br><b><tt>languageList.addItem("RPG"); languageList.addItem("BASIC");</tt></b>
+<br><b><tt>languageList.addItem("JavaScript");</tt></b>
+<br><b><tt>languageList.addItem("VBScript");</tt></b>
+<br><b><tt>languageList.addItem("ActiveX");</tt></b>
+<br><b><tt>add(languageList); add(button); add(result);</tt></b></blockquote>
+<b><tt>}</tt></b>
+<br><b><tt>public void actionPerformed(ActionEvent event){</tt></b>
+<blockquote><b><tt>int count = languageList.getItemCount();</tt></b>
+<br><b><tt>String out = "Number of items on the list is = "+count+"\nYOU
+HAVE SELECTED ...\n";</tt></b>
+<br><b><tt>String str[] = languageList.getSelectedItems();</tt></b>
+<br><b><tt>int i = 0;</tt></b>
+<br><b><tt>while(i &lt; str.length ){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out=out +"\n"+ str[i];</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; i++;</tt></b>
+<br><b><tt>}</tt></b></blockquote>
+<b><tt>&nbsp;&nbsp;&nbsp; result.setText(out);</tt></b>
+<br><b><tt>}</tt></b></blockquote>
+<b><tt>}</tt></b>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font size=+1>The TextArea Class</font></font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">A text area is a multiline area for text.</font></li>
+
+<li>
+<font face="Arial,Helvetica">It can be set to allow editing or to be read
+only.</font></li>
+
+<li>
+<font face="Arial,Helvetica"><b>Fields:</b> ( static final int)</font></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Field name&nbsp;</b></td>
+
+<td><b>Meaning</b></td>
+</tr>
+
+<tr>
+<td><b>SCROLLBARS_BOTH&nbsp;</b></td>
+
+<td><b>Both horizontal and vertical scroll bars present.</b></td>
+</tr>
+
+<tr>
+<td><b>SCROLLBARS_VERTICAL_ONLY</b></td>
+
+<td><b>Only vertical scroll bar present.</b></td>
+</tr>
+
+<tr>
+<td><b>SCROLLBARS_HORIZONTAL_ONLY&nbsp;</b></td>
+
+<td><b>Only horizontal scroll bar present.</b></td>
+</tr>
+
+<tr>
+<td><b>SCROLLBARS_NONE&nbsp;</b></td>
+
+<td><b>No scroll bars present.</b></td>
+</tr>
+</table>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">Constructors:</font></b></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b><font size=+0>Constructor</font></b></td>
+
+<td><b>&nbsp;<font size=+0>Arguments</font></b></td>
+
+<td><b><font size=+0>Meaning</font></b></td>
+</tr>
+
+<tr>
+<td><b>TextArea()</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Constructs a new text area.</b></td>
+</tr>
+
+<tr>
+<td><b>TextArea(r,c)&nbsp;</b></td>
+
+<td><b>r and c - int&nbsp;</b></td>
+
+<td><b>Constructs a new text area with r rowsand c columns.</b></td>
+</tr>
+
+<tr>
+<td><b>TextArea(str)&nbsp;</b></td>
+
+<td><b>str - String&nbsp;</b></td>
+
+<td><b>Constructs a new text area with text str.</b></td>
+</tr>
+
+<tr>
+<td><b>TextArea(str,r)&nbsp;</b></td>
+
+<td><b>str - String</b>
+<br><b>r and c - int&nbsp;</b></td>
+
+<td><b>Constructs a new text area with r rows, c columns, and text str.</b></td>
+</tr>
+
+<tr>
+<td><b>TextArea(str, r,c,b)</b></td>
+
+<td><b>str – String,</b>
+<br><b>r,c,b - int&nbsp;</b></td>
+
+<td><b>Constructs a new text areawith text str r rows, c columns, and b
+is one of the static fields.</b></td>
+</tr>
+</table>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">Methods:</font></b></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method</b></td>
+
+<td><b>Arguments</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>getText()</b></td>
+
+<td><b>None&nbsp;</b></td>
+
+<td><b>Returns the string (String) from the text area.</b></td>
+</tr>
+
+<tr>
+<td><b>setText(str)&nbsp;</b></td>
+
+<td><b>str - String&nbsp;</b></td>
+
+<td><b>Sets the str in the field.</b></td>
+</tr>
+
+<tr>
+<td><b>replaceRange( str ,n ,m)</b></td>
+
+<td><b>str – String</b>
+<br><b>n,m - int&nbsp;</b></td>
+
+<td><b>Replaces string from position n through m by str.</b></td>
+</tr>
+
+<tr>
+<td><b>insert(str, n)&nbsp;</b></td>
+
+<td><b>str – String&nbsp;</b>
+<br><b>n - int</b></td>
+
+<td><b>Inserts str at position n.</b></td>
+</tr>
+
+<tr>
+<td><b>append(str)&nbsp;</b></td>
+
+<td><b>str - String</b></td>
+
+<td><b>Appends str to the text in the text area.</b></td>
+</tr>
+</table>
+
+<h3>
+<b><font color="#000099">Example</font></b></h3>
+<applet HEIGHT="200" WIDTH="400" CODE="TextArea1">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class TextArea1 extends Applet implements ActionListener{</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; String s1 = "\nThank you for giving your input";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String s2 = "Pace University,New York and
+Westchester";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; TextArea ta = new TextArea(s2,20,35);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Button button = new Button("THANK YOU");</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void init(){</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ta.setBackground(Color.green);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.setBackground(Color.red);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(ta);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(button);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void actionPerformed(ActionEvent event){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ta.append(s1);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica">The Label Class</font></h3>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">A label is a tesxt component of a container.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Text may be changed by the application, but
+a user cannot edit directly.</font></li>
+
+<li>
+<b><font face="Arial,Helvetica">Fields:</font></b></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Static fields in the label class.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Use field names or numbers.</font></li>
+</ul>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Field name</b></td>
+
+<td><b>Number&nbsp;</b></td>
+
+<td><b>Meaning</b></td>
+</tr>
+
+<tr>
+<td><b>CENTER&nbsp;</b></td>
+
+<td><b>1</b></td>
+
+<td><b>Indicates that the labelshould be centered</b></td>
+</tr>
+
+<tr>
+<td><b>LEFT&nbsp;</b></td>
+
+<td><b>0</b></td>
+
+<td><b>Indicates that the label shouldbe left justified</b></td>
+</tr>
+
+<tr>
+<td><b>RIGHT</b></td>
+
+<td><b>2</b></td>
+
+<td><b>Indicates that the label shouldbe right justified</b></td>
+</tr>
+</table>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">&nbsp;Constructors:</font></b></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="80%" BGCOLOR="#99FF99" >
+<tr>
+<td><b>Constructor&nbsp;</b></td>
+
+<td><b>Arguments&nbsp;</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>Label()&nbsp;</b></td>
+
+<td><b>None</b></td>
+
+<td><b>Constructs an empty label</b></td>
+</tr>
+
+<tr>
+<td><b>Label(<i>str</i>)&nbsp;</b></td>
+
+<td><b><i>str – </i>String&nbsp;</b></td>
+
+<td><b>Constructs a label with str</b></td>
+</tr>
+
+<tr>
+<td><b>Label(<i>str, n</i>)&nbsp;</b></td>
+
+<td><b><i>str</i> - String,&nbsp;</b>
+<br><b>n - int 0, 1, or 2&nbsp;</b>
+<br><b>or Label.LEFT,&nbsp;</b>
+<br><b>Label.CENTER ,or Label.RIGHT</b></td>
+
+<td><b>Construct a label with <i>str</i>, with specified alignment</b>.</td>
+</tr>
+</table>
+
+<ul>
+<li>
+<b><font face="Arial,Helvetica">Methods:</font></b></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method</b></td>
+
+<td><b>Argument&nbsp;</b></td>
+
+<td><b>Meaning</b></td>
+</tr>
+
+<tr>
+<td><b>setText(str)&nbsp;</b></td>
+
+<td><b>str – String&nbsp;</b></td>
+
+<td><b>Sets the label with specified string</b></td>
+</tr>
+
+<tr>
+<td><b>getText()&nbsp;</b></td>
+
+<td><b>None&nbsp;</b></td>
+
+<td><b>Returns the label string (String)</b></td>
+</tr>
+
+<tr>
+<td><b>getAlignment()&nbsp;</b></td>
+
+<td><b>None&nbsp;</b></td>
+
+<td><b>Returns (int) the alignment (0, 1, or 2)</b></td>
+</tr>
+
+<tr>
+<td><b>setAlignment(n)&nbsp;</b></td>
+
+<td><b>n – int&nbsp;</b></td>
+
+<td><b>Sets the label with the specified alignment</b></td>
+</tr>
+</table>
+
+<h3>
+<font color="#000099">Example - Puts out three labels&nbsp; in three alignments</font></h3>
+<applet HEIGHT="100" WIDTH="300" CODE="Labels1">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<p><b><tt>public class Labels1 extends Applet{</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void init(){</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label label1,label2,
+label3;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; label1 = new Label("left
+label",0);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; label2 = new Label("center
+label",1);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; label3 = new Label("right
+label",2);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; label1.setBackground(Color.green);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; label2.setBackground(Color.blue);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; label3.setBackground(Color.magenta);</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(label1);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(label2);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(label3);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(new Label("Another
+label"));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<h3>
+<b><font color="#000099">Example - Displays two buttons and one label.
+When the user presses a button, the label changes</font></b></h3>
+<applet HEIGHT="100" WIDTH="300" CODE="Labels2">
+<br></applet>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class Labels2 extends Applet implements ActionListener{</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; Label label = new Label("Pace university");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Button button1 = new Button("New York");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Button button2 = new Button("Westchester");</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void init(){</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button1.setBackground(Color.cyan);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button2.setBackground(Color.yellow);</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(label);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(button1);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add(button2);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button1.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button2.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; public void actionPerformed(ActionEvent event){</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; if(event.getSource() == button1) label.setText("New
+York");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if(event.getSource() == button2) label.setText("Westchester");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica"><font size=+1>Scrollbars and Sliders</font></font></h3>
+
+<ul>
+<li>
+<font face="Arial,Helvetica"><font size=+0>The Scrollbar class enables
+us to include scroll bars.</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font size=+0>The scroll bar allows the user
+to vary&nbsp; input values within a range.</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font size=+0>The scroll bar will have a familiar
+"slider" and arrows .</font></font></li>
+
+<li>
+<font face="Arial,Helvetica">To create a scroll bar:</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Declare an object of the type Scrollbar.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Initialize the object using new, and a constructor.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Add the object.</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Constructor:</font></li>
+
+<br><b><i><tt>Scrollbar(alignment, initvalue, visible, minimum, maximum)</tt></i></b>
+<ul>
+<li>
+<b><tt>alignment</tt></b><font face="Arial,Helvetica"> is one of the int
+static fields:</font></li>
+
+<br><font face="Arial,Helvetica">Scrollbar.VERTICAL (1)</font>
+<br><font face="Arial,Helvetica">Scrollbar.HORIZONTAL (0)</font>
+<li>
+<b><tt>initvalue</tt></b><font face="Arial,Helvetica"> is an integer, specifying
+the initial value of the scroll bar.</font></li>
+
+<li>
+<b><tt>visible</tt></b><font face="Arial,Helvetica"> is an integer, specifying
+the width (in pixels) of the scroll bar bubble.</font></li>
+
+<li>
+<b><tt>minimum</tt></b><font face="Arial,Helvetica"> is an integer, specifying
+the minimum value of the scroll bar.</font></li>
+
+<li>
+<b><tt>maximum</tt></b><font face="Arial,Helvetica"> is an integer, specifying
+the maximum value of the scroll bar.</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Methods:</font></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method name</b></td>
+
+<td><b>Arguments&nbsp;</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>getMaximum()</b></td>
+
+<td><b>---&nbsp;</b></td>
+
+<td><b>Returns (int) the maximum value of the scroll bar.</b></td>
+</tr>
+
+<tr>
+<td><b>getMinimum()</b></td>
+
+<td><b>---&nbsp;</b></td>
+
+<td><b>Returns (int) the minimum value of the scroll bar.</b></td>
+</tr>
+
+<tr>
+<td><b>getOrientation()</b></td>
+
+<td><b>---</b></td>
+
+<td><b>Returns (int) the orientation of the scroll bar (0-horizontal, 1
+– vertical).</b></td>
+</tr>
+
+<tr>
+<td><b>getValue()</b></td>
+
+<td><b>---&nbsp;</b></td>
+
+<td><b>Returns (int) the current value of the scroll bar.</b></td>
+</tr>
+</table>
+
+<p><font face="Arial,Helvetica">Events generated by scroll bar:</font>
+<ul>
+<li>
+<font face="Arial,Helvetica">Clicking the arrows at the ends of the scroll
+bar or moveing the bubble in the scroll bar generates an event</font></li>
+
+<li>
+<font face="Arial,Helvetica">Handle a&nbsp; generated event by :</font></li>
+
+<br>Step 1: Include the following import statement:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+import java.awt.event.*;</b>
+<p>Step 2: Include the interface AdjustmentListener:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public class name extends
+Applet implements <b>AdjustmentListener</b>{
+<br>&nbsp;}
+<p>Step 3: Register the scroll bar object as the event source:
+<ul>&nbsp; <b>scroll_bar_object.addAdjustmentListener(this);</b></ul>
+
+<p><br>Step 4: Define the AdjustmentListener (interface) method<b> adjustmentValueChanged()</b>:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>public void adjustmentValueChanged(AdjustmentEvent
+e){</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</b>
+<li>
+<font face="Arial,Helvetica">Methods of AdjustmentEvent class:</font></li>
+</ul>
+
+<table CELLSPACING=3 CELLPADDING=3 BGCOLOR="#99FF99" >
+<tr>
+<td><b>Method name&nbsp;</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b>getAdjustable()</b></td>
+
+<td><b>Returns the scroll bar object</b></td>
+</tr>
+
+<tr>
+<td><b>getValue()</b></td>
+
+<td><b>Returns the current value of the scroll bar</b></td>
+</tr>
+</table>
+
+<h3>
+<b><font color="#000099">Example - Scrollbars select RGB components of
+color</font></b></h3>
+<applet HEIGHT="350" WIDTH="300" CODE="Scrollbar1">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<p><b><tt>public class Scrollbar1 extends Applet implements AdjustmentListener{</tt></b>
+<blockquote><b><tt>TextField box;</tt></b>
+<br><b><tt>String string;</tt></b>
+<br><b><tt>Scrollbar sbr,sbg,sbb;</tt></b>
+<br><b><tt>Canvas canvas;</tt></b>
+<br><b><tt>int r=0,g=0,b=0;</tt></b>
+<p><b><tt>public void init(){</tt></b>
+<blockquote><b><tt>box = new TextField();</tt></b>
+<br><b><tt>sbr = new Scrollbar(Scrollbar.HORIZONTAL,0,1,0,255);</tt></b>
+<br><b><tt>sbg = new Scrollbar(Scrollbar.HORIZONTAL,0,1,0,255);</tt></b>
+<br><b><tt>sbb = new Scrollbar(Scrollbar.HORIZONTAL,0,1,0,255);</tt></b>
+<br><b><tt>canvas = new Canvas();</tt></b>
+<br><b><tt>sbr.addAdjustmentListener(this);</tt></b>
+<br><b><tt>sbg.addAdjustmentListener(this);</tt></b>
+<br><b><tt>sbb.addAdjustmentListener(this);</tt></b>
+<br><b><tt>setLayout(null);</tt></b>
+<br><b><tt>add(canvas);</tt></b>
+<br><b><tt>add(sbr);</tt></b>
+<br><b><tt>add(sbg);</tt></b>
+<br><b><tt>add(sbb);</tt></b>
+<br><b><tt>add(box);</tt></b>
+<br><b><tt>sbr.setBounds(40,250,200,15);</tt></b>
+<br><b><tt>sbg.setBounds(40,270,200,15);</tt></b>
+<br><b><tt>sbb.setBounds(40,290,200,15);</tt></b>
+<br><b><tt>canvas.setBounds(40,10,200,200);</tt></b>
+<br><b><tt>box.setBounds(40,230,200,25);</tt></b></blockquote>
+<b><tt>&nbsp;}</tt></b>
+<br><b><tt>public void adjustmentValueChanged(AdjustmentEvent evt){</tt></b>
+<blockquote><b><tt>if(evt.getAdjustable() == sbr) r = sbr.getValue();</tt></b>
+<br><b><tt>if(evt.getAdjustable() == sbg) g = sbg.getValue();</tt></b>
+<br><b><tt>if(evt.getAdjustable() == sbb) b = sbb.getValue();</tt></b>
+<br><b><tt>Color color = new Color(r,g,b);</tt></b>
+<br><b><tt>canvas.setBackground(color);</tt></b>
+<br><b><tt>string = "R = "+r+" G = "+g+" B = "+b;</tt></b>
+<br><b><tt>box.setText(string);</tt></b></blockquote>
+<b><tt>}</tt></b></blockquote>
+<b><tt>}</tt></b>
+<br>&nbsp;
+<br>&nbsp;
+<br><font face="Arial,Helvetica"><font size=+1></font></font>&nbsp;
+<br>&nbsp;
+</body>
+</html>

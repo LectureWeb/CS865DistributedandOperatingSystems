@@ -1,0 +1,1259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head>  
+<meta name="GENERATOR" content="TtH 1.58"><title>Jonathan: an Open Distributed Processing Environment in Java</title></head><body>
+
+<p>
+ 
+    
+ 
+</p><h1 align="center">Jonathan:   an   Open   Distributed Processing   Environment  in   Java </h1>
+
+<h3 align="center">Bruno  Dumant,   Fran�ois   Horn,   Fr�d�ric Dang  Tran,   Jean-Bernard
+  Stefani<a href="#tthFtNtAAB" name="tthFrefAAB"><sup>1</sup></a>&nbsp;<a href="#tthFtNtAAC" name="tthFrefAAC"><sup>2</sup></a> </h3> 
+
+<p>
+      
+</p><h2> Abstract</h2>
+  This article describes a  minimal and modular ORB framework  from which it is
+  possible  to build  highly   flexible ORBs   supporting the introduction   of
+  arbitrary binding mechanisms between interacting  objects.  We show that such
+  a  framework consists  essentially in extending  the   Java notion of  object
+  reference to make it distributed. Jonathan is a Java implementation of such a
+  framework, featuring   a  CORBA 2.0  ``personality'' and    several different
+  binding  factories.  It could be  easily  extended with new binding factories
+  and personalities (e.g.&nbsp;a RMI personality) or  scaled down to fit particular
+  needs. 
+<p>
+</p><p>
+      </p><h2><a name="tth_sEc1">
+1</a>&nbsp;&nbsp;Introduction</h2>
+
+<p>
+The success of Object Request Brokers (ORBs<a href="#tthFtNtAAD" name="tthFrefAAD"><sup>3</sup></a>)  in
+telecommunications essentially depends  on their capacity to  adapt them to the
+specifics of  telecommunication  systems, and in  particular  to the support of
+interactive multimedia services. 
+
+</p><p>
+This implies  that ORBs  should  be  uniformly available   across traditionally
+separate systems, ranging  from low-end network  equipments such as routers and
+cross-connects to high-end information processing intensive nodes such as those
+supporting network   operation    and management   functions   and   operators'
+information systems.
+
+</p><p>
+Another strong requirement on telecommunication ORBs is their support of various 
+binding and interaction models.
+
+</p><p>
+The  term  <em>binding </em>  should be  understood  as   both  the process   of
+associating   or  interconnecting   different objects of    a  computing system
+according to a specific communication semantics, and as the  end result of this
+process.  Binding  implies setting up an access  path between objects, which in
+turn typically  comprises locating objects, checking  access rights and setting
+up appropriate data structures to  enable communication between objects.   Even
+in the  standard client-server case, there  is a wide variety  of communication
+semantics   that  reflect different   application  requirements.  For instance,
+servers  may be   persistent,  replicated, or   may   use caches  with  various
+consistency policies to improve performance, availability,  etc. Other forms of
+bindings include e.g.: 
+  
+</p><p>
+
+</p><ul>
+<li> Multimedia  stream bindings  with various communications topologies:
+  one-to-many, many-to-many etc.
+
+</li><li> Group bindings, with various communication semantics and 
+  dependability properties.
+
+</li><li> QoS-constrained bindings whose lifecycle and resource multiplexing policy
+  are controlled by the application e.g.&nbsp;a client-server binding over a 
+  dedicated ATM connection with guaranteed bandwidth. 
+</li></ul>
+<p>
+Lastly, telecommunication systems are typically open, real-time systems, and it
+is crucial that ORBs achieve real-time behaviour and performance. 
+
+</p><p>
+By real-time systems,  we  understand in this  paper  systems whose users   are
+allowed   to  specify timeliness   and   throughput quality  of  service  (QoS)
+requirements  and   to  obtain   guarantees  about  the fulfillment    of these
+requirements.  The  nature  of guarantees  provided may vary   from best-effort
+(where the system  provides no quantitative guarantee  of how well or how often
+it  will meet application QoS  requirements) to deterministic (where the system
+guarantees that  application requirements will  be strictly met  throughout the
+lifetime of the application). 
+
+</p><p>
+An open real-time system is a system whose set of supported applications is not
+known before-hand and which may vary over time. The main consequence of this is
+that  strong (i.e.&nbsp;stronger than best-effort)  guarantees can be provided only
+via some  form  of  run-time  admission   control.  Providing  timeliness   and
+throughput guarantees  in an open  distributed real-time system is a formidable
+task: To  the best of our knowledge,  there  is currently no  comprehensive and
+systematic approach to  the problems at hand.   Even in the  case of relatively
+simple communication  facilities,  such as a  channel  supporting communication
+between  a pair  of   objects,  deriving e.g.&nbsp;admission  control tests   for
+guaranteed end-to-end delay    bounds involves recent  advances  in  scheduling
+theory.  Also, it seems unlikely that  a single scheduling  policy or even task
+model will be applicable in all  cases and all  application domains.  For these
+reasons, a real-time  ORB should, as a  general principle of separation between
+policy and mechanism, refrain from embodying any particular resource management
+policy.  Instead, a  real-time ORB ought  to be flexible enough  to accommodate
+different  such policies and should provide  direct control of system resources
+such as processors, memory and communication to applications. 
+
+</p><p>
+Architectures like CORBA  or JAVA-RMI don't seem  to be particularly adapted to
+telecommunications   systems.   A large   part of  these  architectures remains
+largely  monolithic and disallows adapting or  extending the internal machinery
+short of   resorting  to proprietary  extensions.  In  terms  of computing  and
+network  resources,   they offer  very little   control  on how   resources are
+allocated and multiplexed.     As a result,  it is   not clear  how  to provide
+adaptations  required  to support multimedia and   real-time applications or to
+scale down these  architectures to  fit  resource-constrained devices  such  as
+portable phones or interactive TV set-top boxes. 
+
+</p><p>
+The work pursued in the context of the ACTS  ReTINA project [<a href="#retina" name="CITEretina">14</a>] is to
+specify and implement a flexible ORB architecture whose machinery is exposed to
+the  systems or   application  programmer.  
+
+</p><p>
+The prime characteristic of this architecture  is the ability to plug arbitrary
+forms of binding policies between objects beyond the implicit binding model for
+client-server   interactions assumed by standard  architectures   like CORBA or
+RMI.  This goal has been  achieved by designing  a  minimal ORB kernel  whose
+role  is  to provide   a    generic environment that  arbitrary   <em>binding
+factories</em> can use to create and manage specific bindings. 
+
+</p><p>
+In  this  approach, a  CORBA   compliant  ORB can  be  built  as  a  particular
+``personality'' (i.e.&nbsp;a set of APIs and  language  mappings), thus decoupling
+the  specifics of   the  CORBA  API  from  the   personality-independent kernel
+interface.  This is also true for a non-CORBA personality like Java-RMI. 
+
+</p><p>
+The  aim of this paper  is  to provide a   clear description of  the ORB kernel
+architecture, and to  show how  a  CORBA ORB  can be  built  on top of it.   To
+illustrate this,  we shall use the  Jonathan Distributed Processing Environment
+(DPE), developed in Java  at CNET, that  implements the specifications of  the
+ORB kernel and a CORBA personality. 
+
+</p><p>
+The ReTINA  architecture also features  a communication framework  allowing the
+modular  construction  of  protocols   (suited  for RPC   or  stream styles  of
+interactions), and   the   reuse  of   protocol  components  between    binding
+implementations.  This framework,  implemented in Jonathan,  is very similar to
+the   <i>x</i>-kernel&nbsp;[<a href="#xkernel" name="CITExkernel">12</a>] framework, and     the   reader is  referred  to
+[<a href="#DangTran97b" name="CITEDangTran97b">2</a>] for a more detailed description. 
+
+</p><p>
+Lastly,   the ReTINA architecture proposes   a  resource framework, featuring a
+number  of  abstractions to manage   real-time resources,  that  provide direct
+control of  system resources  to applications. The   resource framework has not
+been  implemented  in Jonathan  since it requires  an  access to the underlying
+system-level  resources,  that   current implementations of    the Java virtual
+machine do not provide. 
+
+</p><p>
+This paper is structured  as follows: Section&nbsp;<a href="#sec:core">2</a> describes the  ORB
+kernel     architecture,   and how   it       is   implemented in     Jonathan;
+Section&nbsp;<a href="#sec:corba">3</a> describes in more details how a  CORBA ORB may be built
+on top of the Jonathan kernel, and in particular  how a binding factory able to
+create  RTP multicast  channels  can   be  built  in   this  context;  finally,
+Section&nbsp;<a href="#sec:conclusion">4</a> concludes by  providing more information about the
+current status of  the Jonathan DPE,  comparing with related works, and  sketch
+future research. 
+
+</p><p>
+      </p><h2><a name="tth_sEc2">
+2</a>&nbsp;&nbsp;A flexible ORB framework</h2>
+<a name="sec:core">
+</a>
+
+<p>
+      </p><h3><a name="tth_sEc2.1">
+2.1</a>&nbsp;&nbsp;Architectural Model</h3>
+
+<p>
+In a standard Java method invocation like:
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  return_value = object.method(...);
+</tt></p></dd></dl>
+<p>
+at least three problems need to be addressed:
+
+</p><ul>
+<p>
+
+</p><li> target referencing;
+
+</li><li> type checking;
+
+</li><li> accessing the target, and interacting with it.
+</li></ul>
+<p>
+When restricted to a single virtual machine, solutions  to these three problems
+are well known:
+
+</p><ul>
+<p>
+
+</p><li> The  target is designated  by an object  reference (usually an address in
+  memory, obtained as the result of a <tt>new</tt> operation); 
+
+</li><li> Type checking is performed statically at compile-time;
+
+</li><li> Access consists in a pointer dereference, and  interaction is obtained by
+  a jump to the appropriate program instruction. 
+</li></ul>
+<p>
+These solutions need to be extended when dealing with an invocation to a remote
+object, and  it is the role of  an ORB to  provide such extensions.  Since ORBs
+may operate over heterogeneous platforms and programming  languages, there is a
+need for an abstract object model that can  be mapped on specific platforms and
+languages:   Jonathan (like CORBA)  is  based on the   Reference  Model of Open
+Distributed Processing (RM-ODP  [<a href="#X901" name="CITEX901">7</a>,<a href="#X902" name="CITEX902">8</a>,<a href="#X903" name="CITEX903">9</a>,<a href="#X904" name="CITEX904">10</a>]).  In the following,
+we shall use RM-ODP terminology to designate abstractions: 
+
+</p><ul>
+<p>
+
+</p><li> An object is an entity containing (encapsulated) information and offering
+  services. RM-ODP objects may be of arbitrary  granularity (from one byte to a
+  telephone network...).
+
+</li><li> RM-ODP objects can  only  interact at <em>interfaces</em>:  Informally, the
+  interfaces  of an  object are  its access  points, which  means  that all the
+  interactions of an  object with its environment must  occur at  one (and only
+  one)  of its interfaces.
+</li></ul>
+<p>
+       </p><h4><a name="tth_sEc2.1.1">
+2.1.1</a>&nbsp;&nbsp;Binding objects and binding factories</h4>
+
+<p>
+To address   the    interaction problem,  RM-ODP   introduces    the notion  of
+<em>binding object</em>.   Two objects -say  O<sub>1</sub> and O<sub>2</sub>- may interact in
+two different ways: Either object O<sub>1</sub> directly invokes an operation on O<sub>2</sub>,
+or  it invokes the  same operation on a <em>binding  object</em> whose role is to
+transmit the invocation to  O<sub>2</sub>  and to return a   result if necessary  (cf.&nbsp;Figure&nbsp;<a href="#fig:archi">1</a>).  In  the first case,  both objects must belong  to the
+same addressing  space (also named   <em>capsules</em>); in the second case,  the
+interacting objects may belong to distinct addressing spaces. 
+
+</p><p>
+
+</p><p><a name="tth_fIg1">
+</a>   
+</p><center>        <img src="framework-body_files/archi-ok.gif" alt="images/archi-ok.gif"><br>     <center>      Figure 1: A point-to-point binding</center>
+    <a name="fig:archi">
+</a>
+  </center>
+<p>
+</p><p>Binding objects  are usually    composite objects,  distributed  over   several
+capsules. Binding objects encapsulate the full end-to-end computational binding
+between   interacting  objects, including  communication  resources, protocols,
+stubs, etc.    In our model,  bindings  have  a type, the  type  of   a binding
+representing the protocols used,  possible  quality of service constraints,  or
+any  other kind of binding property.   Note that  binding objects can represent
+not only client-server bindings, but any  kind of binding including e.g.&nbsp;those
+described in the introduction. 
+
+</p><p>
+Bindings    are   constructed    by  special    entities   named  <em>binding
+factories</em>. Binding factories have two main roles: 
+
+</p><ul>
+<p>
+
+</p><li> Create   and   manage   interface   <em>identifiers</em>;  Identifiers  are
+  introduced in the next section, and this role of binding factories is further
+  discussed in Section&nbsp;<a href="#sss:refchains">2.2.3</a>. 
+
+</li><li> Establish and  manage    bindings of  a specific  type<a href="#tthFtNtAAE" name="tthFrefAAE"><sup>4</sup></a>;  This role is further
+  explained in Section&nbsp;<a href="#ss:distaccess">2.4</a>. 
+</li></ul>
+<p>
+In its  current version, the Jonathan DPE  provides three binding  factories of
+different types, two of which create  client-server bindings (one uses the IIOP
+protocol, the second a simpler  remote invocation protocol),  and the third RTP
+multicast bindings. 
+
+</p><p>
+       </p><h4><a name="tth_sEc2.1.2">
+2.1.2</a>&nbsp;&nbsp;Types and references</h4>
+
+<p>
+To address the typing and referencing problem, RM-ODP  introduces the notion of
+<em>interface reference</em>. An interface reference may be seen as a generalized
+Java object reference.  Interface references are characterized by two elements: 
+
+</p><ul>
+<p>
+
+</p><li> A type;
+
+<p>
+  Like  Java  references, interface references  have  a type,  whose role is to
+  allow the creation of safe bindings. 
+
+</p><p>
+  There  is no universal type  system,  and different  type  systems (and  type
+  conformance  rules) may be  used for different  bindings.  In our model, type
+  systems are related to  <em>personalities</em>: a personality defines  the type
+  and  binding   type  systems   used   by   binding  factories  belonging   to
+  it<a href="#tthFtNtAAF" name="tthFrefAAF"><sup>5</sup></a>.  For instance, CORBA
+  is  a personality: it  defines types  by the means  of  IDL declarations, and
+  binding types  by the  means of <em>profile   ids</em>. It is  then possible to
+  build various  CORBA binding factories, using  different protocols, that will
+  use  this type system: For instance,  all the binding factories provided with
+  Jonathan use the CORBA type system. 
+
+</p><p>
+  However,  an interface  reference  may have  to  be  manipulated in different
+  personality contexts.  We    can  imagine a capsule featuring     two binding
+  factories, the first building CORBA  IIOP bindings,  the second building  RMI
+  bindings, each of them having to manipulate the same interface reference.  To
+  make  this possible, the interface reference  associated type must be defined
+  in a  reference,   personality-independent,  type system.  Each   personality
+  present in the capsule must provide ways to translate types from its own type
+  system   to     the  reference  type     system,    and   conversely    (cf.&nbsp;  Section&nbsp;<a href="#ss:disttypes">2.3</a>).   In our  model,  the reference  type system  is
+  defined by the <em>ORB kernel</em>.  The same holds for  binding types: the ORB
+  kernel defines a reference binding  type system, and  each personality has to
+  define its own binding type system with the necessary translation functions. 
+
+</p><p>
+
+</p></li><li> A set of <em>identifiers</em>;
+
+<p>
+  An identifier is created by a  binding factory before the interface reference
+  is  sent out of its  originating capsule<a href="#tthFtNtAAG" name="tthFrefAAG"><sup>6</sup></a>, and may be used by another  binding factory of the same
+  type in  a   different capsule   to   unambiguously designate  the   referred
+  interface. 
+
+</p><p>
+  An identifier    is thus always associated to    a  given binding   type.  An
+  interface reference may have identifiers of different types, corresponding to
+  different ways to designate the target interface. 
+
+</p><p>
+  If we continue  our comparison between interface  references and Java  object
+  references, the equivalent of the  identifier is the memory address contained
+  in  a  Java reference.  Interface   references generalize this  notion in the
+  sense that <em>several</em>  identifiers  may be associated with  one interface
+  reference,  and  the process of   resolving  an identifier into an  interface
+  residing in a given address space may be much more complex than dereferencing
+  a pointer. 
+</p></li></ul>
+<p>
+Thus,   the three problems stated   above  (distributed referencing, typing and
+access) are represented by different abstractions: Interface references for the
+referencing problem, personalities for the typing  problem, and binding factories
+for the access  problem. The next subsections  illustrate  these points in  the
+case of Jonathan.
+
+</p><p>
+      </p><h3><a name="tth_sEc2.2">
+2.2</a>&nbsp;&nbsp;Distributed references</h3>
+<a name="ss:distrib-refs">
+</a>
+
+<p>
+The first thing an RM-ODP compliant ORB has to define is its own way to map the
+notion of interface, in a specific implementation language. 
+
+</p><p>
+When  an object  oriented   language is  used, an    RM-ODP object is   usually
+<em>implemented</em> by a  collection of language level  objects.   Some of these
+language   level objects  correspond to   access   points to  the corresponding
+(abstract)   RM-ODP  object  and as   such   constitute implementations of  its
+interfaces. One way to concrete the RM-ODP notions of object and interface is
+thus to see an RM-ODP object as a collection of language  level objects, and an
+interface  of  this  RM-ODP  object as   a given   accessible element    of the
+collection. 
+
+</p><p>
+In    CORBA+Java, or RMI, the   objects  implementing RM-ODP  interfaces have a
+special        type       (<tt>org.omg.CORBA.Object</tt>   for           CORBA,
+<tt>java.rmi.RemoteInterface</tt> in RMI).  Likewise, in Jonathan, an interface
+is represented by a Java object of type <font color="#ff0000"><tt><b>Interface</b></tt></font>: 
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  package jonathan.kernel;<br>
+  public interface <font color="#ff0000"><tt><b>Interface</b></tt></font><tt><b></b></tt> {}
+</tt></p></dd></dl> 
+<p>
+ A   reference   (in the Java  sense)   to  an object   of type <font color="#ff0000"><tt><b>Interface</b></tt></font>
+represents an interface reference. 
+
+</p><p>
+       </p><h4><a name="tth_sEc2.2.1">
+2.2.1</a>&nbsp;&nbsp;Surrogates</h4>
+
+<p>
+According   to  the  ODP   and  CORBA  computational  models [<a href="#X903" name="CITEX903">9</a>,<a href="#OMG95" name="CITEOMG95">11</a>],
+interfaces are passed  by reference in invocations.  As  long as the  interface
+reference remains in    its original capsule,   there is   no   need for  extra
+information: Its type is defined by the actual Java  type of the interface, and
+there  is no need   for  specific identifiers.  But    as soon as an  interface
+reference  is sent out  of   its capsule,  we  need  a  way to associate   more
+explicitly  type information   and  identifiers with it.    Since  an interface
+reference  may be  associated  with  identifiers   created by  various  binding
+factories, this  way must be normalized  to allow interoperability.  To achieve
+this, we introduce the <font color="#ff0000"><tt><b>Surrogate</b></tt></font> type: 
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  package jonathan.kernel;<br>
+  public interface <font color="#ff0000"><tt><b>Surrogate</b></tt></font><tt><b></b></tt> extends <font color="#ff0000"><tt><b>Interface</b></tt></font><tt><b></b></tt> {<br>
+   &nbsp;&nbsp;&nbsp; <font color="#ff0000"><tt><b>Type</b></tt></font><tt><b></b></tt> _type();<br>
+   &nbsp;&nbsp;&nbsp; <font color="#ff0000"><tt><b>IfRef</b></tt></font><tt><b></b></tt> _ifRef();<br>
+  }
+</tt></p><p>
+</p></dd></dl> A  surrogate is an  interface reference,  containing  the information needed to
+manage distribution. It is characterized by two elements: 
+
+<ul>
+<p>
+
+</p><li> A type;
+
+</li><li> An <em>IfRef</em>.
+</li></ul>
+<p>
+The type information corresponds to the local type of the surrogate<a href="#tthFtNtAAH" name="tthFrefAAH"><sup>7</sup></a>. 
+
+</p><p>
+The IfRef is the container for the identifiers of the designated interface and
+its type. IfRefs in Jonathan are structured as follows: 
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  package jonathan.kernel;<br>
+  public class <font color="#ff0000"><tt><b>IfRef</b></tt></font><tt><b></b></tt> {<br>
+   &nbsp;&nbsp;&nbsp; <font color="#ff0000"><tt><b>Type</b></tt></font><tt><b></b></tt> type()...<br>
+   &nbsp;&nbsp;&nbsp; <font color="#ff0000"><tt><b>Key</b></tt></font><tt><b></b></tt> key()...<br>
+   &nbsp;&nbsp;&nbsp; <font color="#ff0000"><tt><b>BindingDataSet</b></tt></font><tt><b></b></tt> bindingDataSet()...<br>
+  }
+</tt></p><p>
+</p></dd></dl> An IfRef   contains  type   information  about the   designated   interface,  a
+<em>key</em>, and a set of <em>binding data</em>.   Identifiers are not represented
+directly   in   an IfRef,  but   by  all  the   possible <font face="symbol">�</font>key,  binding
+data<font face="symbol">�</font> combinations: 
+
+<ul>
+<p>
+
+</p><li> The key identifies    an interface in   the  context of its   originating
+  capsule; a key is  thus a context-dependent  name that  need not  be directly
+  interpretable in the  context of the   capsule where the caller of  operation
+  <tt>key()</tt> resides:  It is   an identifier whose  domain of   validity is
+  restricted  to the interface's originating capsule;  the key can typically be
+  used by any  binding factory  in  conjunction  with a  hash  table to  access
+  interfaces in a capsule.  
+
+</li><li> Binding data are added to an IfRef by binding factories, and
+contain binding factory specific information. Typically, for remote
+invocation protocols based on TCP/IP (like Java RMI or CORBA IIOP),
+binding data consist of a host name and a port number, in which case
+the binding data directly designate a specific address space; but it is
+possible to imagine very different kinds of binding data. </li></ul>
+<p>
+Structuring identifiers as <font face="symbol">�</font>key, binding  data<font face="symbol">�</font> pairs allows a
+factorization  across different  binding    factories  of  the   same  key  for
+identifying a given  interface.  In the  Jonathan  DPE, the kernel  maintains a
+hashtable  associating keys and  interfaces, that any  binding factory can use.
+Note that  this does not prevent different  binding factories to use  their own
+(equivalent of) keys (which should then be hidden in the binding data). 
+
+</p><p>
+Both IfRefs and surrogates represent   interface references, and it would  have
+been  possible (though not  necessarily convenient)  to  have only one type for
+both. In fact, they are not used at the same level: 
+
+</p><ul>
+<p>
+
+</p><li>  Surrogates are used  at  the application level  to  support distribution
+  transparency.  In particular, a  user expects a surrogate to  be  of the same
+  type as the  interface it represents: If an  interface is of type <tt>A</tt>,
+  the surrogate type  of  interest  should  be described  as the  generic  type
+  <tt>Surrogate&lt;A&gt;</tt>,  and be   a   subtype of <tt>A</tt>.    The  surrogate
+  interface is in particular implemented by stubs.
+
+</li><li> IfRefs are lower level constructs.  Each interface reference appearing in
+  an invocation must be marshalled in some concrete on-the-wire representation:
+  IfRefs  constitute abstractions  of such representations,  allowing access to
+  the different elements of an exportable interface reference. 
+</li></ul>
+<p>
+       </p><h4><a name="tth_sEc2.2.2">
+2.2.2</a>&nbsp;&nbsp;Creating surrogates</h4>
+
+<p>
+Each    binding factory  must  be able    to   create a  surrogate  -i.e.&nbsp;a
+distribution-ready interface reference- for  a given interface.  The simplest
+form<a href="#tthFtNtAAI" name="tthFrefAAI"><sup>8</sup></a>    of      this operation is the
+following (cf. Figure&nbsp;<a href="#fig:export">2</a>): 
+
+</p><p>
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>  <font color="#ff0000"><tt><b>LocalSurrogate</b></tt></font><tt><b></b></tt> export(<font color="#ff0000"><tt><b>Interface</b></tt></font><tt><b></b></tt> itf);
+</tt></dd></dl>
+<p>
+
+</p><p><a name="tth_fIg2">
+</a>    
+</p><center>        <img src="framework-body_files/export-ok.gif" alt="images/export-ok.gif"><br>     <center>      Figure 2: Exporting an interface</center>
+    <a name="fig:export">
+</a>
+  </center>
+<p>
+</p><p>The <tt>export</tt> operation  takes an  interface  as parameter  and returns a
+surrogate for this interface. The IfRef of this surrogate contains binding data
+added by the invoked binding factory<a href="#tthFtNtAAJ" name="tthFrefAAJ"><sup>9</sup></a>. 
+
+</p><p>
+The  returned surrogate is of  type <tt>LocalSurrogate</tt>: The specificity of
+local surrogates is to be  equipped with a  <em>continuation</em> pointing to the
+designated interface. This continuation  signifies   the relation between   the
+IfRef held by the local surrogate and the represented interface. 
+
+</p><p>
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>  package jonathan.kernel;<br>
+  public interface <font color="#ff0000"><tt><b>LocalSurrogate</b></tt></font><tt><b></b></tt> extends <font color="#ff0000"><tt><b>Surrogate</b></tt></font><tt><b></b></tt> {<br>
+   &nbsp;&nbsp;&nbsp; <font color="#ff0000"><tt><b>Interface</b></tt></font><tt><b></b></tt> _continuation();<br>
+   &nbsp;&nbsp;&nbsp; void _continuation(<font color="#ff0000"><tt><b>Interface</b></tt></font><tt><b></b></tt> itf);<br>
+  }
+</tt><p>
+</p></dd></dl>       <h4><a name="tth_sEc2.2.3">
+2.2.3</a>&nbsp;&nbsp;Maintaining reference chains</h4>
+<a name="sss:refchains">
+</a>
+
+<p>
+One essential role of binding factories is to make sure  that when an interface
+reference is sent as  a parameter in a   remote invocation, the invoked  object
+will receive an interface reference that references the right interface. 
+
+</p><p>
+The above condition may be decomposed into two  simpler invariants that binding
+objects must maintain: 
+
+</p><ol type="1">
+<p>
+
+</p><li> A  binding  object  must marshall   an interface  reference i into   an
+  appropriate  IfRef<a href="#tthFtNtABA" name="tthFrefABA"><sup>10</sup></a><a name="foot:ior">
+</a>  when that interface
+  reference is passed as an argument to an outgoing invocation. 
+  
+<p>
+  This means that either i is a surrogate -and its IfRef  is used-, or it
+  is not (it is simply of type <tt>Interface</tt>), and  it must be exported to
+  a binding factory, so that an IfRef representing it is created.
+
+</p><p>
+
+</p></li><li> A binding object must  unmarshall an IfRef  into an appropriate interface
+  reference on receiving an incoming invocation bearing that IfRef. 
+
+<p>
+  This interface reference   is    either a  surrogate  bearing  the   received
+  IfRef<a href="#tthFtNtABB" name="tthFrefABB"><sup>11</sup></a>, or the interface
+  reference represented by the IfRef (if it can be proved that it is local).
+</p></li></ol>
+<p>
+If these invariants are maintained, every <em>non local</em> surrogate s can be
+associated with a  local surrogate l   (possibly located in  another capsule)
+bearing   the  same IfRef,  and  the   interface  represented  by  s   is the
+continuation of l, or  the interface designated by  that continuation.  Since
+nothing  prevents surrogates from    being   explicitly exported  to    binding
+factories, the continuation of a local  surrogate is indeed not necessarily the
+effective implementation of  the designated interface,  but may  be one of  its
+surrogates. 
+
+</p><p>
+The above invariants  ensure that every  surrogate belongs to a <em>reference
+chain</em> (cf.&nbsp;Figure&nbsp;<a href="#fig:refchains">3</a>)  uniquely    identifying   a  given
+interface. 
+
+</p><p>
+
+</p><p><a name="tth_fIg3">
+</a>   
+</p><center>         <img src="framework-body_files/chaines-ok.gif" alt="images/chaines-ok.gif"><br>     <center>      Figure 3: Reference chains</center>
+    <a name="fig:refchains">
+</a>
+  </center>
+<p>
+</p><p>A reference chain  is constituted by a sequence of interfaces 
+
+</p><center><table align="center" border="0"><tbody><tr><td>
+<table align="left"><tbody><tr><td align="center" nowrap="nowrap">
+ s<sub>n</sub> <font face="symbol">�</font> s<sub>n-1</sub><font face="symbol">�</font> <font face="symbol">�</font><font face="symbol">�</font> s<sub>1</sub><font face="symbol">�</font> i = s<sub>0</sub></td></tr></tbody></table>
+</td></tr></tbody></table></center>
+
+
+ such that i = s<sub>0</sub> is an interface that is not a surrogate, and 
+(s<sub>j</sub>)<sub>j <font face="symbol">�</font> {1, <font face="symbol">�</font>, n}</sub> are surrogates.   Interface  i is the target  of the
+reference chain, i.e.&nbsp;it is the interface that is designated by the chain. 
+
+<p>
+Each surrogate s<sub>j</sub> in the chain is such that either:
+
+</p><ol type="1">
+<p>
+   
+</p><li> j <font face="symbol"> &gt; </font> 1 and its continuation is s<sub>j-1</sub> or,
+   
+</li><li> j <font face="symbol"> &gt; </font> 1 and s<sub>j</sub> holds the same IfRef as surrogate s<sub>j-1</sub>.
+</li></ol>
+<p>
+These two properties directly correspond to the two invariants mentioned above. 
+
+</p><p>
+      </p><h3><a name="tth_sEc2.3">
+2.3</a>&nbsp;&nbsp;Distributed typing</h3>
+<a name="ss:disttypes">
+</a>
+
+<p>
+Several  type systems  may  have to  cohabit in  the same  capsule, and the ORB
+kernel  has to define a reference  representation of types  (and binding types)
+that different personalities will have to translate into their own type system. 
+
+</p><p>
+Jonathan defines a <font color="#ff0000"><tt><b>Type</b></tt></font> type:
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  package jonathan.kernel;<br>
+  public class <font color="#ff0000"><tt><b>Type</b></tt></font><tt><b></b></tt> {<br>
+   &nbsp;&nbsp;&nbsp; public <font color="#ff0000"><tt><b>Type</b></tt></font><tt><b></b></tt>(String str_type)...<br>
+   &nbsp;&nbsp;&nbsp; public boolean is_a(<font color="#ff0000"><tt><b>Type</b></tt></font><tt><b></b></tt> type)...<br>
+   &nbsp;&nbsp;&nbsp; public String to_string()...<br>
+   &nbsp;&nbsp;&nbsp; ...<br>
+  }  
+</tt></p><p>
+</p></dd></dl>As Jonathan  is  written in Java, it  is  natural that  the  <font color="#ff0000"><tt><b>Type</b></tt></font> objects
+represent Java  types. That's why a  <font color="#ff0000"><tt><b>Type</b></tt></font> object may be  constructed from
+the string representation of  a  Java type, i.e.&nbsp;a   Java scoped name   (like
+<tt>"jonathan.kernel.Interface"</tt>).   The  main  operation  on types  is the
+<tt>is_a</tt> operation that tests whether the target type is a subtype of the
+argument. 
+
+<p>
+Jonathan also defines a <font color="#ff0000"><tt><b>BindingType</b></tt></font> type. 
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  package jonathan.kernel;<br>
+  public class <font color="#ff0000"><tt><b>BindingType</b></tt></font><tt><b></b></tt> {<br>
+   &nbsp;&nbsp;&nbsp; public <font color="#ff0000"><tt><b>BindingType</b></tt></font><tt><b></b></tt>(int id)...<br>
+   &nbsp;&nbsp;&nbsp; public int encode()...<br>
+   &nbsp;&nbsp;&nbsp; ...<br>
+  }  
+</tt></p><p>
+</p></dd></dl>Binding types  in Jonathan are  simply represented  by  integers.
+
+<p>
+      </p><h3><a name="tth_sEc2.4">
+2.4</a>&nbsp;&nbsp;Distributed access</h3>
+<a name="ss:distaccess">
+</a>
+
+<p>
+Binding factories  are responsible for the creation  and management of bindings
+of a  given type. To create  bindings (i.e.&nbsp;instantiate binding objects), they
+use the identifiers of  the interfaces to  bind, and in particular  the binding
+data  of the appropriate type:  Binding factories  implement binding functions,
+that can resolve  such identifiers into effective  access chains  to the remote
+interfaces, thus enabling interaction. 
+
+</p><p>
+       </p><h4><a name="tth_sEc2.4.1">
+2.4.1</a>&nbsp;&nbsp;Implicit binding</h4>
+
+<p>
+When an IfRef is  received in a capsule, and  if it cannot  be proved  that the
+IfRef corresponds to an interface residing in the capsule,  a surrogate must be
+created.  This  surrogate  may be  directly  invocable,  like in  the classical
+<em>implicit</em> binding case  in ORBs  or  distributed object systems: In  this
+case,  a communication channel  is   set  up  either  at  the creation  of  the
+surrogate, or at the first invocation. 
+
+</p><p>
+This  surrogate must   know which  binding factory  to invoke   to  set  up the
+communication channel, but there is no reason to impose that the binding factory
+used to create the current binding (used to perform the invocation) should also
+be able   to bind the  new  surrogate: The  received  IfRef may not  contain an
+appropriate identifier. 
+
+</p><p>
+The   task of finding  the  appropriate binding factory  is  devoted  to the ORB
+kernel. The kernel maintains a table of the binding factories in the capsule that
+can be used to implicitly bind surrogates.  As each of these binding factories is
+associated with a binding  type, the kernel simply  needs to know the types  of
+the  binding  data present  in an IfRef  to find   -if  possible- a binding
+factory able to implicitly bind the corresponding surrogate. 
+
+</p><p>
+In Jonathan,  this is implemented  by a method <tt>getInvocable</tt> that takes
+an IfRef and a   type (represented as a  string)  as parameters, and returns  a
+surrogate (cf.&nbsp;Figure&nbsp;<a href="#fig:implicit-binding">4</a>): 
+
+</p><p>
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>  <font color="#ff0000"><tt><b>Surrogate</b></tt></font><tt><b></b></tt> getInvocable(<font color="#ff0000"><tt><b>IfRef</b></tt></font><tt><b></b></tt> ir,String type);
+</tt></dd></dl>
+<p>
+
+</p><p><a name="tth_fIg4">
+</a>   
+</p><center>    <img src="framework-body_files/implbinding-ok.gif" alt="images/implbinding-ok.gif"><br>      <center>      Figure 4: Implicit binding</center>
+    <a name="fig:implicit-binding">
+</a>
+  </center>
+<p>
+</p><p>This method is implemented both by the kernel and by  the binding factories: When
+an  IfRef is unmarshalled in  a binding object, the  binding object invokes the
+<tt>getInvocable</tt> method  on   the kernel,  that  will  forward  it   to an
+appropriate binding factory, if any:
+
+</p><ul>
+<p>
+
+</p><li> If  a suitable binding factory can  be found, it instantiates a surrogate
+  (usually a stub) that is returned to the invoking binding object.
+
+</li><li> 0therwise, the  kernel returns <tt>null</tt>.  In this case, the  binding
+  object that invoked the <tt>getInvocable</tt> method  must create a surrogate
+  that is not a stub, but simply an holder for the IfRef: This surrogate cannot
+  be used  directly in interactions, but still  refers to the  right interface,
+  and may be used to <em>explicitly</em> establish a binding involving it. 
+</li></ul>
+<p>
+This discussion shows   that our framework makes  a  clear  distinction between
+stubs and surrogates: 
+
+</p><ul>
+<p>
+
+</p><li> The only role of surrogates is to <em>reference</em> remote interfaces, not
+  to give access to them.
+
+</li><li> Stubs belong to binding objects, and their principal  role is to allow an
+  <em>access</em> to a remote  interface.   Since accessing an interface  implies
+  that it is designated, stubs  <em>are</em> surrogates, but  the converse is not
+  true. 
+</li></ul>
+<p>
+      </p><h3><a name="tth_sEc2.5">
+2.5</a>&nbsp;&nbsp;Explicit binding</h3>
+
+<p>
+If the kernel  can't find any suitable binding  factory to implicitly  bind the
+surrogate, explicit   binding must be used.    Binding  factories may  define a
+<tt>bind</tt> operation that is used to explicitly create bindings. The form of
+this operation may be very different from  one binding factory  to another.  In
+its  general form, it  takes  as parameters a  set of   interfaces to bind  and
+quality of  service  constraints that  need to  be  guaranteed,  and returns  a
+control interface on the created binding object.   Note that our framework does
+not constraint the possible  binding scenarios, and   that any one can  thus be
+implemented (including third-party binding, cf. [<a href="#DangTran96" name="CITEDangTran96">3</a>]). 
+
+</p><p>
+Explicit binding  is used by  the <tt>Stream</tt> binding factory provided with
+the    Jonathan   DPE,    to     create     multicast RTP    channels     (cf.&nbsp;Section&nbsp;<a href="#ss:streams">3.3</a>). 
+
+</p><p>
+      </p><h2><a name="tth_sEc3">
+3</a>&nbsp;&nbsp;Building a CORBA ORB on top of the Jonathan kernel</h2>
+<a name="sec:corba">
+</a>
+
+<p>
+Building a CORBA 2.0 ORB on top of the Jonathan kernel means providing:
+
+</p><ul>
+<p>
+
+</p><li>  a CORBA <em>personality</em>, namely the  standard set of CORBA APIs (ORB,
+  Object, etc) and an  IDL to Java  mapping (defining in particular the mapping
+  between the CORBA type system and the Jonathan reference type system); 
+
+</li><li> CORBA binding factories, and in particular an IIOP binding factory.
+</li></ul>
+<p>
+      </p><h3><a name="tth_sEc3.1">
+3.1</a>&nbsp;&nbsp;The CORBA personality</h3>
+<a name="ss:corba">
+</a>
+
+<p>
+The CORBA<a href="#tthFtNtABC" name="tthFrefABC"><sup>12</sup></a>  personality is implemented as a set of
+four  packages containing the  standard CORBA definitions.  The only extensions
+of  the   CORBA   standard  can     be  found   in  the    implementations   of
+<tt>org.omg.CORBA.Object</tt> and <tt>org.omg.CORBA.ORB</tt>. 
+
+</p><p>
+
+</p><ul>
+<li>                <tt>org.omg.CORBA.Object</tt>         extends          the
+  <tt>jonathan.kernel.Surrogate</tt>  interface.  It   is natural in  Jonathan,
+  since   the    CORBA    ORB   class  must   be    able   to   implement   the
+  <tt>object_to_string</tt> method, that  turns an object  into a stringified
+  IOR.  We  have seen above (cf.&nbsp;footnote&nbsp;<a href="#foot:ior">8</a>) that IORs are a
+  mere   encoding of  IfRefs,      and  consequently  the existence    of   the
+  <tt>object_to_string</tt> method  implies  that   it must be    possible to
+  associate an IfRef  to  any <tt>org.omg.CORBA.Object</tt>,  which  means that
+  CORBA objects are surrogates.  
+
+</li><li>  As stated above, the role  of a personality  is also to provide a bridge
+  between the personality type system and the  reference type system to binding
+  factories.    This is  expressed   in Jonathan  by   some  additions to   the
+  <tt>org.omg.CORBA.ORB</tt> class.  
+  
+<ul>
+<p>
+  
+</p><li>   method  <tt>corba2java</tt> turns   a  CORBA  type, described  by its
+    interface repository representation, to the  corresponding Java type string
+    representation.  
+  
+</li><li> method <tt>java2corba</tt> performs the inverse transformation.
+  </li></ul>
+<p>
+  The CORBA personality needs not provide translation methods for binding types
+  since binding  types  are  represented by  integers  constants both  in CORBA
+  (``profile ids'') and Jonathan.
+</p></li></ul>
+<p>
+The  Jonathan implementation  provides  a <em>stub  factory</em>.  In the  ReTINA
+architecture, a stub factory  is simply an  object whose role is to instantiate
+stubs and skeletons.  As it  is a <em>CORBA</em>  stub factory, it comes with  an
+IDL  compiler that generates code  for stubs.   An  interesting property of the
+current  Jonathan  stub factory is   that it is  independent  of the underlying
+protocols, and of the binding factories that may use it.   That's how all three
+binding factories provided   with Jonathan (see  Section&nbsp;<a href="#ss:adapters">3.2</a>) can
+use the same stubs, even though they are based on different protocols. A simple
+smart stub mechanism is also provided. 
+
+</p><p>
+Like in standard CORBA implementations, the  generated stubs are CORBA Objects,
+and thus  surrogates.   The generated  skeletons  are  also CORBA  objects, and
+implement the <tt>LocalSurrogate</tt> interface.  This way, the local surrogate
+abstraction may be introduced at no  cost in the system:  when an invocation is
+received from a remote capsule, there is  no unnecessary indirection due to the
+existence of a local surrogate. 
+
+</p><p>
+The         resulting interface     types    hierarchy       is   depicted   on
+Figure&nbsp;<a href="#fig:hierarchy">5</a>. 
+
+</p><p>
+
+</p><p><a name="tth_fIg5">
+</a>   
+</p><center>        <img src="framework-body_files/hierarchy-ok.gif" alt="images/hierarchy-ok.gif"><br>     <center>      Figure 5: Interface types hierarchy</center>
+    <a name="fig:hierarchy">
+</a>
+  </center>
+<p>
+</p><p>       </p><h3><a name="tth_sEc3.2">
+3.2</a>&nbsp;&nbsp;Binding factories</h3>
+<a name="ss:adapters">
+</a>
+
+<p>
+CORBA Object  Adapters can be  understood as  server-side interfaces to binding
+factories.  In particular, the <tt>create</tt> operation on the <tt>BOA</tt> is
+a specific form of <tt>export</tt>. 
+
+</p><p>
+Jonathan doesn't  provide a standard <tt>BOA</tt>  interface, but three binding
+factories.  As we have seen, binding factories are responsible for the creation
+and  management of  bindings, and  rest on specific  libraries (protocols, stub
+factories, personalities) to achieve this. 
+
+</p><p>
+Jonathan provides five <em>independent</em> protocol packages built following the
+binding    and  communication  framework  sketched   in  the  introduction: The
+<tt>protocols.tcpip</tt> package represents the TCP/IP protocol (it is built on
+top  of  the  <tt>java.net</tt>  package), the   <tt>protocols.multicastip</tt>
+package   lets  the user  open multicast   channels, the <tt>protocols.rtp</tt>
+package  is   a    limited   implementation  of    the   Real Time    Protocol,
+<tt>protocols.giop</tt> provides  an implementation of  CORBA's GIOP  protocol,
+and <tt>protocols.miop</tt> provides an implementation  of a simpler invocation
+protocol. 
+
+</p><p>
+In Jonathan 1.2, all three binding factories use  the same personality and stub
+factory, but use different protocols. 
+
+</p><ul>
+<p>
+
+</p><li>  The  IIOP  binding  factory implements  the  IIOP protocol,  by
+  stacking the GIOP protocol on top of TCP/IP.  It allows implicit binding. 
+
+<p>
+  The   binding   data used   by  the  IIOP    binding factory   implement  the
+  <tt>BindingData</tt>           interface,       and      extend           the
+  <tt>org.omg.IIOP.ProfileBody</tt> class: Consequently,   they contain a  host
+  name, a port number, and a key (represented as an array of bytes encoding the
+  IfRef key).  
+
+</p></li><li> The JIOP binding factory stacks the MIOP protocol  on top of TCP/IP. It
+  is more experimental, and  could be modified  so that, for instance, two-ways
+  operations use TCP connections while one-way operations on the same interface
+  use UDP connections. 
+
+</li><li> The Stream  binding factory stacks the  RTP protocol on top of  Multicast
+  IP. It is further explained with an example in the next section. 
+</li></ul>
+<p>
+      </p><h3><a name="tth_sEc3.3">
+3.3</a>&nbsp;&nbsp;A CORBA Stream binding factory</h3>
+<a name="ss:streams">
+</a>
+
+<p>
+In this  section,  we shall describe   with an example  how the  Stream binding
+factory provided in Jonathan works, and how it can be used. 
+
+</p><p>
+The  Stream  binding  factory creates  ``abstract'' typed  objects representing
+multicast RTP channels. These objects are abstract in the sense that no capsule
+contains a real implementation of such objects: they are only manifested to the
+users      by  surrogates   containing       a  specific  multicast     address
+(cf.&nbsp;Figure&nbsp;<a href="#fig:streams">6</a>). 
+
+</p><p>
+
+</p><p><a name="tth_fIg6">
+</a>   
+</p><center>        <img src="framework-body_files/streams-ok.gif" alt="images/streams-ok.gif"><br>     <center>      Figure 6: A stream channel</center>
+    <a name="fig:streams">
+</a>
+  </center>
+<p>
+</p><p>The  type  of  the   channel  is   defined by the     user thanks  to   an  IDL
+declaration. For instance, the following declaration can be used:
+
+</p><p>
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>  // IDL<br>
+  typedef sequence&lt;octet&gt; frame;<br>
+  interface DataChannel {<br>
+   &nbsp;&nbsp;&nbsp; oneway void send(in frame data);<br>
+  }
+</tt><p>
+</p></dd></dl>This declaration defines  a <tt>DataChannel</tt> type. Only  one-way operations
+are considered, and trying  to use two-ways   operations results in  a run-time
+exception. 
+
+<p>
+The binding  factory can create multicast  channels of a  given type, simply by
+providing the type, a class D  IP address, and a  standard UDP port number: The
+following invocation on <tt>StreamBF</tt> (the Stream binding factory), returns
+a surrogate of the multicast channel specified in the invocation: 
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  // Java<br>
+  DataChannel channel = (DataChannel)<br>
+   &nbsp;&nbsp;&nbsp; StreamBF.getInvocable("DataChannel","224.10.0.0",(short)9000);
+</tt></p></dd></dl>
+<p>
+The IP address and the port number  are stored as binding  data in the returned
+surrogate's  IfRef.  This   surrogate is implicitly    bound:  A  producer  can
+immediately emit data in  the  channel by invoking  a  method on the   returned
+object: 
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>
+</tt><p>
+<tt>  // Java<br>
+  channel.send(new byte[1024]);
+</tt></p></dd></dl>
+<p>
+At the first invocation on  the surrogate, a binding  object is created,  whose
+role is  to  compose RTP  packets  with the  data sent, and  write them  to the
+multicast channel.  This is signified on  Figure&nbsp;<a href="#fig:streams">6</a> by a binding
+object in the capsule of  the producer. The dotted   arrow between the  binding
+object and   the  stream channel   means that  the   binding object  is  also a
+surrogate. 
+
+</p><p>
+Since the returned interface  is a surrogate,  it can be  passed as argument in
+any CORBA invocation (even if another  binding factory is used).  For instance,
+it can be registered in a trader under the name <tt>"data_channel"</tt>. 
+
+</p><p>
+A   consumer   must    be an  implementation    of  the  <tt>DataChannel</tt>
+interface. To receive data, a consumer  must first retrieve  a reference on a
+channel (e.g.&nbsp;by invoking the  trader where the  channel is registered), and
+then explicitly   get bound  to   the  channel.  This   is   achieved by  the
+<tt>bindConsumer</tt> method of <tt>StreamBF</tt>:
+
+</p><p>
+
+</p><dl compact="compact"><dt><b></b></dt><dd><tt>  // Java<br>
+  DataChannel consumer = new DataConsumer();<br>
+  DataChannel channel = Trader.get("data_channel");<br>
+  StreamBindingCtl ctl = StreamBF.bindConsumer(consumer,channel);
+</tt></dd></dl>
+<p>
+The <tt>get</tt> invocation on the trader returns a  surrogate of the multicast
+channel.  At   this     point, the situation    is   that  of  consumer B    in
+Figure&nbsp;<a href="#fig:streams">6</a>:  there is a  surrogate of the   stream channel in the
+capsule.  The  <tt>bindConsumer</tt>   invocation   creates a  binding   object
+(represented in  the capsule of consumer  A) that  reads  RTP packets  from the
+multicast socket, and recomposes the original message before forwarding it to a
+consumer. 
+
+</p><p>
+<tt>ctl</tt> is a control interface of the binding  between the channel and the
+consumer. It comprises a <tt>release()</tt>  method that can   be used to  stop
+forwarding data from the  channel to the  consumer: the <tt>release</tt> method
+destroys the binding object created by <tt>bindConsumer</tt>.
+
+</p><p>
+      </p><h2><a name="tth_sEc4">
+4</a>&nbsp;&nbsp;Conclusion</h2>
+<a name="sec:conclusion">
+</a>
+
+<p>
+We have described in this paper a highly flexible  and modular DPE architecture
+organized   around a very   small binding-independent  core.  This architecture
+essentially introduces a distributed  reference abstraction properly interfaced
+with that of binding.  This  separation enables the encapsulation of  reference
+management  and binding  management in  different objects:  The  ORB kernel for
+references, and various binding factories for bindings.  It is thus possible to
+introduce  in  a modular fashion  new  bindings within  an  ORB  based  on this
+framework, while  retaining interoperability.  In  the case  of Java,  the  ORB
+kernel  could in fact be completely   <em>integrated</em> in the virtual machine:
+Surrogates are simply  an extension  of the notion   of object reference;  they
+could be implemented  in  a reflective Java  virtual  machine by modifying  the
+implementation of object references,  thus  enabling a seamless integration  of
+distribution in the language. 
+
+</p><p>
+The  current Java  implementation of  this  DPE architecture -Jonathan- has
+confirmed that it is  stable and generic enough  to accommodate arbitrary types
+of binding and communications mechanisms, while remaining efficient:
+
+</p><ul>
+<p>
+
+</p><li> We have been able to build a CORBA personality on  top of the DPE kernel,
+  featuring   a Stream  binding factory  that  shows   that,  for instance, non
+  client-server bindings  can be developed easily.   We could in  the same way
+  develop an RMI-like personality. 
+
+</li><li> Jonathan has not been developed with performance in mind. However, the few
+  performance  tests we made show  that  this implementation compares well with
+  commercial  CORBA implementations  like Visibroker  or OrbixWeb:  it is never
+  more than 40% slower than these implementations, and may be just as fast for
+  arrays of  basic  types for instance   (using IIOP).  Comparison with  RMI is
+  harder to analyze:  RMI is faster on very  simple cases, but may  become much
+  slower (up to 10 times) if serialization is used.  Moreover, Jonathan is able
+  to detect if the client  and server are in the  same capsule, and invocations
+  are direct calls in this   case.  RMI does not detect   this case, and  calls
+  systematically go through all the marshalling and demarshalling process. This
+  issue may become very important if objects are mobile.
+
+<p>
+  Jonathan also scales very  well, since we have   been able to test a  capsule
+  running 100,000 server objects, the  effect of the  number  of servers on  an
+  invocation duration being only related to swap overhead. 
+
+</p><p>
+  The last  point on performance  is that the  modular organization of Jonathan
+  makes it  very easy to add specific  protocols  for real-time, or  change the
+  stub  factory for a more specialized  one. Our experience with Jonathan shows
+  that the modular  and flexible architecture  we propose can be implemented at
+  no cost in terms of performance. 
+</p></li></ul>
+<p>
+Jonathan is available freely   for non-commercial use. Interested  readers  can
+contact  the  authors  to  obtain  a copy  of   the software (Java sources  are
+included). 
+
+</p><p>
+This work has  been   inspired  in part  by   the  Spring  distributed   system
+[<a href="#Spring93" name="CITESpring93">5</a>] and  the   SOR system [<a href="#Shapiro94" name="CITEShapiro94">15</a>].  Spring    provides the
+notion  of subcontract   that  allows application  programmers  to  define  new
+client-server  communication mechanisms.   SOR   provides a   flexible  binding
+protocol which  can be used to establish  arbitrary client-server bindings. The
+framework   proposed here generalizes  these  approaches to  arbitrary types of
+interactions and in particular to multi-party multimedia communication schemas.
+It also generalizes more language-dependent ORB designs such as Network Objects
+[<a href="#Birrell95" name="CITEBirrell95">1</a>] and Java-RMI [<a href="#Sun96" name="CITESun96">6</a>].  Our architecture  can also be seen
+as a weak form of the SSP  chains framework [<a href="#Plainfosse94" name="CITEPlainfosse94">13</a>]: in particular,
+the two reference  chains  invariants described in  Section&nbsp;<a href="#sss:refchains">2.2.3</a>
+are the first two invariants required for the proper integration of the garbage
+collection algorithm of [<a href="#Plainfosse94" name="CITEPlainfosse94">13</a>]. SSP chains could be developed as a
+specific binding factory maintaining  the remaining necessary invariants,  thus
+enabling acyclic garbage collection. 
+
+</p><p>
+Future work  on  Jonathan will focus  on  the areas of  resource management and
+admission control   in  order to   provide  full  support  for end-to-end  QoS.
+Reflexivity will be used  as the major  architectural principle to achieve this
+goal.   Opening the  virtual machine  in a reflective  way  would in particular
+allow  the implementation of the ReTINA  resource framework in  a very flexible
+and modular way:  The ReTINA resource  control  framework provides applications
+with access to the system-level resources they require for their execution, and
+this access is the first step towards quality of service management. 
+
+</p><p>
+ </p><h2>References</h2>
+<dl compact="compact">
+
+<p>
+</p><dt>[<a href="#CITEBirrell95" name="Birrell95">1</a>]</dt><dd>
+A.&nbsp;Birrell, Greg Nelson, Susan Owicki, and Edward Wobber.
+ Network objects.
+ SRC Research Report 115, Digital Systems Research Center, December
+  1995.
+
+<p>
+</p></dd><dt>[<a href="#CITEDangTran97b" name="DangTran97b">2</a>]</dt><dd>
+F.&nbsp;Dang&nbsp;Tran, B.&nbsp;Dumant, F.&nbsp;Horn, and J.-B. Stefani.
+ Towards an extensible and modular ORB framework.
+ In <em>Workshop on CORBA use and evaluation, ECOOP'97</em>,
+  Jyväskylä, Finland, june 1997.
+ submitted for publication.
+
+<p>
+</p></dd><dt>[<a href="#CITEDangTran96" name="DangTran96">3</a>]</dt><dd>
+F.&nbsp;Dang&nbsp;Tran, V.&nbsp;Perebaskine, J.-B. Stefani, B.&nbsp;Crawford, A.&nbsp;Kramer, and
+  D.&nbsp;Otway.
+ Binding and streams: the ReTINA approach.
+ In <em>Proceedings TINA'96 International Conference</em>, Heidelberg,
+  Germany, September 1996.
+
+<p>
+</p></dd><dt>[<a href="#CITEDumant98" name="Dumant98">4</a>]</dt><dd>
+B.&nbsp;Dumant, F.&nbsp;Dang&nbsp;Tran, F.&nbsp;Horn, and J.-B. Stefani.
+ Jonathan: an open distributed processing environment in java.
+ In N.&nbsp;Davies, K.&nbsp;Raymond, and J.&nbsp;Seitz, editors, <em>Middleware'98:
+  IFIP International Conference on Distributed Systems Platforms and Open
+  Distributed Processing</em>, The Lake District, U.K., September 1998.
+
+<p>
+</p></dd><dt>[<a href="#CITESpring93" name="Spring93">5</a>]</dt><dd>
+G.&nbsp;Hamilton, M.&nbsp;Powell, and J.&nbsp;Mitchell.
+ Subcontract: a flexible base for distributed programming.
+ In <em>Proceedings of the 14th Symposium on Operating Systems
+  Principles</em>, Asheville NC, December 1993.
+
+<p>
+</p></dd><dt>[<a href="#CITESun96" name="Sun96">6</a>]</dt><dd>
+Sun Microsystems.
+ Java Remote Method Invocation Specification.
+ Technical report, Sun Microsystems, Moutain View, CA, USA, May 1996.
+
+<p>
+</p></dd><dt>[<a href="#CITEX901" name="X901">7</a>]</dt><dd>
+ODP Reference Model: Overview.
+ ITU-T <font face="symbol">|</font> ISO/IEC Recommendation X.901 <font face="symbol">|</font> International
+  Standard 10746-1, 1995.
+
+<p>
+</p></dd><dt>[<a href="#CITEX902" name="X902">8</a>]</dt><dd>
+ODP Reference Model: Foundations.
+ ITU-T <font face="symbol">|</font> ISO/IEC Recommendation X.902 <font face="symbol">|</font> International
+  Standard 10746-2, 1995.
+
+<p>
+</p></dd><dt>[<a href="#CITEX903" name="X903">9</a>]</dt><dd>
+ODP Reference Model: Architecture.
+ ITU-T <font face="symbol">|</font> ISO/IEC Recommendation X.903 <font face="symbol">|</font> International
+  Standard 10746-3, 1995.
+
+<p>
+</p></dd><dt>[<a href="#CITEX904" name="X904">10</a>]</dt><dd>
+ODP Reference Model: Architectural semantics.
+ ITU-T <font face="symbol">|</font> ISO/IEC Recommendation X.904 <font face="symbol">|</font> International
+  Standard 10746-4, 1995.
+
+<p>
+</p></dd><dt>[<a href="#CITEOMG95" name="OMG95">11</a>]</dt><dd>
+The Common Object request Broker: Architecture and Specification, CORBA V2.0.
+ Object Management Group, July 1995.
+
+<p>
+</p></dd><dt>[<a href="#CITExkernel" name="xkernel">12</a>]</dt><dd>
+L.&nbsp;L. Peterson, N.&nbsp;Hutchinson, S.&nbsp;O'Malley, and M.&nbsp;Abbott.
+ RPC in the <i>x</i>-kernel: Evaluating new design techniques.
+ In <em>Proc. of the 12th ACM Symp. on Operating Systems Principles</em>,
+  pages 91-101, Litchfield Park, AZ, USA, November 1989.
+
+<p>
+</p></dd><dt>[<a href="#CITEPlainfosse94" name="Plainfosse94">13</a>]</dt><dd>
+D.&nbsp;Plainfosse.
+ <em>Distributed garbage collection and referencing management in the
+  Soul object support system</em>.
+ PhD thesis, University of Paris VI, Paris, France, June 1994.
+
+<p>
+</p></dd><dt>[<a href="#CITEretina" name="retina">14</a>]</dt><dd>
+http://www.chorus.com/Documentation/retina.html.
+
+<p>
+</p></dd><dt>[<a href="#CITEShapiro94" name="Shapiro94">15</a>]</dt><dd>
+M.&nbsp;Shapiro.
+ A binding protocol for distributed shared objects.
+ In <em>14th International Conference on Distributed Computer Systems
+  (ICDCS)</em>, Poznan, Poland, June 1994.
+
+<p>
+</p></dd></dl> <hr><h3>Footnotes:</h3>
+
+<p><a name="tthFtNtAAB"></a><a href="#tthFrefAAB"><sup>1</sup></a> A shorter version of this paper ([<a href="#Dumant98" name="CITEDumant98">4</a>] has been accepted to the Middleware'98 conference.
+</p><p><a name="tthFtNtAAC"></a><a href="#tthFrefAAC"><sup>2</sup></a> Work partially supported by ACTS project ReTINA AC048
+</p><p><a name="tthFtNtAAD"></a><a href="#tthFrefAAD"><sup>3</sup></a> The term ``ORB'' should be
+understood   in  a  loose  way  throughout    this   article as   a distributed
+object-oriented  system,  not  necessarily a  CORBA   compliant platform.
+</p><p><a name="tthFtNtAAE"></a><a href="#tthFrefAAE"><sup>4</sup></a> In    the
+    following, we shall identify the type of  the bindings created by a binding
+    factory and the type of the binding factory itself.
+</p><p><a name="tthFtNtAAF"></a><a href="#tthFrefAAF"><sup>5</sup></a> plus a set of APIs and  language mappings.
+</p><p><a name="tthFtNtAAG"></a><a href="#tthFrefAAG"><sup>6</sup></a> This is the first invariant
+  that  must be maintained by  any ReTINA environment in  order to maintain the
+  integrity   of the associations  between   identifiers  and interfaces,  cf.&nbsp;  <a href="#sss:refchains">2.2.3</a>.
+</p><p><a name="tthFtNtAAH"></a><a href="#tthFrefAAH"><sup>7</sup></a> In
+Java (or C++),  the type  of an object   reference is not  necessarily the most
+refined  type  of the  designated  object,  but must be    a supertype of  that
+object. Likewise, the type  of a surrogate  is not necessarily the most refined
+type of the interface it represents, but must be one of its supertypes.
+</p><p><a name="tthFtNtAAI"></a><a href="#tthFrefAAI"><sup>8</sup></a> More sophisticated   <tt>export</tt> methods  could  manage e.g.&nbsp;offered quality of service descriptions, or more simply type information (it is
+the case of all binding factories in Jonathan 1.2).  Java RMI only provides the
+simplest    <tt>export</tt> form   as   the   <tt>exportObject</tt> method   of
+<tt>java.rmi.server.UnicastRemoteObject</tt>.
+</p><p><a name="tthFtNtAAJ"></a><a href="#tthFrefAAJ"><sup>9</sup></a> It may also contain other binding
+data,  if the same   interface has been previously   exported by other  binding
+factories.
+</p><p><a name="tthFtNtABA"></a><a href="#tthFrefABA"><sup>10</sup></a>   The  exact  format   of encoded
+  IfRefs  is protocol  dependent:  For instance, if  IIOP  is used,  IfRefs are
+  marshalled  as Interoperable Object References  (IORs).
+</p><p><a name="tthFtNtABB"></a><a href="#tthFrefABB"><sup>11</sup></a> If a  surrogate bearing the same IfRef  exists in the capsule,
+  it can be used, otherwise a new surrogate must be created.
+</p><p><a name="tthFtNtABC"></a><a href="#tthFrefABC"><sup>12</sup></a> Jonathan only implements  a subset of CORBA  2.0. It is  not
+complete since  CORBA  features like  the  <tt>Any</tt>  type or the  Interface
+Repository are not implemented.  However, the implemented subset is rich enough
+to implement non-trivial applications.
+</p><p></p><hr><small>File translated from T<sub><font size="-1">E</font></sub>X by <a href="http://hutchinson.belmont.ma.us/tth/">T<sub><font size="-1">T</font></sub>H</a>, version 1.58.</small>
+
+</body></html>

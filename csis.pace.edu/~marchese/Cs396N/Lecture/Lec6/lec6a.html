@@ -1,0 +1,103 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec6a</title>
+</head>
+<body text="#000000" bgcolor="#E5E5E5" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+13 - AWT Components Continued</font></font></b></td>
+</tr>
+</table>
+
+<h3>
+<font face="Arial,Helvetica">The TextField Class</font></h3>
+<applet HEIGHT="200" WIDTH="250" CODE="TextFields">
+<br></applet>
+<p><b><tt>import java.applet.Applet;</tt></b>
+<br><b><tt>import java.awt.*;</tt></b><b><tt></tt></b>
+<p><b><tt>public class TextFields extends Applet {</tt></b>
+<br><b><tt>&nbsp; public void init() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(new TextField()); <font color="#000099">//
+Four Constructors</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(new TextField(30));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(new TextField("Initial String"));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(new TextField("Initial", 30));</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><font face="Arial,Helvetica"><font size=+1>Pop-Up Menus</font></font></b>
+<p><applet HEIGHT="200" WIDTH="200" CODE="ColorPopupMenu">
+<br></applet>
+<p><b><tt>import java.applet.Applet;</tt></b>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<br>&nbsp;
+<p><b><tt>public class ColorPopupMenu extends Applet</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="#CC0000">implements ActionListener</font>{</tt></b>
+<br><b><tt>&nbsp; private String[] colorNames = { "White", "Light Gray",
+"Gray", "Dark Gray", "Black" };</tt></b>
+<br><b><tt>&nbsp; private Color[] colors = { Color.white, Color.lightGray,
+Color.gray,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color.darkGray, Color.black };</tt></b>
+<p><b><tt>&nbsp; private <font color="#CC0000">PopupMenu</font> menu;</tt></b>
+<p><b><tt>&nbsp; /** Create PopupMenu and add MenuItems. */</tt></b>
+<p><b><tt>&nbsp; public void init() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setBackground(Color.gray);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;<font color="#CC0000"> menu = new PopupMenu("Background
+Color");</font></tt></b>
+<br><b><tt><font color="#CC0000">&nbsp;&nbsp;&nbsp; enableEvents(AWTEvent.MOUSE_EVENT_MASK);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; MenuItem colorName;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;colorNames.length; i++)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#CC0000">colorName
+= new MenuItem(colorNames[i]);</font></tt></b>
+<br><b><tt><font color="#CC0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu.add(colorName);</font></tt></b>
+<br><b><tt><font color="#CC0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; colorName.addActionListener(this);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu.addSeparator();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(menu);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public void <font color="#CC0000">processMouseEvent</font>(MouseEvent
+event) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (event.<font color="#CC0000">isPopupTrigger</font>())
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#CC0000">menu.show</font>(event.getComponent(),
+event.getX(),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+event.getY());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; super.processMouseEvent(event);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public void <font color="#CC0000">actionPerformed</font>(ActionEvent
+event) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setBackground(colorNamed(event.getActionCommand()));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; private Color colorNamed(String colorName) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;colorNames.length; i++)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(colorNames[i].equals(colorName))
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return(colors[i]);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(Color.white);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+</body>
+</html>

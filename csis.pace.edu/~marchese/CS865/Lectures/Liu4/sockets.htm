@@ -1,0 +1,3307 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="sockets_files/filelist.xml">
+<link rel=Edit-Time-Data href="sockets_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>The Socket API</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Francis Marchese</o:Author>
+  <o:LastAuthor>Francis Marchese</o:LastAuthor>
+  <o:Revision>11</o:Revision>
+  <o:TotalTime>248</o:TotalTime>
+  <o:Created>2007-02-02T22:33:00Z</o:Created>
+  <o:LastSaved>2007-02-03T18:56:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2907</o:Words>
+  <o:Characters>16571</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>138</o:Lines>
+  <o:Paragraphs>38</o:Paragraphs>
+  <o:CharactersWithSpaces>19440</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:22.0pt;
+	font-family:"Times New Roman";
+	color:#221304;
+	mso-font-kerning:0pt;
+	font-weight:normal;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+a:link, span.MsoHyperlink
+	{color:#660066;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:73.45pt 49.6pt 73.45pt 49.6pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:4140879;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1769751022 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:132873725;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1757944060 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:659116208;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1467324360 67698689 -179947782 -976206424 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%3\)";
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.5in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:739644107;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1018820008 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:830951224;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1785011790 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:931473411;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1961148518 -179947782 67698691 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:1026634419;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-778399024 67698689 67698691 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l6:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:1118259444;
+	mso-list-type:hybrid;
+	mso-list-template-ids:397964610 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:1415933697;
+	mso-list-type:hybrid;
+	mso-list-template-ids:585892532 67698689 67698689 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:1794247083;
+	mso-list-type:hybrid;
+	mso-list-template-ids:169620054 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l9:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10
+	{mso-list-id:1800566644;
+	mso-list-template-ids:-935266648;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:1854028146;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-115971224 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l11:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12
+	{mso-list-id:1883322417;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-331295586 67698689 67698691 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l12:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13
+	{mso-list-id:1909462844;
+	mso-list-type:hybrid;
+	mso-list-template-ids:154813418 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14
+	{mso-list-id:1915578284;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1126824168 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15
+	{mso-list-id:2000304803;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1996559684 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16
+	{mso-list-id:2095584766;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1997535044 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="5122">
+  <o:colormru v:ext="edit" colors="#f8f8f8,#eaeaea"/>
+  <o:colormenu v:ext="edit" fillcolor="#eaeaea"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#EAEAEA" lang=EN-US link="#660066" vlink=purple
+style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=1247
+ style='width:935.25pt;mso-cellspacing:0in;background:#FFFFCC;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;height:32.25pt'>
+  <td width=1247 valign=top style='width:935.25pt;padding:0in 0in 0in 0in;
+  height:32.25pt'>
+  <h2>CS865 – Distributed Software Development</h2>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:32.25pt'>
+  <td width=1247 valign=top style='width:935.25pt;background:#FFFF99;
+  padding:0in 0in 0in 0in;height:32.25pt'>
+  <h2>The Socket API</h2>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial'>Based on:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l14 level1 lfo3;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+mso-bidi-font-weight:bold'>M.L. Liu, <i>Distributed Computing: Principles and
+Applications</i>, Addison-Wesley, 2004, ISBN-10: 0201796449</span><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l14 level1 lfo3;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+mso-bidi-font-weight:bold'>Java Sockets 101 – <a href="Javasockets.pdf">PDF</a>
+</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:#221304'>Also See:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l15 level1 lfo32;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:#221304'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:#221304'><a
+href="http://java.sun.com/docs/books/tutorial/networking/sockets/index.html">http://java.sun.com/docs/books/tutorial/networking/sockets/index.html</a>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:18.0pt;font-family:Arial;color:blue'>Introduction<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:blue'>Socket
+Definition</span><span style='font-size:22.0pt;font-family:Arial;color:blue'>: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;font-family:Arial'>Bruce Eckel (<i>Thinking in Java)</i>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><i><span style='font-size:14.0pt;font-family:Arial'>The
+socket is the software abstraction used to represent the &quot;terminals&quot; of
+a connection between two machines. <o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><i><span style='font-size:14.0pt;font-family:Arial'>For a
+given connection, there's a socket on each machine, and you can imagine a
+hypothetical &quot;cable&quot; running between the two machines with each end
+of the &quot;cable&quot; plugged into a socket. <o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><i><span style='font-size:14.0pt;font-family:Arial'>Of
+course, the physical hardware and cabling between machines is completely
+unknown. <o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><i><span style='font-size:14.0pt;font-family:Arial'>The
+whole point of the abstraction is that we don't have to know more than is
+necessary.</span></i><span style='font-size:14.0pt;font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:black'>•The
+socket API is an Interprocessing Communication (IPC) programming interface
+originally provided as part of the Berkeley UNIX operating system.</span><span
+style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:black'>•<i
+style='mso-bidi-font-style:normal'>D<span style='mso-bidi-font-style:italic'>e
+facto</span></i> standard for programming IPC - the basis of more sophisticated
+IPC interface such as remote procedure call and remote method invocation.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:blue'>The
+conceptual model of the socket API </span><span style='font-size:16.0pt;
+font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:blue;
+display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:387.75pt;
+ height:228.75pt'>
+ <v:imagedata src="sockets_files/image001.jpg" o:title="fg4-1"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=517 height=305
+src="sockets_files/image002.jpg" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:blue'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:blue'>The socket API</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS";color:blue;display:none;
+mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l9 level1 lfo5;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>A socket API provides a programming construct
+termed a socket.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l9 level1 lfo5;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>A process wishing to communicate with another
+process must create an instance, or instantiate, such a construct </p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l9 level1 lfo5;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:black'>The two processes then issues operations provided by the API to
+send and receive data.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>Connection-oriented
+&amp; connectionless datagram socket</span></b><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:black'>A
+socket programming construct can make use of either the </span><span
+style='font-size:14.0pt;font-family:Arial;color:blue'>UDP</span><span
+style='font-size:14.0pt;font-family:Arial;color:black'> or </span><span
+style='font-size:14.0pt;font-family:Arial;color:blue'>TCP</span><span
+style='font-size:14.0pt;font-family:Arial;color:black'> protocol.<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l6 level1 lfo7;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>Sockets that use </span><span style='font-size:14.0pt;font-family:
+Arial;color:blue'>UDP</span><span style='font-size:14.0pt;font-family:Arial;
+color:black'> for transport are known as <b><i>datagram sockets</i></b><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l6 level1 lfo7;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>Sockets that use </span><span style='font-size:14.0pt;font-family:
+Arial;color:blue'>TCP</span><span style='font-size:14.0pt;font-family:Arial;
+color:black'> are termed <b><i>stream sockets</i></b>. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l6 level1 lfo7;
+tab-stops:list .5in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>TCP
+sockets (implemented by the Java Socket class)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l6 level1 lfo7;
+tab-stops:list .5in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>UDP
+sockets (implemented by the Java DatagramSocket class)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l6 level2 lfo7;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New";color:black'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;color:blue'>Datagram
+sockets</span><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;color:black'> can support both <b>connectionless</b> and <b>connection-oriented</b>
+communication at the application layer. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+Arial'>TCP and UDP play the same role, but do it differently</span></b><span
+style='font-size:14.0pt;font-family:Arial'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l6 level1 lfo7;
+tab-stops:list .5in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>Both
+receive transport protocol packets and pass along their contents to the
+Presentation Layer. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l6 level1 lfo7;
+tab-stops:list .5in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>T<span
+style='color:blue'>CP</span> divides messages into packets (<i>datagrams</i>)
+and reassembles them in the correct sequence at the receiving end. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l6 level2 lfo7;
+tab-stops:list 1.0in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>It
+also handles requesting retransmission of missing packets. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l6 level2 lfo7;
+tab-stops:list 1.0in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>With
+TCP, the upper-level layers have much less to worry about. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l6 level1 lfo7;
+tab-stops:list .5in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:blue'>UDP</span><span style='font-size:14.0pt;font-family:Arial'> doesn't
+provide assembly and retransmission requesting features. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l6 level2 lfo7;
+tab-stops:list 1.0in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>It
+simply passes packets along. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l6 level2 lfo7;
+tab-stops:list 1.0in;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>The
+upper layers have to make sure that the message is complete and assembled in
+correct sequence.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:blue'>The
+Java Datagram Socket API</span><span style='font-size:16.0pt;font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS";color:blue;display:none;mso-hide:
+all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:black'>In
+Java, two classes are provided for the datagram socket API:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l5 level1 lfo9;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Arial;mso-fareast-font-family:Arial;color:black'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>the <b><i>DatagramSocket </i></b>class for the sockets.</span><span
+style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l5 level1 lfo9;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Arial;mso-fareast-font-family:Arial;color:black'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>the <b><i>DatagramPacket</i></b> class for the datagram exchanged.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;color:black;
+display:none;mso-hide:all'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>A process wishing to send or receive data using this API must
+instantiate a DatagramSocket object, or a socket in short.<span
+style='mso-spacerun:yes'>   </span></span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS";color:black;display:none;mso-hide:
+all'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;color:black;
+display:none;mso-hide:all'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>Each socket is said to be<b> <i>bound</i></b> to a UDP port of the
+machine local to the process <br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:black'>To </span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+Arial;color:blue'>send</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:black'> a datagram to another
+process, a process:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo13;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>creates an object that represents the datagram itself.<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo13;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>This object can be created by<span style='mso-spacerun:yes'> 
+</span>instantiating a <b><i>DatagramPacket </i></b>object which carries<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l2 level2 lfo13;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Arial;mso-fareast-font-family:Arial;color:black'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>the payload data as a reference to a byte array, and <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l2 level2 lfo13;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Arial;mso-fareast-font-family:Arial;color:black'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>the destination address (the host ID and port number to which the
+receiver’s socket is bound.</span><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo15;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>issues a call to a <b><i>send</i></b> method in the <b><i>DatagramSocket
+</i></b>object, specifying a reference to the <b><i>DatagramPacket</i></b>
+object as an argument<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:blue'>Receiving
+process</span><span style='font-size:14.0pt;font-family:Arial;color:black'> - a
+<b><i>DatagramSocket</i></b> object:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo15;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>must be instantiated and bound to a local port<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo15;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>the port number must agree with that specified in the datagram
+packet of the sender.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level2 lfo15;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>the receive process creates a <b><i>datagramPacket</i></b> object
+which references a byte array and calls a <b><i>receive </i></b>method in its <b><i>DatagramSocket</i></b>
+object, specifying as argument a reference to the <b><i>DatagramPacket</i></b>
+object.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:#221304'>The
+Data Structures in the sender and receiver programs<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:#221304'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:387pt;height:267.75pt'>
+ <v:imagedata src="sockets_files/image005.jpg" o:title="fg4-3"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=516 height=357
+src="sockets_files/image003.jpg" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;font-family:Arial;color:#221304'>The
+program flow in the sender and receiver programs </span><span style='font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS";color:black;display:none;
+mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:512.25pt;height:213.75pt'>
+ <v:imagedata src="sockets_files/image007.jpg" o:title="fg4-4"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=683 height=285
+src="sockets_files/image004.jpg" v:shapes="_x0000_i1027"><![endif]><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:blue'>Connectionless sockets</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS";color:blue;display:none;
+mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo17;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>Possible for multiple processes to simultaneously send datagrams to
+the same socket established by a receiving process<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo17;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>The order of the arrival of these messages will be unpredictable,
+in accordance with the UDP protocol </span><span style='font-size:14.0pt;
+font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:#221304'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:758.25pt;height:345pt'>
+ <v:imagedata src="sockets_files/image014.jpg" o:title="fg4-8"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1011 height=460
+src="sockets_files/image006.jpg" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:#221304'>Setting timeout</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS";color:black;display:none;
+mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l16 level1 lfo19;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>To avoid indefinite blocking, a timeout can be set with a socket
+object:</span><span style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='font-size:14.0pt;
+font-family:Arial;color:black'>void <a
+href="http://java.sun.com/j2se/1.3/docs/api/java/net/DatagramSocket.html"
+target="_parent">setSoTimeout</a></span></b><span style='font-size:14.0pt;
+font-family:Arial;color:black'>(int&nbsp;timeout) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l16 level1 lfo19;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>Set a timeout for the blocking receive from this socket, in
+milliseconds.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l16 level1 lfo19;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;display:none;mso-hide:all'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black'>Once set, the timeout will be in effect for all blocking
+operations.</span><span style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>Key Methods and
+Constructors</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:512.25pt;height:369pt'>
+ <v:imagedata src="sockets_files/image011.jpg" o:title="fg4-6"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=683 height=492
+src="sockets_files/image008.jpg" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>The coding </span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS";color:black;display:none;
+mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1030" type="#_x0000_t75" style='width:762.75pt;height:290.25pt'>
+ <v:imagedata src="sockets_files/image013.jpg" o:title="fg4-7"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1017 height=387
+src="sockets_files/image013.jpg" v:shapes="_x0000_i1030"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;font-family:Arial;
+color:#221304'>Event synchronization with the connectionlss datagram socketsAPI</span></b><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:black;
+display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75"
+ style='width:528.75pt;height:391.5pt'>
+ <v:imagedata src="sockets_files/image009.jpg" o:title="fg4-5"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=705 height=522
+src="sockets_files/image009.jpg" v:shapes="_x0000_i1031"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:red'>Example 1:</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+Arial'> One-way communication between two process<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:"Courier New"'>Example1Sender.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes;height:576.4pt'>
+  <td width=807 valign=top style='width:605.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:576.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.io.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* This example illustrates the basic method
+  calls for connectionless<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* datagram socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>public class Example1Sender {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// An application which sends a
+  message using connectionless<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// datagram socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// Three command line arguments
+  are expected, in order: <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;domain name or IP address of the
+  receiver&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;port number of the receiver's
+  socket&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;message, a string, to send&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>public static void
+  main(String[] args) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>if (args.length != 3)<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>System.out.println<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>(&quot;This program requires
+  three command line arguments&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>else {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>try {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:2'>        </span><span
+  style='mso-spacerun:yes'>      </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>InetAddress</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'> receiverHost = </span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>InetAddress.getByName(args[0]);</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:2'>        </span><span
+  style='mso-spacerun:yes'>      </span>int receiverPort =
+  Integer.parseInt(args[1]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span><span
+  style='mso-spacerun:yes'>         </span>String message = args[2];<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:1'>   </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>// instantiates a datagram socket
+  for sending the data<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span><span style='mso-tab-count:1'>  </span><span
+  style='mso-spacerun:yes'>      </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>DatagramSocket</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'><span style='mso-tab-count:1'>    </span>mySocket = new </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>DatagramSocket()</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>;<span
+  style='mso-spacerun:yes'>           </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>byte[ ] buffer =
+  message.getBytes( );<span
+  style='mso-spacerun:yes'>                                </span><span
+  style='mso-spacerun:yes'>     </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>DatagramPacket</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'> datagram = <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>               </span>new </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>DatagramPacket(buffer, buffer.length, <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'><span
+  style='mso-spacerun:yes'>                                 
+  </span>receiverHost, receiverPort);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>mySocket.send(datagram);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>mySocket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>} // end try<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'> </span>catch (Exception ex) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>       </span>ex.printStackTrace( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'> </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>} // end else<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>} // end main<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>} // end class</span></b><span
+  style='font-family:"Courier New";color:#221304'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:18.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:#221304'>Example1Receiver.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=807 valign=top style='width:605.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.io.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* This example illustrates the basic method
+  calls for connectionless<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* datagram socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>public class Example1Receiver
+  {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// An application which receives
+  a message using connectionless<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// datagram socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// A command line argument is
+  expected, in order: <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;port number of the receiver's
+  socket&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// Note: the same port number
+  should be specified in the<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// command-line arguments for the
+  sender.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>public static void main(String[] args) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>if (args.length != 1)<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>System.out.println<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>(&quot;This program requires a
+  command line argument.&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>else {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  3'>              </span>int port = Integer.parseInt(args[0]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>final int MAX_LEN = 10; <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>// This is the assumed maximum
+  byte length of the <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>//<span
+  style='mso-spacerun:yes'>      </span>datagram to be received.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  3'>              </span>try {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span><span style='mso-tab-count:1'>  </span><span
+  style='mso-spacerun:yes'>      </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>DatagramSocket</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'><span style='mso-tab-count:1'>    </span>mySocket = new </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>DatagramSocket(port);</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>               </span>// instantiates a datagram
+  socket for receiving the data<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>byte[ ] buffer = new
+  byte[MAX_LEN];<span
+  style='mso-spacerun:yes'>                                     </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>DatagramPacket</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'> datagram = <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>               </span>new </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>DatagramPacket(buffer, MAX_LEN);</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:#221304'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>mySocket.receive(datagram);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>String message = new
+  String(buffer);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>System.out.println(message);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>mySocket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>} // end try<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'> </span>catch (Exception ex) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>        </span>ex.printStackTrace( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'> </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>} // end else<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>} // end main<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>} // end class<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:18.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:red'>Example 2:</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+Arial'> Two-way communication between two process<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo21;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:blue'>Example1Sender</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+"Courier New"'> </span></b><span style='font-size:14.0pt;font-family:Arial'>must
+bind its socket to a specific address so </span><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt;font-family:"Courier New";color:blue'>Example1Receiver</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+"Courier New"'> </span></b><span style='font-size:14.0pt;font-family:Arial'>can
+send data datagrams to that address.</span><span style='font-size:16.0pt;
+font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo21;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:blue'>MyDatagramSocket.java
+</span></b><span style='font-size:14.0pt;font-family:Arial'>is created as a
+subclass of </span><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:blue'>DatagramSocket</span></b><span
+style='font-size:14.0pt;font-family:Arial'> with two instances for sending and
+receiving messages.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo21;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:blue'>Example2SenderReceiver</span></b><span
+style='font-size:14.0pt;font-family:Arial;color:#221304'> program instantiates
+a </span><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;
+font-family:"Courier New";color:blue'>MyDatagramSocket </span></b><span
+style='font-size:14.0pt;font-family:Arial'>object then calls its </span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+"Courier New";color:blue'>sendMessage</span></b><span style='font-size:14.0pt;
+font-family:Arial'> method followed by a call to </span><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt;font-family:"Courier New";color:blue'>receiveMessage</span></b><span
+style='font-size:14.0pt;font-family:Arial'>. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo21;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:#221304'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial'>Example2ReceiverSender
+instantiates a </span><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:blue'>MyDatagramSocket </span></b><span
+style='font-size:14.0pt;font-family:Arial'>object then calls its </span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;font-family:
+"Courier New";color:blue'>receiveMessage</span></b><span style='font-size:14.0pt;
+font-family:Arial'> method followed by a call to </span><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt;font-family:"Courier New";color:blue'>sendMessage</span></b><span
+style='font-size:14.0pt;font-family:Arial'>.<span style='color:#221304'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:#221304'>MyDatagramSocket.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=815 valign=top style='width:611.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.io.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'><span
+  style='mso-spacerun:yes'> </span>* A subclass of DatagramSocket which
+  contains <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'><span
+  style='mso-spacerun:yes'> </span>* methods for sending and receiving messages<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'><span
+  style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'><span
+  style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>public class </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>MyDatagramSocket</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'> extends </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>DatagramSocket</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'> {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>static final int MAX_LEN = 100;<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>MyDatagramSocket(int
+  portNo)</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span>throws </span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>SocketException</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'>{<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>     </span>super(portNo);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>public void sendMessage(InetAddress
+  receiverHost, int receiverPort,<span
+  style='mso-spacerun:yes'>                  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>                           </span>String message)
+  throws IOException {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span><span style='mso-tab-count:2'>       </span><span
+  style='mso-spacerun:yes'>          </span><span style='mso-tab-count:1'>    </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>byte[ ] sendBuffer =
+  message.getBytes( );<span
+  style='mso-spacerun:yes'>                                     </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>DatagramPacket</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'> datagram = <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>new </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>DatagramPacket(sendBuffer, sendBuffer.length, <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'><span
+  style='mso-spacerun:yes'>                               </span>receiverHost,
+  receiverPort);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>this.send(datagram);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>} // end sendMessage<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>public String receiveMessage()<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  2'>          </span><span style='mso-spacerun:yes'>  </span>throws IOException
+  {<span style='mso-tab-count:2'>       </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>byte[ ] receiveBuffer = new
+  byte[MAX_LEN];<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>DatagramPacket</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'> datagram =<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>        </span>new </span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>DatagramPacket(receiveBuffer,
+  MAX_LEN);</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>this.receive(datagram);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>String message = new
+  String(receiveBuffer);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>return message;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>} //end receiveMessage<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>} //end class<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:#221304'>Example2SenderReceiver.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=815 valign=top style='width:611.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* This example illustrates a process which
+  sends then receives<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* using a datagram socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>public class </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>Example2SenderReceiver</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:#221304'> {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// An application which sends
+  then receives a message using<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// connectionless datagram
+  socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>// Four command line arguments
+  are expected, in order: <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;domain name or IP address of the
+  receiver&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;port number of the receiver's
+  datagram socket&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;port number of this process's
+  datagram socket&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:red'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;message, a string, to send&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>public static void main(String[] args) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>if (args.length != 4)<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>System.out.println<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>(&quot;This program requires four
+  command line arguments&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>else {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>try {<span
+  style='mso-spacerun:yes'>      </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:2'>        </span><span
+  style='mso-spacerun:yes'>      </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>InetAddress </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'>receiverHost = </span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>InetAddress.getByName(args[0]);</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>int receiverPort =
+  Integer.parseInt(args[1]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:2'>        </span><span
+  style='mso-spacerun:yes'>      </span>int myPort = Integer.parseInt(args[2]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>String message = args[3];<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span><span style='mso-tab-count:1'>  </span><span
+  style='mso-spacerun:yes'>   </span><span style='mso-spacerun:yes'>   </span></span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>MyDatagramSocket</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'> mySocket = new </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>MyDatagramSocket(myPort);</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>               </span>// instantiates a datagram
+  socket for both sending<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>               </span>// and receiving data<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>mySocket.sendMessage(
+  receiverHost, receiverPort, message);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  4'>                   </span>// now wait to receive a datagram from the
+  socket<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>           
+  </span>System.out.println(mySocket.receiveMessage());<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  4'>                   </span>mySocket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>} // end try<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'>      </span>catch (Exception
+  ex) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>ex.printStackTrace( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'>      </span>} //end catch<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>} //end else<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>} //end main <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>} //end class<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";color:#221304'>Example2ReceiverSender.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=799 valign=top style='width:599.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* This example illustrates a process which
+  sends then receives<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* using a datagram socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>public class </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:blue'>Example2ReceiverSender {</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:#221304'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>// An application which sends
+  then receives a message using<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>// connectionless datagram
+  socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>// Four command line
+  arguments are expected, in order: <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;domain name or IP address of the
+  receiver&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;port number of the receiver's
+  datagram socket&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;port number of this process's
+  datagram socket&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>//<span
+  style='mso-spacerun:yes'>    </span>&lt;message, a string, to send&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>public static void main(String[] args) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>if (args.length != 4)<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>System.out.println<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>(&quot;This program requires four
+  command line arguments&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>else {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>try {<span
+  style='mso-spacerun:yes'>      </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:2'>        </span><span
+  style='mso-spacerun:yes'>      </span></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";color:blue'>InetAddress </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'>receiverHost = </span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:blue'>InetAddress.getByName(args[0]);</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  color:#221304'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>int receiverPort =
+  Integer.parseInt(args[1]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:2'>        </span><span
+  style='mso-spacerun:yes'>      </span>int myPort = Integer.parseInt(args[2]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>String message = args[3];<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span><span style='mso-tab-count:1'>  </span><span
+  style='mso-spacerun:yes'>   </span><span
+  style='mso-spacerun:yes'>   </span>MyDatagramSocket mySocket = new
+  MyDatagramSocket(myPort);<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>               </span>// instantiates a datagram
+  socket for both sending<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>               </span>// and receiving data<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  4'>                   </span>// First wait to receive a datagram from the
+  socket<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>System.out.println(mySocket.receiveMessage());<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  2'>          </span><span style='mso-spacerun:yes'>      </span>// Now send a
+  message to the other process.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>mySocket.sendMessage(
+  receiverHost, receiverPort, message);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  4'>                   </span>mySocket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>         </span>} // end try<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'>      </span>catch (Exception
+  ex) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>            </span>ex.printStackTrace( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span style='mso-tab-count:
+  1'>     </span><span style='mso-spacerun:yes'>      </span>} //end catch<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>      </span>} //end else<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><span
+  style='mso-spacerun:yes'>   </span>} //end main <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";color:#221304'>} //end class<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:blue'>The Stream-mode Socket
+API</span></b><b style='mso-bidi-font-weight:normal'><span style='font-size:
+16.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:blue;
+display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l11 level1 lfo23;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:black'>The <b>datagram socket</b> API supports the exchange of discrete
+units of data (that is, datagrams).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l11 level1 lfo23;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:black'>The <b>stream socket</b> API provides a model of data transfer based
+on the stream-mode I/O of the Unix operating systems.<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l11 level1 lfo23;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:black'>By definition, a stream-mode socket supports connection-oriented
+communication only.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>Stream-mode Socket API
+(connection-oriented socket API)</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:black;
+display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>Stream-mode Socket API</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo25;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:black'>A stream-mode socket is established for data exchange between two
+specific processes.</span><span style='font-size:16.0pt;font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo25;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:black'>Data stream is written to the socket at one end, and read from the
+other end.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo25;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:16.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:16.0pt;font-family:Arial;
+color:black'>A stream socket cannot be used to communicate with more than one
+process.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;font-family:Arial;color:blue'>Java
+</span><span style='font-size:16.0pt;font-family:Arial;color:black'>stream-mode
+socket API is provided with </span><span style='font-size:16.0pt;font-family:
+Arial;color:blue'>two</span><span style='font-size:16.0pt;font-family:Arial;
+color:black'> classes: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l13 level1 lfo27;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:blue'>Server socket</span><span style='font-size:14.0pt;font-family:Arial;
+color:black'>: for accepting connections; we will call an object of this class
+a connection socket.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l13 level1 lfo27;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;display:none;mso-hide:all'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:blue'>Socket</span><span style='font-size:14.0pt;font-family:Arial;
+color:black'>: for data exchange; we will call an object of this class a data
+socket.</span><span style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'>The
+server (the connection listener)</span><span style='font-size:14.0pt;
+font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:black;
+display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1032" type="#_x0000_t75" style='width:512.25pt;height:246.75pt'>
+ <v:imagedata src="sockets_files/image022.jpg" o:title="fg4-12"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=683 height=329
+src="sockets_files/image010.jpg" v:shapes="_x0000_i1032"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:#221304'>Key methods in the
+ServerSocket class</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1033" type="#_x0000_t75" style='width:512.25pt;height:216.75pt'>
+ <v:imagedata src="sockets_files/image024.jpg" o:title="fg4-13"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=683 height=289
+src="sockets_files/image012.jpg" v:shapes="_x0000_i1033"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:black'>Note:
+Accept is a blocking operation.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>Key methods in the
+Socket class</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;font-family:Arial;
+color:red'><!--[if gte vml 1]><v:shape id="_x0000_i1034" type="#_x0000_t75"
+ style='width:512.25pt;height:276.75pt'>
+ <v:imagedata src="sockets_files/image026.jpg" o:title="fg4-14"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=683 height=369
+src="sockets_files/image015.jpg" v:shapes="_x0000_i1034"><![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;mso-bidi-font-weight:
+bold'>A read operation on the InputStream is blocking. </span><span
+style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-weight:bold'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;mso-bidi-font-weight:
+bold'>A write operation is nonblocking.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>Stream-mode Socket API
+program flow</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:black;
+display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><!--[if gte vml 1]><v:shape id="_x0000_i1035" type="#_x0000_t75"
+ style='width:703.5pt;height:362.25pt'>
+ <v:imagedata src="sockets_files/image020.jpg" o:title="fg4-11"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=938 height=483
+src="sockets_files/image020.jpg" v:shapes="_x0000_i1035"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:red'>Example:</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+Arial;color:#221304'> Stream Mode Sockets</span></b><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+color:black'>MyStreamSocket.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=831 valign=top style='width:623.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>import java.io.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* A wrapper class of Socket
+  which contains <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* methods for sending and
+  receiving messages<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>public class </span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>MyStreamSocket</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'> extends </span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>Socket</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'> {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>private </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>Socket</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:black'><span
+  style='mso-spacerun:yes'>  </span>socket;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>private BufferedReader
+  input;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>private PrintWriter
+  output;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span></span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>MyStreamSocket(String
+  acceptorHost,<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'><span style='mso-spacerun:yes'>                  </span>int
+  acceptorPort )</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'> throws SocketException,<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span
+  style='mso-spacerun:yes'>                                  
+  </span>IOException{<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>socket = new </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>Socket(acceptorHost,
+  acceptorPort );</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>setStreams( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>  </span></span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'><span
+  style='mso-spacerun:yes'> </span>MyStreamSocket(Socket socket)<span
+  style='mso-spacerun:yes'>  </span>throws IOException</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:black'> {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>this.socket =
+  socket;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>setStreams( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>private void </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>setStreams( )</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:black'> throws IOException{<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>// get an input stream
+  for reading from the data socket<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>InputStream inStream
+  = socket.getInputStream();<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>input = <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>         </span>new
+  BufferedReader(new InputStreamReader(inStream));<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>OutputStream
+  outStream = socket.getOutputStream();<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>// create a
+  PrinterWriter object for character-mode output<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>output = <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>         </span>new
+  PrintWriter(new OutputStreamWriter(outStream));<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>public void </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>sendMessage(String
+  message)</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span><span style='mso-tab-count:
+  2'>       </span><span style='mso-spacerun:yes'>          </span>throws
+  IOException {<span style='mso-tab-count:1'>    </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>     
+  </span>output.println(message);<span style='mso-spacerun:yes'>   </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>//The ensuing flush
+  method call is necessary for the data to<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>// be written to the
+  socket data stream before the<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>// socket is closed.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>output.flush();<span
+  style='mso-spacerun:yes'>               </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>} // end sendMessage<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>public String </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>receiveMessage( )</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-tab-count:2'>          </span>throws
+  IOException {<span style='mso-tab-count:1'>    </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>// read a line from
+  the data stream<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>String message =
+  input.readLine( );<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>return message;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>} //end receiveMessage<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>public void </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>close( )</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-tab-count:2'>          </span>throws
+  IOException {<span style='mso-tab-count:1'>    </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>socket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>} //end class<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+color:black'>Example5ConnectionAcceptor.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=839 valign=top style='width:629.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>import java.io.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* This example illustrates
+  the basic syntax for stream-mode<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>public class </span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>Example5ConnectionAcceptor</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'> {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>// An application which receives a message using stream-mode
+  socket<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>// Two command line arguments are expected, in order: <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>//<span style='mso-spacerun:yes'>    </span>&lt;port number for
+  the the Server socket used in this process&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>//<span style='mso-spacerun:yes'>    </span>&lt;message, a string,
+  to</span></b><b style='mso-bidi-font-weight:normal'><span style='font-family:
+  "Courier New";mso-fareast-font-family:"Arial Unicode MS";color:black'>
+  send&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>public static void </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>main(String[] args)</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:black'> {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>if (args.length !=
+  2)<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>        
+  </span>System.out.println<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span><span
+  style='mso-spacerun:yes'>         </span>(&quot;This program requires three
+  command line arguments&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>else {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>         </span>try {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>  </span><span style='mso-tab-count:
+  2'>        </span><span style='mso-spacerun:yes'>      </span>int portNo =
+  Integer.parseInt(args[0]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>String message
+  = args[1];<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>//
+  instantiates a socket for accepting connection<span
+  style='mso-spacerun:yes'>  </span><span style='mso-tab-count:1'>    </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span><span style='mso-tab-count:
+  1'>  </span><span style='mso-spacerun:yes'>      </span></span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:blue'>ServerSocket </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS";color:black'>connectionSocket =
+  new ServerSocket(portNo);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;now ready accept a connection&quot;);<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>// wait to
+  accept a connecion request, at which<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>//<span
+  style='mso-spacerun:yes'>  </span>time a data socket is created<span
+  style='mso-spacerun:yes'>                  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>       </span><span
+  style='mso-spacerun:yes'>     </span>MyStreamSocket dataSocket =<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>               </span>new
+  MyStreamSocket(connectionSocket.accept());<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;connection accepted&quot;); <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>           
+  </span>dataSocket.sendMessage(message);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;message sent&quot;); <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>        </span><span
+  style='mso-spacerun:yes'>    </span>dataSocket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;data socket closed&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>           
+  </span>connectionSocket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;connection socket closed&quot;); <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>         </span>} // end try<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-tab-count:1'>     </span><span
+  style='mso-spacerun:yes'>      </span>catch (Exception ex) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>           </span>ex.printStackTrace(
+  );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-tab-count:1'>     </span><span
+  style='mso-spacerun:yes'>      </span>} // end catch<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>} // end else<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>} // end main<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>} // end class<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+color:black'>Example5ConnectionRequestor.java<o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:191;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=839 valign=top style='width:629.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>import java.net.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>import java.io.*;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>/**<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* This example illustrates
+  the basic syntax for stream-mode<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>* @author M. L. Liu<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'><span style='mso-spacerun:yes'> </span>*/<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>public class </span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:blue'>Example5ConnectionRequestor </span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>{<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>// An application that sends a message using stream-mode socket.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>// Two command line arguments are expected: <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>//<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>//<span style='mso-spacerun:yes'>    </span>&lt;host name of the
+  connection accceptor&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:red'>//<span style='mso-spacerun:yes'>    </span>&lt;port number of the
+  connection accceptor&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>public static </span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Arial Unicode MS"'>void<span style='color:blue'>
+  main(String[] args)</span><span style='color:black'> {<o:p></o:p></span></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>if (args.length !=
+  2)<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>        
+  </span>System.out.println<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>(&quot;This
+  program requires two command line arguments&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>else {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>         </span>try {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>String
+  acceptorHost = args[0];<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>  </span><span style='mso-tab-count:
+  2'>        </span><span style='mso-spacerun:yes'>      </span>int acceptorPort
+  = Integer.parseInt(args[1]);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>//
+  instantiates a data socket<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span><span style='mso-tab-count:
+  1'>  </span><span style='mso-spacerun:yes'>      </span>MyStreamSocket
+  mySocket = <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>               </span>new
+  MyStreamSocket(acceptorHost, acceptorPort); <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;Connection request granted&quot;); <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>            </span>String message
+  = mySocket.receiveMessage( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;Message received:&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>           
+  </span>System.out.println(&quot;\t&quot; + message);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>           
+  </span>mySocket.close( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>/**/<span style='mso-spacerun:yes'>       
+  </span>System.out.println(&quot;data socket closed&quot;);<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>         </span>} // end try<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-tab-count:1'>     </span><span
+  style='mso-spacerun:yes'>  </span><span
+  style='mso-spacerun:yes'>    </span>catch (Exception ex) {<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>           
+  </span>ex.printStackTrace( );<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-tab-count:1'>     </span><span
+  style='mso-spacerun:yes'>      </span>}<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>      </span>} // end else<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'><span style='mso-spacerun:yes'>   </span>} // end main<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+  color:black'>} // end class<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;color:#221304'>Event Diagram for
+Stream Mode Sockets</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+color:black;display:none;mso-hide:all'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1036" type="#_x0000_t75" style='width:685.5pt;height:441pt'>
+ <v:imagedata src="sockets_files/image034.jpg" o:title="fg4-18"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=914 height=588
+src="sockets_files/image034.jpg" v:shapes="_x0000_i1036"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial;color:blue'>Secure Sockets<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'><a
+href="http://java.sun.com/products/jsse/">http://java.sun.com/products/jsse/</a>
+</span><span style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>Secure sockets perform encryption on the
+data transmitted.</span><span style='font-size:14.0pt;font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS";color:black;mso-bidi-font-weight:
+bold'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>The Java<sup>TM</sup> Secure Socket
+Extension (JSSE) is a Java package that enables secure Internet communications.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>It implements a Java version of SSL (Secure
+Sockets Layer) and TLS (Transport Layer Security) protocols<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>It includes functionalities for data
+encryption, server authentication, message integrity, and optional client
+authentication. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>Using JSSE, developers can provide for
+the secure passage of data between a client and a server running any
+application protocol. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:black;
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'>The
+Java Secure Socket Extension API<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:Arial;color:#221304'><a
+href="http://java.sun.com/products/jsse/doc/apidoc/index.html">http://java.sun.com/products/jsse/doc/apidoc/index.html</a>
+</span><span style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS";color:black;display:none;mso-hide:all'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='font-size:14.0pt;
+font-family:"Courier New";color:black'>Import javax.net.ssl;</span></b><b><span
+style='font-size:14.0pt;font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS";
+color:black'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo31;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>Class SSLServerSocket is a subclass of
+ServerSocket, and inherits all its methods.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo31;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>Class SSLSocket is a subclass of Socket,
+and inherits all its methods.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo31;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;
+color:black;mso-bidi-font-weight:bold'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;font-family:Arial;
+color:black;mso-bidi-font-weight:bold'>There are also classes for <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:14.0pt;
+font-family:Arial;color:black'>–<span style='mso-bidi-font-weight:bold'>Certification<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:14.0pt;
+font-family:Arial;color:black'>–<span style='mso-bidi-font-weight:bold'>Handshaking<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:14.0pt;
+font-family:Arial;color:black'>–<span style='mso-bidi-font-weight:bold'>KeyManager<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:14.0pt;
+font-family:Arial;color:black'>–<span style='mso-bidi-font-weight:bold'>SSLsession<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black;display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

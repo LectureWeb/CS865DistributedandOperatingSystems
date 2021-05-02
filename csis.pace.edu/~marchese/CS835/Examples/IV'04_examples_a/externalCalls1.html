@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title> Controlling HTML from SVG </title>
+
+<script language="JavaScript">
+	function notify(id){
+	     switch(id){
+			case "stop":buf="You need to stop."; break;
+			case "caution":buf="Proceed with Caution."; break;
+			case "go":buf="You may go now."; break;
+			}
+		display.innerHTML=buf
+	}
+</script> 
+</head>
+
+<body background="PaperTexture.jpg">
+<table border "0">
+<tr>
+<td>
+<embed src="externalCalls1.svg" width="250" height="200"
+ wmode="transparent" id="stoplight"/>
+</td>
+
+
+<td>
+<h1 id="display"</h1>
+</td>
+</tr> </table>
+
+</body> 
+<html>

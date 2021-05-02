@@ -1,0 +1,1384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Chapter 8</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Francis Marchese">
+	<META NAME="CREATED" CONTENT="20070107;13210000">
+	<META NAME="CHANGED" CONTENT="20070402;11542493">
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#0000ff" DIR="LTR">
+<TABLE WIDTH=1247 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=1233>
+	<TR>
+		<TD WIDTH=1233 VALIGN=TOP BGCOLOR="#ffffcc">
+			<H1><FONT FACE="Arial"><FONT SIZE=4>CS865 &ndash; Distributed
+			Software Development</FONT></FONT></H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=1233 VALIGN=TOP BGCOLOR="#ffff99">
+			<P><FONT FACE="Arial"><FONT SIZE=4><B>Lecture 8</B></FONT></FONT></TD>
+	</TR>
+</TABLE>
+<H3><FONT FACE="Arial"><FONT SIZE=4>Tannenbaum and Van Steen &ndash;
+Chapter 8</FONT></FONT></H3>
+<DL>
+	<DT><FONT COLOR="#ff0000"><FONT FACE="Comic Sans MS"><FONT SIZE=5>Fault
+	Tolerance</FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">Dealing
+	successfully with <I>partial failure</I> within a Distributed
+	System. ( a review by </FONT></FONT><A HREF="../../../Papers/gartner99fundamentals.pdf"><U><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Gartner
+	1999</FONT></FONT></FONT></U></A><FONT SIZE=4><FONT FACE="Arial">)</FONT></FONT></FONT></DT><DD><P>
+	<FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">Key
+	technique:</FONT> <FONT FACE="Tahoma"><B><I>Redundancy</I></B>.</FONT></FONT></FONT></P></DD><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Basic Concepts</FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Fault Tolerance</I> is closely
+	related to the notion of &ldquo;Dependability&rdquo; </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>In Distributed Systems, this is
+	characterized under a number of headings:</FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Availability</I> &ndash; the
+	system is ready to be used immediately.</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Reliability</I> &ndash; the
+	system can run continuously without failure.</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Safety</I> &ndash; if a system
+	fails, nothing catastrophic will happen.</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Maintainability</I> &ndash; when
+	a system fails, it can be repaired easily and quickly (and,
+	sometimes, without its users noticing the failure).</FONT></FONT></P>
+</UL>
+<DL>
+	<DT><FONT COLOR="#ff0000"><FONT FACE="Arial"><FONT SIZE=4>What Is
+	&ldquo;Failure&rdquo;?</FONT></FONT></FONT></DT><DD><P>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">Definition:</FONT>
+	A system is said to &ldquo;fail&rdquo; when it <I>cannot meet</I>
+	its promises.</FONT></FONT></P></DD></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>A failure is brought about by the
+	<I>existence</I> of &ldquo;errors&rdquo; in the system.</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>The <I>cause</I> of an error is a
+	&ldquo;fault&rdquo;.</FONT></FONT></P>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">Distinction
+	between preventing, removing, and forecasting faults (</FONT></FONT><A HREF="../../../Papers/Avizienis_al_2004_ART_Dependable_And_Secure_Computing%5B1%5D.pdf"><U><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Avizienis
+	et al., 2004</FONT></FONT></FONT></U></A><FONT SIZE=4><FONT FACE="Arial">).
+	</FONT></FONT></FONT>
+	</P>
+</UL>
+<UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">Fault
+	tolerance </FONT>- meaning that a system can provide its services
+	even in the presence of faults. </FONT></FONT>
+	<UL>
+		<UL>
+			<LI><P><FONT FACE="Arial"><FONT SIZE=4>The system can tolerate
+			faults and continue to operate normally.</FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<DL>
+	<DT>&nbsp;<FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Types
+	of Faults</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Transient Fault</I> &ndash;
+	appears once, then disappears.</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Intermittent Fault</I> &ndash;
+	occurs, vanishes, reappears; but: follows no real pattern (worst
+	kind).</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Permanent Fault</I> &ndash; once
+	it occurs, only the replacement/repair of a faulty component will
+	allow the DS to function normally.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Failure Models</FONT></FONT></FONT></DT><DT>
+	&nbsp;<FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial"><B>Different
+	types of failures.</B> (</FONT></FONT><A HREF="../../../Papers/cristian93understanding.pdf"><U><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Cristian
+	1991</FONT></FONT></FONT></U></A><FONT SIZE=4><FONT FACE="Arial">)
+	and (</FONT></FONT><A HREF="../../../Papers/hadzilacos_ps.pdf"><U><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Hadzilacos
+	and Toueg 1993</FONT></FONT></FONT></U></A><FONT SIZE=4><FONT FACE="Arial">).</FONT></FONT></FONT></DT></DL>
+<TABLE WIDTH=865 BORDER=1 CELLPADDING=2 CELLSPACING=3>
+	<COL WIDTH=270>
+	<COL WIDTH=576>
+	<TR VALIGN=TOP>
+		<TD WIDTH=270 BGCOLOR="#ffff99">
+			<P><FONT FACE="Arial"><FONT SIZE=4><B>Type of failure</B></FONT></FONT></TD>
+		<TD WIDTH=576 BGCOLOR="#ffff99">
+			<P><FONT FACE="Arial"><FONT SIZE=4><B>Description</B></FONT></FONT></TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=270 BGCOLOR="#ffffff">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Crash failure</FONT></FONT></TD>
+		<TD WIDTH=576 BGCOLOR="#ffffff">
+			<P><FONT FACE="Arial"><FONT SIZE=4>A server halts, but is working
+			correctly until it halts</FONT></FONT></TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=270 BGCOLOR="#ffffff">
+			<DL>
+				<DT><FONT FACE="Arial"><FONT SIZE=4>Omission failure</FONT></FONT></DT></DL>
+			<UL>
+				<LI><P>
+				<FONT FACE="Arial"><FONT SIZE=4><I>Receive omission</I></FONT></FONT></P>
+				<LI><FONT FACE="Arial"><FONT SIZE=4><I>Send omission</I></FONT></FONT></UL>
+		</TD>
+		<TD WIDTH=576 BGCOLOR="#ffffff">
+			<DL>
+				<DT><FONT FACE="Arial"><FONT SIZE=4>A server fails to respond to
+				incoming requests </FONT></FONT>
+				</DT></DL>
+			<UL>
+				<LI><P>
+				<FONT FACE="Arial"><FONT SIZE=4>A server fails to receive
+				incoming messages </FONT></FONT>
+				</P>
+				<LI><FONT FACE="Arial"><FONT SIZE=4>A server fails to send
+				messages</FONT></FONT></UL>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=270 BGCOLOR="#ffffff">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Timing failure</FONT></FONT></TD>
+		<TD WIDTH=576 BGCOLOR="#ffffff">
+			<P><FONT FACE="Arial"><FONT SIZE=4>A server's response lies
+			outside the specified time interval</FONT></FONT></TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=270 BGCOLOR="#ffffff">
+			<DL>
+				<DT><FONT FACE="Arial"><FONT SIZE=4>Response failure</FONT></FONT></DT></DL>
+			<UL>
+				<LI><P>
+				&nbsp;<I><FONT SIZE=4><FONT FACE="Arial">Value failure</FONT></FONT></I></P>
+				<LI>&nbsp;<I><FONT SIZE=4><FONT FACE="Arial">State transition
+				failure</FONT></FONT></I></UL>
+		</TD>
+		<TD WIDTH=576 BGCOLOR="#ffffff">
+			<DL>
+				<DT><FONT FACE="Arial"><FONT SIZE=4>A server's response is
+				incorrect </FONT></FONT>
+				</DT></DL>
+			<UL>
+				<LI><P>
+				<FONT FACE="Arial"><FONT SIZE=4>The value of the response is
+				wrong </FONT></FONT>
+				</P>
+				<LI><FONT FACE="Arial"><FONT SIZE=4>The server deviates from the
+				correct flow of control</FONT></FONT></UL>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=270 BGCOLOR="#ffffff">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Arbitrary failure</FONT></FONT></TD>
+		<TD WIDTH=576 BGCOLOR="#ffffff">
+			<P><FONT FACE="Arial"><FONT SIZE=4>A server may produce arbitrary
+			responses at arbitrary times</FONT></FONT></TD>
+	</TR>
+</TABLE>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	<FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">Failure
+	Masking by Redundancy</FONT></FONT></FONT></DT><DT>
+	&nbsp;<FONT SIZE=4><FONT FACE="Arial"><B>Strategy</B>: hide the
+	occurrence of failure from other processes using <I>redundancy</I>. </FONT></FONT>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Three main
+	types:</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Information Redundancy</I> &ndash;
+	add extra bits to allow for error detection/recovery (e.g., Hamming
+	codes and the like).</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Time Redundancy</I> &ndash;
+	perform operation and, if needs be, perform it again. </FONT></FONT>
+	<UL>
+		<UL>
+			<LI><FONT FACE="Arial"><FONT SIZE=4>Think about how transactions
+			work (BEGIN/END/COMMIT/ABORT).</FONT></FONT></UL>
+	</UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4><I>Physical Redundancy</I> &ndash;
+	add extra (duplicate) hardware and/or software to the system.</FONT></FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<DL>
+	<DT><FONT COLOR="#ff0000"><FONT FACE="Arial"><FONT SIZE=4>Distributed
+	Systems Fault Tolerance Topics</FONT></FONT></FONT></DT></DL>
+<OL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Process Resilience</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Reliable Client/Server
+	Communications</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Reliable Group Communciation</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Distributed COMMIT</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>Recovery Strategie</FONT></FONT></P>
+</OL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Process
+	Resilience</B></FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Times New Roman"><B><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">(</FONT></FONT></FONT></B><A HREF="../../../Papers/guerraoui_r4068.pdf"><U><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000000">Guerraoui
+	and Schiper, 1997</FONT></FONT></FONT></U></A><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">)</FONT></FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Processes can be made fault tolerant
+	by arranging to have a group of processes, with each member of the
+	group being <I>identical</I> .</FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4>A message sent to the group is
+	delivered to all of the &ldquo;copies&rdquo; of the process (the
+	group members), and then <I>only one </I>of them performs the
+	required service.</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>If one of the processes fail, it is
+	assumed that one of the others will still be able to function (and
+	service any pending request or operation</FONT></FONT></P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Flat Groups
+	versus Hierarchical Groups</FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(a) Communication in a flat group.
+	(b) Communication in a simple hierarchical group.</FONT></FONT></DT><DT>
+	&nbsp; 
+	<IMG SRC="../Chapter8_files/image004.jpg" NAME="graphics1" ALIGN=BOTTOM WIDTH=683 HEIGHT=317 BORDER=0>
+		</DT></DL>
+<P>
+&nbsp;<FONT SIZE=4><FONT FACE="Arial"><B>Communication in a flat
+group</B> &ndash; all the processes are equal, decisions are made
+collectively. </FONT></FONT>
+</P>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#ff3366"><B>Note</B>:</FONT>
+	no single point-of-failure, however: decision making is complicated
+	as consensus is required.</FONT></FONT></P>
+</UL>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Communication in a simple
+hierarchical group</B> - one of the processes is elected to be the
+coordinator, which selects another process (a worker) to perform the
+operation. </FONT></FONT>
+</P>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#ff3366"><B>Note</B>:</FONT>
+	single point-of failure, however: decisions are easily and quickly
+	made by the coordinator without first having to get consensus.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Failure
+	Masking and Replication</FONT></FONT></FONT></DT></DL>
+<P>
+&nbsp;<FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">By
+organizing a</FONT></FONT> <FONT SIZE=4><FONT FACE="Tahoma"><I>fault
+tolerant group of processes</I> , we can protect a single vulnerable
+process.</FONT></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Two approaches to arranging the
+replication of the group:</FONT></FONT></P>
+<P><FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4><U>Primary
+(backup) Protocols</U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>A group of processes is
+	organized in a hierarchical fashion in which a primary coordinates
+	all write operations. </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>When the primary crashes, the
+	backups execute some election algorithm to choose a new primary.</FONT></FONT></P>
+</UL>
+<P><FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4><U>Replicated-Write
+Protocols</U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Replicated-write protocols
+	are used in the form of active replication, as well as by means of
+	quorum-based protocols.</FONT></FONT></P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Solutions correspond to
+	organizing a collection of identical processes into a flat group. </FONT></FONT>
+	</P>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Adv. - these groups have no
+	single point of failure, at the cost of distributed coordination.</FONT></FONT></P>
+</UL>
+<P><FONT COLOR="#b84747">&nbsp;<FONT SIZE=4><FONT FACE="Arial">Agreement
+in Faulty Systems</FONT></FONT></FONT></P>
+<DL>
+	<DT><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Goal of
+	distributed agreement algorithms</FONT> - have all the non-faulty
+	processes reach consensus on some issue, and to establish that
+	consensus within a finite number of steps. </FONT></FONT>
+	</DT><DT>
+	<FONT COLOR="#dc2300"><FONT FACE="Arial"><FONT SIZE=4>Complications:</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Different assumptions about the
+	underlying system require different solutions, assuming solutions
+	even exist. </FONT></FONT>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">T</FONT></FONT><A HREF="../../../Papers/Turek-ManyFacesOfConsensus.pdf"><U><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">urek
+	and Shasha (1992)</FONT></FONT></FONT></U></A> <FONT SIZE=4><FONT FACE="Arial">distinguish
+	the following cases:</FONT></FONT></FONT></P>
+</UL>
+<OL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Synchronous
+	versus asynchronous systems</FONT>. </FONT></FONT>
+</OL>
+<UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>A system is synchronous if and
+	only if the processes are known to operate in a lock-step mode. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Formally, this means that there
+	should be some constant c&nbsp;&gt;= 1, such that if any processor
+	has taken c + 1 steps, every other process has taken at least 1
+	step. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>A system that is not synchronous
+	is said to be asynchronous.</FONT></FONT></UL>
+<OL START=2>
+	<LI><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Communication
+	delay is bounded or not</FONT>. </FONT></FONT>
+</OL>
+<UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Delay is bounded if and only if
+	we know that every message is delivered with a globally and
+	predetermined maximum time.</FONT></FONT></UL>
+<OL START=3>
+	<LI><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Message
+	delivery is ordered or not</FONT>. </FONT></FONT>
+</OL>
+<UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>In other words, we distinguish
+	the situation where messages from the same sender are delivered in
+	the order that they were sent, from the situation in which we do not
+	have such guarantees.</FONT></FONT></UL>
+<OL START=4>
+	<LI><P><FONT COLOR="#dc2300"><FONT FACE="Arial"><FONT SIZE=4>Message
+	transmission is done through unicasting or multicasting.</FONT></FONT></FONT></P>
+</OL>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Circumstances under which
+distributed agreement can be reached. </B></FONT></FONT>
+</P>
+<DL>
+	<DT><IMG SRC="../Chapter8_files/image006.jpg" NAME="graphics2" ALIGN=BOTTOM WIDTH=682 HEIGHT=279 BORDER=0>
+	&nbsp;</DT></DL>
+<UL>
+	<LI><P>
+	<B><FONT SIZE=4><FONT FACE="Arial">In all other cases, it can be
+	shown that no solution exists.</FONT></FONT></B></P>
+</UL>
+<DL>
+	<DT><FONT FACE="Times New Roman"><FONT SIZE=3><FONT SIZE=4><FONT FACE="Arial"><B><FONT COLOR="#dc2300">Note
+	</FONT>- </B>most distributed systems in practice assume that
+	processes behave asynchronously, message transmission is unicast,
+	and communication delays are unbounded. </FONT></FONT>&nbsp;</FONT></FONT></DT></DL>
+<UL>
+	<LI><P>
+	<FONT SIZE=4><FONT FACE="Times New Roman"><FONT FACE="Arial">Known
+	as the <FONT COLOR="#b84700">Byzantine agreement problem</FONT>
+	(</FONT><A HREF="../../../Papers/lamport82byzantine.pdf"><FONT FACE="Arial"><U><FONT COLOR="#0000ff">Lamport
+	et al. 1982</FONT></U>)</FONT></A></FONT></FONT></P>
+</UL>
+<P><FONT COLOR="#b84700">&nbsp;<B><FONT SIZE=5><FONT FACE="Times New Roman">History
+Lesson: The Byzantine Empire</FONT></FONT></B></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=5><FONT COLOR="#0000ff"><I>Time</I><FONT FACE="Tahoma">:</FONT></FONT><FONT FACE="Tahoma">
+	</FONT>330-1453 AD.</FONT></FONT></P>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=5><FONT COLOR="#0000ff"><I>Place</I>:</FONT>
+	Balkans and Modern Turkey.</FONT></FONT></P>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=5>Endless
+	conspiracies, intrigue, and untruthfullness were alleged to be
+	common practice in the ruling circles of the day (<I>sounds
+	strangely familiar &hellip;</I> ).</FONT></FONT></P>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=5>That is: it was
+	typical for intentionally wrong and malicious activity to <FONT FACE="Tahoma">o</FONT>ccur
+	among the ruling group. A similar occurance can surface in a DS, and
+	is known as &lsquo;byzantine failure&rsquo;. </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=5><FONT COLOR="#0000ff"><I>Question</I><FONT FACE="Tahoma">:</FONT></FONT>
+	how do we deal with such malicious group members within a
+	distributed system?</FONT></FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Times New Roman"><FONT SIZE=5><B>How does a process
+group deal with a faulty member?</B></FONT></FONT></P>
+<P><FONT COLOR="#0000ff"><FONT FACE="Times New Roman"><FONT SIZE=5>The
+&ldquo;Byzantine Generals Problem&rdquo; for 3 loyal generals and 1
+traitor.</FONT></FONT></FONT></P>
+<OL>
+	<LI><FONT FACE="Times New Roman"><FONT SIZE=5>The generals announce
+	their troop strengths (in units of 1 kilosoldiers) to the other
+	members of the group by sending a message.</FONT></FONT><LI>
+	<FONT FACE="Times New Roman"><FONT SIZE=5>The vectors that each
+	general assembles based on (a), each general knows their own
+	strength. They then send their vectors to all the other generals.</FONT></FONT><LI><P>
+	<FONT FACE="Times New Roman"><FONT SIZE=5>The vectors that each
+	general receives in step 3. It is clear to all that General 3 is the
+	traitor. In each &lsquo;column&rsquo;, the majority value is assumed
+	to be correct.</FONT></FONT></P>
+</OL>
+<DL>
+	<DT><IMG SRC="../Chapter8_files/image008.jpg" NAME="graphics3" ALIGN=BOTTOM WIDTH=246 HEIGHT=269 BORDER=0>
+	&nbsp; 
+	<IMG SRC="../Chapter8_files/image010.jpg" NAME="graphics4" ALIGN=BOTTOM WIDTH=525 HEIGHT=162 BORDER=0>
+		</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#dc2300">Goal </FONT></B>of
+	Byzantine agreement is that consensus is reached on the value for
+	the non-faulty processes only.</FONT></FONT></DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Solution in
+	computer terms:</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Assume that processes are
+	synchronous, messages are unicast while preserving ordering, and
+	communication delay is bounded. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Assume N processes, where
+	each process i will provide a value vi to the others. </FONT></FONT>
+	</P>
+	<LI><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Goal </FONT>-
+	let each process construct a vector V of length N, such that if
+	process i is non-faulty, V [i ] = vi</FONT></FONT>
+	<UL>
+		<UL><LI>
+			<FONT FACE="Arial"><FONT SIZE=4>ELSE V [i ] is undefined. </FONT></FONT>
+		</UL>
+	</UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>We assume that there are at most
+	k faulty processes.</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>Algorithm for the case of N = 4 and
+	k = 1. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR><BR>
+	</DT></DL>
+<P>
+<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Algorithm
+operates in four steps. </FONT></FONT></FONT>
+</P>
+<OL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Every non-faulty process i
+	sends vi to every other process using reliable unicasting. </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Faulty processes may send
+	anything and different values to different processes. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Let vi =i. In (Fig.a) t
+	process 1 reports 1, process 2 reports 2, process 3 lies to
+	everyone, giving x, y, and z, respectively, and process 4 reports a
+	value of 4. </FONT></FONT>
+	</P>
+</UL>
+<OL START=2>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>The results of the announcements
+	of step 1 are collected together in the form of the vectors (Fig.b).</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>Every process passes its vector from
+	(Fig.b) to every other process. </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Every process gets three
+	vectors, one from every other process. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Process 3 lies, inventing 12 new
+	values, a through l. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Results in (Fig.c). </FONT></FONT>
+	</P>
+</UL>
+<OL START=4>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Each process examines the ith
+	element of each of the newly received vectors. </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>If any value has a majority,
+	that value is put into the result vector. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>If no value has a majority, the
+	corresponding element of the result vector is marked UNKNOWN. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>From (Fig.c) - 1, 2, and 4 all
+	come to agreement on the values for v1, v2, and v4, which is the
+	correct result. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>What these processes conclude
+	regarding v 3 cannot be decided, but is also irrelevant. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Example Again:</FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>With 2 loyal generals and 1
+	traitor.&nbsp; </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#dc2300">Note:</FONT></B>
+	It is no longer possible to determine the majority value in each
+	column, and the algorithm has failed to produce agreement. </FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P>
+	<FONT SIZE=4><FONT FACE="Arial"><A HREF="../../../Papers/lamport82byzantine.pdf"><FONT SIZE=4><FONT FACE="Arial">Lamport
+	et al. (1982)</FONT></FONT></A> <FONT SIZE=4><FONT FACE="Arial">proved
+	that in a system with k faulty processes, agreement can be achieved
+	only if 2k + 1 correctly functioning processes are present, for a
+	total of 3k + 1. </FONT></FONT></FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Agreement is possible only if
+	more than two-thirds of the processes are working properly.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B>Two correct process and one
+	faulty process.</B></FONT></FONT></DT><DT>
+	<IMG SRC="../Chapter8_files/image012.jpg" NAME="graphics5" ALIGN=BOTTOM WIDTH=307 HEIGHT=206 BORDER=0>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	<IMG SRC="../Chapter8_files/image014.jpg" NAME="graphics6" ALIGN=BOTTOM WIDTH=167 HEIGHT=137 BORDER=0>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	<IMG SRC="../Chapter8_files/image016.jpg" NAME="graphics7" ALIGN=BOTTOM WIDTH=181 HEIGHT=137 BORDER=0>
+		</DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Comic Sans MS"><FONT SIZE=4><B>Reliable
+	Client-Server Communication</B></FONT></FONT></FONT></DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Kinds of
+	Failures:</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4><I><SPAN LANG="en-IE">Crash</SPAN></I>
+	<SPAN LANG="en-IE">(system halts); </SPAN></FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><I>Omission
+	</I>(incoming request ignored); </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><I>Timing
+	</I>(responding too soon or too late); </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><I>Response
+	</I>(getting the order wrong); </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><I>Arbitrary/Byzantine
+	</I>(indeterminate, unpredictable). </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Detecting
+	process failures:</FONT></FONT></FONT></DT></DL>
+<P LANG="en-IE" ALIGN=LEFT>
+<FONT FACE="Arial"><FONT SIZE=4>Processes actively send &quot;are you
+alive?&quot; messages to each other (for which they obviously expect
+an answer)</FONT></FONT></P>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>Makes
+	sense only when it can be guaranteed that there is enough
+	communication between processes.</FONT></FONT></P>
+</UL>
+<P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>Processes
+passively wait until messages come in from different processes. </FONT></FONT>
+</P>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>In
+	practice, actively pinging processes is usually followed.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT><DT>
+	<FONT FACE="Times New Roman"><FONT SIZE=3><B><SPAN LANG="en-IE"><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#ff0000">Example:
+	RPC Semantics and Failures</FONT></FONT></FONT></SPAN></B> </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>Remote Procedure Call (<SPAN LANG="en-IE">RPC)
+	mechanism works well as long as both the client and server function
+	perfectly!!! </SPAN></FONT></FONT>
+	</DT><DT LANG="en-IE">
+	<BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Five classes
+	of RPC failure can be identified: </FONT></FONT></FONT>
+	</DT></DL>
+<OL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><I>The client cannot locate the
+	server</I>, so no request can be sent. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><I>The
+	client&rsquo;s request to the server is lost</I>, so no response is
+	returned by the server to the waiting client. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><I>The
+	server crashes after receiving the request</I>, and the service
+	request is left acknowledged, but undone. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><I>The
+	server&rsquo;s reply is lost on its way to the client</I>, the
+	service has completed, but the results never arrive at the client </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE"><I>The
+	client crashes after sending its request</I>, and the server sends a
+	reply to a newly-restarted client that may not be expecting it.</SPAN>
+	</FONT></FONT>
+	</P>
+</OL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B>A server in client-server
+	communication. </B></FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(a). A request arrives, is carried
+	out, and a reply is sent. </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(b). A request arrives and is
+	carried out, just as before, but the server crashes before it can
+	send the reply. </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(c). Again a request arrives, but
+	this time the server crashes before it can even be carried out. And,
+	no reply is sent back.</FONT></FONT></DT><DT>
+	&nbsp;<IMG SRC="../Chapter8_files/image018.jpg" NAME="graphics8" ALIGN=BOTTOM WIDTH=426 HEIGHT=143 BORDER=0>
+	&nbsp; 
+	<IMG SRC="../Chapter8_files/image020.jpg" NAME="graphics9" ALIGN=BOTTOM WIDTH=190 HEIGHT=144 BORDER=0>
+		</DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Server crashes
+	are dealt with by implementing one of three possible implementation
+	philosophies: </FONT></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300"><I>At least
+	once semantics</I>:</FONT> a guarantee is given that the RPC
+	occurred at least once, but (also) possibly more that once. </FONT></FONT>
+	<LI><P LANG="en-IE"><FONT FACE="Arial"><FONT SIZE=4><I><FONT COLOR="#dc2300">At
+	most once semantics</FONT></I>: a guarantee is given that the RPC
+	occurred at most once, but possibly not at all. </FONT></FONT>
+	<LI><P LANG="en-IE"><FONT FACE="Arial"><FONT SIZE=4><I><FONT COLOR="#dc2300">No
+	semantics</FONT></I>: nothing is guaranteed, and client and servers
+	take their chances! </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT><DT>
+	<FONT COLOR="#3333cc">&bull;</FONT><SPAN LANG="en-IE"><FONT SIZE=4><FONT FACE="Arial">It
+	has proved difficult to provide <I>exactly once semantics</I>. </FONT></FONT></SPAN>
+	</DT><DT>
+	<BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4><I>Lost
+	replies are difficult to deal with.&nbsp; </I></FONT></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Why </I>was there no reply?&nbsp;
+	</FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>Is
+	the server <I>dead</I>, <I>slow</I>, or did the reply just go
+	<I>missing</I>?&nbsp; </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4><I>A request that can be repeated
+	any number of times without any nasty side-effects is said to be
+	idempotent.&nbsp; </I></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>(For example: a read of a static
+	web-page is said to be idempotent). </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><I><SPAN LANG="en-IE">Nonidempotent</SPAN></I>
+	<SPAN LANG="en-IE">requests (for example, the electronic transfer of
+	funds) are a little harder to deal with.&nbsp; </SPAN></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>A common solution is to employ
+	<I>unique sequence numbers</I>.&nbsp; </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>Another
+	technique is the inclusion of additional bits in a retransmission to
+	identify it as such to the server. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Client Crashes</FONT></FONT></FONT></DT><DT LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4>When a client crashes, and when an
+	&lsquo;old&rsquo; reply arrives, such a reply is known as an <I><FONT COLOR="#0000ff">orphan</FONT></I>.
+	</FONT></FONT>
+	</DT><DT LANG="en-IE">
+	<BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Four orphan
+	solutions have been proposed: </FONT></FONT></FONT>
+	</DT></DL>
+<OL>
+	<LI><P ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><B><I><SPAN LANG="en-IE">extermination</SPAN></I></B>
+	<SPAN LANG="en-IE">(the orphan is simply killed-off), </SPAN></FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4><B><I><SPAN LANG="en-IE">reincarnation</SPAN></I></B>
+	<SPAN LANG="en-IE">(each client session has an <I>epoch</I></SPAN>
+	<SPAN LANG="en-IE">associated with it, making orphans easy to spot),
+	</SPAN></FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4><B><I><SPAN LANG="en-IE">gentle
+	reincarnation</SPAN></I></B> <SPAN LANG="en-IE">(when a new epoch is
+	identified, an attempt is made to locate a requests owner, otherwise
+	the orphan is killed), </SPAN></FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4><B><I><SPAN LANG="en-IE">expiration</SPAN></I>
+	</B><SPAN LANG="en-IE">(if the RPC cannot be completed within a
+	stardard amount of time, it is assumed to have expired). </SPAN></FONT></FONT>
+	</P>
+</OL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4>In practice, however, none of these
+	methods are desirable for dealing with orphans.&nbsp; </FONT></FONT>
+	</DT><DT>
+	<FONT SIZE=4><FONT FACE="Arial"><FONT SIZE=4>Orphan elimination is
+	discussed in more detail by </FONT><A HREF="../../../Papers/panzieri_.pdf"><FONT SIZE=4><FONT FACE="Arial">Panzieri
+	and Shrivastava (1988)</FONT></FONT></A><FONT SIZE=4><FONT FACE="Arial">.</FONT></FONT></FONT></FONT></DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Comic Sans MS"><FONT SIZE=4><B>Reliable
+	Group Communication</B></FONT></FONT></FONT></DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Reliable
+	multicast services guarantee that all messages are delivered to all
+	members of a process group. </FONT></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE">Sounds simple,
+	but is surprisingly <I>tricky</I></SPAN> <SPAN LANG="en-IE">(as
+	multicasting services tend to be <I>inherently </I>unreliable). </SPAN></FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE"><FONT COLOR="#0000ff">Small
+	group</FONT>: multiple, reliable point-to-point channels will do the
+	job, however, such a <FONT COLOR="#dc2300">solution <I>scales poorly</I></FONT></SPAN>
+	<SPAN LANG="en-IE">as the group membership grows.&nbsp; </SPAN></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE">What happens if a
+	process <I>joins</I></SPAN> <SPAN LANG="en-IE">the group during
+	communication?&nbsp; </SPAN></FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Times New Roman"><FONT SIZE=3><FONT SIZE=4><FONT FACE="Arial"><SPAN LANG="en-IE"><FONT COLOR="#dc2300">Worse:</FONT>
+	what happens if the sender of the multiple, reliable point-to-point
+	channels <I>crashes</I></SPAN> <SPAN LANG="en-IE">half way through
+	sending the messages?</SPAN></FONT></FONT> </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Basic
+	Reliable-Multicasting Schemes</B></FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>Simple solution to reliable
+	multicasting when <I>all receivers are known</I> and are assumed <I>not
+	to fail</I>.&nbsp; </FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>The sending process assigns a
+	sequence number to outgoing messages (making it easy to spot when a
+	message is missing). </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Assume that messages are
+	received in the order they are sent. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Each multicast message is stored
+	locally in a history buffer at the sender. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Assuming the receivers are known
+	to the sender, the sender simply keeps the message in its history
+	buffer until each receiver has returned an acknowledgment. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>If a receiver detects it is
+	missing a message, it may return a negative acknowledgment,
+	requesting the sender for a retransmission. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#3333cc">a)</FONT>Message
+	transmission &ndash; note that the third receiver is expecting 24. </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#3333cc">b)</FONT>Reporting
+	feedback &ndash; the third receiver informs the sender. </FONT></FONT>
+	</DT><DT>
+	<IMG SRC="../Chapter8_files/image024.jpg" NAME="graphics11" ALIGN=BOTTOM WIDTH=683 HEIGHT=423 BORDER=0>
+		</DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>But, how long does the sender keep
+	its <I>history-buffer </I>populated? </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Also, such schemes <B>perform
+	poorly</B> as the group grows &hellip; there are <I>too many </I>ACKs.
+	</FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	&nbsp;<FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">A
+	extensive and detailed survey of total-order broadcasts can be found
+	in </FONT></FONT><A HREF="../../../Papers/defago_200356.pdf"><FONT SIZE=4><FONT FACE="Arial">Defago
+	et al. (2004)</FONT></FONT></A><FONT SIZE=4><FONT FACE="Arial">.</FONT></FONT></FONT></DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Scalability
+	in Reliable Multicasting</B></FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI><P ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE">Receivers <I>never</I></SPAN>
+	<SPAN LANG="en-IE">acknowledge successful delivery. </SPAN></FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>Only
+	missing messages are reported. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>Negative
+	acknoledgements (NACK) are multicast to all group members. (Don't
+	send any more.)</FONT></FONT><LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>This allows other members to supress
+	their feedback, if necessary. </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE">To
+	avoid &ldquo;retransmission clashes&rdquo;, each member is required
+	to wait a random delay prior to NACKing.</SPAN> </FONT></FONT>
+	<LI><P><FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">See
+	</FONT></FONT><A HREF="../../../Papers/towsley94comparison.pdf"><FONT SIZE=4><FONT FACE="Arial">Towsley
+	et al. (1997)</FONT></FONT></A> <FONT SIZE=4><FONT FACE="Arial">for
+	details - but no hard guarantees can be given that feedback
+	implosions will never happen.</FONT></FONT></FONT></P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT SIZE=4><FONT FACE="Arial">A comparison between different
+	scalable reliable multicasting can be found in <A HREF="../../../Papers/levine.mmsj.pdf">Levine
+	and Garcia-Luna-Aceves (1998).</A> </FONT></FONT>
+	</DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Nonhierarchical
+	Feedback Control</B></FONT></FONT></FONT></DT><DT>
+	<FONT SIZE=4><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff"><I>Feedback
+	Suppression</I> </FONT>&ndash; reducing the number of feedback
+	messages to the sender (as implemented in the <I>Scalable Reliable
+	Multicasting Protocol</I>). </FONT><A HREF="../../../Papers/floyd_srm_ton.pdf"><FONT SIZE=4><FONT FACE="Arial">Floyd
+	et al. (1997)</FONT></FONT></A> <FONT SIZE=4><FONT FACE="Arial">and
+	</FONT></FONT><A HREF="../../../Papers/liu04modeling.pdf"><FONT SIZE=4><FONT FACE="Arial">Liu
+	et al. (1998)</FONT></FONT></A></FONT></FONT></DT></DL>
+<UL>
+	<LI><P ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>Successful delivery is never
+	acknowledged, only missing messages are reported (NACK), which are
+	multicast to all group members. </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>If another process
+	is about to NACK, this feedback is suppressed as a result of the
+	first multicast NACK.&nbsp; </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>In this way, only
+	a <B>single</B> NACK is delivered to the sender. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR><BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B>Several receivers have scheduled
+	a request for retransmission, but the first retransmission request
+	leads to the suppression of others.</B></FONT></FONT></DT><DT>
+	&nbsp;<IMG SRC="../Chapter8_files/image026.jpg" NAME="graphics12" ALIGN=BOTTOM WIDTH=682 HEIGHT=246 BORDER=0>
+		</DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Hierarchical
+	Feedback Control</B></FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">Hierarchical
+	reliable multicasting</FONT> - the main characteristic is that it
+	supports the creation of <B>very large groups</B>. </FONT></FONT>
+	</DT><DD>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#3333cc">a)</FONT>Sub-groups
+	within the entire group are created, with each <I>local coordinator</I>
+	forwarding messages to its children. </FONT></FONT>
+	</DD><DD>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#3333cc">b)</FONT>A
+	local coordinator handles retransmission requests <I>locally</I>,
+	using any appropriate multicasting method for small groups. </FONT></FONT>
+	</DD><DT>
+	<BR>
+	</DT><DT>
+	<IMG SRC="../Chapter8_files/image028.jpg" NAME="graphics13" ALIGN=BOTTOM WIDTH=683 HEIGHT=363 BORDER=0>
+		</DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Main problem</FONT>
+	: construction of the tree. </FONT></FONT>
+	</DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Conclusion:</FONT>
+	</FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Building reliable multicast schemes
+	that can scale to a large number of receivers spread across a
+	wide-area network, is a difficult problem. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>No single best solution
+	exists, and each solution introduces new problems.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Atomic
+	Multicast</B></FONT></FONT></FONT></DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Atomic
+	multicast problem:</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>A requirement where the system needs
+	to ensure that all processes get the message, or that none of them
+	get it. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>An
+	additional requirement is that all messages arrive at all processes
+	in sequential order. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT></DL>
+<UL>
+	<LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">Atomic
+	multicasting</FONT> ensures that nonfaulty processes maintain a
+	consistent view of the database, and forces reconciliation when a
+	replica recovers and rejoins the group.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Virtual
+	Synchrony</B></FONT></FONT></FONT></DT><DT>
+	<FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial">The
+	concept of virtual synchrony was proposed by </FONT></FONT><A HREF="../../../Papers/birman_lightweightmulticast.pdf"><FONT SIZE=4><FONT FACE="Arial">Kenneth
+	Birman</FONT></FONT></A> <FONT SIZE=4><FONT FACE="Arial">as the
+	abstraction that group communication protocols should attempt to
+	build on top of an asynchronous system. </FONT></FONT></FONT>
+	</DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">Virtual
+	synchrony</FONT> is defined as follows: </FONT></FONT>
+	</DT></DL>
+<OL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>All recipients have identical group
+	views when a message is delivered. (The group view of a recipient
+	defines the set of &quot;correct&quot; processors from the
+	perspective of that recepient.) </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>The destination list of the
+	message consists precisely of the members in that view </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>The message should be delivered
+	either to all members in its destination list or to no one at all.
+	The latter case can occur only if the sender fails during
+	transmission. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Messages should be delivered
+	in causal or total order (depending on application semantics). </FONT></FONT>
+	</P>
+</OL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT FACE="Times New Roman"><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Reliable
+	multicast </FONT>with the above properties is said to be <FONT COLOR="#0000ff">virtually
+	synchronous</FONT> (</FONT></FONT><A HREF="../../../Papers/birman_joseph.pdf"><FONT SIZE=4><FONT FACE="Arial">Birman
+	and Joseph, 1987</FONT></FONT></A><FONT SIZE=4><FONT FACE="Arial">).</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Whole<FONT COLOR="#0000ff"> idea of
+	atomic multicasting</FONT> is that a multicast message <FONT COLOR="#0000ff">m</FONT>
+	is uniquely associated with a list of processes to which it should
+	be delivered. </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Delivery list corresponds to a
+	group view, namely, the view on the set of processes contained in
+	the group, which the sender had at the time message m was multicast.
+	<FONT COLOR="#000000">(</FONT><FONT COLOR="#000080">Virtual
+	synchrony #2</FONT><FONT COLOR="#000000">)</FONT></FONT></FONT><LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Each process on that list has the
+	same view. In other words, they should all agree that m should be
+	delivered to each one of them and to no other process. <FONT COLOR="#000000">(</FONT><FONT COLOR="#000080">Virtual
+	synchrony #1</FONT><FONT COLOR="#000000">)</FONT></FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>Need to guarantee that <FONT COLOR="#0000ff">m</FONT>
+	is either delivered to all processes in the list in order or m is
+	not delivered at all. (<FONT COLOR="#000080">Virtual synchrony #3 &amp;
+	#4</FONT>)</FONT></FONT></P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	&nbsp;<B><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Message
+	Ordering</FONT></FONT></FONT></B></DT><DT>
+	&nbsp;<FONT SIZE=4><FONT FACE="Arial">Four different orderings:</FONT></FONT></DT></DL>
+<OL>
+	<LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>Unordered multicasts </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>virtually synchronous
+	multicast in which no guarantees are given concerning the order in
+	which received messages are delivered by different processes</FONT></FONT></P>
+</UL>
+<OL START=2>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>FIFO-ordered multicasts </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>the communication layer is
+	forced to deliver incoming messages from the same process in the
+	same order as they have been sent</FONT></FONT></P>
+</UL>
+<OL START=3>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Causally-ordered multicasts </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>delivers messages so that
+	potential causality between different messages is preserved</FONT></FONT></P>
+</UL>
+<OL START=4>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Totally-ordered multicasts </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>regardless of whether message
+	delivery is unordered, FIFO ordered, or causally ordered, it is
+	required additionally that when messages are delivered, they are
+	delivered in the same order to all group members.</FONT></FONT></P>
+	<LI><DT>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Virtually synchronous
+	reliable multicasting offering totally-ordered delivery of messages
+	is called atomic multicasting. </FONT></FONT>
+	</DT><LI><P>
+	<FONT SIZE=4><FONT FACE="Arial">With the three different message
+	ordering constraints discussed above, this leads to six forms of
+	reliable multicasting <A HREF="../../../Papers/hadzilacos_ps.pdf">(Hadzilacos
+	and Toueg, 1993)</A>.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B>Six different versions of
+	virtually synchronous reliable multicasting.</B> </FONT></FONT>
+	</DT><DT>
+	<IMG SRC="../Chapter8_files/image038.jpg" NAME="graphics18" ALIGN=BOTTOM WIDTH=683 HEIGHT=220 BORDER=0>
+		</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Distributed
+	Commit</B></FONT></FONT></FONT></DT><DT>
+	<FONT SIZE=4><FONT FACE="Arial">Examples of distributed commit, and
+	how it can be solved are discussed in <A HREF="../../../Papers/Thanisch_p4034.pdf">Tanisch
+	(2000).</A></FONT></FONT></DT><DT LANG="en-IE">
+	<BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#dc2300">General
+	Goal:</FONT> </B><I>We want an operation to be performed by all
+	group members or none at all. </I></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>[In the case of atomic multicasting,
+	the operation is the delivery of the message.] </FONT></FONT>
+	</P>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>There
+	are three types of &ldquo;commit protocol&rdquo;: single-phase,
+	two-phase and three-phase commit. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4><B>One-Phase
+	Commit Protocol</B>: </FONT></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>An elected co-ordinator tells all
+	the other processes to perform the operation in question. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>But,
+	what if a process cannot perform the operation?&nbsp; </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>There&rsquo;s
+	no way to tell the coordinator! </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE"><B>The
+	solutions</B>: T<I>wo-Phase</I></SPAN> <SPAN LANG="en-IE">and
+	<I>Three-Phase Commit Protocols</I></SPAN> </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4><B>Two-Phase
+	Commit Protocol</B>: </FONT></FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P ALIGN=LEFT>
+	<SPAN LANG="en-IE"><FONT SIZE=4><FONT FACE="Arial">First developed
+	in 1978!!! <A HREF="../../../Papers/Gray_DBOS.pdf"><FONT SIZE=4><FONT FACE="Arial">Gray
+	(1978)</FONT></FONT></A></FONT></FONT></SPAN><LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4><I>Summarized: GET READY, OK, GO
+	AHEAD. </I></FONT></FONT>
+	</P>
+</UL>
+<OL>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>The
+	coordinator sends a <I>VOTE_REQUEST </I>message to all group
+	members. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>A
+	group member returns <I>VOTE_COMMIT </I>if it can commit locally,
+	otherwise <I>VOTE_ABORT</I>. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>All
+	votes are collected by the coordinator.&nbsp; </FONT></FONT>
+	</P>
+</OL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>A
+	<I>GLOBAL_COMMIT </I>is sent if all the group members voted to
+	commit.&nbsp; </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>If
+	one group member voted to abort, a <I>GLOBAL_ABORT </I>is sent. </FONT></FONT>
+	</P>
+</UL>
+<OL START=4>
+	<LI><P ALIGN=LEFT><FONT FACE="Times New Roman"><FONT SIZE=3><FONT SIZE=4><FONT FACE="Arial"><SPAN LANG="en-IE">Group
+	members then <B>COMMIT </B>or <B>ABORT</B></SPAN> <SPAN LANG="en-IE">based
+	on the last message received from the coordinator.</SPAN></FONT></FONT>
+	</FONT></FONT>
+	</P>
+</OL>
+<DL>
+	<DT><BR><BR>
+	</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>First phase - voting phase - steps 1
+	and 2. </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>Second phase - decision phase steps
+	3 and 4. </FONT></FONT>
+	</DT><DT>
+	<BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(a) The finite state machine for the
+	coordinator in 2PC. </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(b) The finite state machine for a
+	participant.</FONT></FONT></DT><DT>
+	&nbsp;<IMG SRC="../Chapter8_files/image046.jpg" NAME="graphics22" ALIGN=BOTTOM WIDTH=683 HEIGHT=192 BORDER=0>
+		</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE"><FONT COLOR="#ff0000">Big
+	Problem with Two-Phase Commit</FONT></SPAN> </FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>It can lead to both the coordinator
+	and the group members <B>blocking</B>, which may lead to the dreaded
+	<I>deadlock</I>. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>If
+	the coordinator crashes, the group members may not be able to <I>reach
+	a final decision</I>, and they may, therefore, block until the
+	coordinator <I>recovers &hellip;</I> </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE">Two-Phase
+	Commit is known as a <B>blocking-commit protocol</B></SPAN> <SPAN LANG="en-IE">for
+	this reason. </SPAN></FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Times New Roman"><FONT SIZE=3><SPAN LANG="en-IE"><FONT SIZE=4><FONT FACE="Arial">The
+	solution?&nbsp; <I>The Three-Phase Commit Protocol</I></FONT></FONT></SPAN>
+	</FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4><B>Three-Phase
+	Commit Protocol</B>: </FONT></FONT></FONT>
+	</DT><DT>
+	&nbsp; 
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#dc2300">Essence:</FONT><FONT COLOR="#99284c">
+	</FONT>the states of the coordinator and each participant satisfy
+	the following two conditions:</FONT></FONT></DT></DL>
+<OL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>There is no single state from which
+	it is possible to make a transition directly to either a COMMIT or
+	an ABORT state.</FONT></FONT><LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>There is no state in which it is not
+	possible to make a final decision, and from which a transition to a
+	COMMIT state can be made.</FONT></FONT></P>
+</OL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(a) The finite state machine for the
+	coordinator in 3PC. </FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>(b) The finite state machine for a
+	participant.</FONT></FONT></DT><DT>
+	<IMG SRC="../Chapter8_files/image050.jpg" NAME="graphics24" ALIGN=BOTTOM WIDTH=682 HEIGHT=262 BORDER=0>
+		</DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Comic Sans MS"><FONT SIZE=4><B>Recovery</B></FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI><P LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4>Once a failure has occurred, it is
+	essential that the process where the failure happened <I>recovers </I>to
+	a correct state. </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE">Recovery
+	from an error is <I>fundamental</I></SPAN> <SPAN LANG="en-IE">to
+	fault tolerance.&nbsp; </SPAN></FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>Two
+	main forms of recovery: </FONT></FONT>
+	</P>
+</UL>
+<OL>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><B>Backward
+	Recovery</B>: return the system to some previous correct state
+	(using <I>checkpoints</I>), then continue executing. </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Times New Roman"><FONT SIZE=3><SPAN LANG="en-IE"><FONT SIZE=4><FONT FACE="Arial"><B>Forward
+	Recovery</B>: bring the system into a correct state, from which it
+	can then continue to execute.</FONT></FONT></SPAN> </FONT></FONT>
+	</P>
+</OL>
+<DL>
+	<DT><BR><BR>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B><SPAN LANG="en-IE"><FONT COLOR="#ff0000">Forward
+	and Backward Recovery</FONT></SPAN></B> </FONT></FONT>
+	</DT><DT LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4><B>Backward Recovery</B>: </FONT></FONT>
+	</DT><DT LANG="en-IE">
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Advantages</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>Generally applicable independent of
+	any specific system or process. </FONT></FONT>
+	<LI><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>It
+	can be integrated into (the middleware layer) of a distributed
+	system as a general-purpose service.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Disadvantages:</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>Checkpointing (can be very expensive
+	(especially when errors are very rare).&nbsp; </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DD><P LANG="en-IE" ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4>[Despite
+	the cost, backward recovery is implemented more often.&nbsp; The
+	&ldquo;logging&rdquo; of information can be thought of as a type of
+	checkpointing.]. </FONT></FONT>
+	</P></DD></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>Recovery mechanisms are independent
+	of the distributed application for which they are actually used &ndash;
+	thus no guarantees can be given that once recovery has taken place,
+	the same or similar failure will not happen again.</FONT></FONT></P>
+</UL>
+<DL>
+	<DT LANG="en-IE"><BR><BR>
+	</DT><DT LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4><B>Disadvantage of Forward Recovery</B>:
+	</FONT></FONT>
+	</DT></DL>
+<UL>
+	<LI><P LANG="en-IE" ALIGN=LEFT>
+	<FONT FACE="Arial"><FONT SIZE=4>In order to work, all potential
+	errors need to be accounted for <I>up-front</I>.&nbsp; </FONT></FONT>
+	<LI><P ALIGN=LEFT><FONT FACE="Arial"><FONT SIZE=4><SPAN LANG="en-IE">When
+	an error occurs, the recovery mechanism then knows what to do to
+	bring the system <I>forward</I></SPAN> <SPAN LANG="en-IE">to a
+	correct state. </SPAN></FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT COLOR="#dc2300"><FONT FACE="Arial"><FONT SIZE=4><B>Example</B></FONT></FONT></FONT></DT><DT LANG="en-IE">
+	<FONT FACE="Arial"><FONT SIZE=4><B>Consider as an example: Reliable
+	Communications. </B></FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><I><SPAN LANG="en-IE"><FONT COLOR="#0000ff">Retransmission</FONT></SPAN></I>
+	<SPAN LANG="en-IE">of a lost/damaged packet - <FONT COLOR="#0000ff">backward
+	recovery</FONT> technique. </SPAN></FONT></FONT>
+	</DT><DT>
+	<FONT FACE="Times New Roman"><SPAN LANG="en-IE"><FONT SIZE=4><FONT FACE="Arial"><I><FONT COLOR="#0000ff">Erasure
+	Correction</FONT> - </I>When a lost/damaged packet can be
+	reconstructed as a result of the receipt of other successfully
+	delivered packets - <FONT COLOR="#0000ff">forward recovery</FONT>
+	technique. [see <A HREF="../../../Papers/rizzo97effective.pdf">Rizzo
+	(1997)</A>]</FONT></FONT></SPAN> </FONT>
+	</DT><DT>
+	<BR><BR>
+	</DT></DL>
+<UL>
+	<LI>
+	<FONT SIZE=4><FONT FACE="Arial"><A HREF="../../../Papers/p375-n_elnozahy.pdf">Elnozahy
+	et al. (2002)</A> and <FONT SIZE=4><FONT FACE="Arial">(<A HREF="../../../Papers/elnozahyq0097.pdf">Elnozahy
+	and Planck, 2004</A>) </FONT></FONT>provide a survey of
+	checkpointing and logging in distributed systems. </FONT></FONT>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">See also<A HREF="../../../Papers/alvisi_e0149.pdf">
+	Alvisi and Marzullo (1998)</A> for message-logging schemes. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	&nbsp;</DT><DT>
+	<FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4><B>Recovery-Oriented
+	Computing</B></FONT></FONT></FONT></DT><DT>
+	<FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Recovery-oriented
+	computing </FONT>- Start over again (</FONT></FONT><A HREF="../../../Papers/candea_ry060.pdf"><FONT SIZE=4><FONT FACE="Arial">Candea
+	et al., 2004a</FONT></FONT></A><FONT SIZE=4><FONT FACE="Arial">).</FONT></FONT></DT></DL>
+<UL>
+	<LI><P>
+	<FONT FACE="Arial"><FONT SIZE=4>Underlying principle - it may be
+	much cheaper to optimize for recovery, then it is aiming for systems
+	that are free from failures for a long time. </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><BR>
+	</DT><DT>
+	<FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Different
+	flavors:</FONT></FONT></FONT></DT></DL>
+<UL>
+	<LI>
+	<FONT FACE="Arial"><FONT SIZE=4>Simply reboot (part of a system) </FONT></FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">e.g. restart Internet servers
+	(Candea et al., <A HREF="../../../Papers/candea_microreboot.pdf">2004</A>,
+	<A HREF="../../../Papers/candea_autonomous.pdf">2006</A>). </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>To reboot only a part of the
+	system - i the fault is properly localized. </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>means deleting all instances
+	of the identified components, along with the threads operating on
+	them, and (often) to just restart the associated requests. </FONT></FONT>
+	</P>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Apply checkpointing and recovery
+	techniques, but to continue execution in a changed environment. </FONT></FONT>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Basic idea - many failures
+	can be simply avoided if programs are given extra buffer space,
+	memory is zeroed before allocated, changing the ordering of message
+	delivery (as long as this does not affect semantics), and so on (<A HREF="../../../Papers/qin_Rx-SOSP05.pdf">Qin
+	et al., 2005</A>). </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT>&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;</DT><DT>
+	&nbsp;</DT></DL>
+</BODY>
+</HTML>

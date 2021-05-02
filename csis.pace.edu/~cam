@@ -1,0 +1,14 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Welcome to the Pace Center For Advanced Media</title></head>
+
+                 <frameset border=0 cols="23%,77%">
+                   <frameset border=0 rows="17%,83%">
+                     <frame src="logo.html" name="logo">
+                     <frame src="menu.html" name="menu">
+                   </frameset>
+                   <frame src="open.html" name="main">
+                 </frameset>
+
+                 
+</noframes>
+</frameset></html>

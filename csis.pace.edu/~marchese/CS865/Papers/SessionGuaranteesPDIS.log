@@ -1,0 +1,12 @@
+%%[ Error: Times-Bold not found. Font cannot be embedded. ]%%
+%%[ Error: invalidfont; OffendingCommand: findfont ]%%
+
+Stack:
+/Font
+/Times-Bold
+0
+0
+
+
+%%[ Flushing: rest of job (to end-of-file) will be ignored ]%%
+%%[ Warning: PostScript error. No PDF file produced. ] %%

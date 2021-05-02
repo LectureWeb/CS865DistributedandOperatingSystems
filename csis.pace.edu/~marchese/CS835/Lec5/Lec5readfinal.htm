@@ -1,0 +1,234 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Lec5readfinal_files/filelist.xml">
+<title>CS835 - Data and Document Representation &amp; Processing</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Frank Marchese</o:Author>
+  <o:LastAuthor>Frank Marchese</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>26</o:TotalTime>
+  <o:Created>2005-02-20T22:46:00Z</o:Created>
+  <o:LastSaved>2005-02-20T22:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>314</o:Words>
+  <o:Characters>1792</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>14</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>2200</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536902279 -2147483648 8 0 511 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+@font-face
+	{font-family:StoneSerif;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027">
+  <o:colormru v:ext="edit" colors="#eaeaea"/>
+  <o:colormenu v:ext="edit" fillcolor="#eaeaea"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#eaeaea" lang=EN-US link=blue vlink=purple style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<table border=0 cellspacing=0 cellpadding=0 bgcolor="#ffcc99" style='background:
+ #FFCC99;border-collapse:collapse;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=798 valign=top style='width:6.65in;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><span style='font-family:Arial'>CS835 - Data and Document Representation
+  &amp; Processing<o:p></o:p></span></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=798 valign=top style='width:6.65in;background:#FFFF99;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Lecture 5 - Readings<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<h2>Authoring </h2>
+
+<h3>XSL and XST</h3>
+
+<p class=MsoNormal><a href="http://www.w3.org/Style/XSL/">http://www.w3.org/Style/XSL/</a></p>
+
+<p class=MsoNormal>Tutorial 1: <a href="http://www.w3schools.com/xsl/">http://www.w3schools.com/xsl/</a></p>
+
+<p class=MsoNormal>Tutorial 2: <a
+href="http://nwalsh.com/docs/tutorials/xsl/xsl/slides.html">http://nwalsh.com/docs/tutorials/xsl/xsl/slides.html</a></p>
+
+<p class=MsoNormal>Tutorial 3: <a
+href="http://www.brics.dk/~amoeller/XML/transformation/index.html">http://www.brics.dk/~amoeller/XML/transformation/index.html</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h3><span style='mso-fareast-font-family:"Arial Unicode MS"'>XSL-FO<o:p></o:p></span></h3>
+
+<p class=MsoNormal>Tutorial 1: <a
+href="http://www.w3schools.com/xslfo/default.asp">http://www.w3schools.com/xslfo/default.asp</a></p>
+
+<p class=MsoNormal>Tutorial 2: <a
+href="http://www.ecrion.com/XF/TechnicalResources/XSL-FO%20Tutorial.aspx">http://www.ecrion.com/XF/TechnicalResources/XSL-FO%20Tutorial.aspx</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h3>Typesetting</h3>
+
+<p class=MsoNormal>XML to PDF - Apache FOP <a href="http://xml.apache.org/fop/"><span
+style='mso-bidi-font-size:10.0pt;font-family:StoneSerif'>http://xml.apache.org/fop/</span></a></p>
+
+<p class=MsoNormal>TEX / (La)TeX<span style="mso-spacerun: yes">  </span><a
+href="http://www.tug.org/begin.html"><span style='mso-bidi-font-size:10.0pt;
+font-family:StoneSerif'>http://www.tug.org/begin.html</span></a> </p>
+
+<h3>Authoring</h3>
+
+<p class=MsoNormal>Graphics: SVG <a href="http://www.w3.org/Graphics/SVG/">http://www.w3.org/Graphics/SVG/</a></p>
+
+<p class=MsoNormal>Tutorial 1: <a
+href="http://www.adobe.com/svg/basics/intro.html">http://www.adobe.com/svg/basics/intro.html</a></p>
+
+<p class=MsoNormal>Tutorial 2: <a
+href="http://www.w3schools.com/svg/default.asp">http://www.w3schools.com/svg/default.asp</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Math : MathML <a href="http://www.w3c.org/Math/">http://www.w3c.org/Math/</a>
+</p>
+
+<p class=MsoNormal style='margin-left:.5in'>Mathcast Equation Editor <a
+href="http://mathcast.sourceforge.net/home.html">http://mathcast.sourceforge.net/home.html</a></p>
+
+<p class=MsoNormal style='margin-left:.5in'>More MathML Software <a
+href="http://www.w3.org/Math/implementations.html">http://www.w3.org/Math/implementations.html</a>
+<span style='mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;font-family:StoneSerif'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal>DocBook <a href="http://www.docbook.org/"><span
+style='mso-bidi-font-size:10.0pt;font-family:StoneSerif'>http://www.docbook.org/</span></a>
+</p>
+
+<p class=MsoNormal>OpenOffice and DocBook Tutorial <a
+href="http://www.zzoss.com/projects/oowdbk/docbook/html-all.html">http://www.zzoss.com/projects/oowdbk/docbook/html-all.html</a></p>
+
+<p class=MsoNormal>The <b><span style='font-family:Helvetica'>t</span></b><span
+style='font-family:Helvetica'>book</span> system for XML Authoring<span
+style="mso-spacerun: yes">  </span><a href="http://tbookdtd.sourceforge.net/">http://tbookdtd.sourceforge.net/</a>
+</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

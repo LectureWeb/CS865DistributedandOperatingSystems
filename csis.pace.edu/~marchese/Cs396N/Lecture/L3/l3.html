@@ -1,0 +1,885 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>l3</title>
+</head>
+<body text="#000000" bgcolor="#EBEBEB" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="88%" BGCOLOR="#FFFFCC" >
+<tr>
+<td><font face="Arial,Helvetica">CS396N - Web Programming</font></td>
+</tr>
+
+<tr>
+<td><font face="Arial,Helvetica">Lecture 3</font></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFFFB7"><font face="Arial,Helvetica">Chapter 9 - Applets</font></td>
+</tr>
+</table>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Applet - Java program intended to be embedded
+within a Web page</font></li>
+
+<li>
+<font face="Arial,Helvetica">Major differences between a Java application
+and a Java applet are:</font></li>
+
+<br><font face="Arial,Helvetica">(a) an applet will not have a main() method</font>
+<br><font face="Arial,Helvetica">(b) generally, an applet is a class which
+extends java.applet.Applet class.</font></ul>
+
+<p><br><font face="Arial,Helvetica">Applet Creation:</font>
+<ul>
+<li>
+<font face="Arial,Helvetica"><font color="#3333FF">HTML Template</font></font></li>
+</ul>
+<b><tt><font size=+1>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></tt></b>
+<p><b><tt><font size=+1>&lt;HTML></font></tt></b>
+<br><b><tt><font size=+1>&lt;HEAD></font></tt></b>
+<br><b><tt><font size=+1>&nbsp; &lt;TITLE>A Template for Loading Applets&lt;/TITLE></font></tt></b>
+<br><b><tt><font size=+1>&lt;/HEAD></font></tt></b>
+<p><b><tt><font size=+1>&lt;BODY></font></tt></b>
+<br><b><tt><font size=+1>&lt;H1>A Template for Loading Applets&lt;/H1></font></tt></b>
+<br><b><tt><font size=+1>&lt;P></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&lt;APPLET CODE="AppletTemplate.class"
+WIDTH=120 HEIGHT=60></font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp; &lt;B>Error! You must use a Java-enabled
+browser.&lt;/B></font></tt></b>
+<br><b><tt><font size=+1>&lt;/APPLET></font></tt></b>
+<p><b><tt><font size=+1>&lt;/BODY></font></tt></b>
+<br><b><tt><font size=+1>&lt;/HTML></font></tt></b>
+<br>&nbsp;
+<ul>
+<li>
+<font face="Arial,Helvetica"><font color="#3333FF">Applet Template</font></font></li>
+</ul>
+<b><tt><font color="#000000"><font size=+1>import java.applet.Applet;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>import java.awt.*;</font></font></tt></b>
+<p><b><tt><font size=+1><font color="#000000">public class </font><font color="#3333FF">AppletTemplate</font><font color="#000000">
+extends Applet {</font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>&nbsp; // Variable declarations.</font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>&nbsp; public void init()
+{</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; // Variable
+initializations, image loading, etc.</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; }</font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>&nbsp; public void paint(Graphics
+g) {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; // Drawing
+operations.</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; }</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>}</font></font></tt></b>
+<br>&nbsp;
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica">Sample Applet</font></b></h3>
+
+<p><br><img SRC="ch9fg1.jpg" height=418 width=304>
+<p><b><font face="Arial,Helvetica"><font color="#3333FF">Applet Code</font></font></b>
+<br><b><tt><font size=+1>import java.applet.Applet;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br>&nbsp;
+<p><b><tt><font size=+1>public class <font color="#3333FF">JavaJump</font>
+extends Applet {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private Image jumpingJava; // Instance
+var declarations here</font></tt></b>
+<p><b><tt><font size=+1>&nbsp; public void init() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Initializations here</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; setBackground(Color.white);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; setFont(new Font("SansSerif",
+Font.BOLD, 18));</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; jumpingJava = getImage(getDocumentBase(),</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"images/Jumping-Java.gif");</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; add(new Label("Great Jumping
+Java!"));</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; <font color="#3333FF">System.out.println("Yow!
+I'm jiving with Java.");</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<p><b><tt><font size=+1>&nbsp; public void paint(Graphics g) {&nbsp; //
+Drawing here</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.drawImage(jumpingJava, 0,
+50, this);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#3333FF">Corresponding
+HTML Code</font></font></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;!DOCTYPE HTML PUBLIC
+"-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>&lt;HTML></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;HEAD></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;TITLE>Jumping
+Java&lt;/TITLE></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/HEAD></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;BODY BGCOLOR="BLACK"
+TEXT="WHITE"></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;H1>Jumping Java&lt;/H1></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;P></font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&lt;APPLET CODE="JavaJump.class"
+WIDTH=250 HEIGHT=335></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;B>Sorry, this
+example requires Java.&lt;/B></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/APPLET></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/BODY></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/HTML></font></font></tt></b>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000000">Standard Output</font></font></b></h3>
+<b><tt><font color="#000000"><font size=+1>System.out.println(" ... ");</font></font></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000000"><font size=+1>JAVA
+Console - Netscape or IE</font></font></font></b>
+<br><img SRC="ch9fg2.jpg" height=384 width=448>
+<p><font face="Arial,Helvetica">Appletviewer - output sent to window that
+started applet</font>
+<br>&nbsp;
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica">Creating an Applet</font></h3>
+
+<ol>
+<li>
+<font face="Arial,Helvetica">Using some editor, create the Java source
+code for an applet. Save the source code with the extension .java.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Using the javac compiler compile the source
+code. javac will create the bytecode file, with same name but with the
+extension .class.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Using some editor, create an HTML document
+( must have extension .html or .htm) in which you use an APPLET tag and
+refer to the bytecode file just created.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Using any Java-enabled browser, or appletviewer,
+open the HTML file just created.</font></li>
+</ol>
+<i><font face="Arial,Helvetica"><font color="#000000">Example</font></font></i>
+<p><font face="Arial,Helvetica"><font color="#3333FF">Using a text editor
+create the following Java source code:</font></font>
+<br><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class First extends Applet{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; public void paint(Graphics
+g) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("MY
+FIRST APPLET",5,25);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><font color="#3333FF"><font face="Arial,Helvetica">Save the file as
+</font><b><tt><font size=+1>First.java</font></tt><font face="Arial,Helvetica">.</font></b></font>
+<br><b><font face="Arial,Helvetica">The name of the file must be the same
+as the name of the class in the source code, with the extension .java.</font></b>
+<p><font face="Arial,Helvetica"><font color="#3333FF">Compile the source
+code using javac. At the DOS prompt, issue the command:</font></font>
+<br><font face="Arial,Helvetica">> </font><b><tt><font size=+1>javac First.java</font></tt></b>
+<p><font face="Arial,Helvetica">javac will create the bytecode file named
+</font><b><tt><font size=+1>First.class</font></tt></b><font face="Arial,Helvetica">.</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">Create the following
+HTML file:</font></font>
+<br><b><tt><font size=+1>&lt;HTML></font></tt></b>
+<br><b><tt><font size=+1>&lt;TITLE> First Java Applet &lt;/TITLE></font></tt></b>
+<br><b><tt><font size=+1>&lt;H3> This is my first Java applet &lt;/H3></font></tt></b>
+<br><b><tt><font size=+1>&lt;HR></font></tt></b>
+<br><b><tt><font size=+1>&lt;APPLET CODE = "First.class" WIDTH=100 HEIGHT=30></font></tt></b>
+<br><b><tt><font size=+1>&lt;/APPLET></font></tt></b>
+<br><b><tt><font size=+1>&lt;HR></font></tt></b>
+<br><b><tt><font size=+1>&lt;H4>Applet is done ........ &lt;/H4></font></tt></b>
+<br><b><tt><font size=+1>&lt;/HTML></font></tt></b>
+<p><font face="Arial,Helvetica"><font color="#3333FF">Save this file with
+the extension.html.</font></font>
+<br>&nbsp;
+<p><font face="Arial,Helvetica"><font color="#3333FF">In Netscape or IE,
+open the HTML file.</font></font>
+<p><img SRC="ch9fg3.jpg" height=458 width=395>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica"><font color="#3333FF">Explanation</font></font></h3>
+<font face="Arial,Helvetica"><font color="#3333FF">import java.awt.*;</font></font>
+<br><font face="Arial,Helvetica"><font color="#3333FF">import java.applet.*;</font></font>
+<ul>
+<li>
+<font face="Arial,Helvetica">The awt (abstract window toolkit) and applet
+packages&nbsp; provide a large number of classes, and are essential for
+creating a graphical user interface (GUI).</font></li>
+
+<li>
+<font face="Arial,Helvetica">The * makes all classes from the packages
+available to the program.</font></li>
+</ul>
+<font face="Arial,Helvetica"><font color="#3333FF">public class First extends
+java.applet.Applet</font></font>
+<ul>
+<li>
+<font face="Arial,Helvetica">All applets are classes.</font></li>
+
+<li>
+<font face="Arial,Helvetica">First is a class that extends an existing
+class called Applet.</font></li>
+
+<li>
+<font face="Arial,Helvetica">First is a derived class from Java’s Applet
+class and it inherits all functionality from the Applet class.</font></li>
+</ul>
+<font face="Arial,Helvetica"><font color="#3333FF">public void paint(Graphics
+g) {</font></font>
+<br><font face="Arial,Helvetica"><font color="#3333FF">&nbsp;&nbsp;&nbsp;
+g.drawString("MY FIRST APPLET",5,25);</font></font>
+<br><font face="Arial,Helvetica"><font color="#3333FF">}</font></font>
+<ul>
+<li>
+<font face="Arial,Helvetica">The paint() method is automatically called
+when the applet starts.</font></li>
+
+<li>
+<font face="Arial,Helvetica">This paint() method uses the drawString()
+method of the Graphics class to draw a string.</font></li>
+
+<li>
+<font face="Arial,Helvetica">drawString(<i>string</i>,x,y) is a method
+of the Graphics class where,</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica"><i>string</i> is the string to be drawn,</font></li>
+
+<li>
+<font face="Arial,Helvetica">x and y are the pixel coordinates for the
+starting point of the string.</font></li>
+
+<li>
+<font face="Arial,Helvetica">The coordinate system origin (0,0) is the
+top left corner of the applet rectangle, with x increasing to the right
+and y increasing down.</font></li>
+</ul>
+</ul>
+
+<h3>
+<font face="Arial,Helvetica">Attributes of the HTML APPLET tag</font></h3>
+<font face="Arial,Helvetica">The following table describes the attributes
+used with APPLET tag:</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">CODE - <i>the name
+of .class file</i></font></font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Required attribute.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Syntax: CODE="filename.class"</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">WIDTH and HEIGHT
+- <i>screen area for the applet in pixels</i></font></font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; -Required attributes.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; -Syntax: WIDTH=a_number
+HEIGHT=a_number</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">CODEBASE - <i>specifies
+the base URL or directory</i></font></font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; -Syntax: CODEBASE=base_URL</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp; -Must use the
+CODEBASE attribute if the .class file is not in the current directory.</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">NAME - <i>used for
+interapplet communication</i></font></font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; -Syntax: NAME=name</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">ALIGN - <i>Aligns
+the applet as an embedded image</i></font></font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; -Syntax: ALIGN=left|center|right|top|texttop|middle|absmiddle|baseline|bottom</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">VSPACE -<i> Forces
+n blank pixels above and below the applet</i></font></font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; -Syntax: VSPACE=n</font>
+<p><font face="Arial,Helvetica"><font color="#3333FF">HSPACE - <i>Forces
+n blank pixels to left and right of the applet</i></font></font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; -Syntax: HSPACE=n</font>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica">Reading Applet Parameters</font></h3>
+<b><i><font face="Arial,Helvetica">1. The Dimension class</font></i></b>
+<br><i><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Applet size specified
+in the APPLET tag as values of the attributes HEIGHT and WIDTH.</font></i>
+<br><i><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Accessed within
+the applet using the Dimension class.</font></i>
+<p><i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i>
+<p><i><font face="Arial,Helvetica">The following applet prints the height
+and width of the applet rectangle, specified by the HTML tag APPLET.</font></i>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class Size extends Applet{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; public void paint(Graphics
+g){</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#3333FF">Dimension
+d = getSize()</font>;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("Height
+is = "+<font color="#3333FF">d.height</font>+ " Width is</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+="+<font color="#3333FF">d.width</font>,10,100);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><i><font face="Arial,Helvetica">The HTML code for this:</font></i>
+<p><b><tt><font size=+1>&lt;TITLE> The Size Applet &lt;/TITLE></font></tt></b>
+<br><b><tt><font size=+1>&lt;H3> This applet prints the height and width
+of the applet rectangle.&lt;/H3></font></tt></b>
+<br><b><tt><font size=+1>&lt;HR></font></tt></b>
+<br><b><tt><font size=+1>&lt;APPLET CODE = "Size.class" <font color="#3333FF">HEIGHT=300
+WIDTH=200</font>>&lt;/APPLET></font></tt></b>
+<br><b><tt><font size=+1>&lt;HR></font></tt></b>
+<br><b><tt><font size=+1>&lt;H3> We are done …… &lt;/H3></font></tt></b>
+<p><b><i><font face="Arial,Helvetica">2. Using PARAM HTML tag</font></i></b>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - HTML document send
+values: text string, x-position, y-position, font, a file name, etc., to
+an applet</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Use <font color="#3333FF">PARAM</font>
+tag in the HTML document</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - PARAM tag captured
+by the applet using the </font><b><tt><font size=+1>getParameter()</font></tt></b><font face="Arial,Helvetica">method.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - PARAM tag is placed
+within &lt;APPLET> …&lt;/APPLET>.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - PARAM tag requires
+two attributes: NAME and VALUE.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Syntax for PARAM
+tag:</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;PARAM NAME=". . . . . " VALUE=".. . . . . "></font>
+<p><i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i>
+<br><font face="Arial,Helvetica"><font color="#3333FF">Java Code</font></font>
+<br><b><tt><font color="#000000"><font size=+1>import java.applet.Applet;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>import java.awt.*;</font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>public class HelloWWW2 extends
+Applet {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; public void init()
+{</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; setFont(new
+Font("SansSerif", Font.BOLD, 30));</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; Color
+background = Color.gray;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; Color
+foreground = Color.darkGray;</font></font></tt></b>
+<br><b><tt><font size=+1><font color="#000000">&nbsp;&nbsp;&nbsp; String
+backgroundType = </font><font color="#3333FF">getParameter("BACKGROUND")</font><font color="#000000">;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; if (backgroundType
+!= null) {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (backgroundType.equalsIgnoreCase("LIGHT")) {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+background = Color.white;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foreground = Color.black;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} else if (backgroundType.equalsIgnoreCase("DARK")) {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+background = Color.black;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foreground = Color.white;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; }</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; setBackground(background);</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; setForeground(foreground);</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; }</font></font></tt></b>
+<p><i><font face="Arial,Helvetica"><font color="#3333FF">&nbsp; </font></font></i><b><tt><font color="#000000"><font size=+1>public
+void paint(Graphics g) {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; g.drawString("Hello,
+World Wide Web.", 5, 35);</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; }</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>}</font></font></tt></b>
+<p><font face="Arial,Helvetica"><font color="#3333FF">HTML Code</font></font>
+<br><b><tt><font color="#000000"><font size=+1>&lt;!DOCTYPE HTML PUBLIC
+"-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>&lt;HTML></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;HEAD></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;TITLE>Customizable
+HelloWWW Applet&lt;/TITLE></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/HEAD></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;BODY></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;H1>Customizable HelloWWW
+Applet&lt;/H1></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;P></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;APPLET CODE="HelloWWW2.class"
+WIDTH=400 HEIGHT=40></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;PARAM NAME="BACKGROUND"
+VALUE="LIGHT"></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;B>Error! You
+must use a Java-enabled browser.&lt;/B></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/APPLET></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;P></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;APPLET CODE="HelloWWW2.class"
+WIDTH=400 HEIGHT=40></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;PARAM NAME="BACKGROUND"
+VALUE="DARK"></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;B>Error! You
+must use a Java-enabled browser.&lt;/B></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/APPLET></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;P></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;APPLET CODE="HelloWWW2.class"
+WIDTH=400 HEIGHT=40></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; &lt;B>Error! You
+must use a Java-enabled browser.&lt;/B></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/APPLET></font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&lt;/BODY></font></font></tt></b>
+<p><img SRC="ch9fg4.jpg" height=423 width=636>
+<br>&nbsp;
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica">Applet Life Cycle</font></h2>
+<b><tt><font color="#3333FF"><font size=+1>public void init()</font></font></tt></b>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Called when the applet
+is loaded</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Method used for initialization
+of data</font>
+<p><b><tt><font color="#3333FF"><font size=+1>public void start()</font></font></tt></b>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - start() method called
+to begin applet execution.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Called after the
+init() method each time the applet is revisited in a Web page.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Method used to perform
+any operation required when the this applet is loaded.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Implementation of
+this method provided by the Applet class does nothing.</font>
+<p><b><tt><font color="#3333FF"><font size=+1>public void stop()</font></font></tt></b>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - stop() is called
+when browser or appletviewer informs applet that it should stop its execution.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Called when Web page
+that contains this applet has been replaced by another page, and t before
+the applet is to be destroyed.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Method may be used
+to perform any operation required each time the Web page containing it
+is no longer visible (e.g. suspending an animation).</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Implementation of
+this method provided by the Applet class does nothing.</font>
+<p><b><tt><font color="#3333FF"><font size=+1>public void destroy()</font></font></tt></b>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - destroy() called
+by the browser or appletviewer to inform this applet that it is being reclaimed
+and that it should destroy any resources that it has allocated.</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - Method to perform
+any operation rquired before it is destroyed (e.g. killing threads).</font>
+<br><font face="Arial,Helvetica">&nbsp;&nbsp;&nbsp; - The implementation
+of this method provided by the Applet class does nothing.</font>
+<h2>
+<font face="Arial,Helvetica">Graphics Operations</font></h2>
+
+<h3>
+<font face="Arial,Helvetica">Graphics Levels:</font></h3>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">AWT</font></li>
+
+<li>
+<font face="Arial,Helvetica">Swing</font></li>
+
+<li>
+<font face="Arial,Helvetica">Java 2D</font></li>
+
+<li>
+<font face="Arial,Helvetica">Java 3D</font></li>
+</ul>
+
+<h3>
+<i><font face="Arial,Helvetica">AWT 1.1 Graphics</font></i></h3>
+
+<h3>
+<b><i><font face="Arial,Helvetica">Font Class</font></i></b></h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i>
+<br><img SRC="ch9fg5a.jpg" height=182 width=601>
+<p><b><tt><font size=+1>import java.applet.Applet;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>public class Fonts extends Applet {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp; Font font1, font2, font3, font4,
+font5;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp; public void init(){</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; font1 = new Font("Serif",Font.ITALIC,10);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; font2 = new Font("SanSerif",Font.BOLD,15);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; font3 = new Font("Monospaced",Font.PLAIN,20);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; font4 = new Font("Helvetiva",Font.BOLD+Font.ITALIC,25);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; font5 = new Font("Courier",Font.PLAIN,30);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp; }</font></tt></b>
+<p><b><tt><font size=+1>&nbsp;&nbsp; public void paint(Graphics g){</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setFont(font1);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("Serif
+in Italic with size 10",30,10);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setFont(font2);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("SanSerif
+in Bold with size 15",30,45);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setFont(font3);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("Monospaced
+in plain with size 20",30,75);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setFont(font4);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("Helvetica
+in Bold italic with size 25",30,120);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setFont(font5);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString("Courier
+in Plain with size 30",30,150);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<h3>
+<b><i><font face="Arial,Helvetica">Color Class</font></i></b></h3>
+<b>1. Create a Color object:</b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; Color
+color_object;</font></font></tt></b>
+<p><b>2.&nbsp; Initialize the Color object using new and a constructor:</b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; color_object
+= new Color (r,g,b);</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; r,g and b are integers between 0 and 255 specifying
+color components.</b>
+<p><b>3. Install the Color object, using the <tt><font size=+1>setColor()</font></tt>
+method of the Graphics class.</b>
+<br><tt><font color="#3333FF"><font size=+1>&nbsp;<b>&nbsp;&nbsp; setColor(color_object_name)</b></font></font></tt>
+<p>Java provides 13 predefined Color objects with static field names of
+the Color class:
+<br><b><tt><font size=+1>Color.black&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#0000FF">Color.blue</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#00FFFF">Color.cyan</font></font></tt></b>
+<br><b><tt><font size=+1><font color="#606060">Color.darkGray&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#808080">Color.gray</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#00FF00">Color.green</font></font></tt></b>
+<br><b><tt><font size=+1><font color="#C0C0C0">Color.lightGray&nbsp;</font>&nbsp;&nbsp;&nbsp;
+<font color="#FF00FF">Color.magenta</font>&nbsp;&nbsp;&nbsp;&nbsp; <font color="#FF8000">Color.orange</font></font></tt></b>
+<br><b><tt><font size=+1><font color="#FF8080">Color.pink</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#FF0000">Color.red&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#FFFFFF">Color.white</font></font></tt></b>
+<br><b><tt><font color="#FFFF00"><font size=+1>Color.yellow</font></font></tt></b>
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+<b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.Applet;</font></tt></b>
+<br><b><tt><font size=+1>public class Colors extends Applet{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp; Color myColor;</font></tt></b>
+<br><b><tt><font size=+1>public void paint(Graphics g)&nbsp;&nbsp; {</font></tt></b>
+<p><b><tt><font size=+1>&nbsp;myColor = new Color(100,0,255);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(myColor);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 1",10,20);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(Color.black);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 2",10,40);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 3",10,60);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(Color.green);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 4",10,80);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(Color.magenta);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 5",10,100);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(Color.red);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 6",10,120);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(Color.yellow);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 7",10,140);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;myColor = myColor.darker();</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(myColor);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 8",10,160);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;myColor = myColor.brighter();</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.setColor(myColor);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g.drawString("Pace University 9",10,180);</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><img SRC="ch9fg6.jpg" height=207 width=135>
+<br>&nbsp;
+<h3>
+<b><i><font face="Arial,Helvetica">Graphics Class</font></i></b></h3>
+
+<ul>
+<li>
+<b>A Graphics object cannot be created directly</b></li>
+
+<li>
+<b>Methods of the Graphics class usually used within the paint() method</b></li>
+
+<li>
+<b>Only argument in the paint() method is a Graphics object</b></li>
+
+<li>
+<b>All the graphics elements are embedded within rectangles</b></li>
+
+<li>
+<b>Origin of the rectangle is the top-left corner of the rectangle.</b></li>
+
+<li>
+<b>All lengths are in pixels and measured starting from the origin (top-left
+corner) of the applet rectangle.</b></li>
+
+<li>
+<b>All angles are in degrees.</b></li>
+</ul>
+
+<h3>
+<font face="Arial,Helvetica">Graphics class methods</font></h3>
+<b><tt><font color="#3333FF"><font size=+1>drawLine(x1,y1,x2,y2)</font></font></tt></b>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> - x1, x2, y1, y2 - all
+integers.</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Draws a line between
+(x1, y1) and (x2, y2)</b>
+<p><b><tt><font color="#3333FF"><font size=+1>drawRect(x,y,width,height)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - x, y, width, height
+- all integers</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Draws a rectangle with
+the specified width and height, at the top left corner at (x,y)</b>
+<p><b><tt><font color="#3333FF"><font size=+1>drawRoundRect(x,y,width,height,arcWidth,arcHeight)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - x, y, width, height,
+arcWidth, arcHeight - integers</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Draws an outlined round
+cornered rectangle</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - left and right edges
+of the rectangle are x and x+width, respectively.</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - top and bottom edges
+of the rectangle are at y and y+height.</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ArcHeight and arcWidth
+determine the horizontal and vertical diameters at the four corners.</b>
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+<b>Applet draws:</b>
+<br><b>&nbsp;&nbsp;&nbsp; - a line from (30,30) to (60,60)</b>
+<br><b>&nbsp;&nbsp;&nbsp; - a rectangle at (10,10) with width &amp; height
+100 &amp; 100</b>
+<br><b>&nbsp;&nbsp;&nbsp; - a round rectangle at (20,20) with width &amp;
+height 80 &amp; 80</b>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class Graphics1 extends Applet{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;public void paint(Graphics g){</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.setColor(Color.green);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.drawLine(30,30,60,60);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.setColor(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.drawRect(10,10,100,100);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.setColor(Color.red);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.drawRoundRect(20,20,80,80,25,25);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;}</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><img SRC="ch9fg7.jpg" height=252 width=303>
+<br>&nbsp;
+<br>&nbsp;
+<p><b><tt><font color="#3333FF"><font size=+1>fillRoundRect(x,y,width,height,arcWidth,arcHeight)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; - x, y, width, height, arcWidth, arcHeight -
+integers</b>
+<br><b>&nbsp;&nbsp;&nbsp; - Fills an outlined round cornered rectangle.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - left and right edges of the rectangle are x
+and x+width, respectively.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - top and bottom edges of the rectangle are at
+y and y+height.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - arcHeight and arcWidth determine the horizontal
+and vertical diameters at the four corners.</b>
+<p><b><tt><font color="#3333FF"><font size=+1>fillRect(x,y,width,height)</font></font></tt></b>
+<br>&nbsp;&nbsp;&nbsp; - <b>Same as drawRect(), but fills rectangle with
+default color.</b>
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+<b>Draws two rectangles except that the rectangles are now filled.</b>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class Graphics2 extends Applet{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; public void paint(Graphics
+g){</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.fillRect(10,10,100,100);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.red);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.fillRoundRect(20,20,80,80,25,25);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><img SRC="ch9fg8.jpg" height=240 width=253>
+<br>&nbsp;
+<p><b><tt><font color="#3333FF"><font size=+1>drawOval(x,y,width,height)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; - x, y, width, height - all integers.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - Draws an ellipse within the square (Square
+will not show).</b>
+<p><b><tt><font color="#3333FF"><font size=+1>fillOval(x,y,width,height)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; - x, y, width, height - all integers</b>
+<br><b>&nbsp;&nbsp;&nbsp; - Draws an ellipse and fills with the current
+color</b>.
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+<b>Applet draws an ellipse at (10,10) and a filled ellipse at (20,20)</b>.
+<p>i<b><tt><font size=+1>mport java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class Graphics3 extends Applet{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; public void paint(Graphics
+g){</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawOval(10,10,150,100);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.red);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.fillOval(20,20,40,80);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><img SRC="ch9fg9.jpg" height=226 width=263>
+<br>&nbsp;
+<p><b><tt><font color="#3333FF"><font size=+1>drawArc(x,y,width,height,startAngle,arcAngle)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; - x, y, width, height, startAngle, arcAngle -
+all integers</b>
+<br><b>&nbsp;&nbsp;&nbsp; - The center of the arc will be at the center
+of&nbsp; a square</b>
+<br><b>&nbsp;&nbsp;&nbsp; - The startAngle is the angle made with the horizontal
+line.</b>
+<p><b><tt><font color="#3333FF"><font size=+1>fillArc(x, y, width, height,
+startAngle, arcAngle)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; - x, y, width, height, startAngle, arcAngle -
+all integers</b>
+<br><b>&nbsp;&nbsp;&nbsp; - The center of the arc will be at the center
+of a square as.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - The startAngle is the angle made with the horizontal
+line.</b>
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+<b>Applet draws a pie and a filled pie.</b>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class Graphics4 extends Applet{</font></tt></b>
+<p><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; public void paint(Graphics g){</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawArc(10,10,100,100,15,45);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.red);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.fillArc(10,10,100,100,135,45);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><img SRC="ch9fg10.jpg" height=190 width=201>
+<br>&nbsp;
+<p><b><tt><font color="#3333FF"><font size=+1>drawPolygon(xArray,yArray,n)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; - n is an integer, representing the number of
+points.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - xArray and yArray are integer arrays with n
+elements each.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - Draws a polygon by joining lines (x[0],y[0])
+and (x[1],y[1]), (x[1],y[1]) and (x[2],y[2]), … ,</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (x[n-2],y[n-2]) and (x[n-1],y[n-1]),</b>
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+<b>Applet draws a polygon with 8 vertices using arrays of 9 elements</b>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class Graphics9 extends Applet {</font></tt></b>
+<p><b><tt><font size=+1>int x[] = {100,70,60,70,100,130,140,130,100};</font></tt></b>
+<br><b><tt><font size=+1>int y[] = {10,20,50,80,90,80,50,20,10};</font></tt></b>
+<br><b><tt><font size=+1>int n = 9;</font></tt></b>
+<p><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; public void paint(Graphics g)
+{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.green);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawPolygon(x,y,n);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><img SRC="ch9fg11.jpg" height=210 width=253>
+<br>&nbsp;
+<p><b><tt><font color="#3333FF"><font size=+1>fillPolygon(xArray,yArray,n)</font></font></tt></b>
+<br><b>&nbsp;&nbsp;&nbsp; - n is an integer, representing the number of
+points.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - xarray and yarray are integer arrays with n
+elements each.</b>
+<br><b>&nbsp;&nbsp;&nbsp; - Draws, a filled with default color, polygon
+by joining lines (x[0],y[0]) and (x[1],y[1]), (x[1],y[1])</b>
+<br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and (x[2],y[2]), …, (x[n-2],y[n-2])
+and (x[n-1],y[n-1])</b>.
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+Applet draws the same polygon&nbsp; but fills it with green color.
+<p>i<b><tt><font size=+1>mport java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<p><b><tt><font size=+1>public class Graphics10 extends Applet {</font></tt></b>
+<p><b><tt><font size=+1>int x[] = {100,70,60,70,100,130,140,130,100};</font></tt></b>
+<br><b><tt><font size=+1>int y[] = {10,20,50,80,90,80,50,20,10};</font></tt></b>
+<br><b><tt><font size=+1>int n = 9;</font></tt></b>
+<p><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; public void paint(Graphics g)
+{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(Color.green);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.fillPolygon(x,y,n);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<p><img SRC="ch9fg12.jpg" height=231 width=254>
+<br>&nbsp;
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica">Drawing Images</font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Java loads images in GIF and JPEG format as
+well as GIF89A (animation)</font></li>
+
+<li>
+<font face="Arial,Helvetica">Image Drawing in two Steps:</font></li>
+
+<ol>
+<li>
+<b><tt><font size=+1>getImage()</font></tt></b><font face="Arial,Helvetica">
+method registers local or remote image</font></li>
+
+<li>
+<b><tt><font size=+1>drawImage()</font></tt></b><font face="Arial,Helvetica">
+method of </font><b><tt><font size=+1>Graphics</font></tt></b><font face="Arial,Helvetica">
+puts image on screen</font></li>
+</ol>
+</ul>
+
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i></h3>
+<b><tt><font color="#000000"><font size=+1>import java.applet.Applet;</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>import java.awt.*;</font></font></tt></b>
+<p><b><tt><font size=+1><font color="#000000">// An applet that </font><font color="#3333FF">loads
+an image from a relative URL</font><font color="#000000">.</font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>public class JavaMan1 extends
+Applet {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; private Image javaMan;</font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>&nbsp; public void init()
+{</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; javaMan
+= getImage(getCodeBase(),"images/Java-Man.gif");</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; }</font></font></tt></b>
+<p><b><tt><font color="#000000"><font size=+1>&nbsp; public void paint(Graphics
+g) {</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp;&nbsp;&nbsp; g.drawImage(javaMan,
+0, 0, this);</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>&nbsp; }</font></font></tt></b>
+<br><b><tt><font color="#000000"><font size=+1>}</font></font></tt></b>
+<br>&nbsp;
+<h3>
+<i><font color="#3333FF">Comments:</font></i></h3>
+<b><tt><font color="#3333FF"><font size=+1>getImage(getCodeBase(),"images/Java-Man.gif")</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; getImage(codebase, relative_path)</font></tt></b>;
+<br><b><font size=+1><tt>&nbsp;&nbsp;&nbsp; public URL getCodeBase() -
+</tt>returns
+path of the Java code</font></b>
+<br><b><font size=+1><tt>&nbsp;&nbsp;&nbsp; public URL getDocumentBase()-
+</tt>returns
+path of the HTML Doc</font></b>
+<p><b><tt><font color="#3333FF"><font size=+1>g.drawImage(javaMan, 0, 0,
+this)</font></font></tt></b>
+<br><b><tt><font size=+1><font color="#3333FF">&nbsp;&nbsp;&nbsp; </font><font color="#000000">drawImage(Image
+image,int left,int top,ImageObserver observer);</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+^ current window</font></font></tt></b>
+<br><img SRC="ch9fg13.jpg" height=592 width=448>
+<p><i><font face="Arial,Helvetica"><font color="#3333FF">Example</font></font></i>
+<br><b><tt><font size=+1><font color="#000000">// An applet that </font><font color="#3333FF">loads
+an image from a <u>Absolute</u> URL</font><font color="#000000">.</font></font></tt></b>
+<br><b><tt><font size=+1>import java.applet.Applet;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.net.*; <font color="#3333FF">// Required
+for web access</font></font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>public class JavaMan2 extends Applet {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private Image javaMan;</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; public void init() {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL imageFile =
+new URL("http://www.corewebprogramming.com" +</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"/images/Java-Man.gif");</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; javaMan = getImage(imageFile);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; } catch(MalformedURLException
+mue) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; showStatus("Bogus
+image URL.");</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Bogus
+URL");</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; public void paint(Graphics g) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g.drawImage(javaMan, 0, 0,
+this);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<br><b><tt><font size=+1></font></tt></b>&nbsp;
+<br><i><font face="Arial,Helvetica"><font color="#3333FF"></font></font></i>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

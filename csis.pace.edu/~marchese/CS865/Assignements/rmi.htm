@@ -1,0 +1,332 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="rmi_files/filelist.xml">
+<title>CS865 – Distributed Software Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Francis Marchese</o:Author>
+  <o:LastAuthor>Frank</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>42</o:TotalTime>
+  <o:Created>2007-04-02T15:29:00Z</o:Created>
+  <o:LastSaved>2008-10-04T20:55:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>166</o:Words>
+  <o:Characters>952</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>7</o:Lines>
+  <o:Paragraphs>2</o:Paragraphs>
+  <o:CharactersWithSpaces>1116</o:CharactersWithSpaces>
+  <o:Version>10.6626</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.AW-List, li.AW-List, div.AW-List
+	{mso-style-name:AW-List;
+	margin-top:0in;
+	margin-right:.5in;
+	margin-bottom:3.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	mso-line-height-rule:exactly;
+	mso-pagination:widow-orphan;
+	tab-stops:.25in;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-no-proof:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:73.45pt 49.6pt 73.45pt 49.6pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:417560657;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-71952572 -1 -1 -1 -1 -1 -1 -1 -1 -1;}
+@list l0:level1
+	{mso-level-start-at:7;
+	mso-level-number-format:alpha-lower;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:1134762414;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-843308424 -1 -1 -1 -1 -1 -1 -1 -1 -1;}
+@list l1:level1
+	{mso-level-start-at:4;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l1:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%2\)";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="3074">
+  <o:colormru v:ext="edit" colors="#f8f8f8"/>
+  <o:colormenu v:ext="edit" fillcolor="#f8f8f8"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#F8F8F8" lang=EN-US link=blue vlink=purple style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=1247
+ style='width:935.25pt;mso-cellspacing:0in;background:#FFFFCC;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;height:32.25pt'>
+  <td width=1247 valign=top style='width:935.25pt;padding:0in 0in 0in 0in;
+  height:32.25pt'>
+  <h2><span style='font-style:normal;mso-bidi-font-style:italic'>CS865 –
+  Distributed Software Development<o:p></o:p></span></h2>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:32.25pt'>
+  <td width=1247 valign=top style='width:935.25pt;background:#FFFF99;
+  padding:0in 0in 0in 0in;height:32.25pt'>
+  <h2><span style='font-style:normal;mso-bidi-font-style:italic'>RMI Assignment<o:p></o:p></span></h2>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;font-family:Arial'>Complete the following assignment
+and email the report, source, and executable code (PLEASE ZIP the file
+together!) <span class=GramE>to<span style='mso-spacerun:yes'>  </span></span><a
+href="mailto:fmarchese@pace.edu">fmarchese@pace.edu</a><o:p></o:p></span></b></p>
+
+<p class=AW-List style='margin-left:18.75pt;text-indent:0in;tab-stops:.5in'><span
+style='font-size:11.0pt;mso-bidi-font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=AW-List style='margin-left:18.75pt;text-indent:0in;tab-stops:.5in'><span
+style='font-size:14.0pt;font-family:Arial'>This exercise makes use of the Hello
+example from the lecture.<o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:.75in;mso-list:l1 level2 lfo2;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>a)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;font-family:Arial'>Open a directory<span
+style='mso-spacerun:yes'>  </span>for this exercise. Place the source files for
+the <b style='mso-bidi-font-weight:normal'>Hello</b> example in the directory.<o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:.75in;mso-list:l1 level2 lfo2;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>b)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;font-family:Arial'>Compile <b style='mso-bidi-font-weight:
+normal'>HelloInterface.java</b> and <b style='mso-bidi-font-weight:normal'>HelloImpl.java</b>.<o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:.75in;mso-list:l1 level2 lfo2;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>c)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;font-family:Arial'>Use <b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>rmic</i></b> to compile <b
+style='mso-bidi-font-weight:normal'>HelloImpl</b>. Check the folder to see that
+the proxy classes are generated.<span style='mso-spacerun:yes'>  </span>What
+are their names?<o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:.75in;mso-list:l1 level2 lfo2;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>d)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;font-family:Arial'>Compile <b style='mso-bidi-font-weight:
+normal'>HelloServer.java</b> .<span style='mso-spacerun:yes'>  </span>Check the
+contents of your folder.<o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:.75in;mso-list:l1 level2 lfo2;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>e)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;font-family:Arial'>Run the server, specifying a random
+port number for the RMI Registry.<span style='mso-spacerun:yes'>  </span>Check
+the messages displayed, including the list of names currently in the
+registry.<span style='mso-spacerun:yes'>  </span>Do you see the name that the
+server registered under (as specified in the program)?<o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:.75in;mso-list:l1 level2 lfo2;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>f)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;font-family:Arial'>Compile and run<span
+style='mso-spacerun:yes'>  </span><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>HelloClient.java</i></b>.<span
+style='mso-spacerun:yes'>   </span>When prompted, specify “localhost”for the
+host name, and the RMI registry port number you previously specified. What
+happened?<span style='mso-spacerun:yes'>  </span>Explain. <o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:.75in;mso-list:l0 level1 lfo4;tab-stops:
+list .75in'><![if !supportLists]><span style='font-size:14.0pt;font-family:
+Arial;mso-fareast-font-family:Arial;color:black'><span style='mso-list:Ignore'>g)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:14.0pt;font-family:Arial;color:black'>Run the client program
+on a separate machine.<span style='mso-spacerun:yes'>  </span>Were you
+successful?<o:p></o:p></span></p>
+
+<p class=AW-List style='margin-left:1.0in;text-indent:0in;tab-stops:.5in'><span
+style='font-size:12.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-size:12.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

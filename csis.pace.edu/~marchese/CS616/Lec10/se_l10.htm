@@ -1,0 +1,981 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./se_l10_files/filelist.xml">
+<link rel=Edit-Time-Data href="./se_l10_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CS616 – Software Engineering II</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Frank Marchese</o:Author>
+  <o:LastAuthor>Frank Marchese</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>315</o:TotalTime>
+  <o:Created>2002-11-24T18:21:00Z</o:Created>
+  <o:LastSaved>2002-11-24T23:41:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>691</o:Words>
+  <o:Characters>3943</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>32</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4842</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536902279 -2147483648 8 0 511 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	mso-bidi-font-size:13.5pt;
+	font-family:Helvetica;
+	mso-font-kerning:0pt;}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	mso-bidi-font-size:22.0pt;
+	font-family:"Times New Roman";
+	color:black;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+h4
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:normal;
+	font-style:italic;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:37894824;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-587822118 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:86581514;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1637150248 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:203372591;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1731204142 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:281695659;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2003560386 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:294026112;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1961529376 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:347145863;
+	mso-list-type:hybrid;
+	mso-list-template-ids:230744986 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:747115126;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-762675326 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:836387972;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1764598186 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:893201262;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1804823034 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l9
+	{mso-list-id:1092823962;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1107795392 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10
+	{mso-list-id:1109590649;
+	mso-list-type:hybrid;
+	mso-list-template-ids:961174922 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:1192495988;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1002633020 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12
+	{mso-list-id:1198154224;
+	mso-list-type:hybrid;
+	mso-list-template-ids:223260420 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13
+	{mso-list-id:1272935897;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1038566026 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14
+	{mso-list-id:1639796176;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-278770672 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l15
+	{mso-list-id:1658652665;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-48203836 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16
+	{mso-list-id:1711610537;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-578896518 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l17
+	{mso-list-id:1901397865;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-762675326 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18
+	{mso-list-id:1940521442;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1287870294 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l18:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l18:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l19
+	{mso-list-id:2128231026;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1398264908 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l19:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l20
+	{mso-list-id:2144494968;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-382071020 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l20:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<table border=0 cellspacing=3 cellpadding=0 width="100%" bgcolor="#ccffcc"
+ style='width:100.88%;mso-cellspacing:1.5pt;background:#CCFFCC;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr>
+  <td valign=top style='background:#FFCC99;padding:1.2pt 1.2pt 1.2pt 1.2pt'>
+  <h2><span style='font-family:Arial;color:windowtext'>CS616 – Software
+  Engineering II<o:p></o:p></span></h2>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:1.2pt 1.2pt 1.2pt 1.2pt'>
+  <h1><span style='font-family:Arial'>Lecture 10</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:Arial'><o:p></o:p></span></h1>
+  </td>
+ </tr>
+</table>
+
+<h3><span style='background:aqua;mso-highlight:aqua'>Larman – Part5 –
+Elaboration: Iteration 3</span></h3>
+
+<h3><span style='background:yellow;mso-highlight:yellow'>Chapter 27 – Refining
+the Domain Model</span></h3>
+
+<h3>Objectives</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:Arial'>Add association classes to Domain Model<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:Arial'>Add aggregation relationships<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:Arial'>Model time intervals of applicable information<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:Arial'>Choose how to model roles<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:Arial'>Organize the Domain Model into packages<o:p></o:p></span></li>
+</ul>
+
+<h3>Association Classes</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>An association class may be
+useful in the Domain Model if:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo3;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>An attribute is related
+to an association<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo3;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Instances of the
+association<span style="mso-spacerun: yes">  </span>class have a life-time
+dependency on the association<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo3;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>There is a many-to-many
+association between two concepts, and information associated with the
+association itself.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>UML signifies an association
+using a dashed line:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:369pt;
+ height:142.8pt'>
+ <v:imagedata src="./se_l10_files/image001.gif" o:title="fg27-3"/>
+</v:shape><![endif]--><![if !vml]><img width=492 height=191
+src="./se_l10_files/image001.gif" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>ServiceContract</span></i><span
+style='font-family:Arial'> and its attributes are related to the association
+between a <i>Store</i> and an <i>AuthorizationService</i>, and lifetime of
+service contract depends on the relationship<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Aggregation and Composition</h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>Aggregation</span></b><span
+style='font-family:Arial'> is a kind of an association used to model whole-part
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>relationships between things<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The whole is called the
+<b>composite</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo4;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UML shows aggregation
+with a hollow or filled diamond at the composite end of the relationship:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:230.4pt;height:66pt'>
+ <v:imagedata src="./se_l10_files/image002.gif" o:title="fg27-6"/>
+</v:shape><![endif]--><![if !vml]><img width=307 height=88
+src="./se_l10_files/image002.gif" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4>Composite Aggregation – Filled Diamond</h4>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo5;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Composite aggregation
+(composition) means that the part only belongs to one composite object<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo5;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>e.g. hand is
+composition relationship to a finger<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo5;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UML: filled diamond –
+composite solely owns the part:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:230.4pt;height:71.4pt'>
+ <v:imagedata src="./se_l10_files/image003.gif" o:title="fg27-5"/>
+</v:shape><![endif]--><![if !vml]><img width=307 height=95
+src="./se_l10_files/image003.gif" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level1 lfo6;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If multiplicity end is exactly
+one, the part may not exist separate from composite.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level1 lfo6;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If multiplicity end is 0
+.. 1, the part may exist separate from composite.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Shared Aggregation – Hollow
+Diamond<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l11 level1 lfo7;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>Shared aggregation</span></b><span
+style='font-family:Arial'> means that the multiplicity at the composite end may
+be more than 1.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l11 level1 lfo7;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The part may be in many
+composite instances<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1030" type="#_x0000_t75" style='width:230.4pt;height:1in'>
+ <v:imagedata src="./se_l10_files/image004.gif" o:title="fg27-7"/>
+</v:shape><![endif]--><![if !vml]><img width=307 height=96
+src="./se_l10_files/image004.gif" v:shapes="_x0000_i1030"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4><span style='font-style:normal'>Show aggregation when:<o:p></o:p></span></h4>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l10 level1 lfo8;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The lifetime of the
+part is bound within the lifetime of the composite <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l10 level1 lfo8;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>There is a logical
+whole-part physical or logical assembly<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l10 level1 lfo8;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Some properties of the
+composite propagate to the parts<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l10 level1 lfo8;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Operations applied to
+the composite propagate to the parts<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4>Aggregation in POS Domain Model</h4>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l1 level1 lfo9;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>SalesLineItems</span></i><span
+style='font-family:Arial'> are part of a composite <i>Sale</i><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l1 level1 lfo9;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>ProductCatalog</span></i><span
+style='font-family:Arial'> is an aggregate of <i>ProductSpecifications</i><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1031" type="#_x0000_t75" style='width:230.4pt;height:82.8pt'>
+ <v:imagedata src="./se_l10_files/image005.gif" o:title="fg27-8"/>
+</v:shape><![endif]--><![if !vml]><img width=307 height=110
+src="./se_l10_files/image005.gif" v:shapes="_x0000_i1031"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Time Intervals</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:Arial'>Collection of time interval related information
+     needs to maintained<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:Arial'>Associate data with applicable time interval<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:Arial'>e.g. ProductSpecifications and ProductPrices<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1032" type="#_x0000_t75" style='width:405pt;height:132.6pt'>
+ <v:imagedata src="./se_l10_files/image006.gif" o:title="fg27-9"/>
+</v:shape><![endif]--><![if !vml]><img width=540 height=177
+src="./se_l10_files/image006.gif" v:shapes="_x0000_i1032"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Association Role Names</h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l4 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Each end of an
+association is a role with properties<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l4 level1 lfo11;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>e.g. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'>name<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'>multiplicity<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1033" type="#_x0000_t75" style='width:254.4pt;height:197.4pt'>
+ <v:imagedata src="./se_l10_files/image007.gif" o:title="fg27-10"/>
+</v:shape><![endif]--><![if !vml]><img width=339 height=263
+src="./se_l10_files/image007.gif" v:shapes="_x0000_i1033"><![endif]><o:p></o:p></span></p>
+
+<h3>Qualified Associations</h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo12;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A qualifier may be used
+in an association<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo12;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>It distinguishes the
+set of objects at the far end of the association based on a qualifier value<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo12;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>An association with a qualifier
+is a <b>qualified association</b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo12;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>e.g. <i>ProductSpecifications</i>
+may be distinguished in a <i>ProductCatalog</i> by their <i>itemID</i><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1034" type="#_x0000_t75" style='width:321pt;height:123.6pt'>
+ <v:imagedata src="./se_l10_files/image008.gif" o:title="fg27-14"/>
+</v:shape><![endif]--><![if !vml]><img width=428 height=165
+src="./se_l10_files/image008.gif" v:shapes="_x0000_i1034"><![endif]><o:p></o:p></span></p>
+
+<h3>Reflexive Associations</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Concept may have association
+to itself – <b>reflexive association</b><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+ type="#_x0000_t75" style='width:103.8pt;height:87.6pt'>
+ <v:imagedata src="./se_l10_files/image009.gif" o:title="fg27-15"/>
+</v:shape><![endif]--><![if !vml]><img width=138 height=116
+src="./se_l10_files/image009.gif" v:shapes="_x0000_i1035"><![endif]></p>
+
+<h3>Ordered elements</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>e.g. SalesLineItems must be maintained in order
+     entered<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1036" type="#_x0000_t75" style='width:342pt;height:49.8pt'>
+ <v:imagedata src="./se_l10_files/image010.gif" o:title="fg27-16"/>
+</v:shape><![endif]--><![if !vml]><img width=456 height=67
+src="./se_l10_files/image010.gif" v:shapes="_x0000_i1036"><![endif]><o:p></o:p></span></p>
+
+<h3>Using Packages to Organize the Domain Model</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>UML package is shown as a tabbed folder<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1037" type="#_x0000_t75" style='width:225.6pt;height:105.6pt'>
+ <v:imagedata src="./se_l10_files/image011.gif" o:title="fg27-17"/>
+</v:shape><![endif]--><![if !vml]><img width=301 height=141
+src="./se_l10_files/image011.gif" v:shapes="_x0000_i1037"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Ownership and references<o:p></o:p></span></b></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l18 level2 lfo13;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>An element is owned by a package within which
+      it is defined, but may be referenced by other packages<o:p></o:p></span></li>
+  <ul style='margin-top:0in' type=square>
+   <li class=MsoNormal style='mso-list:l18 level3 lfo13;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>The element name is qualified by the package
+       name using the pathname format<o:p></o:p></span></li>
+  </ul>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1038" type="#_x0000_t75" style='width:414.6pt;height:105.6pt'>
+ <v:imagedata src="./se_l10_files/image012.gif" o:title="fg27-18"/>
+</v:shape><![endif]--><![if !vml]><img width=553 height=140
+src="./se_l10_files/image012.gif" v:shapes="_x0000_i1038"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Ownership and dependencies<o:p></o:p></span></b></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l18 level2 lfo13;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Models may be shown with dependencies<b><o:p></o:p></b></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1039" type="#_x0000_t75" style='width:194.4pt;height:105.6pt'>
+ <v:imagedata src="./se_l10_files/image013.gif" o:title="fg27-19"/>
+</v:shape><![endif]--><![if !vml]><img width=259 height=141
+src="./se_l10_files/image013.gif" v:shapes="_x0000_i1039"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>How to Partition a Domain Model into Packages</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Place elements together
+that:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Are in the same subject area<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Are in a class hierarchy together<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Participate in the same use cases<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Are strongly associated<o:p></o:p></span></li>
+</ul>
+
+<h3>POS Domain Model</h3>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1040" type="#_x0000_t75"
+ style='width:347.4pt;height:138pt'>
+ <v:imagedata src="./se_l10_files/image014.gif" o:title="fg27-20"/>
+</v:shape><![endif]--><![if !vml]><img width=463 height=184
+src="./se_l10_files/image014.gif" v:shapes="_x0000_i1040"><![endif]></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h3>Core/Misc Package</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>Core/Misc package useful to own widely shared
+     concepts or those without an obvious home<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1041" type="#_x0000_t75" style='width:347.4pt;height:102pt'>
+ <v:imagedata src="./se_l10_files/image015.gif" o:title="fg27-21"/>
+</v:shape><![endif]--><![if !vml]><img width=463 height=136
+src="./se_l10_files/image015.gif" v:shapes="_x0000_i1041"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Products</h3>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1042" type="#_x0000_t75"
+ style='width:324.6pt;height:230.4pt'>
+ <v:imagedata src="./se_l10_files/image016.gif" o:title="fg27-24"/>
+</v:shape><![endif]--><![if !vml]><img width=433 height=307
+src="./se_l10_files/image016.gif" v:shapes="_x0000_i1042"><![endif]></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h3><span style='background:yellow;mso-highlight:yellow'>Chapter 28 – Adding
+new SSDs and Contracts</span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Additional SSDs and
+contracts for current iteration<o:p></o:p></span></p>
+
+<h3><span style='background:yellow;mso-highlight:yellow'>Chapter 29 – Modeling
+Behavior in Statechart Diagrams</span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>UML includes statechart
+diagrams to illustrate the events and states of things<o:p></o:p></span></p>
+
+<h3>Events, States, and Transitions</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>An <b>event</b> is a significant or noteworthy
+     occurrence<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>A <b>state</b> is the condition of an object at
+     a moment in time <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:Arial'>A <b>transition </b>is a relationship between
+     two states that indicates when an event occurs<o:p></o:p></span></li>
+</ul>
+
+<h3>Statechart Diagrams</h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l3 level1 lfo16;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>UML notation:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:Arial'>Arrows – transitions<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:Arial'>States – rounded rectangles<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo17;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Include initial pseudo-state<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1043" type="#_x0000_t75" style='width:284.4pt;height:167.4pt'>
+ <v:imagedata src="./se_l10_files/image017.gif" o:title="fg29-1"/>
+</v:shape><![endif]--><![if !vml]><img width=379 height=223
+src="./se_l10_files/image017.gif" v:shapes="_x0000_i1043"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo17;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Statechart diagram
+shows lifecycle of an object<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l6 level1 lfo17;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Statechart diagram
+applied to – classes, use cases<o:p></o:p></span></p>
+
+<h3>Use Case Statechart Diagram</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>Useful application – describe <span
+     style="mso-spacerun: yes"> </span>the legal sequence of external system
+     events that are recognized<span style="mso-spacerun: yes">  </span>and
+     handled by system in context of use case.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>e.g. simplified version of Process Sale use case<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1044" type="#_x0000_t75" style='width:307.8pt;height:149.4pt'>
+ <v:imagedata src="./se_l10_files/image018.gif" o:title="fg29-2"/>
+</v:shape><![endif]--><![if !vml]><img width=410 height=200
+src="./se_l10_files/image018.gif" v:shapes="_x0000_i1044"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3>Classes that Benefit from Statechart diagrams</h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>State-independent and
+state-dependent objects<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>State-independent – responds same way to event<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:Arial'>State-dependent – responds differently depending
+     on state<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Common state-dependent
+Classes<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Use cases<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Stateful sessions (server-side software)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Systems<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Windows<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Controllers<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Transactions <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Devices<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:Arial'>Role mutators<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

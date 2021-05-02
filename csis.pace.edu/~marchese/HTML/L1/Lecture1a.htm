@@ -1,0 +1,1724 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Lecture1a_files/filelist.xml">
+<link rel=Edit-Time-Data href="./Lecture1a_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Lecture 1 &#8211; HTML</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Arial Unicode MS";}
+tt
+	{mso-ascii-font-family:"Arial Unicode MS";
+	mso-fareast-font-family:"Arial Unicode MS";
+	mso-hansi-font-family:"Arial Unicode MS";
+	mso-bidi-font-family:"Arial Unicode MS";}
+p.intro, li.intro, div.intro
+	{mso-style-name:intro;
+	margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:426123154;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-667377838 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:653680477;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1459923352 -1475190078 130066056 1472497436 -1584128702 -715883190 487613860 -628604126 -1177782080 -1052599554;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1039474700;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1499333686 67698689 2141387494 -710239426 337046996 2039012510 365038154 198606382 1268678980 -1517672210;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:1305159706;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1499333686 262819120 2141387494 -710239426 337046996 2039012510 365038154 198606382 1268678980 -1517672210;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:1589271890;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-546518334 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:1619557000;
+	mso-list-type:hybrid;
+	mso-list-template-ids:345155216 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:2035615613;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-742386924 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1053">
+  <o:colormru v:ext="edit" colors="#ddd"/>
+  <o:colormenu v:ext="edit" fillcolor="#ddd"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#dddddd" lang=EN-US link=blue vlink=blue style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<h1><span style='font-size:36.0pt;font-family:Arial'>HTML &#8211;1<o:p></o:p></span></h1>
+
+<h1><span style='font-size:18.0pt;mso-bidi-font-size:36.0pt;font-family:Arial'>Web
+Sources<o:p></o:p></span></h1>
+
+<h1><span style='font-size:14.0pt;mso-bidi-font-size:36.0pt;font-family:Arial'><a
+href="http://www.w3schools.com/">www.w3schools.com</a><o:p></o:p></span></h1>
+
+<h1><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt;font-family:Arial'><a
+href="http://www.htmlhelp.com/">www.htmlhelp.com</a><o:p></o:p></span></h1>
+
+<h1><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt;font-family:Arial'><a
+href="http://www.goodpractices.com/">www.goodpractices.com/</a><o:p></o:p></span></h1>
+
+<h1><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt;font-family:Arial'><a
+href="http://www.htmlgoodies.com/">www.htmlgoodies.com</a><o:p></o:p></span></h1>
+
+<h1><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h1>
+
+<h2><span style='font-family:Arial'>What is an HTML File?</span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>HTML stands for <b>H</b>yper <b>T</b>ext
+     <b>M</b>arkup <b>L</b>anguage<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>An HTML file is a text file
+     containing small <b>markup tags</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>The markup tags tell the Web
+     browser <b>how to display</b> the page<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>An HTML file must have an <b>htm</b>
+     or <b>html</b> file extension<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>An HTML file can be created
+     using a <b>simple text editor</b><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=intro style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo5;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>HTML documents are text files made up of HTML elements.<o:p></o:p></span></p>
+
+<p class=intro style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo5;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>HTML elements are defined using HTML tags.<o:p></o:p></span></p>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2>HTML Tags</h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo8;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>HTML tags are used to mark-up
+     HTML <b>elements</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo8;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>HTML tags are surrounded by
+     the <b>two characters &lt; and &gt;</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo8;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>The surrounding characters
+     are called <b>angle brackets</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo8;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>HTML tags normally <b>come in
+     pairs</b> like &lt;b&gt; and &lt;/b&gt;<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo8;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>The first tag in a pair is
+     the <b>start tag,</b> the second tag is the <b>end tag</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo8;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>The text between the start
+     and end tags is the <b>element content</b><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo8;tab-stops:list .5in'><span style='font-size:14.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Arial'>HTML tags are <b>not case
+     sensitive,</b> &lt;b&gt; means the same as &lt;B&gt;<o:p></o:p></span></li>
+</ul>
+
+<h2><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h2>
+
+<h2><span style='font-family:Arial'>Example </span></h2>
+
+<p><img border=0 width=602 height=446 id="_x0000_i1025" src=Image36.jpg></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=647 valign=top style='width:485.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;!DOCTYPE HTML PUBLIC
+  &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;Title&gt;Home Page for Lawrence
+  M. Brown&lt;/Title&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;BODY
+  BGCOLOR=&quot;WHITE&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1
+  ALIGN=&quot;CENTER&quot;&gt;Home Page for Lawrence M. Brown&lt;/H1&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;HR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;IMG
+  SRC=&quot;images/nswc.gif&quot; WIDTH=300 HEIGHT=117</span></b> <br>
+  <b><span style='font-family:"Courier New"'>HSPACE=10 VSPACE=5
+  ALIGN=&quot;LEFT&quot; ALT=&quot;NSWC Logo&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>Senior Network Engineer&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;A HREF=&quot;http://www.dt.navy.mil/&quot;&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>Naval Surface Warfare
+  Center&lt;/A&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>9500 MacArthur Boulevard&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>West Bethesda, Maryland, MD
+  20817-5700&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;I&gt;email:&lt;/I&gt; &lt;A
+  HREF=&quot;mailto:brown@corewebprogramming.com&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>brown@corewebprogramming.com&lt;/A&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;I&gt;Phone:&lt;/I&gt; (301)
+  277-4648&lt;BR CLEAR=&quot;ALL&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;P&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>This is my personal home page. For
+  more specific</span></b> <br>
+  <b><span style='font-family:"Courier New"'>programming-related resources
+  pages, please see:</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;!-- Rest of Sample Page
+  Deleted --&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br>
+  &nbsp; <br>
+  &nbsp; <br>
+  &nbsp; </p>
+  </td>
+ </tr>
+</table>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2><span style='font-family:Arial'>WYSIWYG Editors<o:p></o:p></span></h2>
+
+<h2 style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo10;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Microsoft FrontPage</h2>
+
+<h2 style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo10;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Claris Home Page</h2>
+
+<h2 style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo10;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Adobe PageMill</h2>
+
+<h2 style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo10;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial;font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Macromedia DreamWeaver<span style='font-family:Arial'><o:p></o:p></span></h2>
+
+<h2><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h2>
+
+<h2><span style='font-family:Arial'>Tag Types <o:p></o:p></span></h2>
+
+<h2>Basic HTML Tags<span style='mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h2>
+
+<table border=1 cellspacing=0 cellpadding=0 width="36%" bgcolor=white
+ style='width:36.48%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Tag</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <h4>Description<span style='mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h4>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:"Courier New"'><a
+  href="http://www.w3schools.com/tags/tag_html.asp">&lt;html&gt;</a></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>Defines
+  an HTML document</span><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:"Courier New"'><a
+  href="http://www.w3schools.com/tags/tag_body.asp">&lt;body&gt;</a></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Defines the document's
+  body</span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:"Courier New"'><a
+  href="http://www.w3schools.com/tags/tag_hn.asp">&lt;h1&gt; to &lt;h6&gt;</a></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Defines header 1 to header
+  6</span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:"Courier New"'><a
+  href="http://www.w3schools.com/tags/tag_p.asp">&lt;p&gt;</a></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Defines a paragraph</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:"Courier New"'><a
+  href="http://www.w3schools.com/tags/tag_br.asp">&lt;br&gt;</a></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Inserts a single line
+  break</span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:"Courier New"'><a
+  href="http://www.w3schools.com/tags/tag_hr.asp">&lt;hr&gt;</a></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Defines a horizontal rule</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.04%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:"Courier New"'><a
+  href="http://www.w3schools.com/tags/tag_comment.asp">&lt;!--&gt;</a></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width="64%" style='width:64.96%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Defines a comment</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<h2>Headings<span style='mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>Headings
+are defined with the &lt;h1&gt; to &lt;h6&gt; tags. &lt;h1&gt; defines the
+largest heading. &lt;h6&gt; defines the smallest heading.<o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="35%" bgcolor=white
+ style='width:35.48%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;html&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;body&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;h1&gt;This is heading 1&lt;/h1&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;h2&gt;This is heading 2&lt;/h2&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;h3&gt;This is heading 3&lt;/h3&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;h4&gt;This is heading 4&lt;/h4&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;h5&gt;This is heading 5&lt;/h5&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;h6&gt;This is heading 6&lt;/h6&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;p&gt;Use heading tags only for headings. Don't use them just to make something bold. Use other tags for that.&lt;/p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/body&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/html&gt;</span></b></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>HTML automatically adds
+an extra blank line before and after a heading.<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1047" type="#_x0000_t75" style='width:6in;
+ height:330pt'>
+ <v:imagedata src="./Lecture1a_files/image001.jpg" o:title="html1ex"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=440
+src="./Lecture1a_files/image002.jpg" v:shapes="_x0000_i1047"><![endif]></h2>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2>Paragraphs</h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>Paragraphs
+are defined with the &lt;p&gt; tag.<o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="46%" bgcolor=white
+ style='width:46.34%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;html&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;body&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>This paragraph<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>contains a lot of lines<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>in the source code,<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>but the browser <o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>ignores it.<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>This paragraph<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>contains<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span style="mso-spacerun: yes">&nbsp;&nbsp;</span>a lot of spaces<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>in the source<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>code,<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>but the<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>browser <o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>ignores it.<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>The number of lines in a paragraph depends on the size of your browser window. If you resize the browser window, the number of lines in this paragraph will change.<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/p&gt;</span></b></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>HTML automatically
+adds an extra blank line before and after a paragraph.<o:p></o:p></span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1048" type="#_x0000_t75"
+ style='width:431.25pt;height:148.5pt'>
+ <v:imagedata src="./Lecture1a_files/image003.jpg" o:title="html2ex"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=575 height=198
+src="./Lecture1a_files/image004.jpg" v:shapes="_x0000_i1048"><![endif]></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2>Line Breaks</h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>The
+&lt;br&gt; tag is used when you want to end a line, but don't want to start a
+new paragraph. The &lt;br&gt; tag forces a line break wherever you place it.<o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="60%" bgcolor=white
+ style='width:60.16%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="81%" style='width:81.94%;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>HTML Code<o:p></o:p></span></b></pre></td>
+  <td width="18%" style='width:18.06%;padding:.75pt .75pt .75pt .75pt'>
+  <p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Appearance<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="81%" style='width:81.94%;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;html&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;body&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>To break&lt;br&gt;lines&lt;br&gt;in a&lt;br&gt;paragraph,&lt;br&gt;use the br tag.<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/p&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/body&gt;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;/html&gt;<o:p></o:p></span></b></pre></td>
+  <td width="18%" style='width:18.06%;padding:.75pt .75pt .75pt .75pt'>
+  <p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>To break<br>
+  lines<br>
+  in a<br>
+  paragraph,<br>
+  use the br tag.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>The &lt;br&gt; tag is
+an empty tag. It has no closing tag.<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2>Comments in HTML</h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-family:Arial'>The
+comment tag is used to insert a comment in the HTML source code. A comment will
+be ignored by the browser. You can use comments to explain your code, which can
+help you when you edit the source code at a later date.<o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="31%" style='width:31.54%;
+ mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;background:white;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;!-- This is a comment --&gt;<o:p></o:p></span></b></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><b><span style='font-family:Arial'>Note that you need an
+exclamation point after the opening bracket, but not before the closing
+bracket.<o:p></o:p></span></b></p>
+
+<h2><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h2>
+
+<h2><span style='font-family:Arial'>Example 2</span></h2>
+
+<p><b><span style='font-family:Arial'>HTML Document Template</span> <o:p></o:p></b></p>
+
+<p><img border=0 width=490 height=233 id="_x0000_i1026" src=Image37.jpg></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:164.25pt'>
+  <td width=647 valign=top style='width:485.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:164.25pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;!DOCTYPE HTML PUBLIC
+  &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TITLE&gt;Title&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Main Heading&lt;/H1&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;!-- Rest of page goes here
+  --&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; &nbsp; </p>
+
+<h1><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h1>
+
+<h2><span style='font-family:Arial'>Headings Again<o:p></o:p></span></h2>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Example 1</span> <o:p></o:p></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:245.0pt'>
+  <td width=575 valign=top style='width:431.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:245.0pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD
+  HTML 4.0 Transitional//EN&quot;&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Document
+  Headings&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>Samples of the six heading types:</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Level-1 (H1)&lt;/H1&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;H2
+  ALIGN=&quot;CENTER&quot;&gt;Level-2 (H2)&lt;/H2&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H3&gt;&lt;U&gt;Level-3
+  (H3)&lt;/U&gt;&lt;/H3&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H4
+  ALIGN=&quot;RIGHT&quot;&gt;Level-4 (H4)&lt;/H4&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H5&gt;Level-5 (H5)&lt;/H5&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;H6&gt;Level-6 (H6)&lt;/H6&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> </p>
+  </td>
+ </tr>
+</table>
+
+<p><img border=0 width=627 height=507 id="_x0000_i1029" src=ch2ex1.jpg><br>
+&nbsp; <br>
+&nbsp; </p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:20.0pt;mso-bidi-font-size:24.0pt;font-family:Arial'>HTML
+Links</span><span style='font-size:20.0pt;mso-bidi-font-size:24.0pt;font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h1>
+
+<p><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>HTML
+uses a hyperlink to link to another document on the Web.<o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=359 style='width:269.6pt;border:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>HTML</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=336 style='width:3.5in;border:solid windowtext .5pt;border-left:
+  none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Description</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=359 valign=top style='width:269.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;html&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;body&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;p&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;a
+  href=&quot;lastfile.html&quot;&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>This
+  text&lt;/a&gt; is a link to a page on <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>this Web site.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/p&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;p&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;a
+  href=&quot;http://www.google.com/&quot;&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>This
+  text&lt;/a&gt; is a link to a page on <o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>the World Wide
+  Web.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/p&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/body&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/html&gt;<o:p></o:p></span></b></p>
+  </td>
+  <td width=336 valign=top style='width:3.5in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+  href="lastfile.htm">This text</a> is a link to a page on this Web site. </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  <p><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+  href="http://www.google.com/">This text</a> is a link to a page on the World
+  Wide Web. <o:p></o:p></span></p>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><b><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>An
+image as a link<o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=395 style='width:296.6pt;border:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>HTML</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=384 style='width:4.0in;border:solid windowtext .5pt;border-left:
+  none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Description</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=395 valign=top style='width:296.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;html&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;body&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;p&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>You can also
+  use an image as a link:<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;a
+  href=&quot;lastfile.htm&quot;&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;img
+  border=&quot;0&quot; src=&quot;buttonnext.gif&quot; width=&quot;65&quot;
+  height=&quot;38&quot;&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/a&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/p&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/body&gt;<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-family:"Courier New"'>&lt;/html&gt;<o:p></o:p></span></b></p>
+  </td>
+  <td width=384 valign=top style='width:4.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>You
+  can also use an image as a link:</span> <a href="lastfile.htm"><span
+  style='text-decoration:none;text-underline:none'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" alt="" style='width:48.75pt;height:28.5pt'>
+   <v:imagedata src="./Lecture1a_files/image005.gif" o:href="http://www.w3schools.com/html/buttonnext.gif"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=65 height=38
+  src="./Lecture1a_files/image005.gif" v:shapes="_x0000_i1049"><![endif]></span></a><b><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<h2><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h2>
+
+<h2><span style='font-family:Arial'>The Anchor Tag and the Href Attribute</span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>HTML uses the &lt;a&gt; (anchor)
+tag to create a link to another document.</span></b><span style='font-size:
+14.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'><o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo12;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>An anchor can point to any resource on the Web: an HTML
+page, an image, a sound file, a movie, etc.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo12;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>The syntax of creating an anchor:&nbsp;<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="41%" bgcolor=white
+ style='width:41.4%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;a href=&quot;url&quot;&gt;Text to be displayed&lt;/a&gt;<o:p></o:p></span></b></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level1 lfo14;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>The &lt;a&gt; tag is used to create an anchor to link from,
+the href attribute is used to address the document to link to, and the words
+between the open and close of the anchor tag will be displayed as a hyperlink.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l4 level1 lfo14;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>This anchor defines a link to W3Schools:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="41%" bgcolor=white
+ style='width:41.4%;mso-cellspacing:0in;background:white;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;a href=&quot;http://www.pace.edu/&quot;&gt;Visit Pace!&lt;/a&gt;<o:p></o:p></span></b></pre></td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l6 level1 lfo16;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>The line above will look like this in a browser:<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><a href="http://www.pace.edu/">Visit Pace!</a><o:p></o:p></span></p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-family:Arial'>The Target Attribute</span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h2>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l6 level1 lfo16;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>With the target attribute, you can define <b>where</b> the
+linked document will be opened.<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l6 level1 lfo16;tab-stops:
+list .5in'><![if !supportLists]><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>The line below will open the document in a new browser
+window:<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="48%" style='width:48.34%;
+ mso-cellspacing:0in;margin-left:71.6pt;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;background:white;padding:.75pt .75pt .75pt .75pt'><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>&lt;a href=&quot;http://www.w3schools.com/&quot;<o:p></o:p></span></b></pre><pre><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New"'>target=&quot;_blank&quot;&gt;Visit W3Schools!&lt;/a&gt;</span></b><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'><o:p></o:p></span></pre></td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:.5in'><tt><b><span style='font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Courier New"'>TARGET=&quot;_self&quot;</span></b></tt><b><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'> </span></b><b><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent>This target causes the link to always load in the
+same window the anchor was clicked in. </p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1>Numbered, Bulleted, and Indented Lists</h1>
+
+<h2>Simple List</h2>
+
+<p class=MsoNormal><img border=0 width=390 height=365 id="_x0000_i1034"
+src=numblist.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:204.0pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:204.0pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Numbered
+  List&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Numbered List&lt;/H1&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>A sample list:</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;OL&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;List Item One</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;List Item Two</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;List Item Three</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;/OL&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt; <br>
+  &lt;/HTML&gt; <br>
+  &nbsp; </span></b></p>
+  </td>
+ </tr>
+</table>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2>Nested Ordered List</h2>
+
+<p class=MsoNormal><img border=0 width=578 height=604 id="_x0000_i1035"
+src=nestlst.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:515.25pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:515.25pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Nested Ordered
+  Lists&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Nested Ordered
+  Lists&lt;/H1&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;OL TYPE=&quot;I&quot;&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;Headings</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;Basic Text
+  Sections</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;Lists</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;OL TYPE=&quot;A&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;Ordered</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;OL TYPE=&quot;1&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;The OL tag</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;OL TYPE=&quot;a&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;TYPE</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;START</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;COMPACT</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;/OL&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;The LI tag</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;/OL&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;Unordered</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;OL TYPE=&quot;1&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;The UL tag</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;The LI tag</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;/OL&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;Definition</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;OL TYPE=&quot;1&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;The DL tag</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;The DT tag</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;LI&gt;The DD tag</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;/OL&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;/OL&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;Miscellaneous</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;/OL&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; </p>
+
+<h1>Bulleted Lists</h1>
+
+<h2>Simple Bullet</h2>
+
+<p class=MsoNormal><img border=0 width=335 height=383 id="_x0000_i1036"
+src=bullet.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:219.0pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:219.0pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Bulleted
+  List&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Bulleted List&lt;/H1&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>A sample list:</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;UL&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;List Item One</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;List Item Two</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;LI&gt;List Item Three</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;/UL&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br>
+  &nbsp; <br>
+  &nbsp; </p>
+  </td>
+ </tr>
+</table>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2>Tables</h2>
+
+<h2>Simple Table</h2>
+
+<p class=MsoNormal><img border=0 width=431 height=383 id="_x0000_i1037"
+src=simpletable.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:218.25pt'>
+  <td width=623 valign=top style='width:467.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:218.25pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Simple
+  Table&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Simple Table&lt;/H1&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;TABLE BORDER=1&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;CAPTION&gt;Table
+  Caption&lt;/CAPTION&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;Heading1&lt;/TH&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TH&gt;Heading2&lt;/TH&gt;&lt;/TR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD&gt;Row1
+  Col1 Data&lt;/TD&gt;&lt;TD&gt;Row1 Col2 Data&lt;/TD&gt;&lt;/TR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD&gt;Row2
+  Col1 Data&lt;/TD&gt;&lt;TD&gt;Row2 Col2 Data&lt;/TD&gt;&lt;/TR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD&gt;Row3
+  Col1 Data&lt;/TD&gt;&lt;TD&gt;Row3 Col2 Data&lt;/TD&gt;&lt;/TR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;/TABLE&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br>
+  &nbsp; </p>
+  </td>
+ </tr>
+</table>
+
+<h3><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h3>
+
+<h3>Tic-Tac-Toe</h3>
+
+<p class=MsoNormal><img border=0 width=431 height=383 id="_x0000_i1038"
+src=tictactoe.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:203.75pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:203.75pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;2000 World
+  Championship&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H2
+  ALIGN=&quot;CENTER&quot;&gt;2000 World Championship&lt;/H2&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>Final result in the 2000 world
+  tic-tac-toe championship.</span></b> <br>
+  <b><span style='font-family:"Courier New"'>Deep Green is &quot;X&quot;, Barry
+  Kasparov is &quot;O&quot;.</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;TABLE ALIGN=&quot;CENTER&quot;
+  BORDER=1 FRAME=&quot;VOID&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;X&lt;TH&gt;O&lt;TH&gt;X</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;X&lt;TH&gt;O&lt;TH&gt;X</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;O&lt;TH&gt;X&lt;TH&gt;O</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/TABLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  &nbsp; </p>
+  </td>
+ </tr>
+</table>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2>Table Background Color</h2>
+
+<p class=MsoNormal><img border=0 width=459 height=382 id="_x0000_i1039"
+src=tbleclr.jpg><br>
+&nbsp; </p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:339.75pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:339.75pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;WWW
+  Standards&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY
+  BGCOLOR=&quot;WHITE&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1 ALIGN=&quot;CENTER&quot;&gt;WWW
+  Standards&lt;/H1&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;TABLE BORDER=1
+  BGCOLOR=&quot;#EEEEEE&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR
+  BGCOLOR=&quot;BLACK&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TH&gt;&lt;FONT COLOR=&quot;WHITE&quot;&gt;Standard&lt;/FONT&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TH&gt;&lt;FONT COLOR=&quot;WHITE&quot;&gt;Obsolete Version&lt;/FONT&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TH&gt;&lt;FONT COLOR=&quot;WHITE&quot;&gt;Most Widely Supported</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  Version&lt;/FONT&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TH&gt;&lt;FONT COLOR=&quot;WHITE&quot;&gt;Upcoming Version&lt;/FONT&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD&gt;HTML</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;3.2</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;4.0</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;XHTML</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD&gt;HTTP</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;1.0</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;1.1</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;1.2</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/TABLE&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br>
+  &nbsp; </p>
+  </td>
+ </tr>
+</table>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2>Table Column Spans</h2>
+
+<p class=MsoNormal><img border=0 width=382 height=291 id="_x0000_i1040"
+src=colspan.jpg></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:218.25pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:218.25pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TITLE&gt;Colspan&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Colspan&lt;/H1&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;TABLE BORDER=1&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TH
+  COLSPAN=2&gt;Col 1&amp;2 Heading</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TH&gt;Col3 Heading</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD&gt;Col1 Data</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;Col2 Data</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;Col3 Data</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/TABLE&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; </p>
+
+<h2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h2>
+
+<h2>Table Row Spans</h2>
+
+<p class=MsoNormal><img border=0 width=402 height=350 id="_x0000_i1041"
+src=rowspan.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:177.25pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:177.25pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TITLE&gt;Rowspan&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Rowspan&lt;/H1&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;TABLE BORDER=1&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;Heading1&lt;TH&gt;Heading2</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD
+  ROWSPAN=2&gt;Data for Row 1&amp;2, Col1</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;Row1 Col2 Data</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TR&gt;&lt;TD&gt;Row2
+  Col2 Data</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/TABLE&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; </p>
+
+<h2>Table Groups</h2>
+
+<p class=MsoNormal><img border=0 width=345 height=498 id="_x0000_i1042"
+src=tblgrp.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:299.25pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:299.25pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Table
+  Groups&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Table Groups&lt;/H1&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;TABLE BORDER=1
+  CELLPADDING=4 RULES=&quot;GROUPS&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;CAPTION&gt;Table Groups</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;THEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TR&gt;&lt;TH&gt;Table Head&lt;TH&gt;Table Head</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TBODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TR&gt;&lt;TD&gt;Group 1&lt;TD&gt;Group 1</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TR&gt;&lt;TD&gt;Group 1&lt;TD&gt;Group 1</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TBODY
+  ALIGN=&quot;RIGHT&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TR&gt;&lt;TD&gt;Group 2&lt;TD&gt;Group 2</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TR&gt;&lt;TD&gt;Group 2&lt;TD&gt;Group 2</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TFOOT
+  ALIGN=&quot;CENTER&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &lt;TR&gt;&lt;TD COLSPAN=2&gt;Footer</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/TABLE&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; <br>
+&nbsp; </p>
+
+<h1>Text-Level Elements</h1>
+
+<h2>Physical Character Styles</h2>
+
+<p class=MsoNormal><img border=0 width=499 height=563 id="_x0000_i1043"
+src=charsty.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:326.25pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:326.25pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Physical
+  Character Styles&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY
+  BGCOLOR=&quot;WHITE&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Physical Character
+  Styles&lt;/H1&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;B&gt;Bold&lt;/B&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;I&gt;Italic&lt;/I&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;TT&gt;Teletype
+  (Monospaced)&lt;/TT&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;U&gt;Underlined&lt;/U&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>Subscripts:
+  f&lt;SUB&gt;0&lt;/SUB&gt; + f&lt;SUB&gt;1&lt;/SUB&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>Superscripts:
+  x&lt;SUP&gt;2&lt;/SUP&gt; + y&lt;SUP&gt;2&lt;/SUP&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;SMALL&gt;Smaller&lt;/SMALL&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;BIG&gt;Bigger&lt;/BIG&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;STRIKE&gt;Strike
+  Through&lt;/STRIKE&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;B&gt;&lt;I&gt;Bold
+  Italic&lt;/I&gt;&lt;/B&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;BIG&gt;&lt;TT&gt;Big
+  Monospaced&lt;/TT&gt;&lt;/BIG&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;SMALL&gt;&lt;I&gt;Small
+  Italic&lt;/I&gt;&lt;/SMALL&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;FONT
+  COLOR=&quot;GRAY&quot;&gt;Gray&lt;/FONT&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;DEL&gt;Delete&lt;/DEL&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;INS&gt;Insert&lt;/INS&gt;&lt;BR&gt;</span></b>
+  </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; </p>
+
+<h2>Logical Character Styles</h2>
+
+<p class=MsoNormal><img border=0 width=478 height=480 id="_x0000_i1044"
+src=logchrsty.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:285.75pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:285.75pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Logical
+  Character Styles&lt;/TITLE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY
+  BGCOLOR=&quot;WHITE&quot;&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1&gt;Logical Character
+  Styles&lt;/H1&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;EM&gt;Emphasized&lt;/EM&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;STRONG&gt;Strongly Emphasized&lt;/STRONG&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;CODE&gt;Code&lt;/CODE&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;SAMP&gt;Sample
+  Output&lt;/SAMP&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;KBD&gt;Keyboard
+  Text&lt;/KBD&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;DFN&gt;Definition&lt;/DFN&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;VAR&gt;Variable&lt;/VAR&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;CITE&gt;Citation&lt;/CITE&gt;&lt;BR&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;EM&gt;&lt;CODE&gt;Emphasized
+  Code&lt;/CODE&gt;&lt;/EM&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;FONT
+  COLOR=&quot;GRAY&quot;&gt;&lt;CITE&gt;Gray
+  Citation&lt;/CITE&gt;&lt;/FONT&gt;&lt;BR&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;ACRONYM TITLE=&quot;Java
+  Development Kit&quot;&gt;JDK Acronym&lt;/ACRONYM&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; </p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2>Embedded Images</h2>
+
+<p class=MsoNormal><img border=0 width=478 height=653 id="_x0000_i1046"
+src=imgalgn.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor=white style='background:
+ white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='height:555.75pt'>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:555.75pt'>
+  <p><b><span style='font-family:"Courier New"'>&lt;HTML&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;HEAD&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp; &lt;TITLE&gt;Image Alignment&lt;/TITLE&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HEAD&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;H1
+  ALIGN=&quot;CENTER&quot;&gt;Image Alignment&lt;/H1&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;TABLE BORDER=1&gt;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;Alignment</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TH&gt;Result</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;&lt;CODE&gt;LEFT&lt;/CODE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;&lt;IMG SRC=&quot;rude-pc.gif&quot; ALIGN=&quot;LEFT&quot;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ALT=&quot;Rude PC&quot; WIDTH=54 HEIGHT=77&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  This positions the image at the left side,</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  with text flowing around it on the right.</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;&lt;CODE&gt;RIGHT&lt;/CODE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;&lt;IMG SRC=&quot;rude-pc.gif&quot; ALIGN=&quot;RIGHT&quot;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ALT=&quot;Rude PC&quot; WIDTH=54 HEIGHT=77&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  This positions the image at the right side,</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  with text flowing around it on the left.</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;&lt;CODE&gt;TOP&lt;/CODE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;&lt;IMG SRC=&quot;rude-pc.gif&quot; ALIGN=&quot;TOP&quot;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ALT=&quot;Rude PC&quot; WIDTH=54 HEIGHT=77&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Here, the image runs into the paragraph</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  and the line containing the image is</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  aligned with the image top.</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;&lt;CODE&gt;BOTTOM&lt;/CODE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;&lt;IMG SRC=&quot;rude-pc.gif&quot; ALIGN=&quot;BOTTOM&quot;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ALT=&quot;Rude PC&quot; WIDTH=54 HEIGHT=77&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Here, the image runs into the paragraph</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  and the line containing the image is aligned</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  with the image bottom.</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;
+  &lt;TR&gt;&lt;TH&gt;&lt;CODE&gt;MIDDLE&lt;/CODE&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;TD&gt;&lt;IMG SRC=&quot;rude-pc.gif&quot; ALIGN=&quot;MIDDLE&quot;</span></b>
+  <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ALT=&quot;Rude PC&quot; WIDTH=54 HEIGHT=77&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Here, the image runs into the paragraph</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  and the line containing the image is aligned</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  with the image center.</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/TABLE&gt;</span></b> </p>
+  <p><b><span style='font-family:"Courier New"'>&lt;/BODY&gt;</span></b> <br>
+  <b><span style='font-family:"Courier New"'>&lt;/HTML&gt;</span></b> <br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp; </p>
+
+</div>
+
+</body>
+
+</html>

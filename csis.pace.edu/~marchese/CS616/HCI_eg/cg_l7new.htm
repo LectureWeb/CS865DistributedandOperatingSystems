@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Thre</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20071027;14062448">
+	<META NAME="CHANGED" CONTENT="20071027;14110970">
+	<META NAME="ProgId" CONTENT="Word.Document">
+	<META NAME="Originator" CONTENT="Microsoft Word 9">
+	<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+	<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1192"/>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#551a8b" BGCOLOR="#ffe1f0" DIR="LTR">
+<P>&nbsp; 
+</P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=2 BGCOLOR="#e6e6e6">
+	<TR>
+		<TD WIDTH=99% BGCOLOR="#ffcc99">
+			<H1><B>Computer Graphics</B></H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=99% BGCOLOR="#ffff99">
+			<P><FONT FACE="Arial"><FONT SIZE=4><B>GUIs</B></FONT></FONT></TD>
+	</TR>
+</TABLE>
+<H4><FONT FACE="Arial"><FONT SIZE=4>Graphical User Interfaces (GUIs)</FONT></FONT></H4>
+<H4><FONT FACE="Arial"><FONT SIZE=4>Development Tools</FONT></FONT></H4>
+<P><B><I><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">What
+are Development tools? :</FONT></FONT></FONT></I></B> 
+</P>
+<P><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT SIZE=4><FONT FACE="Arial">Tools that help a developer
+convert interface specifications into an interactive system and that
+support all phases of system refinement including prototypes,
+implementation, testing, maintenance, and enhancement</FONT></FONT> 
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#990000">Conventional
+Development Tools</FONT></FONT></FONT> 
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">Window
+	Systems</FONT></FONT></FONT> 
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Constrain each application or
+		application component to a particular frame on the screen (the
+		window)</FONT></FONT> 
+	</UL>
+	<LI>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Provide an:</FONT></FONT> 
+	<UL TYPE=CIRCLE>
+		<UL TYPE=SQUARE>
+			<LI><B><FONT SIZE=4><FONT FACE="Arial">Input model</FONT></FONT></B>
+			<FONT SIZE=4><FONT FACE="Arial">- user interaction sent to
+			application as events</FONT></FONT> 
+		</UL>
+	</UL>
+	<LI><B><FONT SIZE=4><FONT FACE="Arial">Graphic model</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- output graphics</FONT></FONT> 
+	<LI><B><FONT SIZE=4><FONT FACE="Arial">Window management</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- window opened and closed, resized,
+	moved, and iconified</FONT></FONT> 
+	<LI><P><B><FONT SIZE=4><FONT FACE="Arial">Presentation stype
+	enforcement</FONT></FONT></B> <FONT SIZE=4><FONT FACE="Arial">- e.g.
+	X, Mac, Win XP, Win3.1</FONT></FONT> 
+	</P>
+</UL>
+<DL>
+	<DL>
+		<DL>
+			<DL>
+				<DD><P><FONT FACE="Arial"><BR><FONT SIZE=4>e.g. X Windows:</FONT></FONT>
+								</P>
+			</DL>
+		</DL>
+	</DL>
+</DL>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<UL TYPE=SQUARE>
+			<UL TYPE=SQUARE>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Network-based - uses
+				client-server architecture -Any Xapp, called a client, runs on
+				any machine on the net</FONT></FONT> 
+			</UL>
+		</UL>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Server process, which resides on
+	workstation, mediates all usr input and display output</FONT></FONT>
+	
+	<LI><FONT SIZE=4><FONT FACE="Arial">Server translates person's input
+	into X events and sends to appropriate client</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">Client interprets events and
+	sends graphics direct to server on how to update display</FONT></FONT>
+	
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Special client, called Window
+	Manager, is responsible for overall look and feel</FONT></FONT> 
+	</P>
+</UL>
+<DL>
+	<DL>
+		<DL>
+			<DD><P><FONT SIZE=4><FONT FACE="Arial">BUT:</FONT></FONT> 
+			</P>
+		</DL>
+	</DL>
+</DL>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Windowing systems provide too
+			low-level an abstraction for building an application</FONT></FONT>
+			
+		</UL>
+	</UL>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Better - have toolkits,
+	interface builders, user interface mgmt. Systems.</FONT></FONT> 
+	</P>
+</UL>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Toolkits</FONT></FONT></B> <FONT SIZE=4><FONT FACE="Arial">-
+a variety of interface building blocks called widgets and language
+for putting together</FONT></FONT> 
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">e.g. Motif, Xview, Tk/Tcl</FONT></FONT>
+<FONT FACE="Arial">, <B>Java AWT (Swing), Python GUIs</B></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><U><FONT SIZE=4><FONT FACE="Arial">Widgets</FONT></FONT></U>
+<FONT SIZE=4><FONT FACE="Arial">- buttons, menus, sliders,
+scrollbars, text editors, canvases for graphics, terminal windows</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Interfaces are built by
+using widgets, and programming languages (e.g Tk/Tcl)</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Widget Limitations:</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Courier New">o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Widget sets are small
+and restrict interaction techniques</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Courier New">o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Widgets are good for
+creating control panels BUT poor for what is seen inside. (e.g.
+Tk/Tcl for visualization resorts to <A HREF="http://www.opengl.org/">OpenGL</A>
+for graphics)</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Courier New">o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Programming in an
+abstract language is not easy way for putting widgets together.</FONT></FONT></P>
+<P><B><FONT SIZE=4><FONT FACE="Arial">GTK (<A HREF="http://www.gtk.org/">http://www.gtk.org/</A>&nbsp;
+)</FONT></FONT></B></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Helvetica">GTK+ is a multi-platform toolkit for
+creating graphical user interfaces. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Helvetica">Offering a complete set of widgets</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Helvetica">GTK+ is suitable
+for projects ranging from small one-off projects to complete
+application suites.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Helvetica"><FONT SIZE=4>GTK+ is based on three
+libraries developed by the GTK+ team: </FONT></FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><B><FONT SIZE=4><FONT FACE="Helvetica">GLib</FONT></FONT></B> <FONT SIZE=4><FONT FACE="Helvetica">is
+	the low-level core library that forms the basis of GTK+ and GNOME.
+	It provides data structure handling for C, portability wrappers, and
+	interfaces for such runtime functionality as an event loop, threads,
+	dynamic loading, and an object system.</FONT></FONT> 
+	<LI><B><FONT SIZE=4><FONT FACE="Helvetica">Pango</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Helvetica">is a library for layout and
+	rendering of text, with an emphasis on internationalization. It
+	forms the core of text and font handling for GTK+-2.0.</FONT></FONT>
+	
+	<LI><P><FONT SIZE=4><FONT FACE="Helvetica">The <B>ATK</B> library
+	provides a set of interfaces for accessibility. By supporting the
+	ATK interfaces, an application or toolkit can be used with such
+	tools as screen readers, magnifiers, and alternative input devices.</FONT></FONT>
+		</P>
+</UL>
+<P><B><FONT SIZE=4><FONT FACE="Arial">e.g. GIMP
+(<A HREF="http://www.gimp.org/">http://www.gimp.org/</A>&nbsp; )</FONT></FONT></B></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>GIMP is the GNU Image Manipulation
+Program. It is a freely distributed piece of software for such tasks
+as photo retouching, image composition and image authoring. It works
+on many operating systems, in many languages.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:513.75pt;
+ height:385.5pt'>
+ <v:imagedata src="./cg_l7new_files/image001.png" o:title="windowsxpgimp"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image002.jpg" NAME="graphics1" ALIGN=BOTTOM WIDTH=685 HEIGHT=514 BORDER=0></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><B><FONT SIZE=4><FONT FACE="Arial">PyUI (&nbsp;
+<A HREF="http://pyui.sourceforge.net/">http://pyui.sourceforge.net/</A>
+)</FONT></FONT></B></P>
+<P><FONT SIZE=4><FONT FACE="Arial">PyUI is a user interface library
+written entirely in the high-level language <A HREF="http://www.python.org/">python.</A></FONT></FONT></P>
+<P><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT>Modular implementation that allows drawing and event input to
+be performed by pluggable &quot;renderers&quot;. 
+</P>
+<DL>
+	<DL>
+		<DL>
+			<DD><P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT><FONT FACE="Arial">Makes PyUI very portable and scalable. </FONT></FONT>
+			</P>
+		</DL>
+	</DL>
+</DL>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">Can run in environments from hardware
+accelerated 3D surfaces to regular desktop windows.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">PyUI was originally targeted as a User
+Interface for games, but it has evolved into a more general UI
+toolkit with applicability outside of games.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Features:</B></FONT></FONT></P>
+<DL>
+	<DL>
+		<DL>
+			<DD><P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">A set of useful GUI
+			widgets including buttons, list boxes, menus, and scrollbars</FONT></FONT></P>
+			<DD><P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Windows with
+			resizability and movability</FONT></FONT></P>
+			<DD><P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">An extensible event
+			system for interacting with the user interface</FONT></FONT></P>
+			<DD><P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">An interactive
+			python console window</FONT></FONT></P>
+			<DD><P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Layout managers
+			similar so the Java Swing layout managers</FONT></FONT></P>
+			<DD><P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Portability and
+			scalability</FONT></FONT></P>
+		</DL>
+	</DL>
+</DL>
+<P><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+ style='width:372pt;height:463.5pt'>
+ <v:imagedata src="./cg_l7new_files/image003.gif" o:title="pyui"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image003.gif" NAME="graphics2" ALIGN=BOTTOM WIDTH=496 HEIGHT=618 BORDER=0></P>
+<P>&nbsp;</P>
+<P><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+ style='width:6in;height:338.25pt'>
+ <v:imagedata src="./cg_l7new_files/image004.png" o:title="pyuilayouts"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image005.jpg" NAME="graphics3" ALIGN=BOTTOM WIDTH=576 HEIGHT=451 BORDER=0></P>
+<P>&nbsp;</P>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Interactive Builders</FONT></FONT></B>
+<FONT SIZE=4><FONT FACE="Arial">- provide a direct manipulation of
+graphical and interface toolkits. Some are integrated into toolkit
+environment, e.g.</FONT></FONT> 
+</P>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">NeXT interface builder</FONT></FONT>
+		
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Visual Basic</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">XF builder for Tk/Tcl</FONT></FONT>
+	
+	<LI><FONT SIZE=4><FONT FACE="Arial">Glade for GTK</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">Visual Tcl :
+	<A HREF="http://vtcl.sourceforge.net/">http://vtcl.sourceforge.net/</A></FONT></FONT>
+	
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Visual Gipsy for Tcl :
+	<A HREF="http://www.prs.de/int/products/vg/index.html">http://www.prs.de/int/products/vg/index.html</A></FONT></FONT>
+		</P>
+</UL>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Implementer selects a widget
+	from a palette, places it on the screen, sets its attributes through
+	form filling, or direct manipulation. Links made as callbacks that
+	are written as procedures.</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">Allows developers to test
+	interfaces as they are being constructed.</FONT></FONT> 
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Also can build interface
+	prototypes with Macromedia Director and HyperCard</FONT></FONT> 
+	</P>
+</UL>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Examples:</FONT></FONT></B> 
+</P>
+<P>&nbsp;</P>
+<H5>Glade - a User Interface Designer for GTK+ and GNOME
+(<A HREF="http://glade.gnome.org/">http://glade.gnome.org/</A> )</H5>
+<DL>
+	<DT><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</FONT><FONT FACE="Arial">Glade is a free user interface builder for
+	<A HREF="http://www.gtk.org/">GTK+</A> and <A HREF="http://www.gnome.org/">GNOME</A>,
+	released under the <A HREF="http://www.fsf.org/licensing/licenses/gpl.html">GNU
+	GPL License</A>. </FONT></FONT>
+	<DT><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</FONT><FONT FACE="Arial">User interfaces designed in Glade are
+	saved as XML, and by using the <A HREF="http://www.jamesh.id.au/software/libglade/">libglade</A>
+	library these can be loaded by applications dynamically as needed. </FONT></FONT>
+	<DT><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</FONT><FONT FACE="Arial">By using libglade, Glade XML files can be
+	used in numerous programming languages including C, C++, Java, Perl,
+	Python, C#, Pike, Ruby, Haskell, Objective Caml and Scheme. Adding
+	support for other languages is easy too. </FONT></FONT>
+	<DT>&nbsp;</DL>
+<P>
+<!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75"
+ style='width:578.25pt;height:434.25pt'>
+ <v:imagedata src="./cg_l7new_files/image006.png" o:title="full-desktop"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image007.jpg" NAME="graphics4" ALIGN=BOTTOM WIDTH=771 HEIGHT=579 BORDER=0></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<H5>Java GUI Builders</H5>
+<P><FONT SIZE=4><FONT FACE="Arial"><B>Swing Designer</B>:
+<A HREF="http://www.swing-designer.com/">http://www.swing-designer.com/</A></FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">Implements WYSIWYG GUI editing by dragging
+and dropping composites, layouts and controls. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">Implemented as a bi-directional tool -
+directly generates Java code which can be changed in the graphical
+editor or directly in source. </FONT></FONT>
+</P>
+<DL>
+	<DL>
+		<DL>
+			<DD><P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</FONT><FONT FACE="Arial">All changes made directly to the source
+			code will be reflected in the graphical designer.</FONT></FONT></P>
+		</DL>
+	</DL>
+</DL>
+<P>&nbsp;</P>
+<P><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+ style='width:558.75pt;height:419.25pt'>
+ <v:imagedata src="./cg_l7new_files/image008.gif" o:title="swingsesigner"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image009.gif" NAME="graphics5" ALIGN=BOTTOM WIDTH=745 HEIGHT=559 BORDER=0></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4>&middot;<FONT FACE="Arial"><B>NetBeans</B>:
+<A HREF="http://www.netbeans.org/">http://www.netbeans.org/</A></FONT></FONT></P>
+<P><!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+ style='width:6in;height:259.5pt'>
+ <v:imagedata src="./cg_l7new_files/image010.jpg" o:title="netbeans5_5"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image010.jpg" NAME="graphics6" ALIGN=BOTTOM WIDTH=576 HEIGHT=346 BORDER=0></P>
+<P><FONT SIZE=4>&middot;</FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><B>JFormDesigner</B>:
+<A HREF="http://www.jformdesigner.com/">http://www.jformdesigner.com/</A></FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><B>FormLayoutMaker</B>:
+<A HREF="http://formlayoutmaker.sourceforge.net/">http://formlayoutmaker.sourceforge.net/</A></FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">FormLayoutMaker builds <A HREF="http://www.jgoodies.com/freeware/forms/index.html">JGoodies</A>
+Java forms</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">JGoodies Forms (
+<A HREF="http://www.jgoodies.com/freeware/forms/index.html">http://www.jgoodies.com/freeware/forms/index.html</A>
+) framework helps layout and implement elegant Swing panels quickly
+and consistently</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">FormLayoutMaker provides a WYSIWYG tool
+that enables developers to quickly layout Java screens using the
+JGoodies FormLayout layout manager. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">The result is an xml file containing all of
+the constraints.</FONT></FONT></P>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Foam</FONT></FONT></B>
+<A HREF="http://www.computersinmotion.com/"><FONT SIZE=4><FONT FACE="Arial">http://www.computersinmotion.com/</FONT></FONT></A></P>
+<P>&nbsp;</P>
+<P><FONT COLOR="#993300"><B><FONT SIZE=4><FONT FACE="Arial">User
+Interface Management Systems (UIMS)</FONT></FONT></B> <FONT SIZE=4><FONT FACE="Arial">-
+better said as &quot;user interface development environments.&quot;</FONT></FONT>
+<FONT FACE="Arial"><BR></FONT></FONT><FONT FACE="Arial"><FONT SIZE=4>Separate
+Applications into 3 modules:</FONT></FONT> 
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Presentation Graphics - output
+	to screen.</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">Dialog Control - how input is
+	passed to Applications</FONT></FONT> 
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Application Interface - how
+	interface hooks into application code</FONT></FONT> 
+	</P>
+</UL>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Good</FONT></FONT></B> <FONT SIZE=4><FONT FACE="Arial">-
+Application and Interface separated</FONT></FONT> <FONT FACE="Arial"><BR><B><FONT SIZE=4>Bad</FONT></B></FONT>
+<FONT SIZE=4><FONT FACE="Arial">- Hard for designer to separate two
+in practice</FONT></FONT> 
+</P>
+<P><FONT COLOR="#000066">&nbsp;</FONT></P>
+<P><FONT COLOR="#000066">&nbsp;</FONT></P>
+<P><FONT COLOR="#993300"><FONT SIZE=4><FONT FACE="Arial">Novel
+Approaches to Developer tools</FONT></FONT> </FONT>
+</P>
+<P><U><FONT SIZE=4><FONT FACE="Arial">Garnet</FONT></FONT></U> <FONT SIZE=4><FONT FACE="Arial">-
+System and Tools - comprehensive toolkit:</FONT></FONT> 
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Easy manipulation of graphical
+	objects and behavior</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">Can create and edit application
+	specific graphical objects and predefined widgets</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">All objects are defined in Opal
+	graphical toolkit</FONT></FONT> 
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Opal implemented atop KR -
+		prototype instance object oriented system</FONT></FONT> 
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">If prototype is edited - all
+	objects changed</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">Constraints</FONT></FONT> 
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Constrain-based tooled that
+		allows developer to specify relationships among components
+		(therefore at runtime system makes sure changes in one object are
+		made in others)</FONT></FONT> 
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Interactors</FONT></FONT> 
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Separate look from feel allows
+		many different styles of menus.</FONT></FONT> 
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Programming by demonstration
+	(PBD)</FONT></FONT> 
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Examples of the interface
+		are created and then the program is generated.</FONT></FONT> 
+		</P>
+	</UL>
+</UL>
+<P><A NAME="_x0000_i1155"></A><IMG SRC="../../631L1/garnet1.gif" NAME="graphics7" ALIGN=BOTTOM WIDTH=471 HEIGHT=442 BORDER=0></P>
+<P><FONT SIZE=4><FONT FACE="Arial">Sample Applications of Garnet:</FONT></FONT>
+<FONT FACE="Arial"><BR></FONT><A HREF="http://www.cs.cmu.edu/afs/cs/project/garnet/www/screen-shots/screen-shots.html"><FONT SIZE=4><FONT FACE="Arial">http://www.cs.cmu.edu/afs/cs/project/garnet/www/screen-shots/screen-shots.html</FONT></FONT></A>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">Amulet - Garnet's Successor</FONT></FONT>
+<FONT FACE="Arial"><BR></FONT><A HREF="http://www.cs.cmu.edu/afs/cs/project/amulet/www/amulet-home.html"><FONT SIZE=4><FONT FACE="Arial">http://www.cs.cmu.edu/afs/cs/project/amulet/www/amulet-home.html</FONT></FONT></A>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">User interface development
+environment for C++ and is portable across X11 on all kinds of Unix
+(Sun, Dec, HP, SGI, Linux, NetBSD, etc.), Microsoft Windows 95 and
+NT, and the Macintosh.</FONT></FONT> 
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Amulet helps create graphical,
+	interactive user interfaces.</FONT></FONT> 
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Amulet includes features
+	designed to make creation of highly-interactive, graphical, direct
+	manipulation user interfaces significantly easier employing:</FONT></FONT>
+		</P>
+</UL>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">prototype-instance object model</FONT></FONT>
+		
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">constraints</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">high-level input handling
+	including automatic undo</FONT></FONT> 
+	<LI><FONT SIZE=4><FONT FACE="Arial">built-in support for animation</FONT></FONT>
+	
+	<LI><FONT SIZE=4><FONT FACE="Arial">gesture-recognition</FONT></FONT>
+	
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">full set of widgets.</FONT></FONT>
+		</P>
+</UL>
+<P><A NAME="_x0000_i1156"></A><IMG SRC="../../631L1/allwidgets1.gif" NAME="graphics8" ALIGN=BOTTOM WIDTH=806 HEIGHT=447 BORDER=0></P>
+<P><A NAME="_x0000_i1157"></A><IMG SRC="../../631L1/amulet2.gif" NAME="graphics9" ALIGN=BOTTOM WIDTH=516 HEIGHT=532 BORDER=0></P>
+<P><A NAME="_x0000_i1158"></A><IMG SRC="../../631L1/amulet3.gif" NAME="graphics10" ALIGN=BOTTOM WIDTH=616 HEIGHT=438 BORDER=0></P>
+<P><A NAME="_x0000_i1159"></A><IMG SRC="../../631L1/amulet4.gif" NAME="graphics11" ALIGN=BOTTOM WIDTH=659 HEIGHT=685 BORDER=0></P>
+<P><A NAME="_x0000_i1160"></A><IMG SRC="../../631L1/amulet5.gif" NAME="graphics12" ALIGN=BOTTOM WIDTH=792 HEIGHT=611 BORDER=0><BR>&nbsp;
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">Tools for
+Entire Development Cycle</FONT></FONT></FONT> 
+</P>
+<UL TYPE=DISC>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Toolkits should support </FONT></FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Interface specification</FONT></FONT>
+		
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Implementation</FONT></FONT> 
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Testing</FONT></FONT> 
+	</P>
+</UL>
+<P><FONT FACE="Arial"><BR><B><FONT SIZE=4>Alternate Approach</FONT></B></FONT>
+<FONT SIZE=4><FONT FACE="Arial">- instead of &quot;artifact centered&quot;
+of existing tools USE &quot;semantically driven user interface
+design.&quot;</FONT></FONT> 
+</P>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Semantic model</FONT></FONT></B>
+<FONT SIZE=4><FONT FACE="Arial">- interface developed as a
+declarative description and model becomes a plan that is used to let
+the developer manipulate in a way that is appropriate to its stage in
+the lifecycle.</FONT></FONT></P>
+<DL>
+	<DL>
+		<DL>
+			<DD><P><FONT SIZE=4><FONT FACE="Arial">e.g. IBM's Interactive
+			Transaction System (ITS)</FONT></FONT> 
+			</P>
+		</DL>
+	</DL>
+</DL>
+<UL TYPE=DISC>
+	<LI><B><FONT SIZE=4><FONT FACE="Arial">Action layer</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- implements semantics of
+	application functions independent of interface.</FONT></FONT> 
+	<LI><B><FONT SIZE=4><FONT FACE="Arial">Dialog layer</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- interface is a set of logica;
+	frames containing objects that define flow of control between frames
+	and actions.</FONT></FONT> 
+	<LI><B><FONT SIZE=4><FONT FACE="Arial">Style rules</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- defines the presentation and
+	behavior of interactive widgets.</FONT></FONT> 
+	<LI><P><B><FONT SIZE=4><FONT FACE="Arial">Style programs</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- implement actual widgets.</FONT></FONT>
+		</P>
+</UL>
+<P><FONT SIZE=4><FONT FACE="Arial">NOTE: Each layer corresponds to
+work roles of the development team members:</FONT></FONT> 
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial"><B>Application programmer </B>-
+	works with action layer</FONT></FONT> 
+	<LI><B><FONT SIZE=4><FONT FACE="Arial">Application expert</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- composes dialog rules</FONT></FONT>
+	
+	<LI><B><FONT SIZE=4><FONT FACE="Arial">Style programmers</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- build style programs</FONT></FONT>
+	
+	<LI><P><B><FONT SIZE=4><FONT FACE="Arial">Graphic designers</FONT></FONT></B>
+	<FONT SIZE=4><FONT FACE="Arial">- compose style rules</FONT></FONT> 
+	</P>
+</UL>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">Groupware
+Toolkits</FONT></FONT></FONT> <FONT FACE="Arial"><BR><FONT SIZE=4>Supports
+and augments group work where conventional toolkits do not work</FONT></FONT>
+<FONT FACE="Arial"><BR><FONT SIZE=4>e.g. <B>Groupkit Project</B> -
+University of Calgary</FONT></FONT>
+<FONT FACE="Arial"><BR></FONT><A HREF="http://www.cpsc.ucalgary.ca/grouplab/projects/GroupKit.html"><FONT SIZE=4><FONT FACE="Arial">http://www.cpsc.ucalgary.ca/grouplab/projects/GroupKit.html</FONT></FONT></A>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Used to build real-time
+	applications such as drawing tools, editors and meeting tools that
+	are shared simultaneously among several users.</FONT></FONT> 
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Used for prototyping
+	groupware, investigating multi-user architectures and interfaces,
+	and as a CSCW teaching tool.</FONT></FONT> 
+	</P>
+</UL>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Example:</FONT></FONT></B> 
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Diagram at right and code below
+	fully define a &quot;Hello World&quot; program written in GroupKit.</FONT></FONT>
+	
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">When one person presses the
+	hello button, all people in the conference see that person say
+	hello!</FONT></FONT> 
+	</P>
+</UL>
+<P><A NAME="_x0000_i1161"></A><IMG SRC="../../631L1/helloworld.gif" NAME="graphics13" ALIGN=BOTTOM WIDTH=490 HEIGHT=283 BORDER=0></P>
+<P>&nbsp;</P>
+<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0 BGCOLOR="#ffffff">
+	<TR>
+		<TD WIDTH=707 VALIGN=TOP>
+			<P><FONT SIZE=4><FONT FACE="Courier New">1.<B>gk_initConf $argv</B></FONT></FONT>
+			<BR><FONT SIZE=4><FONT FACE="Courier New">2.<B>gk_defaultMenu
+			.menubar</B></FONT></FONT> <BR><FONT SIZE=4><FONT FACE="Courier New">3.pack
+			.menubar -side top -fill x</FONT></FONT> <BR><FONT SIZE=4><FONT FACE="Courier New">4.set
+			greetings &quot;<B>[users local.username] </B>says hello!&quot;</FONT></FONT>
+			<BR><FONT SIZE=4><FONT FACE="Courier New">5.button .hello -text
+			&quot;Hello World&quot; \</FONT></FONT> 
+			</P>
+			<P><FONT SIZE=4><FONT FACE="Courier New">-command &quot;<B>gk_toAll</B>
+			say_hi</FONT></FONT> <BR><FONT SIZE=4><FONT FACE="Courier New">\&quot;$greetings\&quot;&quot;</FONT></FONT></P>
+			<P><FONT SIZE=4><FONT FACE="Courier New">6.pack .hello -side top</FONT></FONT>
+			<BR><FONT SIZE=4><FONT FACE="Courier New">7.proc say_hi
+			{new_label} {</FONT></FONT> <BR><FONT SIZE=4><FONT FACE="Courier New">8.
+			.hello configure -text $new_label</FONT></FONT> <BR><FONT SIZE=4><FONT FACE="Courier New">9.
+			after 2000 {.hello configure -text &quot;Hello World&quot;}</FONT></FONT>
+			<BR><FONT SIZE=4><FONT FACE="Courier New">10.}</FONT></FONT> 
+		</TD>
+	</TR>
+</TABLE>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Example:</FONT></FONT></B> 
+</P>
+<P><B><FONT SIZE=4><FONT FACE="Arial">SharedNotes</FONT></FONT></B>
+<FONT SIZE=4><FONT FACE="Arial">is a system that allows people to
+create and manipulate both personal and public notes between three
+devices: a personal digital, assistant (PDAs, in this case the Palm
+Pilot), a large public display, and their office computer (which acts
+both as a personal device and a system for remote collaboration).</FONT></FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">The left figure shows how a
+	person would see their personal and public information on their PDA,
+	while the right figure shows how this same information is reflected
+	in the public display.</FONT></FONT> 
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Essentially, people can work
+	on their PDAs or computers for personal work, bring some or all of
+	their work into a meeting using a public display, work on the public
+	display either directly or indirectly through their PDAs, and walk
+	away with a record of all public contributions.</FONT></FONT> 
+	</P>
+</UL>
+<P><A NAME="_x0000_i1162"></A><A NAME="_x0000_i1163"></A><IMG SRC="../../631L1/pub_fig1.gif" NAME="graphics14" ALIGN=BOTTOM WIDTH=220 HEIGHT=336 BORDER=0><IMG SRC="../../631L1/pub_fig2.gif" NAME="graphics15" ALIGN=BOTTOM WIDTH=408 HEIGHT=318 BORDER=0></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<H5>GUI Prototyping</H5>
+<P>&nbsp;</P>
+<H2>DENIM <A HREF="http://dub.washington.edu/denim/">http://dub.washington.edu/denim/</A></H2>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">DENIM is a system that helps web site
+designers in the early stages of design. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT FACE="Arial">DENIM supports sketching input, allows
+design at different refinement levels, and unifies the levels through
+zooming. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">eg.
+<A HREF="http://dub.washington.edu/denim/denim_daily_files/page149.html">http://dub.washington.edu/denim/denim_daily_files/page149.html</A></FONT></FONT></P>
+<P>&nbsp;</P>
+<P><!--[if gte vml 1]><v:shape id="_x0000_i1164"
+ type="#_x0000_t75" style='width:600pt;height:435pt'>
+ <v:imagedata src="./cg_l7new_files/image011.jpg" o:title="denin1"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image012.jpg" NAME="graphics16" ALIGN=BOTTOM WIDTH=800 HEIGHT=580 BORDER=0></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><A HREF="vl.wmv">Video</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="denim_talk.rm">Talk</A></FONT></FONT></P>
+<P>&nbsp;</P>
+<H5>Paper Prototyping &ndash; 
+</H5>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><I><FONT FACE="Arial">Paper prototyping is a variation of
+usability testing where representative users perform realistic tasks
+by interacting with a paper version of the interface that is
+manipulated by a person &lsquo;playing computer,&rsquo; who doesn&rsquo;t
+explain how the interface is intended to work.&quot; </FONT></I></FONT>&ndash;
+<FONT SIZE=4><FONT FACE="Arial">Paper Prototyping</FONT></FONT></P>
+<P><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT SIZE=4><FONT FACE="Arial">Paper prototyping can be used
+for virtually any type of human-computer interface &ndash; software,
+Web site, hand-held device, or even hardware. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Its purpose is to get quick feedback from users while the design is
+still (literally) &quot;on the drawing board.&quot;</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Some paper prototypes are hand-drawn, while others use printed-out
+screen shots.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><A HREF="http://www.paperprototyping.com/index.html">http://www.paperprototyping.com/index.html</A>
+- The Book</FONT></FONT></P>
+<P><A HREF="http://www.snyderconsulting.net/us-paper.pdf"><FONT SIZE=4><FONT FACE="Arial">http://www.snyderconsulting.net/us-paper.pdf</FONT></FONT></A></P>
+<P>&nbsp;</P>
+<P><!--[if gte vml 1]><v:shape id="_x0000_i1165"
+ type="#_x0000_t75" style='width:399.75pt;height:312pt'>
+ <v:imagedata src="./cg_l7new_files/image013.jpg" o:title="paperprototype"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image014.jpg" NAME="graphics17" ALIGN=BOTTOM WIDTH=533 HEIGHT=416 BORDER=0></P>
+<P>&nbsp;</P>
+<P><!--[if gte vml 1]><v:shape id="_x0000_i1166"
+ type="#_x0000_t75" style='width:299.25pt;height:232.5pt'>
+ <v:imagedata src="./cg_l7new_files/image015.jpg" o:title="pprototype"/>
+</v:shape><![endif]--><IMG SRC="cg_l7new_files/image016.jpg" NAME="graphics18" ALIGN=BOTTOM WIDTH=399 HEIGHT=310 BORDER=0></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Kit</FONT></FONT></P>
+<P><A HREF="http://www.infodesign.com.au/usabilityresources/design/paperprototypinggraphics.asp"><FONT SIZE=4><FONT FACE="Arial">http://www.infodesign.com.au/usabilityresources/design/paperprototypinggraphics.asp</FONT></FONT></A></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</BODY>
+</HTML>

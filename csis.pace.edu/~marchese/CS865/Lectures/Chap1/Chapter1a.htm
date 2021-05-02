@@ -1,0 +1,1464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Chapter 1</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20070120;12451318">
+	<META NAME="CHANGED" CONTENT="20070120;20060046">
+	<META NAME="ProgId" CONTENT="Word.Document">
+	<META NAME="Originator" CONTENT="Microsoft Word 9">
+	<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+	<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u1:DocumentProperties>
+  <u1:Author>Francis Marchese</u1:Author>
+  <u1:LastAuthor>Francis Marchese</u1:LastAuthor>
+  <u1:Revision>48</u1:Revision>
+  <u1:TotalTime>523</u1:TotalTime>
+  <u1:Created>2006-12-28T15:23:00Z</u1:Created>
+  <u1:LastSaved>2006-12-29T13:31:00Z</u1:LastSaved>
+  <u1:Pages>15</u1:Pages>
+  <u1:Words>4676</u1:Words>
+  <u1:Characters>26654</u1:Characters>
+  <u1:Company>Pace University</u1:Company>
+  <u1:Lines>222</u1:Lines>
+  <u1:Paragraphs>53</u1:Paragraphs>
+  <u1:CharactersWithSpaces>32732</u1:CharactersWithSpaces>
+  <u1:Version>9.2720</u1:Version>
+ </u1:DocumentProperties>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u2:WordDocument>
+  <u2:Zoom>BestFit</u2:Zoom>
+  <u2:DrawingGridHorizontalSpacing>6 pt</u2:DrawingGridHorizontalSpacing>
+  <u2:DisplayHorizontalDrawingGridEvery>2</u2:DisplayHorizontalDrawingGridEvery>
+  <u2:DisplayVerticalDrawingGridEvery>2</u2:DisplayVerticalDrawingGridEvery>
+ </u2:WordDocument>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u3:shapedefaults u4:ext="edit" spidmax="1039">
+  <u3:colormru u4:ext="edit" colors="#f8f8f8,#eaeaea"/>
+  <u3:colormenu u4:ext="edit" fillcolor="#f8f8f8"/>
+ </u3:shapedefaults>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u5:shapelayout u6:ext="edit">
+  <u5:idmap u6:ext="edit" data="1"/>
+ </u5:shapelayout>
+</xml><![endif]-->
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#f8f8f8" DIR="LTR">
+<TABLE WIDTH=1247 BORDER=0 CELLPADDING=0 CELLSPACING=0 BGCOLOR="#ffffcc">
+	<TR>
+		<TD WIDTH=1247 VALIGN=TOP>
+			<H2><FONT FACE="Arial">CS865 &ndash; Distributed Software
+			Development</FONT></H2>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=1247 VALIGN=TOP BGCOLOR="#ffff99">
+			<H2><FONT FACE="Arial">Lecture 1</FONT></H2>
+		</TD>
+	</TR>
+</TABLE>
+<H3><FONT FACE="Arial">Tannenbaum and Van Steen &ndash; Chapter 1</FONT></H3>
+<H3><FONT COLOR="#ff0000"><FONT FACE="Comic Sans MS">Definition of a
+Distributed System</FONT></FONT></H3>
+<P><FONT FACE="Arial"><FONT SIZE=4>A distributed system is a
+collection of independent computers that appears to its users as a
+single coherent system.</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Important aspects: </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">a distributed system
+consists of components (i.e., computers) that are autonomous</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">users (people or
+programs) think they are dealing with a single system</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">autonomous components
+need to collaborate </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT COLOR="#000080"><B><FONT SIZE=4><FONT FACE="Arial">Goal</FONT></FONT></B>
+<FONT SIZE=4><FONT FACE="Arial">of distributed systems development:
+establish this collaboration. </FONT></FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Characteristics of distributed
+systems:</B></FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">differences between
+various computers and the ways in which they communicate are mostly
+hidden from users</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">users and applications
+can interact with a distributed system in a consistent and uniform
+way, regardless of where and when interaction takes place.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">distributed systems
+should also be relatively easy to expand or scale. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">a distributed system
+will normally be continuously available </FONT></FONT>
+</P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Layers of software support
+heterogeneous computers and networks while offering a single-system
+view - sometimes called middleware.</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>A distributed system organized as
+middleware. </FONT></FONT>
+</P>
+<P><A NAME="_x0000_i1025"></A><IMG SRC="Chapter1a_files/image002.jpg" NAME="graphics1" ALIGN=BOTTOM WIDTH=684 HEIGHT=285 BORDER=0></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Four networked computers and three
+applications:</FONT></FONT></P>
+<P>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">Application
+B is distributed across computers 2 and 3.</FONT></FONT></P>
+<P>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">Each
+application is offered the same interface</FONT></FONT></P>
+<P>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">Distributed
+system provides the means for components of a single distributed
+application to communicate with each other, but also to let different
+applications communicate. </FONT></FONT>
+</P>
+<P>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">It
+aso hides the differences in hardware and operating systems from each
+application.</FONT></FONT></P>
+<P>&nbsp;</P>
+<H3><FONT FACE="Arial">Goals</FONT></H3>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Four goals</FONT></FONT></B>
+<FONT SIZE=4><FONT FACE="Arial">that should be met to make building a
+distributed system worth the effort: </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1. should make resources easily
+accessible</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>2. should reasonably hide the fact
+that resources are distributed across a network; </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>3.&nbsp;should be open</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>4.&nbsp;should be scalable.</FONT></FONT></P>
+<P>&nbsp;</P>
+<H3><FONT COLOR="#000080"><FONT FACE="Arial">1.&nbsp;&nbsp;&nbsp;
+Making Resources Accessible</FONT></FONT></H3>
+<P><FONT FACE="Arial"><FONT SIZE=4>Main goal of a distributed system
+&ndash; </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">make it easy for the
+users (and applications) to access remote resources</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">to share them in a
+controlled and efficient way. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Resources </B>- anything:
+printers, computers, storage facilities, data, files, Web pages, and
+networks, etc. </FONT></FONT>
+</P>
+<P>&nbsp;<B><FONT SIZE=4><FONT FACE="Arial">Accessibility Issues</FONT></FONT></B>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">security </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">unwanted communication</FONT></FONT></P>
+<P>&nbsp;</P>
+<H3><FONT COLOR="#000080"><FONT FACE="Arial">2.&nbsp;Distribution
+Transparency</FONT></FONT></H3>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Goal -</FONT></FONT></B> <FONT SIZE=4><FONT FACE="Arial">hide
+the fact that its processes and resources are physically distributed
+across multiple computers &ndash; systems should be transparent</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Different forms of transparency in
+a distributed system (ISO, 1995).</FONT></FONT></P>
+<TABLE WIDTH=770 BORDER=1 CELLPADDING=0 CELLSPACING=0>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#800000">
+			<P><FONT COLOR="#ffffff"><FONT FACE="Arial"><FONT SIZE=4><I><B>Transparency</B></I></FONT></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#800000">
+			<P><FONT COLOR="#ffffff"><FONT FACE="Arial"><FONT SIZE=4><I><B>Description
+			</B></I></FONT></FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Access</B></I></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Hide differences in data
+			representation and how a resource is accessed </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Location</B></I></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Hide where a resource is
+			located </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Migration</B></I></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Hide that a resource may move
+			to another location </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Relocation</B></I></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Hide that a resource may be
+			moved to another location while in use </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Replication</B></I></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Hide that a resource is
+			replicated </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Concurrency</B></I></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Hide that a resource may be
+			shared by several competitive users </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=147 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Failure</B></I></FONT></FONT></TD>
+		<TD WIDTH=622 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Hide the failure and recovery
+			of a resource </FONT></FONT>
+		</TD>
+	</TR>
+</TABLE>
+<P>&nbsp;</P>
+<H2>Degree of Transparency</H2>
+<P>&nbsp;<B><FONT FACE="Arial">I<FONT SIZE=4>ssues:</FONT></FONT></B></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Timing:
+</FONT></FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">e.g. requesting an electronic
+newspaper to appear in your mailbox before 7 A.M. local time, as
+usual, while you are currently at the other end of the world living
+in a different time zone.</FONT></FONT> 
+</P>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Synchronization:</FONT></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. a wide-area distributed
+system that connects a process in San Francisco to a process in
+Amsterdam limited by laws of physics - a message sent from one
+process to the other takes about 35 milliseconds. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">it takes several
+hundreds of milliseconds using a computer network. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">signal transmission is
+not only limited by the speed of light, but also by limited
+processing capacities of the intermediate switches.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Performance:</FONT></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. many Internet applications
+repeatedly try to contact a server before finally giving up.
+Consequently, attempting to mask a transient server failure before
+trying another one may slow down the system as a whole. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Consistency:</FONT></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. need to guarantee that
+several replicas, located on different continents, need to be
+consistent all the time -&nbsp; a single update operation may now
+even take seconds to complete, something that cannot be hidden from
+users.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Context
+Awareness:</FONT></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. notion of location and
+context awareness is becoming increasingly important, it may be best
+to actually expose distribution rather than trying to hide it. -&nbsp;
+consider an office worker who wants to print a file from her notebook
+computer. It is better to send the print job to a busy nearby
+printer, rather than to an idle one at corporate headquarters in a
+different country.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Limits
+of Possibility: </FONT></FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Recognizing that full distribution
+transparency is simply impossible, we should ask ourselves whether it
+is even wise to pretend that we can achieve it. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<H3><FONT COLOR="#000080"><FONT FACE="Arial">3.&nbsp;Openness</FONT></FONT></H3>
+<P><B><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Goal:</FONT></FONT></FONT></B>
+<FONT SIZE=4><FONT FACE="Arial">offer services according to standard
+rules that describe the syntax and semantics of those services. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><B><FONT FACE="Arial">computer
+networks -</FONT></B></FONT> <FONT SIZE=4><FONT FACE="Arial">standard
+rules govern the format, contents, and meaning of messages sent and
+received.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><B><FONT FACE="Arial">distributed
+systems</FONT></B></FONT> <FONT SIZE=4><FONT FACE="Arial">- services
+are specified through interfaces, which are often described in an
+Interface Definition Language (IDL). </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&Oslash;</FONT><FONT FACE="Arial"><FONT COLOR="#000080">Interface
+definitions</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">written
+in an IDL nearly always capture only the syntax of services</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">specify
+names of the available functions with types of parameters, return
+values, possible exceptions that can be raised, etc. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">allows
+an arbitrary process that needs a certain interface to talk to
+another process that provides that interface</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">allows
+two independent parties to build completely different implementations
+of those interfaces, leading to two separate distributed systems that
+operate in exactly the same way. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Properties of specifications:</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial"><FONT COLOR="#000080">Complete</FONT></FONT></FONT>
+<FONT SIZE=4><FONT FACE="Arial">- everything that is necessary to
+make an implementation has been specified. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial"><FONT COLOR="#000080">Neutral
+</FONT>- specifications do not prescribe what an implementation
+should look like </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Lead to:</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Interoperability</FONT></FONT></FONT>
+<FONT SIZE=4><FONT FACE="Arial">- characterizes the extent by which
+two implementations of systems or components from different
+manufacturers can co-exist and work together by merely relying on
+each other's services as specified by a common standard. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Portability</FONT></FONT></FONT>
+<FONT SIZE=4><FONT FACE="Arial">- characterizes to what extent an
+application developed for a distributed system A can be executed,
+without modification, on a different distributed system B that
+implements the same interfaces as A.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#000080">Goals</FONT></B>:
+an open distributed system should also be extensible. i.e.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">be
+easy to configure the system out of different components (possibly
+from different developers). </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">be
+easy to add new components or replace existing ones without affecting
+those components that stay in place. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<H3><FONT COLOR="#000080"><FONT FACE="Arial">4.&nbsp;&nbsp;&nbsp;
+Scalability</FONT></FONT></H3>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Scalability of a system is
+measured with respect to:</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial">1.&nbsp;<FONT COLOR="#000080">Size</FONT></FONT></FONT>
+<FONT SIZE=4><FONT FACE="Arial">- can easily add more users and
+resources to the system. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">2.&nbsp;<FONT COLOR="#000080">Geographic
+extent</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">- a
+geographically scalable system is one in which the users and
+resources may lie far apart. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">3. <FONT COLOR="#000080">Administrative
+scalability</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+can be easy to manage even if it spans many independent
+administrative organizations.</FONT></FONT></P>
+<H2>&nbsp;Scalability Limitations of Size</H2>
+<TABLE WIDTH=696 BORDER=1 CELLPADDING=0 CELLSPACING=0>
+	<TR VALIGN=TOP>
+		<TD WIDTH=280 BGCOLOR="#800000">
+			<P><FONT COLOR="#ffffff"><FONT FACE="Arial"><FONT SIZE=4><I><B>Concept</B></I></FONT></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#800000">
+			<P><FONT COLOR="#ffffff"><FONT FACE="Arial"><FONT SIZE=4><I><B>Example
+			</B></I></FONT></FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=280 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Centralized services</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>A single server for all users </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=280 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Centralized data</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>A single on-line telephone book
+			</FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=280 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>Centralized algorithms</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Doing routing based on complete
+			information </FONT></FONT>
+		</TD>
+	</TR>
+</TABLE>
+<P>&nbsp;</P>
+<H2>Geographical scalability Limitations</H2>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">Synchr<FONT COLOR="#000080">onization:
+</FONT></FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">e.g.
+currently hard to scale existing distributed systems designed for
+local-area networks is that they are based on synchronous
+communication. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">a
+client requesting service blocks until a reply is sent back. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">works
+fine in LANs where communication between two machines is generally at
+worst a few hundred microseconds.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">in
+a wide-area system, interprocess communication may be hundreds of
+milliseconds, three orders of magnitude slower.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial"><FONT COLOR="#000080">Unreliability
+of communication:</FONT></FONT></FONT> 
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">communication
+in wide-area networks is inherently unreliable&nbsp; and
+point-to-point.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">local-area
+networks provide reliable communication based on broadcasting, making
+it much easier to develop distributed systems. For example, consider
+the problem of locating a service. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">e.g.
+in a local-area system, a process can broadcast a message to every
+machine, asking if it is running the service it needs. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">Only
+those machines that have that service respond, each providing its
+network address in the reply message. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">Such
+a location scheme is unthinkable in a wide-area system: just imagine
+what would happen if we tried to locate a service this way in the
+Internet. </FONT></FONT>
+</P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial"><FONT COLOR="#000080">Administrative
+scalability</FONT>:</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">how
+to scale a distributed system across multiple, independent
+administrative domains.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT></FONT>&nbsp;<B><FONT SIZE=4><FONT FACE="Arial">major
+problem</FONT></FONT></B> <FONT SIZE=4><FONT FACE="Arial">-
+conflicting policies with respect to resource usage (and payment),
+management, and security.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Scaling Techniques</B></FONT></FONT></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Three techniques for
+scaling: </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1.&nbsp;hiding communication
+latencies</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>2.&nbsp;distribution</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>3.&nbsp;replication </FONT></FONT>
+</P>
+<P><FONT COLOR="#000080">&nbsp;</FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Hiding
+communication latencies</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-&nbsp;
+important to achieving geographical scalability. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1.&nbsp;try to avoid waiting for
+responses to remote service requests. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">e.g,
+when a service has been requested at a remote machine, an alternative
+to waiting for a reply from the server is to do other useful work at
+the requester's side. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">construct
+the requesting application in such a way that it uses only
+asynchronous communication. ]</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>2.&nbsp;reduce the overall
+communication</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">e.g.
+in interactive applications when a user sends a request he will
+generally have nothing better to do than to wait for the answer. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">move
+part of the computation that is normally done at the server to the
+client process requesting the service. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">typical
+case - accessing databases using forms. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">ship
+the code for filling in the form, and possibly checking the entries,
+to the client, and have the client return a completed form - approach
+of shipping code is now widely supported by the Web in the form of
+Java applets and Javascript.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>The difference between letting (a)
+a server or (b) a client check forms as they are being filled.</FONT></FONT></P>
+<P><A NAME="_x0000_i1026"></A><IMG SRC="ch1-fg4lg.jpg" NAME="graphics2" ALIGN=BOTTOM WIDTH=683 HEIGHT=397 BORDER=0></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Distribution</FONT></FONT></FONT>
+<FONT SIZE=4><FONT FACE="Arial">- splitting a component into smaller
+parts and spreading those parts across the system. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot;&nbsp;</FONT><FONT FACE="Arial">e.g.
+Internet Domain Name System (DNS). </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">The
+DNS name space is hierarchically organized into a tree of domains,
+which are divided into nonoverlapping zones </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">Names
+in each zone are handled by a single name server. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Resolving
+a name means returning the network address of the associated host. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">e.g.
+the name nl.vu.cs.flits. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">To
+resolve this name - first passed to the server of zone&nbsp; which
+returns the address of the server for zone Z2, to which the rest of
+name, vu.cs.flits, can be handed. The server for Z2 will return the
+address of the server for zone Z3, which is capable of handling the
+last part of the name and will return the address of the associated
+host.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>An example of dividing the DNS
+name space into zones.</FONT></FONT></P>
+<P><A NAME="_x0000_i1027"></A><IMG SRC="Chapter1a_files/image005.jpg" NAME="graphics3" ALIGN=BOTTOM WIDTH=886 HEIGHT=390 BORDER=0></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">DNS
+is distributed across several machines, thus avoiding that a single
+server has to deal with all requests for name resolution.</FONT></FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Performance
+degradation</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Problems</FONT></FONT></FONT></P>
+<P><B><FONT SIZE=4><FONT FACE="Arial">Solution:</FONT></FONT></B>
+<FONT SIZE=4><FONT FACE="Arial">replicate components across a
+distributed system</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">Replication:</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">increases
+availability</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">helps
+balance the load between components leading to better performance. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">e.g.
+in geographically widely-dispersed systems - a copy nearby can hide
+much of the communication latency problems.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">Caching
+- special form of replication </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">caching
+results in making a copy of a resource, generally in the proximity of
+the client accessing that resource. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">caching
+is a decision made by the client of a resource, and not by the owner
+of a resource. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">caching
+happens on demand whereas replication is often planned in advance.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Issues of
+caching and replication</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+multiple copies of a resource -&gt; modifying one copy makes that
+copy different from the others -&gt; leads to consistency problems.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Weak
+consistency &ndash; e.g. a cached Web document of which the validity
+has not been checked for the last few minutes. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Strong
+consistency &ndash; e.g. electronic stock exchanges and auctions. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">problem
+&ndash; </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">an
+update must be immediately propagated to all other copies. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">if
+two updates happen concurrently, it is often also required that each
+copy is updated in the same order. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">generally
+requires some global synchronization mechanism &ndash; hard to
+implement in a scalable way (i.e. speed of light</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Pitfalls</B></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>False assumptions that everyone
+makes when developing a distributed application for the first time
+(by Peter Deutsch):</FONT></FONT></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">1. The
+network is reliable.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">2. The
+network is secure.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">3.&nbsp;The
+network is homogeneous.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">4.&nbsp;The
+topology does not change.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">5.&nbsp;Latency
+is zero.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">6.&nbsp;Bandwidth
+is infinite.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">7.&nbsp;Transport
+cost is zero.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;<FONT SIZE=4><FONT FACE="Arial">8.&nbsp;There
+is one administrator.</FONT></FONT></FONT></P>
+<P><FONT COLOR="#000080">&nbsp;</FONT></P>
+<H3><FONT COLOR="#ff0000"><FONT FACE="Comic Sans MS">Types of
+Distributed Systems</FONT></FONT></H3>
+<H3><I>Distributed Computing Systems</I></H3>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Distributed
+systems used for high-performance computing task</FONT></FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial">1.&nbsp;<FONT COLOR="#808000">cluster
+computing</FONT></FONT></FONT><FONT COLOR="#800000"> </FONT><FONT SIZE=4><FONT FACE="Arial">-
+the underlying hardware consists of a collection of similar
+workstations or PCs, closely connected by means of a high-speed
+local-area network, each node runs the same operating system.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial">2.&nbsp;<FONT COLOR="#808000">grid
+computing</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+constructed as a federation of computer systems, where each system
+may fall under a different administrative domain, and may be very
+different when it comes to hardware, software, and deployed network
+technology.</FONT></FONT></P>
+<H4><FONT COLOR="#808000"><FONT FACE="Arial"><FONT SIZE=4>Cluster
+Computing Systems</FONT></FONT></FONT></H4>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">price/performance
+ratio of personal computers and workstations became financially and
+technically attractive to build a supercomputer using off-the-shelf
+technology by simply hooking up a collection of relatively simple
+computers in a high-speed network. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">In
+virtually all cases, cluster computing is used for parallel
+programming in which a single (compute intensive) program is run in
+parallel on multiple machines.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">example
+of a cluster computer - Linux-based Beowulf clusters</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">Each
+cluster consists of a collection of compute nodes that are controlled
+and accessed by means of a single master node. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">master
+node: </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">handles
+the allocation of nodes to a particular parallel program</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">maintains
+a batch queue of submitted jobs</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">provides
+an interface for the users of the system </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">the
+master runs the middleware needed for the execution of programs and
+management of the cluster</FONT></FONT></P>
+<P><FONT FACE="Symbol">&middot;&nbsp;</FONT><FONT SIZE=4><FONT FACE="Arial">middleware
+is formed by the libraries for executing parallel programs.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">many of these libraries
+effectively provide only advanced message-based communication
+facilities, but are not capable of handling faulty processes,
+security, etc.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">compute
+nodes - often need nothing else but a standard operating system.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>An example of a cluster computing
+system. </FONT></FONT>
+</P>
+<P><A NAME="_x0000_i1028"></A>&nbsp; 
+<IMG SRC="Chapter1a_files/image007.jpg" NAME="graphics4" ALIGN=BOTTOM WIDTH=683 HEIGHT=263 BORDER=0></P>
+<P>&nbsp;&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">Alternative
+to hierarchical organization - symmetric approach is followed in the
+<A HREF="http://www.mosix.org/">MOSIX</A> system </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">MOSIX
+attempts to provide a single-system image of a cluster - to a
+process, a cluster computer appears to be a single computer. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">providing
+such an image under all circumstances is impossible. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">In
+MOSIX, the high degree of transparency is provided by allowing
+processes to dynamically and preemptively migrate between the nodes
+that make up the cluster. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Process
+migration allows a user to start an application on any node (referred
+to as the home node), after which it can transparently move to other
+nodes, for example, to make efficient use of resources. </FONT></FONT>
+</P>
+<P>&nbsp;<A HREF="http://www.ogf.org/index.php"><FONT SIZE=4><FONT FACE="Arial">Grid
+Computing Systems</FONT></FONT></A></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">Grid
+computing systems have a high degree of heterogeneity: no assumptions
+are made concerning hardware, operating systems, networks,
+administrative domains, security policies, etc.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">Key
+issue in a grid computing system - resources from different
+organizations are brought together to allow the collaboration of a
+group of people or institutions - forms a virtual organization. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Members
+of the same virtual organization have access rights to the resources
+that are provided to that organization. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Resources
+consist of compute servers (including supercomputers, possibly
+implemented as cluster computers), storage facilities, and databases.
+In addition, special networked devices such as telescopes, sensors,
+etc., can be provided as well.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&sect; </FONT><FONT FACE="Arial">Software
+required for grid computing evolves around providing access to
+resources from different administrative domains, and to only those
+users and applications that belong to a specific virtual
+organization. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>A layered architecture for grid
+computing systems.</FONT></FONT></P>
+<P><A NAME="_x0000_i1029"></A><IMG SRC="Chapter1a_files/image009.jpg" NAME="graphics5" ALIGN=BOTTOM WIDTH=418 HEIGHT=278 BORDER=0></P>
+<P>&nbsp;</P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Four layer architecture: </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">1. fabric
+layer</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">- provides
+interfaces to local resources at a specific site. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">nterfaces
+are tailored to allow sharing of resources within a virtual
+organization. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">provide
+functions for querying the state and capabilities of a resource,
+along with functions for actual resource management (e.g., locking
+resources).</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">2a.
+connectivity layer</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+consists of communication protocols for supporting grid transactions
+that span the usage of multiple resources. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">contains
+security protocols to authenticate users and resources. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">in
+many cases human users are not authenticated - programs acting on
+behalf of the users are authenticated.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">2b. resource
+layer</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+responsible for managing a single resource. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">uses
+functions provided by the connectivity layer and calls directly the
+interfaces made available by the fabric layer. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">responsible
+for access control, and hence will rely on the authentication
+performed as part of the connectivity layer.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">3.
+collective layer</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+handles access to multiple resources</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">consists
+of services for resource discovery, allocation and scheduling of
+tasks onto multiple resources, data replication, etc. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">may
+consist of many different protocols for many different purposes,
+reflecting the broad spectrum of services it may offer to a virtual
+organization.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">4.
+application layer</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+consists of the applications that operate within a virtual
+organization and which make use of the grid computing environment.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Grid
+Middleware layer</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">-
+collective, connectivity, and resource layers. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">provide
+access to and management of resources that are potentially dispersed
+across multiple sites. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">shift
+toward a service-oriented architecture in which sites offer access to
+the various layers through a collection of Web services </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o </FONT><FONT FACE="Arial">led
+to the definition of an alternative architecture known as the <A HREF="http://www.globus.org/alliance/publications/papers/ogsa.pdf">Open
+Grid Services Architecture</A> (OGSA). </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">consists
+of various layers and many components, making it rather complex. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<H3><I>Distributed Information Systems</I></H3>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">Evolved
+in organizations that were confronted with a wealth of networked
+applications, but for which interoperability turned out to be
+problematic. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">Many
+of the existing middleware solutions are the result of working with
+an infrastructure in which it was easier to integrate applications
+into an enterprise-wide information system.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Several levels at which
+integration took place:</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1. a networked application simply
+consisted of a server running that application (often including a
+database) and making it available to remote programs, called clients.
+</FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">such
+clients could send a request to the server for executing a specific
+operation, after which a response would be sent back. Integration at
+the lowest level would allow clients to wrap a number of requests,
+possibly for different servers, into a single larger request and have
+it executed as a distributed transaction. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">The
+key idea was that all, or none of the requests would be executed.</FONT></FONT></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">2.&nbsp; As applications
+became more sophisticated and were gradually separated into
+independent components (notably distinguishing database components
+from processing components), it became clear that integration should
+also take place by letting applications communicate directly with
+each other. </FONT></FONT>
+</P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Results: two forms of
+distributed systems </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">transaction
+processing systems</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Courier New">o&nbsp;</FONT><FONT FACE="Arial">enterprise
+application integration (EAI) </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<H4><FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4>Transaction
+Processing Systems</FONT></FONT></FONT></H4>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Focus
+on database applications - operations on a database are usually
+carried out in the form of transactions. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Programming
+using transactions requires special primitives that must either be
+supplied by the underlying distributed system or by the language
+runtime system. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Courier New">O </FONT><FONT FACE="Arial">Example
+primitives for transactions</FONT></FONT></P>
+<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0>
+	<TR VALIGN=TOP>
+		<TD WIDTH=272 BGCOLOR="#800000">
+			<P><FONT COLOR="#ffffff"><FONT FACE="Arial"><FONT SIZE=4><I><B>Primitive</B></I></FONT></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#800000">
+			<P><FONT COLOR="#ffffff"><FONT FACE="Arial"><FONT SIZE=4><I><B>Description
+			</B></I></FONT></FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=272 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>BEGIN_TRANSACTION</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Mark the start of a transaction
+			</FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=272 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>END_TRANSACTION</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Terminate the transaction and
+			try to commit </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=272 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>ABORT_TRANSACTION</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Kill the transaction and
+			restore the old values </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=272 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>READ</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Read data from a file, a table,
+			or otherwise </FONT></FONT>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=272 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4><I><B>WRITE</B></I></FONT></FONT></TD>
+		<TD WIDTH=416 BGCOLOR="#ffffef">
+			<P><FONT FACE="Arial"><FONT SIZE=4>Write data to a file, a table,
+			or otherwise </FONT></FONT>
+		</TD>
+	</TR>
+</TABLE>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Exact list of
+primitives depends on what kinds of objects are being used in the
+transaction. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. mail system - may be
+primitives to send, receive, and forward mail. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. accounting system - may be
+different. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Ordinary statements,
+procedure calls, etc, are allowed inside a transaction. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Remote procedure calls
+(RPCs) procedure calls to remote servers, are often also encapsulated
+in a transaction, leading to what is known as a transactional RPC. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT COLOR="#000080"><FONT FACE="Arial"><FONT SIZE=4>Properties
+of transactions (ACID):</FONT></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1.&nbsp; <B><FONT COLOR="#ff0000">A</FONT></B>tomic:
+To the outside world, the transaction happens indivisibly.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">ensures that each
+transaction either happens completely, or not at all</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">if it happens, it
+happens in a single indivisible, instantaneous action. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">while a transaction is
+in progress, other processes (whether or not they are themselves
+involved in transactions) cannot see any of the intermediate states.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>2.&nbsp;<B><FONT COLOR="#ff0000">C</FONT></B>onsistent:
+The transaction does not violate system invariants.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">if the system has
+certain invariants that must always hold, if they held before the
+transaction, they will hold afterward too</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. a banking system - a key
+invariant is the law of conservation of money. After every internal
+transfer, the amount of money in the bank must be the same as it was
+before the transfer</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>3.&nbsp;<B><FONT COLOR="#ff0000">I</FONT></B>solated:
+Concurrent transactions do not interfere with each other.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">transactions are
+isolated or serializable</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">if two or more
+transactions are running at the same time, to each of them and to
+other processes, the final result looks as though all transactions
+ran sequentially in some (system dependent) order.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>4. <B><FONT COLOR="#ff0000">D</FONT></B>urable:
+Once a transaction commits, the changes are permanent.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">once a transaction
+commits, no matter what happens, the transaction goes forward and the
+results become permanent. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">no failure after the
+commit can undo the results or cause them to be lost</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">A nested transaction is
+constructed from a number of subtransactions, </FONT></FONT>
+</P>
+<P><A NAME="_x0000_i1030"></A><IMG SRC="Chapter1a_files/image011.jpg" NAME="graphics6" ALIGN=BOTTOM WIDTH=353 HEIGHT=290 BORDER=0></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">The top-level
+transaction may fork off children that run in parallel with one
+another, on different machines, to gain performance or simplify
+programming. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Each of these children
+may also execute one or more subtransactions, or fork off its own
+children.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Problems of
+Subtransactions:</FONT></FONT></FONT> <FONT SIZE=4><FONT FACE="Arial">permanence
+applies only to top-level transactions. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>e.g. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">a transaction starts
+several subtransactions in parallel, and one of these commits, making
+its results visible to the parent transaction. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">after further
+computation, the parent aborts, restoring the entire system to the
+state it had before the top-level transaction started</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">the results of the
+subtransaction that committed must nevertheless be undone. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Solution: </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>When any transaction or
+subtransaction starts, it is conceptually given a private copy of all
+data in the entire system for it to manipulate as it wishes. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">If it aborts, its
+private universe just vanishes, as if it had never existed. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">If it commits, its
+private universe replaces the parent's universe. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Thus if a
+subtransaction commits and then later a new subtransaction is
+started, the second one sees the results produced by the first one.
+Likewise, if an enclosing (higher-level) transaction aborts, all its
+underlying subtransactions have to be aborted as well.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Nested transactions
+provide a natural way of distributing a transaction across multiple
+machines. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">They follow a logical
+division of the work of the original transaction. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Each subtransaction can
+be managed separately and independenty.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Early enterprise
+middleware systems handled distributed (or nested) transactions using
+a transaction processing monitor or TP monitor for integrating
+applications at the server or database level. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Its main task was to
+allow an application to access multiple server/databases by offering
+it a transactional programming model </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">The role of a TP
+monitor in distributed systems. </FONT></FONT>
+</P>
+<P><A NAME="_x0000_i1031"></A><IMG SRC="Chapter1a_files/image013.jpg" NAME="graphics7" ALIGN=BOTTOM WIDTH=683 HEIGHT=303 BORDER=0></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Enterprise
+Application Integration</FONT></FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">The more applications
+became decoupled from the databases they were built upon, the more
+evident it became that facilities were needed to integrate
+applications independent from their databases. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Application components
+should be able to communicate directly with each other and not merely
+by means of the request/reply behavior that was supported by
+transaction processing systems.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Result:</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Middleware as a communication
+facilitator in enterprise application integration.</FONT></FONT></P>
+<P><A NAME="_x0000_i1032"></A><IMG SRC="Chapter1a_files/image015.jpg" NAME="graphics8" ALIGN=BOTTOM WIDTH=495 HEIGHT=266 BORDER=0></P>
+<P>&nbsp;</P>
+<P>&nbsp;<B><FONT SIZE=4><FONT FACE="Arial">Several types of
+communication middleware: </FONT></FONT></B>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1.&nbsp;Remote procedure calls
+(RPC) -&nbsp; </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">an application
+component can send a request to another application component by
+doing a local procedure call, which results in the request being
+packaged as a message and sent to the callee. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">the result will be sent
+back and returned to the application as the result of the procedure
+call.</FONT></FONT></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">2.&nbsp;Remote method
+invocations (RMI) &ndash; </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">An RMI is the same as
+an RPC, except that it operates on objects instead of applications.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT COLOR="#808000"><FONT FACE="Arial"><FONT SIZE=4>Problems
+with RPC and RMI:</FONT></FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">The caller and callee
+both need to be up and running at the time of communication. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">They need to know
+exactly how to refer to each other. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT COLOR="#808000"><FONT FACE="Arial"><FONT SIZE=4>Results:</FONT></FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Message-oriented
+middleware (MOM) - applications send messages to logical contact
+points, often described by means of a subject. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Publish/subscribe
+systems - applications can indicate their interest for a specific
+type of message, after which the communication middleware will take
+care that those messages are delivered to those applications. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4><B>Distributed Pervasive Systems</B></FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Above distributed systems
+characterized by their stability:</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">nodes are fixed and
+have a more or less permanent and high-quality connection to a
+network.</FONT></FONT></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Mobile and embedded
+computing devices:</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">instability is the
+default behavior</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">Distributed
+pervasive system</FONT></FONT></FONT>&nbsp; <FONT SIZE=4><FONT FACE="Arial">-
+is part of the surroundings -&gt; inherently distributed. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Features:</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">general lack of human
+administrative control</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">devices can be
+configured by their owners</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">they need to
+automatically discover their environment and fit in as best as
+possible. This nestling in has been made more precise by Grimm et al.
+(2004) by formulating the following </FONT></FONT>
+</P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Three requirements for
+pervasive applications </FONT></FONT><A HREF="../../Papers/p421-grimm.pdf"><FONT SIZE=4><FONT FACE="Arial">(Grimm
+et al. 2004)</FONT></FONT></A> <FONT SIZE=4><FONT FACE="Arial">:</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">v </FONT><FONT FACE="Arial">Embrace
+contextual changes.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">a device must be
+continuously be aware of the fact that its environment may change all
+the time</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">v </FONT><FONT FACE="Arial">Encourage
+ad hoc composition.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">many devices in
+pervasive systems will be used in very different ways by different
+users &ndash; make it easy to configure the suite of applications
+running on a device</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">v </FONT><FONT FACE="Arial">Recognize
+sharing as the default.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">devices generally join
+the system in order to access (and possibly provide) information</FONT></FONT></P>
+<P>&nbsp;<B><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">Examples:
+</FONT></FONT></FONT></B>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Home Systems</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">built around home
+networks</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">consist of one or more
+personal computers</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">integrate consumer
+electronics such as TVs, audio and video equipment, gaming devices,
+(smart) phones, PDAs, and other personal wearables into a single
+system. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Now/Soon: all kinds of
+devices such as kitchen appliances, surveillance cameras, clocks,
+controllers for lighting, and so on, will all be hooked up into a
+single distributed system.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Several challenges: </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">System should be
+completely self-configuring and self-managing</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial">e.g.&nbsp; Universal Plug and Play
+(UPnP) standards by which devices automatically obtain IP addresses,
+can discover each other, etc. (</FONT></FONT><A HREF="http://www.upnp.org/"><FONT SIZE=4><FONT FACE="Arial">UPnP
+Forum</FONT></FONT></A><FONT SIZE=4><FONT FACE="Arial">). </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Unclear how software
+and firmware in devices can be easily updated without manual
+intervention, or when updates do take place, that compatibility with
+other devices is not violated.</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Managing &quot;personal space.&quot;</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">A home system consists
+of many shared as well as personal devices</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Data in a home system
+is also subject to sharing restrictions.</FONT></FONT></P>
+<P>&nbsp;&nbsp;</P>
+<H2><FONT FACE="Arial">Electronic Health Care Systems</FONT></H2>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">New devices are being
+developed to monitor the well-being of individuals and to
+automatically contact physicians when needed. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Major goal is to
+prevent people from being hospitalized.</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Personal health care
+systems rea equipped with various sensors organized in a (preferably
+wireless) body-area network (BAN).</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Such a network should
+at worst only minimally hinder a person. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Organization:</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1.&nbsp;A central hub is part of
+the BAN and collects data as needed. Data is then offloaded to a
+larger storage device. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000080">Advantage:</FONT></FONT></FONT>
+<FONT SIZE=4><FONT FACE="Arial">the hub can also manage the BAN. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>2.&nbsp;The BAN is continuously
+hooked up to an external network through a wireless connection, to
+which it sends monitored data. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Separate techniques
+will need to be deployed for managing the BAN. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Further connections to
+a physician or other people may exist as well.</FONT></FONT></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Monitoring a person in a
+pervasive electronic health care system, using </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>(a)&nbsp;a local hub o</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>(b)&nbsp;a continuous wireless
+connection. </FONT></FONT>
+</P>
+<P><A NAME="_x0000_i1033"></A><IMG SRC="Chapter1a_files/image017.jpg" NAME="graphics9" ALIGN=BOTTOM WIDTH=683 HEIGHT=244 BORDER=0></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Questions:</FONT></FONT></P>
+<P>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">Where
+and how should monitored data be stored?</FONT></FONT></P>
+<P>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">How
+can we prevent loss of crucial data?</FONT></FONT></P>
+<P>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">What
+infrastructure is needed to generate and propagate alerts?</FONT></FONT></P>
+<P>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">How
+can physicians provide online feedback?</FONT></FONT></P>
+<P>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">How
+can extreme robustness of the monitoring system be realized?</FONT></FONT></P>
+<P>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT SIZE=4><FONT FACE="Arial">What
+are the security issues and how can the proper policies be enforced?</FONT></FONT></P>
+<P>&nbsp;</P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">For reasons of efficiency: </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">devices and body-area
+networks will be required to support in-network data processing</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">monitoring data will
+have to be aggregated before permanently storing it or sending it to
+a physician. </FONT></FONT>
+</P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Unlike distributed information
+systems, there is yet no clear answer to these questions.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Sensor Networks</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Part of the enabling
+technology for pervasiveness </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">In virtually all cases
+they are used for processing information. </FONT></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Wingdings">&egrave;</FONT><FONT FACE="Arial">They
+do more than just provide communication services as with traditional
+computer networks. (<A HREF="../../Papers/Akyildiz2002_SurveySensorNets_01024422.pdf">Akyildiz
+et al. 2002</A>)</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT>&nbsp;<FONT SIZE=4><FONT FACE="Arial">A sensor network
+consists of tens to hundreds or thousands of relatively small nodes,
+each equipped with a sensing device. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Most sensor networks
+use wireless communication, and the nodes are often battery powered. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Their limited
+resources, restricted communication capabilities, and constrained
+power consumption demand that efficiency be high on the list of
+design criteria.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">The relation with
+distributed systems can be made clear by considering sensor networks
+as distributed databases. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">To organize a sensor
+network as a distributed database, there are essentially two
+extremes: </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1. Sensors do not cooperate but
+simply send their data to a centralized database located at the
+operator's site. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>2. Forward queries to relevant
+sensors and to let each compute an answer, requiring the operator to
+sensibly aggregate the returned answers.</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Organizing a sensor network
+database, while storing and processing data:</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>(a)&nbsp;only at the operator's
+site </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>(b) only at the sensors. </FONT></FONT>
+</P>
+<P><A NAME="_x0000_i1034"></A><A NAME="_x0000_i1035"></A><IMG SRC="Chapter1a_files/image019.jpg" NAME="graphics10" ALIGN=BOTTOM WIDTH=447 HEIGHT=197 BORDER=0>&nbsp;
+<IMG SRC="Chapter1a_files/image021.jpg" NAME="graphics11" ALIGN=BOTTOM WIDTH=420 HEIGHT=186 BORDER=0></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Neither solution is attractive:</FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">The 1<SUP>st</SUP>
+requires that sensors send all their measured data through the
+network, which may waste network resources and energy. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">The 2<SUP>nd</SUP> may
+also be wasteful as it discards the aggregation capabilities of
+sensors which would allow much less data to be returned to the
+operator. What is needed are facilities for in-network data
+processing, as we also encountered in pervasive health care systems.</FONT></FONT></P>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#808000">In-network
+processing can be done by:</FONT></FONT></FONT></P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Forwarding a query to
+all sensor nodes along a tree encompassing all nodes and to
+subsequently aggregate the results as they are propagated back to the
+root, where the initiator is located. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Aggregation will take
+place where two or more branches of the tree come to together. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">Solution introduces
+questions:</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1.&nbsp;How do we (dynamically)
+set up an efficient tree in a sensor network?</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>2.&nbsp;How does aggregation of
+results take place? Can it be controlled?</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4>3.&nbsp;What happens when network
+links fail?</FONT></FONT></P>
+<P>&nbsp;</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Resolution:</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><A HREF="http://telegraph.cs.berkeley.edu/tinydb/">TinyDB</A>
+- implements a declarative (database) interface to wireless sensor
+networks. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>TinyDB can use any tree-based
+routing algorithm. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">An intermediate node
+will collect and aggregate the results from its children, along with
+its own findings, and send that toward the root. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>&sect; To increase efficiency,
+queries span a period of time allowing for careful scheduling of
+operations so that network resources and energy are optimally
+consumed. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>&sect; When queries can be
+initiated from different points in the network, using single-rooted
+trees such as in TinyDB may not be efficient enough. </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>Alternative - sensor networks may
+be equipped with special nodes where results are forwarded to, as
+well as the queries related to those results. </FONT></FONT>
+</P>
+<P><FONT SIZE=2><FONT FACE="Symbol">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT></FONT><FONT SIZE=4><FONT FACE="Arial">e.g, queries and
+results related temperature readings are collected at a different
+location than those related to humidity measurements. This approach
+corresponds directly to the notion of publish/subscribe systems</FONT></FONT></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</BODY>
+</HTML>

@@ -1,0 +1,321 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec11</title>
+</head>
+<body text="#000000" bgcolor="#E6E6E6" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+20 - Java Server Pages - JSP</font></font></b></td>
+</tr>
+</table>
+
+<p><img SRC="fg1.gif" height=463 width=564>
+<p><img SRC="fg2.gif" height=487 width=661>
+<p><img SRC="fg3.gif" height=464 width=661>
+<p><img SRC="fg4.gif" height=501 width=663>
+<p><img SRC="fg5.gif" height=462 width=669>
+<p><img SRC="fg6.gif" height=413 width=673>
+<br><img SRC="fg7.gif" height=267 width=677>
+<p><img SRC="fg8.gif" height=498 width=642>
+<p><img SRC="fg9.gif" height=504 width=658>
+<p><img SRC="fg10.gif" height=449 width=662>
+<p><img SRC="fg11.gif" height=487 width=651>
+<p><img SRC="fg12.gif" height=399 width=601>
+<p><img SRC="fg13.gif" height=467 width=651>
+<br>&nbsp;
+<p><img SRC="fg14.gif" height=506 width=661>
+<p><img SRC="fg15.gif" height=482 width=658>
+<p><img SRC="fg16.gif" height=505 width=665>
+<br>&nbsp;
+<p><img SRC="fg19.gif" height=483 width=612>
+<p><img SRC="fg20.gif" height=490 width=662>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example - BGColor.jsp</font></font></b>
+<p><b><tt>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;HTML></tt></b>
+<br><b><tt>&lt;HEAD></tt></b>
+<br><b><tt>&nbsp; &lt;TITLE>Color Testing&lt;/TITLE></tt></b>
+<br><b><tt>&lt;/HEAD></tt></b>
+<br><b><tt><font color="#3333FF">&lt;%</font></tt></b>
+<br><b><tt><font color="#3333FF">String bgColor = request.getParameter("bgColor");</font></tt></b>
+<br><b><tt><font color="#3333FF">boolean hasExplicitColor = true;</font></tt></b>
+<br><b><tt><font color="#3333FF">if (bgColor == null) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; hasExplicitColor = false;</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; bgColor = "WHITE";</font></tt></b>
+<br><b><tt><font color="#3333FF">}</font></tt></b>
+<br><b><tt><font color="#3333FF">%></font></tt></b>
+<br><b><tt>&lt;BODY BGCOLOR="<font color="#3333FF">&lt;%= bgColor %>"></font></tt></b>
+<br><b><tt>&lt;H2 ALIGN="CENTER">Color Testing&lt;/H2></tt></b>
+<br><b><tt><font color="#3333FF">&lt;%</font></tt></b>
+<br><b><tt><font color="#3333FF">if (hasExplicitColor) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; out.println("You supplied an explicit
+background color of " +</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bgColor + ".");</font></tt></b>
+<br><b><tt><font color="#3333FF">} else {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; out.println("Using default background
+color of WHITE. " +</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"Supply the bgColor request attribute to try " +</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"a standard color or RRGGBB value, or to see " +</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"if your browser supports X11 color names.");</font></tt></b>
+<br><b><tt><font color="#3333FF">}</font></tt></b>
+<br><b><tt><font color="#3333FF">%></font></tt></b>
+<br><b><tt>&lt;/BODY></tt></b>
+<br><b><tt>&lt;/HTML></tt></b>
+<br>&nbsp;
+<p><img SRC="fg22.gif" height=511 width=654>
+<p><img SRC="fg23.gif" height=438 width=664>
+<p><img SRC="fg24.gif" height=362 width=657>
+<p><img SRC="fg25.gif" height=497 width=658>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example - AccessCounts.jsp</font></font></b>
+<br><b><tt><font color="#000000">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Transitional//EN"></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;HTML></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HEAD></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TITLE>JSP Declarations&lt;/TITLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;META NAME="keywords"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONTENT="JSP,declarations,JavaServer,Pages,servlets"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;META NAME="description"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONTENT="A
+quick example of JSP declarations."></font></tt></b>
+<br><b><tt><font color="#000000">&lt;LINK REL=STYLESHEET</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HEAD></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;H1>JSP Declarations&lt;/H1></font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;%! private int accessCount = 0; %></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;H2>Accesses to page since server reboot:</font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;%= ++accessCount %>&lt;/H2></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;/BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HTML></font></tt></b>
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="fg27.gif" height=482 width=652>
+<p><img SRC="fg17.gif" height=511 width=661>
+<br>&nbsp;
+<h1>
+<font face="Arial,Helvetica">JSP Page Directive</font></h1>
+<img SRC="fg28.gif" height=409 width=664>
+<p><img SRC="fg29.gif" height=502 width=653>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example&nbsp;
+- ImportAtribute.jsp</font></font></b><b><font face="Arial,Helvetica"><font color="#000099"></font></font></b>
+<p><b><tt>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></tt></b>
+<br><b><tt>&lt;!--</tt></b>
+<br><b><tt>Example of the import attribute of the page directive.</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>--></tt></b>
+<br><b><tt>&lt;HTML></tt></b>
+<br><b><tt>&lt;HEAD></tt></b>
+<br><b><tt>&lt;TITLE>The import Attribute&lt;/TITLE></tt></b>
+<br><b><tt>&lt;LINK REL=STYLESHEET</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></tt></b>
+<br><b><tt>&lt;/HEAD></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;BODY></tt></b>
+<br><b><tt>&lt;H2>The import Attribute&lt;/H2></tt></b>
+<br><b><tt>&lt;%-- JSP page directive --%></tt></b>
+<br><b><tt><font color="#3333FF">&lt;%@ page import="java.util.*,cwp.*"
+%></font></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;%-- JSP Declaration --%></tt></b>
+<br><b><tt>&lt;%!</tt></b>
+<br><b><tt>private String randomID() {</tt></b>
+<br><b><tt>&nbsp; int num = (int)(Math.random()*10000000.0);</tt></b>
+<br><b><tt>&nbsp; return("id" + num);</tt></b>
+<br><b><tt>}</tt></b><b><tt></tt></b>
+<p><b><tt>private final String NO_VALUE = "&lt;I>No Value&lt;/I>";</tt></b>
+<br><b><tt>%></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;%-- JSP Scriptlet --%></tt></b>
+<br><b><tt>&lt;%</tt></b>
+<br><b><tt>Cookie[] cookies = request.getCookies();</tt></b>
+<br><b><tt><font color="#3333FF">String oldID =</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; ServletUtilities.getCookieValue(cookies,
+"userID", NO_VALUE);</font></tt></b>
+<br><b><tt>if (oldID.equals(NO_VALUE)) {</tt></b>
+<br><b><tt>&nbsp; String newID = randomID();</tt></b>
+<br><b><tt>&nbsp; Cookie cookie = new Cookie("userID", newID);</tt></b>
+<br><b><tt>&nbsp; response.addCookie(cookie);</tt></b>
+<br><b><tt>}</tt></b>
+<br><b><tt>%></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;%-- JSP Expressions --%></tt></b>
+<br><b><tt>This page was accessed on &lt;%= <font color="#3333FF">new Date()
+</font>%> with a userID</tt></b>
+<br><b><tt>cookie of &lt;%= oldID %>.</tt></b><b><tt></tt></b>
+<p><b><tt>&lt;/BODY></tt></b>
+<br><b><tt>&lt;/HTML></tt></b>
+<br>&nbsp;
+<p><img SRC="fg32.gif" height=496 width=610>
+<p><img SRC="fg33.gif" height=334 width=668>
+<p><img SRC="fg34.gif" height=501 width=669>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example&nbsp;
+- Excel.jsp</font></font></b>
+<br><b><tt><font color="#000000">First Last Email Address</font></tt></b>
+<br><b><tt><font color="#000000">Marty Hall hall@corewebprogramming.com</font></tt></b>
+<br><b><tt><font color="#000000">Larry Brown brown@corewebprogramming.com</font></tt></b>
+<br><b><tt><font color="#000000">Bill Gates gates@sun.com</font></tt></b>
+<br><b><tt><font color="#000000">Larry Ellison ellison@microsoft.com</font></tt></b>
+<br><b><tt><font color="#000000">&lt;%@ page contentType="application/vnd.ms-excel"
+%></font></tt></b>
+<br><b><tt><font color="#000000">&lt;%-- There are tabs, not spaces, between
+columns. --%></font></tt></b>
+<p><img SRC="fg35.gif" height=457 width=661>
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="fg37.gif" height=370 width=664>
+<p><img SRC="fg38.gif" height=436 width=661>
+<p><img SRC="fg39.gif" height=523 width=661>
+<br>&nbsp;
+<h1>
+<b><font face="Arial,Helvetica">Including Files in JSP Documents</font></b></h1>
+<b><font face="Arial,Helvetica"><font color="#000099">Example&nbsp; - SomeRandomPage.jsp</font></font></b>
+<br><b><tt>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></tt></b>
+<br><b><tt>&lt;!--</tt></b>
+<br><b><tt>Example of including files at page translation time.</tt></b>
+<br><b><tt>--></tt></b>
+<br><b><tt>&lt;HTML></tt></b>
+<br><b><tt>&lt;HEAD></tt></b>
+<br><b><tt>&lt;TITLE>Some Random Page&lt;/TITLE></tt></b>
+<br><b><tt>&lt;META NAME="author" CONTENT="J. Random Hacker"></tt></b>
+<br><b><tt>&lt;META NAME="keywords"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONTENT="foo,bar,baz,quux"></tt></b>
+<br><b><tt>&lt;META NAME="description"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONTENT="Some random Web page."></tt></b>
+<br><b><tt>&lt;LINK REL=STYLESHEET</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></tt></b>
+<br><b><tt>&lt;/HEAD></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;BODY></tt></b>
+<br><b><tt>&lt;TABLE BORDER=5 ALIGN="CENTER"></tt></b>
+<br><b><tt>&nbsp; &lt;TR>&lt;TH CLASS="TITLE"></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Some Random Page&lt;/TABLE></tt></b>
+<br><b><tt>&lt;P></tt></b>
+<br><b><tt>Information about our products and services.</tt></b>
+<br><b><tt>&lt;P></tt></b>
+<br><b><tt>Blah, blah, blah.</tt></b>
+<br><b><tt>&lt;P></tt></b>
+<br><b><tt>Yadda, yadda, yadda.</tt></b><b><tt></tt></b>
+<p><b><tt><font color="#3333FF">&lt;%@ include file="ContactSection.jsp"
+%></font></tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&lt;/BODY></tt></b>
+<br><b><tt>&lt;/HTML></tt></b><b><tt></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000099">ContactSession.jsp</font></font></b>
+<br><b><tt><font color="#000000">&lt;%@ page import="java.util.Date" %></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;%-- The following become fields in
+each servlet that</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp; results from
+a JSP page that includes this file. --%></font></tt></b>
+<br><b><tt><font color="#000000">&lt;%!</font></tt></b>
+<br><b><tt><font color="#000000">private int accessCount = 0;</font></tt></b>
+<br><b><tt><font color="#000000">private Date accessDate = new Date();</font></tt></b>
+<br><b><tt><font color="#000000">private String accessHost = "&lt;I>No
+previous access&lt;/I>";</font></tt></b>
+<br><b><tt><font color="#000000">%></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;P></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HR></font></tt></b>
+<br><b><tt><font color="#000000">This page &amp;copy; 2000</font></tt></b>
+<br><b><tt><font color="#000000">&lt;A HREF="http//www.my-company.com/">my-company.com&lt;/A>.</font></tt></b>
+<br><b><tt><font color="#000000">This page has been accessed &lt;%= ++accessCount
+%></font></tt></b>
+<br><b><tt><font color="#000000">times since server reboot. It was last
+accessed from</font></tt></b>
+<br><b><tt><font color="#000000">&lt;%= accessHost %> at &lt;%= accessDate
+%>.</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;% accessHost = request.getRemoteHost();
+%></font></tt></b>
+<br><b><tt><font color="#000000">&lt;% accessDate = new Date(); %></font></tt></b>
+<br><b><tt><font color="#000000"></font></tt></b>&nbsp;
+<p><img SRC="fg47.gif" height=455 width=656><b><font face="Arial,Helvetica"></font></b>
+<p><img SRC="fg40.gif" height=363 width=665>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example&nbsp;
+- WhatsNew.jsp</font></font></b>
+<br><b><tt><font color="#000000">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Transitional//EN"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;!--</font></tt></b>
+<br><b><tt><font color="#000000">Example of including files at request
+time.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b>
+<br><b><tt><font color="#000000">Taken from Core Web Programming Java 2
+Edition</font></tt></b>
+<br><b><tt><font color="#000000">from Prentice Hall and Sun Microsystems
+Press,</font></tt></b>
+<br><b><tt><font color="#000000">http://www.corewebprogramming.com/.</font></tt></b>
+<br><b><tt><font color="#000000">May be freely used or adapted.</font></tt></b>
+<br><b><tt><font color="#000000">--></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HTML></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HEAD></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TITLE>What's New at JspNews.com&lt;/TITLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;LINK REL=STYLESHEET</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HEAD></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&lt;BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TABLE BORDER=5 ALIGN="CENTER"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TR>&lt;TH CLASS="TITLE"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What's
+New at JspNews.com&lt;/TABLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;P></font></tt></b>
+<br><b><tt><font color="#000000">Here is a summary of our three most recent
+news stories:</font></tt></b>
+<br><b><tt><font color="#000000">&lt;OL></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;LI></font><font color="#3333FF">&lt;jsp:include
+page="news/Item1.html" flush="true" /></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;LI></font><font color="#3333FF">&lt;jsp:include
+page="news/Item2.html" flush="true" /></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;LI></font><font color="#3333FF">&lt;jsp:include
+page="news/Item3.html" flush="true" /></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/OL></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HTML></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Item1.html</font></font></b>
+<br><b><tt>&lt;B>Bill Gates acts humble.&lt;/B> In a startling and unexpected</tt></b>
+<br><b><tt>development, Microsoft big wig Bill Gates put on an open act
+of</tt></b>
+<br><b><tt>humility yesterday.</tt></b>
+<br><b><tt>&lt;A HREF="http://www.microsoft.com/Never.html">More details...&lt;/A></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Item2.html</font></font></b>
+<br><b><tt><font color="#000000">&lt;B>Scott McNealy acts serious.&lt;/B>
+In an unexpected twist,</font></tt></b>
+<br><b><tt><font color="#000000">wisecracking Sun head Scott McNealy was
+sober and subdued at</font></tt></b>
+<br><b><tt><font color="#000000">yesterday's meeting.</font></tt></b>
+<br><b><tt><font color="#000000">&lt;A HREF="http://www.sun.com/Imposter.html">More
+details...&lt;/A></font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Item3.html</font></font></b>
+<br><b><tt>&lt;B>Larry Ellison acts conciliatory.&lt;/B> Catching his competitors</tt></b>
+<br><b><tt>off guard yesterday, Oracle prez Larry Ellison referred to his</tt></b>
+<br><b><tt>rivals in friendly and respectful terms.</tt></b>
+<br><b><tt>&lt;A HREF="http://www.oracle.com/Mistake.html">More details...&lt;/A></tt></b>
+<p><img SRC="fg42.gif" height=505 width=620>
+<p><img SRC="fg43.gif" height=518 width=666>
+<p><img SRC="fg44.gif" height=495 width=663>
+<p><img SRC="fg45.gif" height=487 width=664>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

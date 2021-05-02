@@ -1,0 +1,600 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec10</title>
+</head>
+<body text="#000000" bgcolor="#E5E5E5" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+19 - Server-Side Java Servlets</font></font></b></td>
+</tr>
+</table>
+
+<p><img SRC="fg1.gif" height=396 width=526>
+<p><img SRC="fg2.gif" height=386 width=488>
+<p><img SRC="fg3.gif" height=377 width=517>
+<p><img SRC="fg4.gif" height=409 width=496>
+<p><img SRC="fg5.gif" height=390 width=501>
+<p><img SRC="fg6.gif" height=411 width=532>
+<br>&nbsp;
+<h1>
+<font face="Arial,Helvetica">Basic Servlet Structure</font></h1>
+<b><font face="Arial,Helvetica"><font color="#000066">Generic Servlet Template</font></font></b>
+<p><b><tt>import java.io.*;</tt></b>
+<br><b><tt><font color="#3333FF">import javax.servlet.*;</font></tt></b>
+<br><b><tt><font color="#3333FF">import javax.servlet.http.*;</font></tt></b>
+<br>&nbsp;
+<p><b><tt><font color="#000000">public class</font> <font color="#3333FF">ServletTemplate</font><font color="#000000">extends</font><font color="#3333FF">HttpServlet</font>
+{</tt></b>
+<br><b><tt>&nbsp;<font color="#000000"> public void</font> doGet(<font color="#3333FF">HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response</font>)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#3333FF"> </font><font color="#000000">throws</font>ServletException,
+IOException {</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; <font color="#FF0000">// Use "request" to
+read incoming HTTP headers</font></tt></b>
+<br><b><tt><font color="#FF0000">&nbsp;&nbsp;&nbsp; // (e.g., cookies)
+and query data from HTML forms.</font></tt></b>
+<p><b><tt><font color="#FF0000">&nbsp;&nbsp;&nbsp; // Use "response" to
+specify the HTTP response status</font></tt></b>
+<br><b><tt><font color="#FF0000">&nbsp;&nbsp;&nbsp; // code and headers
+(e.g. the content type, cookies).</font></tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#FF0000">// Use "out" to send
+content to browser</font></tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Plain Text Generator
+Servlet</font></font></b>
+<p><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#3333FF">import javax.servlet.*;</font></tt></b>
+<br><b><tt><font color="#3333FF">import javax.servlet.http.*;</font></tt></b>
+<p><b><tt><font color="#000000">/* Very simplistic servlet that generates
+plain text. */</font></tt></b>
+<p><b><tt><font color="#000000">public class HelloWorld extends </font><font color="#3333FF">HttpServlet</font><font color="#000000">
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public void doGet(</font><font color="#3333FF">HttpServletRequest
+request</font><font color="#000000">,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#3333FF">HttpServletResponse response</font><font color="#000000">)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println("Hello
+World");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<br>&nbsp;
+<p><img SRC="fg7.gif" height=282 width=431>
+<p><b><tt><font color="#3333FF">package cwp;</font></tt></b>
+<p><b><tt>import java.io.*;</tt></b>
+<br><b><tt>import javax.servlet.*;</tt></b>
+<br><b><tt>import javax.servlet.http.*;</tt></b>
+<p><b><tt>/* Simple servlet that generates HTML. */</tt></b>
+<p><b><tt>public class HelloWWW extends <font color="#3333FF">HttpServlet</font>
+{</tt></b>
+<br><b><tt>&nbsp; public void doGet(<font color="#3333FF">HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response</font>)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws ServletException, IOException
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">response.setContentType("text/html");</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String docType =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;!DOCTYPE HTML PUBLIC \"-//W3C//DTD
+HTML 4.0 " +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Transitional//EN\">\n";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println(docType +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;HTML>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;HEAD>&lt;TITLE>Hello WWW&lt;/TITLE>&lt;/HEAD>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;BODY>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H1>Hello WWW&lt;/H1>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;/BODY>&lt;/HTML>");</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><img SRC="fg8.gif" height=400 width=524>
+<p><img SRC="fg9.gif" height=392 width=496>
+<br>&nbsp;
+<p><img SRC="fg10.gif" height=392 width=532>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Servlet Using
+Initialization Parameters</font></font></b>
+<p><b><tt>package cwp;</tt></b>
+<p><b><tt>import java.io.*;</tt></b>
+<br><b><tt>import javax.servlet.*;</tt></b>
+<br><b><tt>import javax.servlet.http.*;</tt></b>
+<p><b><tt>/*&nbsp; Example using servlet initialization. Here, the message</tt></b>
+<br><b><tt>&nbsp;*&nbsp; to print and the number of times the message should
+be</tt></b>
+<br><b><tt>&nbsp;*&nbsp; repeated is taken from the init parameters.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class <font color="#3333FF">ShowMessage</font> extends
+<font color="#3333FF">HttpServlet
+</font>{</tt></b>
+<br><b><tt>&nbsp; private String message;</tt></b>
+<br><b><tt>&nbsp; private String defaultMessage = "No message.";</tt></b>
+<br><b><tt>&nbsp; private int repeats = 1;</tt></b>
+<p><b><tt>&nbsp; public void init() throws ServletException {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">ServletConfig config
+= getServletConfig();</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; message = config.getInitParameter("message");</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (message == null) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message = defaultMessage;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#3333FF">String
+repeatString = config.getInitParameter("repeats");</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+repeats = Integer.parseInt(repeatString);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(NumberFormatException nfe) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // NumberFormatException handles
+case where repeatString</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // is null *and* case where it
+is in an illegal format.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public void <font color="#3333FF">doGet</font>(HttpServletRequest
+request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws ServletException,
+IOException {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; response.setContentType("text/html");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String title = "The ShowMessage Servlet";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println(ServletUtilities.headWithTitle(title)
++</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;BODY BGCOLOR=\"#FDF5E6\">\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H1 ALIGN=\"CENTER\">" + title + "&lt;/H1>");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;<font color="#3333FF">repeats</font>;
+i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("&lt;B>" + <font color="#3333FF">message</font>
++ "&lt;/B>&lt;BR>");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println("&lt;/BODY>&lt;/HTML>");</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><img SRC="fga2.gif" height=348 width=474>
+<p><img SRC="fga1.gif" height=382 width=429>
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="fg12.gif" height=396 width=530>
+<p><img SRC="fg13.gif" height=391 width=531>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000066">Reading Three
+Explicit Parameters</font></font></b>
+<p><b><tt><font color="#000000">package cwp;</font></tt></b>
+<p><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.http.*;</font></tt></b>
+<p><b><tt><font color="#000000">/** Simple servlet that reads three parameters
+from the</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; form data.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; &lt;P></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; Taken from Core Web Programming
+Java 2 Edition</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; from Prentice Hall and Sun
+Microsystems Press,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; http://www.corewebprogramming.com/.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; May be freely used or adapted.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class ThreeParams extends HttpServlet
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public void doGet(HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; response.setContentType("text/html");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String title = "Reading
+Three Request Parameters";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println(ServletUtilities.headWithTitle(title)
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;BODY BGCOLOR=\"#FDF5E6\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H1 ALIGN=\"CENTER\">" + title + "&lt;/H1>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;UL>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;LI>&lt;B>param1&lt;/B>: "</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++ </font><font color="#3333FF">request.getParameter("param1")</font><font color="#000000">
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;LI>&lt;B>param2&lt;/B>: "</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++ </font><font color="#3333FF">request.getParameter("param2")</font><font color="#000000">
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;LI>&lt;B>param3&lt;/B>: "</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++ </font><font color="#3333FF">request.getParameter("param3")</font><font color="#000000">
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;/UL>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;/BODY>&lt;/HTML>");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><img SRC="fg14.gif" height=402 width=535>
+<br>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica"><font color="#000066">Output</font></font></b></h2>
+<img SRC="fg16.gif" height=346 width=513>
+<br>&nbsp;
+<p><img SRC="fg17.gif" height=405 width=532>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Sample Code</font></font></b>
+<p><b><tt>package cwp;</tt></b>
+<p><b><tt>import javax.servlet.*;</tt></b>
+<br><b><tt>import javax.servlet.http.*;</tt></b>
+<p><b><tt>public class ServletUtilities {</tt></b>
+<br><b><tt>&nbsp; // This is only a source code fragment</tt></b>
+<br>&nbsp;
+<p><b><tt>&nbsp; /** Given a string, this method replaces all occurrences
+of</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; '&lt;' with '&amp;lt;', all occurrences
+of '>' with</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; '&amp;gt;', and (to handle cases that occur
+inside attribute</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; values), all occurrences of double quotes
+with</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; '&amp;quot;' and all occurrences of '&amp;'
+with '&amp;amp;'.</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; Without such filtering, an arbitrary string</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; could not safely be inserted in a Web page.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<p><b><tt>&nbsp; public static String filter(String input) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; StringBuffer filtered = new StringBuffer(input.length());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; char c;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;input.length(); i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c = input.charAt(i);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (c == '&lt;') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;lt;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (c == '>') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;gt;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (c == '"') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;quot;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (c == '&amp;') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;amp;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append(c);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(filtered.toString());</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="fg18.gif" height=413 width=527>
+<p><img SRC="fg19.gif" height=392 width=447>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Making a Table
+of Request Headers</font></font></b>
+<p><b><tt>package cwp;</tt></b>
+<p><b><tt>import java.io.*;</tt></b>
+<br><b><tt>import javax.servlet.*;</tt></b>
+<br><b><tt>import javax.servlet.http.*;</tt></b>
+<br><b><tt>import java.util.*;</tt></b>
+<p><b><tt>/** Shows all the request headers sent on this request.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; &lt;P></tt></b>
+<br><b><tt>&nbsp;*&nbsp; Taken from Core Web Programming Java 2 Edition</tt></b>
+<br><b><tt>&nbsp;*&nbsp; from Prentice Hall and Sun Microsystems Press,</tt></b>
+<br><b><tt>&nbsp;*&nbsp; http://www.corewebprogramming.com/.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; May be freely used or adapted.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class ShowRequestHeaders extends HttpServlet {</tt></b>
+<br><b><tt>&nbsp; public void doGet(HttpServletRequest request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws ServletException, IOException
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; response.setContentType("text/html");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String title = "Servlet Example: Showing
+Request Headers";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println(ServletUtilities.headWithTitle(title)
++</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;BODY BGCOLOR=\"#FDF5E6\">\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H1 ALIGN=\"CENTER\">" + title + "&lt;/H1>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;B>Request Method: &lt;/B>" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#3333FF">request.getMethod()</font> + "&lt;BR>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;B>Request URI: &lt;/B>" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#3333FF">request.getRequestURI()</font> + "&lt;BR>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;B>Request Protocol: &lt;/B>" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#3333FF">request.getProtocol() </font>+ "&lt;BR>&lt;BR>\n"
++</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TABLE BORDER=1 ALIGN=\"CENTER\">\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TR BGCOLOR=\"#FFAD00\">\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TH>Header Name&lt;TH>Header Value");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Enumeration headerNames = <font color="#3333FF">request.getHeaderNames()</font>;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; while(headerNames.hasMoreElements()) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String headerName = (String)headerNames.nextElement();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("&lt;TR>&lt;TD>"
++ headerName);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("&nbsp;&nbsp;&nbsp;
+&lt;TD>" + <font color="#3333FF">request.getHeader(headerName)</font>);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println("&lt;/TABLE>\n&lt;/BODY>&lt;/HTML>");</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** Let the same servlet handle both GET and POST. */</tt></b>
+<p><b><tt>&nbsp; public void doPost(HttpServletRequest request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws ServletException, IOException
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; doGet(request, response);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><img SRC="fga3.gif" height=463 width=662>
+<p><img SRC="fga4.gif" height=466 width=651>
+<br>&nbsp;
+<p><img SRC="fg20.gif" height=423 width=535>
+<br><img SRC="fg21.gif" height=328 width=538>
+<br><img SRC="fg22.gif" height=285 width=523>
+<br><img SRC="fg23.gif" height=246 width=486>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica">Generating the HTTP Response</font></h2>
+
+<p><br><img SRC="fg27.gif" height=334 width=536>
+<br><img SRC="fg28.gif" height=326 width=539>
+<p><img SRC="fga5.gif" height=380 width=510>
+<p><img SRC="fga6.gif" height=355 width=464>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000066">Front End to Various
+Search Engines</font></font></b></h3>
+<b><tt><font color="#000000">package cwp;</font></tt></b>
+<p><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.http.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.net.*;</font></tt></b>
+<p><b><tt><font color="#000000">/** Servlet that takes a search string,
+number of results per</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; page, and a search engine
+name, sending the query to</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; that search engine. Illustrates
+manipulating</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; the response status line.
+It sends a 302 response</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; (via sendRedirect) if it
+gets a known search engine,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; and sends a 404 response
+(via sendError) otherwise.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class SearchEngines extends HttpServlet
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public void doGet(HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String searchString
+= request.getParameter("searchString");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if ((searchString ==
+null) ||</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(searchString.length() == 0)) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reportProblem(response,
+"Missing search string.");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // The URLEncoder changes
+spaces to "+" signs and other</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // non-alphanumeric
+characters to "%XY", where XY is the</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // hex value of the
+ASCII (or ISO Latin-1) character.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // Browsers always
+URL-encode form values, so the</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // getParameter method
+decodes automatically. But since</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // we're just passing
+this on to another server, we need to</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // re-encode it.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; searchString = URLEncoder.encode(searchString);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String numResults =
+request.getParameter("numResults");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if ((numResults ==
+null) ||</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(numResults.equals("0")) ||</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(numResults.length() == 0)) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; numResults
+= "10";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String searchEngine
+=</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.getParameter("searchEngine");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (searchEngine ==
+null) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reportProblem(response,
+"Missing search engine name.");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; SearchSpec[] commonSpecs
+= SearchSpec.getCommonSpecs();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;commonSpecs.length;
+i++) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SearchSpec
+searchSpec = commonSpecs[i];</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (searchSpec.getName().equals(searchEngine))
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String url =</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+searchSpec.makeURL(searchString, numResults);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</font><font color="#3333FF">response.sendRedirect(url);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; reportProblem(response,
+"Unrecognized search engine.");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private void reportProblem(HttpServletResponse
+response,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String message)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">response.sendError(response.SC_NOT_FOUND,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H2>" + message + "&lt;/H2>");</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void doPost(HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; doGet(request, response);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><font face="Arial,Helvetica"><font color="#000066">Additional Code</font></font>
+<p><b><tt>package cwp;</tt></b>
+<p><b><tt>/** Small class that encapsulates how to construct a</tt></b>
+<br><b><tt>&nbsp;*&nbsp; search string for a particular search engine.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class SearchSpec {</tt></b>
+<br><b><tt>&nbsp; private String name, baseURL, numResultsSuffix;</tt></b>
+<p><b><tt>&nbsp; private static SearchSpec[] commonSpecs =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; { new SearchSpec("google",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://www.google.com/search?q=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;num="),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new SearchSpec("infoseek",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://infoseek.go.com/Titles?qt=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;nh="),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new SearchSpec("lycos",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://lycospro.lycos.com/cgi-bin/" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"pursuit?query=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;maxhits="),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new SearchSpec("hotbot",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://www.hotbot.com/?MT=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;DC=")</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; };</tt></b>
+<p><b><tt>&nbsp; public SearchSpec(String name,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String baseURL,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String numResultsSuffix) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.name = name;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.baseURL = baseURL;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.numResultsSuffix = numResultsSuffix;</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public String makeURL(String searchString,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String numResults) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(baseURL + searchString +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+numResultsSuffix + numResults);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public String getName() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(name);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public static SearchSpec[] getCommonSpecs() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(commonSpecs);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><font face="Arial,Helvetica"><font color="#000066">HTML Code</font></font>
+<p><b><tt><font color="#000000">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML
+4.0 Transitional//EN"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;!--</font></tt></b>
+<br><b><tt><font color="#000000">Front end to servlet that redirects request
+to search engines.</font></tt></b>
+<br><b><tt><font color="#000000">--></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HTML></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HEAD></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TITLE>Searching the Web&lt;/TITLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HEAD></font></tt></b>
+<p><b><tt><font color="#000000">&lt;BODY BGCOLOR="#FDF5E6"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;H1 ALIGN="CENTER">Searching the Web&lt;/H1></font></tt></b>
+<p><b><tt><font color="#000000">&lt;FORM </font><font color="#3333FF">ACTION="/servlet/cwp.SearchEngines"</font><font color="#000000">></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;CENTER></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; Search String:</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;INPUT TYPE="TEXT"
+NAME="searchString">&lt;BR></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; Results to Show Per
+Page:</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;INPUT TYPE="TEXT"
+NAME="numResults"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VALUE=10 SIZE=3>&lt;BR></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;INPUT TYPE="RADIO"
+NAME="searchEngine"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VALUE="google"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; Google |</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;INPUT TYPE="RADIO"
+NAME="searchEngine"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VALUE="infoseek"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; Infoseek |</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;INPUT TYPE="RADIO"
+NAME="searchEngine"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VALUE="lycos"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; Lycos |</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;INPUT TYPE="RADIO"
+NAME="searchEngine"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VALUE="hotbot"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; HotBot</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;BR></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; &lt;INPUT TYPE="SUBMIT"
+VALUE="Search"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;/CENTER></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/FORM></font></tt></b>
+<p><b><tt><font color="#000000">&lt;/BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HTML></font></tt></b>
+<p><img SRC="fga7.gif" height=401 width=662>
+</body>
+</html>

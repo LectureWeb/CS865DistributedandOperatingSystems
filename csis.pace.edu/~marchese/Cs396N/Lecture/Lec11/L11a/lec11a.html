@@ -1,0 +1,643 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec11a</title>
+</head>
+<body text="#000000" bgcolor="#E6E6E6" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+20 - Java Server Pages - JSP</font></font></b></td>
+</tr>
+</table>
+
+<h2>
+<font face="Arial,Helvetica">Using JavaBeans Components with JSP</font></h2>
+<img SRC="fga1.gif" height=307 width=453>
+<p><img SRC="fga2.gif" height=307 width=495>
+<p><img SRC="fga3.gif" height=377 width=510>
+<p><img SRC="fga4.gif" height=329 width=511>
+<p><img SRC="fga5.gif" height=373 width=508>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - StringBean.java</font></font></b>
+<p><b><tt>package cwp;</tt></b>
+<p><b><tt>/** A simple bean that has a single String property</tt></b>
+<br><b><tt>&nbsp;*&nbsp; called message.</tt></b>
+<br><b><tt>&nbsp;*</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class StringBean {</tt></b>
+<br><b><tt>&nbsp; private String message = "No message specified";</tt></b>
+<p><b><tt>&nbsp; public String getMessage() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(message);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public void setMessage(String message) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.message = message;</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - StringBean.jsp</font></font></b>
+<p><b><tt>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></tt></b>
+<br><b><tt>&lt;!--</tt></b>
+<br><b><tt>Simple example of jsp:useBean and manipulating properties</tt></b>
+<br><b><tt>with jsp:setProperty and jsp:getProperty and</tt></b>
+<br><b><tt>with explicit Java code in scriptlets and expressions.</tt></b>
+<br><b><tt>--></tt></b>
+<br><b><tt>&lt;HTML></tt></b>
+<br><b><tt>&lt;HEAD></tt></b>
+<br><b><tt>&lt;TITLE>Using JavaBeans with JSP&lt;/TITLE></tt></b>
+<br><b><tt>&lt;LINK REL=STYLESHEET</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></tt></b>
+<br><b><tt>&lt;/HEAD></tt></b>
+<p><b><tt>&lt;BODY></tt></b>
+<br><b><tt>&lt;TABLE BORDER=5 ALIGN="CENTER"></tt></b>
+<br><b><tt>&nbsp; &lt;TR>&lt;TH CLASS="TITLE"></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using JavaBeans with JSP&lt;/TABLE></tt></b>
+<br><b><tt><font color="#3333FF">&lt;jsp:useBean id="stringBean" class="cwp.StringBean"
+/></font></tt></b>
+<br><b><tt>&lt;OL></tt></b>
+<br><b><tt>&lt;LI>Initial value (getProperty):</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;I><font color="#3333FF">&lt;jsp:getProperty
+name="stringBean"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+property="message"</font> <font color="#3333FF">/></font>&lt;/I></tt></b>
+<br><b><tt>&lt;LI>Initial value (JSP expression):</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;I><font color="#3333FF">&lt;%= stringBean.getMessage()
+%></font><font color="#000000">&lt;/I></font></tt></b>
+<br><b><tt><font color="#000000">&lt;LI></font><font color="#3333FF">&lt;jsp:setProperty
+name="stringBean"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+property="message"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+value="Best string bean: Fortex"</font> <font color="#3333FF">/></font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Value after setting property with setProperty:</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;I><font color="#3333FF">&lt;jsp:getProperty
+name="stringBean"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+property="message" /></font>&lt;/I></tt></b>
+<br><b><tt>&lt;LI><font color="#3333FF">&lt;% stringBean.setMessage("My
+favorite: Kentucky Wonder"); %></font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Value after setting property with scriptlet:</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;I><font color="#3333FF">&lt;%= stringBean.getMessage()
+%></font>&lt;/I></tt></b>
+<br><b><tt>&lt;/OL></tt></b>
+<br><b><tt>&lt;/BODY></tt></b>
+<br><b><tt>&lt;/HTML></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Result</font></font></b>
+<p><img SRC="fga8.gif" height=350 width=505>
+<br>&nbsp;
+<p><img SRC="fga9.gif" height=384 width=510>
+<p><img SRC="fga10.gif" height=342 width=510>
+<p><img SRC="fga11.gif" height=313 width=514>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - SaleEntry1.jsp</font></font></b>
+<br><b><tt><font color="#000000">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Transitional//EN"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;!--</font></tt></b>
+<br><b><tt><font color="#000000">Example of using jsp:setProperty with
+an explicit value</font></tt></b>
+<br><b><tt><font color="#000000">supplied to the "value" attribute. See
+SaleEntry2.jsp</font></tt></b>
+<br><b><tt><font color="#000000">and SaleEntry3.jsp for alternatives.</font></tt></b>
+<br><b><tt><font color="#000000">--></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HTML></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HEAD></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TITLE>Using jsp:setProperty&lt;/TITLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;LINK REL=STYLESHEET</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HEAD></font></tt></b>
+<p><b><tt><font color="#000000">&lt;BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TABLE BORDER=5 ALIGN="CENTER"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TR>&lt;TH CLASS="TITLE"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using jsp:setProperty&lt;/TABLE></font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;jsp:useBean id="entry" class="cwp.SaleEntry"
+/></font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;jsp:setProperty</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; name="entry"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; property="itemID"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; value='&lt;%= request.getParameter("itemID")
+%>' /></font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;%</font></tt></b>
+<br><b><tt><font color="#3333FF">int numItemsOrdered = 1;</font></tt></b>
+<br><b><tt><font color="#3333FF">try {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; numItemsOrdered =</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; Integer.parseInt(request.getParameter("numItems"));</font></tt></b>
+<br><b><tt><font color="#3333FF">} catch(NumberFormatException nfe) {}</font></tt></b>
+<br><b><tt><font color="#3333FF">%></font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;jsp:setProperty</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; name="entry"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; property="numItems"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; value="&lt;%= numItemsOrdered
+%>" /></font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;%</font></tt></b>
+<br><b><tt><font color="#3333FF">double discountCode = 1.0;</font></tt></b>
+<br><b><tt><font color="#3333FF">try {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; String discountString =</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; request.getParameter("discountCode");</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; // Double.parseDouble not available
+in JDK 1.1.</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; discountCode =</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; Double.valueOf(discountString).doubleValue();</font></tt></b>
+<br><b><tt><font color="#3333FF">} catch(NumberFormatException nfe) {}</font></tt></b>
+<br><b><tt><font color="#3333FF">%></font></tt></b>
+<br><b><tt><font color="#3333FF">&lt;jsp:setProperty</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; name="entry"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; property="discountCode"</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; value="&lt;%= discountCode
+%>" /></font></tt></b>
+<br><b><tt><font color="#000000">&lt;BR></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TABLE ALIGN="CENTER" BORDER=1></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TR CLASS="COLORED"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TH>Item ID&lt;TH>Unit Price&lt;TH>Number
+Ordered&lt;TH>Total Price</font></tt></b>
+<br><b><tt><font color="#000000">&lt;TR ALIGN="RIGHT"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TD></font><font color="#3333FF">&lt;jsp:getProperty
+name="entry" property="itemID" /></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TD>$</font><font color="#3333FF">&lt;jsp:getProperty
+name="entry" property="itemCost" /></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TD></font><font color="#3333FF">&lt;jsp:getProperty
+name="entry" property="numItems" /></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TD>$</font><font color="#3333FF">&lt;jsp:getProperty
+name="entry" property="totalCost" /></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/TABLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HTML></font></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - SaleEntry.java</font></font></b>
+<p><b><tt><font color="#000000">package cwp;</font></tt></b>
+<p><b><tt><font color="#000000">/** Simple bean to illustrate the various
+forms</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; of jsp:setProperty.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class SaleEntry {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private String itemID = "unknown";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private double discountCode = 1.0;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private int numItems = 0;</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public String getItemID() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(itemID);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void setItemID(String itemID)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (itemID != null)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.itemID
+= itemID;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } else {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.itemID
+= "unknown";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public double getDiscountCode()
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(discountCode);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void setDiscountCode(double
+discountCode) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.discountCode =
+discountCode;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public int getNumItems() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(numItems);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void setNumItems(int numItems)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.numItems = numItems;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; // In real life, replace this with
+database lookup.</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public double getItemCost() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; double cost;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (itemID.equals("a1234"))
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cost =
+12.99*getDiscountCode();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } else {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cost =
+-9999;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(roundToPennies(cost));</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private double roundToPennies(double
+cost) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(Math.floor(cost*100)/100.0);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public double getTotalCost() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(getItemCost()
+* getNumItems());</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="fga13.gif" height=369 width=512>
+<br>&nbsp;
+<p><img SRC="fga14.gif" height=206 width=514>
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="fga15.gif" height=310 width=504>
+<p><img SRC="fga16.gif" height=335 width=511>
+<br><img SRC="fga17.gif" height=248 width=516>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - SharedCounts1.jsp</font></font></b>
+<br><b><tt>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></tt></b>
+<br><b><tt>&lt;!--</tt></b>
+<br><b><tt>Example of sharing beans.</tt></b>
+<p><b><tt>Taken from Core Web Programming Java 2 Edition</tt></b>
+<br><b><tt>from Prentice Hall and Sun Microsystems Press,</tt></b>
+<br><b><tt>http://www.corewebprogramming.com/.</tt></b>
+<br><b><tt>May be freely used or adapted.</tt></b>
+<br><b><tt>--></tt></b>
+<br><b><tt>&lt;HTML></tt></b>
+<br><b><tt>&lt;HEAD></tt></b>
+<br><b><tt>&lt;TITLE>Shared Access Counts: Page 1&lt;/TITLE></tt></b>
+<br><b><tt>&lt;LINK REL=STYLESHEET</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></tt></b>
+<br><b><tt>&lt;/HEAD></tt></b>
+<p><b><tt>&lt;BODY></tt></b>
+<p><b><tt>&lt;TABLE BORDER=5 ALIGN="CENTER"></tt></b>
+<br><b><tt>&nbsp; &lt;TR>&lt;TH CLASS="TITLE"></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shared Access Counts: Page 1&lt;/TABLE></tt></b>
+<br><b><tt>&lt;P></tt></b>
+<br><b><tt>&lt;jsp:useBean id="counter"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+class="cwp.AccessCountBean"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#3333FF">scope="application"</font>></tt></b>
+<br><b><tt>&nbsp; &lt;jsp:setProperty name="counter"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+property="firstPage"</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+value="SharedCounts1.jsp" /></tt></b>
+<br><b><tt>&lt;/jsp:useBean></tt></b>
+<p><b><tt>Of SharedCounts1.jsp (this page),</tt></b>
+<br><b><tt>&lt;A HREF="SharedCounts2.jsp">SharedCounts2.jsp&lt;/A>, and</tt></b>
+<br><b><tt>&lt;A HREF="SharedCounts3.jsp">SharedCounts3.jsp&lt;/A>,</tt></b>
+<br><b><tt>&lt;jsp:getProperty name="counter" property="firstPage" /></tt></b>
+<br><b><tt>was the first page accessed.</tt></b>
+<br><b><tt>&lt;P></tt></b>
+<br><b><tt>Collectively, the three pages have been accessed</tt></b>
+<br><b><tt>&lt;jsp:getProperty name="counter" property="accessCount" /></tt></b>
+<br><b><tt>times.</tt></b>
+<p><b><tt>&lt;/BODY></tt></b>
+<br><b><tt>&lt;/HTML></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - AccessCountBean.java</font></font></b>
+<br><b><tt><font color="#000000">package cwp;</font></tt></b>
+<p><b><tt><font color="#000000">/** Simple bean to illustrate sharing beans
+through</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; use of the scope attribute
+of jsp:useBean.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class AccessCountBean {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private String firstPage;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private int accessCount = 1;</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public String getFirstPage() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(firstPage);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void setFirstPage(String
+firstPage) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.firstPage = firstPage;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public int getAccessCount() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(accessCount++);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000066">Output</font></font></b></h3>
+<img SRC="fga19.gif" height=382 width=506>
+<br>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Creating Custom JSP Tag Libraries</font></b></h2>
+<img SRC="fgb1.gif" height=313 width=495>
+<p><img SRC="fgb2.gif" height=385 width=504>
+<p><img SRC="fgb3.gif" height=373 width=509>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - ExampleTag.java
+- a simple tag handler</font></font></b>
+<br><b><tt>package cwp.tags;</tt></b>
+<p><b><tt><font color="#3333FF">import javax.servlet.jsp.*;</font></tt></b>
+<br><b><tt><font color="#3333FF">import javax.servlet.jsp.tagext.*;</font></tt></b>
+<br><b><tt><font color="#3333FF">import java.io.*;</font></tt></b>
+<p><b><tt>/** Very simple JSP tag that just inserts a string</tt></b>
+<br><b><tt>&nbsp;*&nbsp; ("Custom tag example...") into the output.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; The actual name of the tag is not defined here;</tt></b>
+<br><b><tt>&nbsp;*&nbsp; that is given by the Tag Library Descriptor (TLD)</tt></b>
+<br><b><tt>&nbsp;*&nbsp; file that is referenced by the taglib directive</tt></b>
+<br><b><tt>&nbsp;*&nbsp; in the JSP file.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class ExampleTag <font color="#3333FF">extends TagSupport</font>
+{</tt></b>
+<br><b><tt>&nbsp; public int <font color="#3333FF">doStartTag()</font>
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#3333FF">JspWriter
+out = pageContext.getOut();</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.print("Custom tag example
+" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"(cwp.tags.ExampleTag)");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(IOException ioe) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Error in
+ExampleTag: " + ioe);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">return(SKIP_BODY);</font></tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<p><img SRC="fgb5.gif" height=396 width=510>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - cwp-taglib.tld
+- tag library descriptor file</font></font></b>
+<br><b><tt>&lt;?xml version="1.0" encoding="ISO-8859-1" ?></tt></b>
+<br><b><tt>&lt;!DOCTYPE taglib</tt></b>
+<br><b><tt>&nbsp;PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library
+1.1//EN"</tt></b>
+<br><b><tt>&nbsp;"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd"></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;!-- a tag library descriptor --></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;taglib></tt></b>
+<br><b><tt>&nbsp; &lt;!-- after this the default space is</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://java.sun.com/j2ee/dtds/jsptaglibrary_1_2.dtd"</tt></b>
+<br><b><tt>&nbsp;&nbsp; --></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tlibversion>1.0&lt;/tlibversion></tt></b>
+<br><b><tt>&nbsp; &lt;jspversion>1.1&lt;/jspversion></tt></b>
+<br><b><tt>&nbsp; <font color="#3333FF">&lt;shortname>cwp&lt;/shortname></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; &lt;!-- ** CHANGED FROM "urn" TO
+"uri" IN TOMCAT 3.1 final ** --></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; &lt;uri>&lt;/uri></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; &lt;info></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; A tag library from
+Core Web Programming Java 2 Edition,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; http://www.corewebprogramming.com/.</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; &lt;/info></font></tt></b><b><tt></tt></b>
+<p><b><tt><font color="#000099">&lt;!--</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp; &lt;tag></font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; The name (after prefix)
+tag will have in JSP code</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; &lt;name>example&lt;/name></font></tt></b><b><tt><font color="#000099"></font></tt></b>
+<p><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; The actual class implementing
+tag. In</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; Tomcat 3.1, it MUST
+be in a package.</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.ExampleTag&lt;/tagclass></font></tt></b><b><tt><font color="#000099"></font></tt></b>
+<p><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; Descriptive information
+about tag.</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; &lt;info>Simplest example:
+inserts one line of output&lt;/info></font></tt></b><b><tt><font color="#000099"></font></tt></b>
+<p><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; One of three values
+describing what goes between</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; start and end tag.</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; empty:
+no body</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JSP: body
+that is evaluated by container normally,</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+then possibly processed by tag</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tagdependent:
+body is only processed by tag;</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSP in body is not evaluated.</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; ** NOTE: TOMCAT 3.1
+FINAL DOES NOT SUPPORT BODYCONTENT **</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; ** THE BETA SUPPORTED
+IT, AND IT IS PART OF SPEC, BUT... **</font></tt></b>
+<br><b><tt><font color="#000099">&nbsp;&nbsp;&nbsp; &lt;bodycontent>empty&lt;/bodycontent></font></tt></b>
+<br><b><tt><font color="#000099">&nbsp; &lt;/tag></font></tt></b>
+<br><b><tt><font color="#000099">--></font></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; <font color="#3333FF">&lt;tag></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; &lt;name>example&lt;/name></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.ExampleTag&lt;/tagclass></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; &lt;info>Simplest example:
+inserts one line of output&lt;/info></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1
+DOES NOT SUPPORT BODYCONTENT</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; &lt;bodycontent>empty&lt;/bodycontent>
+--></font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; &lt;/tag></font></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>simplePrime&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.SimplePrimeTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>Outputs a random 50-digit prime.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>empty&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>prime&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.PrimeTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>Outputs a random N-digit prime.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>empty&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>length&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>false&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>heading&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.HeadingTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>Outputs a 1-cell table used as a
+heading.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>bgColor&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>true&lt;/required>&nbsp;
+&lt;!-- bgColor is required --></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>color&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>false&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>align&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>false&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>fontSize&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>false&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>fontList&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>false&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>border&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>false&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>width&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>false&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>debug&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.DebugTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>Includes body only if debug param
+is set.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>filter&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.FilterTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>Replaces HTML-specific characters
+in body.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>repeat&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.RepeatTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>Repeats body the specified number
+of times.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;attribute></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name>reps&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;required>true&lt;/required></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- rtexprvalue indicates
+whether attribute</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+can be a JSP expression. --></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rtexprvalue>true&lt;/rtexprvalue></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;/attribute></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>if&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.IfTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>if/condition/then/else tag.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>condition&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.IfConditionTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>condition part of if/condition/then/else
+tag.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>then&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.IfThenTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>then part of if/condition/then/else
+tag.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; &lt;tag></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;name>else&lt;/name></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;tagclass>cwp.tags.IfElseTag&lt;/tagclass></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;info>else part of if/condition/then/else
+tag.&lt;/info></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;!-- TOMCAT 3.1 DOES NOT SUPPORT BODYCONTENT</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; &lt;bodycontent>JSP&lt;/bodycontent> --></tt></b>
+<br><b><tt>&nbsp; &lt;/tag></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;/taglib></tt></b>
+<br><b><tt></tt></b>&nbsp;<b><tt></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - SimplePrimeTag.java</font></font></b>
+<br><b><tt><font color="#000000">package cwp.tags;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">import javax.servlet.jsp.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.jsp.tagext.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.math.*;</font></tt></b>
+<br><b><tt><font color="#000000">import cwp.*;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">/** Generates a prime of approximately
+50 digits.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; (50 is actually the length
+of the random number</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; generated -- the first prime
+above that number will</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; be returned.)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">public class SimplePrimeTag extends TagSupport
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; protected int len = 50;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public int doStartTag() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JspWriter
+out = pageContext.getOut();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BigInteger
+prime = Primes.nextPrime(Primes.random(len));</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.print(prime);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } catch(IOException
+ioe) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Error
+generating prime: " + ioe);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(SKIP_BODY);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example - SimplePrimeExample.jsp</font></font></b>
+<br><b><tt><font color="#000000">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Transitional//EN"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;!--</font></tt></b>
+<br><b><tt><font color="#000000">Illustration of SimplePrimeTag tag.</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">--></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HTML></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HEAD></font></tt></b>
+<br><b><tt><font color="#000000">&lt;TITLE>Some 50-Digit Primes&lt;/TITLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;LINK REL=STYLESHEET</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HREF="JSP-Styles.css"</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE="text/css"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HEAD></font></tt></b>
+<br><b><tt><font color="#000000">&lt;BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;H1>Some 50-Digit Primes&lt;/H1></font></tt></b>
+<br><b><tt><font color="#000000">&lt;%@ taglib uri="cwp-taglib.tld" prefix="cwp"
+%></font></tt></b>
+<br><b><tt><font color="#000000">&lt;UL></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;LI></font><font color="#3333FF">&lt;cwp:simplePrime
+/></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;LI></font><font color="#3333FF">&lt;cwp:simplePrime
+/></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;LI></font><font color="#3333FF">&lt;cwp:simplePrime
+/></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;LI></font><font color="#3333FF">&lt;cwp:simplePrime
+/></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/UL></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HTML></font></tt></b>
+<br><b><tt><font color="#000000"></font></tt></b>&nbsp;
+<p><img SRC="fgb9.gif" height=377 width=513>
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="fgb10.gif" height=271 width=506>
+<p><img SRC="fgb11.gif" height=284 width=511>
+<p><img SRC="fgb12.gif" height=314 width=506>
+<p><img SRC="fgb13.gif" height=381 width=508>
+<p><img SRC="fgb14.gif" height=381 width=492>
+<p><img SRC="fgb15.gif" height=386 width=512>
+<p><img SRC="fgb16.gif" height=377 width=510>
+<p><img SRC="fgb17.gif" height=390 width=506>
+<p><img SRC="fgb18.gif" height=375 width=504>
+<p><img SRC="fgb19.gif" height=285 width=514>
+<p><img SRC="fgb20.gif" height=387 width=474>
+<p><img SRC="fgb21.gif" height=369 width=501>
+<p><img SRC="fgb22.gif" height=388 width=434>
+<p><img SRC="fgb23.gif" height=365 width=507>
+<br>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Integrating Servlets with JSP</font></b></h2>
+<img SRC="fgc1.gif" height=315 width=491>
+<p><img SRC="fgc2.gif" height=351 width=508>
+<p><img SRC="fgc3.gif" height=375 width=509>
+<p><img SRC="fgc4.gif" height=358 width=508>
+<p><img SRC="fgc5.gif" height=361 width=511>
+<br><img SRC="fgc6.gif" height=186 width=517>
+<p><img SRC="fgc7.gif" height=368 width=511>
+<p><img SRC="fgc8.gif" height=376 width=510>
+<p><img SRC="fgc9.gif" height=384 width=511>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

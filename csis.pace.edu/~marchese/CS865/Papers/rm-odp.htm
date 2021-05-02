@@ -1,0 +1,1193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+
+
+
+
+
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><title>Reference Model for Open Distributed Processing — Lamswww</title>
+
+    
+
+    
+        
+            <!-- base href="http://lamswww.epfl.ch/reference/rm-odp/index_html" -->
+        
+    
+
+    <meta name="generator" content="Plone - http://plone.org">
+
+    <meta content="admin" name="DC.creator">
+    <meta content="2005-07-13 16:43:33" name="DC.date.created">
+    <meta content="2006-12-05 15:50:02" name="DC.date.modified">
+    <meta content="Document" name="DC.type">
+    <meta content="text/html" name="DC.format"><!-- Basic crude style for Netscape4.x - This can be removed
+         if you don't want the special NS4 look - it will still work,
+         just be plain text instead. Column layout for Netscape4.x included -->
+
+    
+    <link rel="Stylesheet" type="text/css" href="rm-odp_files/ploneNS4.css"><!-- Column style sheet. -->
+
+    
+    <style type="text/css" media="screen"><!-- @import url(http://lamswww.epfl.ch/ploneColumns.css); --></style><!-- Main style sheets for CSS2 capable browsers -->
+
+    
+    <style type="text/css" media="screen"><!-- @import url(http://lamswww.epfl.ch/plone.css); --></style><!-- Old style sheet from Plone 1.0, remove tal:condition="nothing" if you need to use the old styles.
+         Will be removed in Plone 2.1. --><!-- Alternate style sheets for the bigger/smaller text switcher -->
+
+    
+    
+
+    
+    <link rel="alternate stylesheet" type="text/css" media="screen" href="rm-odp_files/ploneTextSmall.css" title="Small Text">
+    <link rel="alternate stylesheet" type="text/css" media="screen" href="rm-odp_files/ploneTextLarge.css" title="Large Text"><!-- Style sheet used for printing -->
+
+    
+    <link rel="stylesheet" type="text/css" media="print" href="rm-odp_files/plonePrint.css"><!-- Style sheet used for presentations (Opera is the only browser supporting this at the moment) -->
+
+    
+    <link rel="stylesheet" type="text/css" media="projection" href="rm-odp_files/plonePresentation.css"><!-- Internet Explorer CSS Fixes --><!--[if IE]>
+    <style type="text/css" media="all">@import url(http://lamswww.epfl.ch/ploneIEFixes.css);</style>
+    <![endif]--><!-- Custom style sheet if available -->
+
+    
+    
+
+
+    
+    <style type="text/css" media="all"><!-- @import url(http://lamswww.epfl.ch/ploneCustom.css); --></style>
+
+    <link rel="shortcut icon" href="http://lamswww.epfl.ch/keyhole.ico" type="image/x-icon">
+
+    <link rel="search" href="http://lamswww.epfl.ch/search_form" title="Search this site">
+
+    
+
+    <link rel="up" href="http://lamswww.epfl.ch/reference" title="Up one level"><!-- Disable IE6 image toolbar -->
+
+    
+
+    
+    <meta http-equiv="imagetoolbar" content="no"><!-- A slot where you can insert CSS in the header from a template --><!-- min-width support for IE via Javascript, required for tableless --><!--[if IE]>
+    <script type="text/javascript"
+            src="http://lamswww.epfl.ch/plone_minwidth.js"></script>
+    <![endif]--><!-- A slot where you can insert elements in the header from a template --><!-- A slot where you can insert javascript in the header from a template --><!-- Common Plone ECMAScripts --><!-- Pull-down ECMAScript menu, only active if logged in --><!-- Define dynamic server-side variables for javascripts in this one  -->
+
+    
+      
+        
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+
+    
+      
+    
+
+    
+      
+        
+    
+
+    
+
+    
+    
+
+    
+    <script type="text/javascript" src="rm-odp_files/plone_javascript_variables.js">
+    </script>
+
+    <script type="text/javascript" src="rm-odp_files/plone_javascripts.js">
+    </script><!-- Old JS from Plone 1.0, remove tal:condition="nothing" if you need to use the old pop-ups.
+           Will be removed in Plone 2.1 --></head><body class="section-reference">
+
+<div id="visual-portal-wrapper">
+
+<div id="portal-top">
+
+    <a href="#documentContent" class="hiddenStructure">Skip to content.</a>
+
+
+
+
+<!-- EPFL logos -->
+    <div id="epfl_logo">
+
+<div id="epfl_header_left">
+	<div class="epfl_logo"><a href="http://www.epfl.ch/"><img src="rm-odp_files/epfl_logo.gif" alt="" border="0" height="34" width="120"></a></div>
+	<div class="epfl_logo"><a href="http://www.epfl.ch/"><img src="rm-odp_files/epfl_text.gif" alt="" border="0" height="28" width="120"></a></div>
+	<div id="epfl_language" nowrap="">english only</div>
+</div>
+
+<div id="epfl_header_center"></div>
+	<div id="epfl_header_title1" class="epfl_headercolor_web1"><a href="http://lamswww.epfl.ch/"><img src="rm-odp_files/lams.gif" alt="lamswww.epfl.ch" border="0" height="34" width="74"></a>
+	</div>
+        <div id="epfl_header_graph"><img src="rm-odp_files/graph_ic_l.gif" alt="" border="0" height="34" width="270"></div>
+	<div id="epfl_header_title2" class="epfl_headercolor_web2"><a href="http://lamswww.epfl.ch/" alt="icsil1www.epfl.ch"><img src="rm-odp_files/text_sm.gif" alt="" border="0" height="28" width="301"></a></div>
+
+	<div id="epfl_tracking">
+          <div id="epfl-portal-breadcrumbs">
+    <a class="epfl_path" href="http://www.epfl.ch/"> Epfl </a>
+    <span class="epfl_breadcrumbSeparator">&gt;</span>
+    <a class="epfl_path" href="http://ic.epfl.ch/"> I&amp;C </a>
+    <span class="epfl_breadcrumbSeparator">&gt;</span>
+
+    
+            <a class="epfl_path" href="http://lamswww.epfl.ch/">LAMS</a>
+            <span class="epfl_breadcrumbSeparator">&gt;</span>
+    
+    
+    <span>
+        
+            <a class="epfl_path" href="http://lamswww.epfl.ch/reference/" accesskey="accesskeys-breadcrumbs">References</a>
+            <span class="epfl_breadcrumbSeparator"> &gt; </span>
+            
+         
+    </span>
+    <span>
+        
+            
+            
+            <span class="epfl_breadcrumbSeparator">RM-ODP</span>
+         
+    </span>
+</div>
+
+        </div>
+
+
+
+</div>
+<!--
+    <div metal:use-macro="here/epfl_sections/macros/epfl_portal_tabs">
+        The global sections tabs. (Welcome, News etc)
+    </div>
+-->
+<!--
+    <div metal:use-macro="here/epfl_pathbar/macros/epfl_path_bar">
+        The Epfl navigation bar
+    </div>
+-->
+<!-- search
+    <div metal:use-macro="here/epfl_searchbox/macros/epfl_quick_search">
+        The quicksearch box, normally placed at the top right
+    </div>
+-->
+<!--
+    <div metal:use-macro="here/epfl_personalbar/macros/epfl_personal_bar">
+        The personal bar. (log in, logout etc...)
+    </div>
+-->
+
+<!-- portal tabs
+    <div metal:use-macro="here/global_sections/macros/portal_tabs">
+        The global sections tabs. (Welcome, News etc)
+    </div>
+-->
+
+<!--
+    <div metal:use-macro="here/global_skinswitcher/macros/skin_tabs">
+        The skin switcher tabs. Based on which role you have, you
+        get a selection of skins that you can switch between.
+    </div>
+-->
+
+<!-- Plone font selection 
+    <div metal:use-macro="here/global_siteactions/macros/site_actions">
+        Site-wide actions (Contact, Sitemap, Help, Style Switcher etc)
+    </div>
+-->
+
+
+<!-- Plone logo
+    <a metal:use-macro="here/global_logo/macros/portal_logo">
+        The portal logo, linked to the portal root
+    </a>
+-->
+
+<!-- Path bar
+    <div metal:use-macro="here/global_pathbar/macros/path_bar">
+        The breadcrumb navigation ("you are here")
+    </div>
+-->
+
+
+<!-- peersonal bar
+    <div metal:use-macro="here/global_personalbar/macros/personal_bar">
+        The personal bar. (log in, logout etc...)
+    </div>
+-->
+
+
+
+
+</div>
+
+<div class="visualClear"></div>
+
+<!-- The wrapper div. It contains the three columns. -->
+<div id="portal-columns" class="visualColumnHideNone">
+
+    <!-- start of the main and left columns -->
+    <div id="visual-column-wrapper">
+
+        <!-- start of main content block -->
+        <div id="portal-column-content">
+
+            <div id="content" class="">
+
+                
+
+                <div class="documentContent" id="region-content">
+
+                    <a name="documentContent"></a>
+
+                    
+
+                    
+
+                    
+    
+        <h1 class="documentFirstHeading">Reference Model for Open Distributed Processing</h1>
+    
+        <div class="documentActions">
+
+    <h5 class="hiddenStructure">Document Actions</h5>
+
+    <ul>
+    
+        <li>
+            <a href="http://lamswww.epfl.ch/reference/rm-odp/index_html/sendto_form">
+            
+                <img src="rm-odp_files/mail_icon.gif" alt="Send this page to somebody" title="Send this page to somebody" height="16" width="16">
+            </a>
+        </li>
+    
+    
+        <li>
+            <a href="javascript:this.print();">
+            
+                <img src="rm-odp_files/print_icon.gif" alt="Print this page" title="Print this page" height="16" width="16">
+            </a>
+        </li>
+    
+
+    </ul>
+
+    
+
+</div>
+    
+        <div class="documentDescription"></div>
+    
+        
+    
+        <div class="plain">
+            <p>
+ If you use RM-ODP in your projects, if you have an
+ interest in using RM-ODP or if you have a question, 
+ don't hesitate to contact us by sending an email to "alain.wegmann (at) epfl.ch". 
+ <br>
+ This page is part of the <a href="http://lamswww.epfl.ch/">LAMS web site.</a> It was first written by Andrey Naumenko.
+ <br><br>
+ All text marked with a * is quoted from "ITU-T Rec. X.901 | ISO/IEC 10746-1: Overview".
+</p>
+
+<dl>
+ <dt><a name="Why RM-ODP?"></a>Why RM-ODP?</dt>
+ <dd>
+  <p>
+   For an accurate modeling of business and software
+   systems it is important to clearly define the vocabulary of basic terms needed for the
+   modeling. The meaning of these terms and the relations between them should be precisely
+   defined; this is what an ontology should provide. We analyzed a few existing ontologies
+   and we decided to base our work on the ISO/ITU standard "Reference Model for Open
+   Distributed Processing". Our choice was motivated by the facts that RM-ODP is already
+   an international standard, and it is a good base for an ontology for general system modeling. 
+  </p>
+ </dd>
+</dl>
+
+<dl> <!-- Start of Intro to RM-ODP -->
+ <dt><a name="Intro to RM-ODP"></a>Intro to RM-ODP</dt>
+ 
+ <dd>
+  <p>
+   The rapid growth of distributed processing has led to a need for a coordinating
+   framework for the standardization of Open Distributed
+   Processing (ODP). This Reference Model provides such a framework. It creates an
+   architecture within which support of distribution,
+   interworking and portability can be integrated.
+  </p>
+  <p>
+   The Reference Model of Open Distributed Processing, ITU-T Rec. X.901 | ISO/IEC 10746-1
+   to ITU-T Rec. X.904 |ISO/IEC 10746-4, is based on precise concepts derived from current
+   distributed processing developments and, as far as possible,
+   on the use of formal description techniques for specification of the architecture.
+  </p>
+  <p>The RM-ODP (ISO/IEC 10746) consists of:</p>
+   <ul style="padding-left: 20px;">
+    <li>
+     ITU-T Rec. X.901 | ISO/IEC 10746-1: Overview:<br>
+     This part contains a
+     motivational overview of ODP giving scoping, justification and explanation of key
+     concepts, and an outline of the ODP architecture. It contains explanatory material on how
+     this Reference Model is to be interpreted and applied by its users, who may include
+     standards writers and architects of ODP systems. It also contains a categorization of
+     required areas of standardization expressed in terms of the reference points for
+     conformance identified in ITU-T Rec. X.903 | ISO/IEC 10746-3. These common texts are not
+     normative.
+    </li>
+    <li>
+     ITU-T Rec. X.902 | ISO/IEC 10746-2: Foundations: <br>
+     This part contains the
+     definition of the concepts and analytical framework for normalized description of
+     (arbitrary) distributed processing systems. This is only to a level of detail sufficient
+     to support ITU-T Rec. X.903 | ISO/IEC 10746-3 and to establish requirements for new
+     specification techniques. These common texts are normative.
+    </li>
+    <li>
+     ITU-T Rec. X.903 | ISO/IEC 10746-3: Architecture: <br>
+     This part contains the
+     specification of the required characteristics that qualify distributed processing as open.
+     These are the constraints to which ODP standards must conform. It uses the descriptive
+     techniques from ITU-T Rec. X.902 | ISO/IEC 10746-2. These common texts are normative.
+    </li>
+    <li>
+     ITU-T Rec. X.904 | ISO/IEC 10746-4: Architectural semantics: <br>
+     This part
+     contains a normalization of the ODP modelling concepts defined in ITU-T Rec. X.902 |
+     ISO/IEC 10746-2, clauses 8 and 9. The normalization is achieved by interpreting each
+     concept in terms of the constructs of the different standardized formal description
+     techniques. These common texts are normative.
+    </li>
+   </ul>
+ </dd>
+ 
+ <dd>
+  <p><b>Goals for RM-ODP</b></p>
+   <ul style="padding-left: 20px;">
+     <p>
+      The objective of ODP standardization is the development of standards that allow
+      the benefits of distributing information processing services to be 
+      realized in an environment of heterogeneous IT resources and multiple 
+      organizational domains.
+      These standards address constraints on system specification and the
+      provision of a system infrastructure that accommodate
+      difficulties inherent in the design and programming of distributed systems.
+     </p>
+     <p>
+      Distributed systems are important because there is a growing need to interconnect
+      information processing systems. This need arises
+      because of organizational trends such as downsizing, which demand the exchange of
+      information both between groups within an organization
+      and between cooperating organizations. Advances in technology are making it possible 
+      to respond to these trends by giving increasing importance
+      to information service networks and personal workstations,
+      and by permitting the construction of applications distributed across large configurations
+      of interconnected system
+     </p>
+   </ul>
+ </dd>
+  
+ <dd>
+  <p><b>About ISO/IEC and ITU-T standartization</b></p>
+  <ul style="padding-left: 20px;">
+    <p>
+     ISO (the International Organization for Standardization) and IEC (the International
+     Electrotechnical Commission) form the specialized system for worldwide standardization.
+     National bodies that are members of ISO or IEC participate in the development of
+     International Standards through technical committees established by the respective
+     organization to deal with particular fields of technical activity. ISO and IEC technical
+     committees collaborate in fields of mutual interest. Other international organizations,
+     governmental and non-governmental, in liaison with ISO and IEC, also take part in the
+     work.
+    </p>
+    <p>
+     In the field of information technology, ISO and IEC have established a joint technical
+     committee, ISO/IEC JTC 1. Draft International Standards adopted by the joint technical
+     committee are circulated to national bodies for voting. Publication as an International
+     Standard requires approval by at least 75 % of the national bodies casting a vote.
+    </p>
+    <p>
+     International Standard ISO/IEC 10746-1 was prepared by Joint Technical Committee
+     ISO/IEC JTC 1, Information technology, Subcommittee SC 33, Distributed
+     application services, in collaboration with ITU-T. The identical text is published as
+     ITU-T Recommendation X.901.
+    </p>
+  </ul>
+ </dd>
+ 
+</dl> <!-- End of Intro to RM-ODP -->
+
+
+<br><br>
+
+<dl><!-- start of dl who's who -->
+ <dt><a name="Who's who"></a>Who's who</dt>
+ <dd>
+  <p>Groups and Projects in RM-ODP Research</p>
+
+  <ul style="padding-left: 20px;">
+   <li>
+    <a target="_blank" href="http://lamswww.epfl.ch/">LAMS</a>, Swiss Federal Institute of
+    Technology, Lausanne (EPFL), Switzerland.
+   </li>
+   <li>
+    <span class="link-external"><a href="http://www.cs.ukc.ac.uk/" target="_blank">Computing Laboratory</a></span>, University
+    of Kent, Canterbury UK.
+   </li>
+   <li>
+    <span class="link-external"><a href="http://www.cs.stir.ac.uk/%7Ekjt/research/formosa.html" target="_blank">FORMOSA
+   (Formalisation of ODP Systems Architecture)</a></span>, University of Stirling, UK.
+   </li>
+   <li>
+    <span class="link-external"><a href="http://www-src.lip6.fr/" target="_blank">Systèmes Répartis et Coopératifs</a></span>,
+    UMPC, Paris, France.
+   </li>
+   <li>
+    <span class="link-external"><a href="http://www.infres.enst.fr/recherche/ILR/rapport.html" target="_blank">ILR</a></span>,
+    Networks and ComputerScience Department of ENST, Paris France.
+   </li>
+   <li>
+    <span class="link-external"><a href="http://archive.dstc.edu.au/AU/research_news/" target="_blank">Distributed
+    Systems Technology Center</a></span>, Australia.
+   </li>
+  </ul>
+ </dd>
+ 
+ <dd>
+  <p>Companies:</p>
+  <ul style="padding-left: 20px;">
+   <li>Financial Systems Architects(FSArch)</li>
+   <li>Domain Architects</li>
+   <li>U.S. Deparment of Defence</li>
+   <li>Electricité de France, R&amp;D</li>
+  </ul>
+ </dd>
+ 
+ <dd>
+  <p>Standardization Groups Refering RM-ODP:</p>
+  <ul style="padding-left: 20px;">
+   <li> <span class="link-external"><a href="http://www.omg.org/" target="_blank">OMG</a></span> / EDOC profile for UML</li>
+   <li> <span class="link-external"><a href="http://www.omg.org/" target="_blank">OMG</a></span> / MDA</li>
+  </ul>
+ </dd>
+ 
+ <dd>
+  <p>RM-ODP Related Formal Description Methods:</p>
+  <ul style="padding-left: 20px;">
+   <p>
+   (referenced in RM-ODP part 4 (ITU-T Rec. X.904 | ISO/IEC 10746-4))
+   </p>
+   <li>
+    LOTOS:&nbsp; ISO/IEC 880. "LOTOS – A Formal Description Technique Based 
+    on the TemporalOrdering of Observational Behavior", 1989.
+   </li>
+   <li>
+    ACT ONE: H. Ehrig and B. Mahr. "Fundamentals of
+    algebraic specification". EATCS Monographs on Theoretical Computer Science, 
+    vol. 6, Springer-Verlag, 1985.
+   </li>
+   <li>
+    SDL-92: ITU–T Recommendation Z.100. "CCITT
+    Specification and Description Language (SDL)", 1993.
+   </li>
+   <li>
+    Z:&nbsp; S. M. Brien, J. E. Nicholls. "Z Base
+    Standard version 1.0". Oxford University, Programming Research Group, 
+    Technical Monograph PRG-107, November 1992.
+   </li>
+   <li>
+    Z: J.M. Spivey. "The Z Notation, A Reference Manual". International 
+    Series in Computer Science, Second Edition, Prentice-Hall International, 1992.
+   </li>
+   <li>
+    ESTELLE: ISO 9074. "Estelle, a Formal Description Technique Based on an 
+    Extended State Transition Model", 1997.
+   </li>
+  </ul>
+ </dd>
+
+</dl><!-- End of dl who's who -->
+
+<br><br>
+
+<dl><!-- start of dl Our Research -->
+ <dt><a name="Our Research"></a>Our Research</dt>
+ <dd>
+  <p>
+   Our goal is to model systems generically. So that we can use the
+   same kind of models for business systems and for software systems. The benefit is a better
+   integration of business modeling and software modeling. As we focus on generic models, we
+   put our emphasis on RM-ODP Part 2. An important problem with Part 2 is that it is written
+   in a natural language (i.e. English). This leads to multiple interpretations and creates
+   difficulties for tool vendors who would like to base their tools on RM-ODP. To alleviate
+   this problem, we have done a formalization of Part 2 using Russells Theory of Types,
+   &nbsp; Set Theory and regular predicate logic. Our contribution is a model of Part 2
+   written in Alloy (a specification language developed by Daniel Jackson at MIT). One of the
+   most innovative aspects of our work is the formalization of the relationship between the
+   reality perceived by the modeler and the model itself. The formal model of RM-ODP part 2
+   now gives us solid foundations for our other research projects in business and software
+   modeling. In addition we can influence industrial standards. For example, RM-ODP Part 2 is
+   conceptually very close to the Unified Modeling Language meta-model. Our interactions with
+   the UML task force at OMG are done via our partner Financial System Architects.
+  </p> 
+ </dd>
+</dl><!-- End of dl Our Research -->
+
+<br><br>
+
+<dl><!-- start of dl Our Research -->
+ <dt><a name="Bibliographyh"></a>Bibliography</dt>
+ 
+ <dd>
+  <p>RM-ODP standard documents</p>
+  <ul style="padding-left: 20px;">
+   <li>
+    ISO/IEC 10746-1, 2, 3, 4 | ITU-T Recommendation X.901, X.902, X.903, X.904. "Open 
+    Distributed Processing - Reference Model". OMG, 1995-98.<br>
+    <span class="link-external"><a href="http://isotc.iso.ch/livelink/livelink/fetch/2000/2489/Ittf_Home/PubliclyAvailableStandards.htm" target="_blank">http://isotc.iso.ch/livelink/livelink/fetch/2000/2489/Ittf_Home/PubliclyAvailableStandards.htm
+    </a></span>
+   </li>
+  </ul>
+ </dd>
+ 
+ <dd>
+  <p>Books related to RM-ODP</p>
+  <ul style="padding-left: 20px;">
+   <li>
+    G. S. Blair, J.-B. Stefani. "Open Distributed Processing and Multimedia", 
+    Addison Wesley Longman Ltd, 1998.
+   </li>
+   <li>
+    J. R. Putman.: "Architecting with RM-ODP", Prentice Hall, 2001.
+   </li>
+  </ul>
+ </dd>
+
+ <dd>
+  <p>Selected publications</p>
+  <ul style="padding-left: 20px;">
+   <li>
+    C. Bernardeschi, J. Dustzadeh, A.
+    Fantechi, E. Najm, A. Nimour, and F. Olsen. "Transformations and Consistent Semantics
+    for ODP Viewpoints". H. Bowman and J. Derrick, editors; Proceedings of Second IFIP
+    conference on Formal Methods for Open Object-based Distributed Systems - FMOODS'97 -
+    Canterbery UK, Chapman &amp; Hall, July 97.
+   </li>
+   <li>
+    E.A. Boiten, H. Bowman, J. Derrick, P.F.
+    Linington, and M.W.A. Steen. "Viewpoint consistency in ODP". Computer
+    Networks, 34(3):503-537, August 2000.
+   </li>
+   <li>
+    H.Bowman, J. Derrick, P. Linington, M. Steen. "FDTs for ODP". Computer
+    Standards and Interfaces, 17(1995):457-479, September 1995.
+   </li>
+   <li>
+    H. Bowman, J. Derrick, P. Linington, M.
+    Steen. "Cross-viewpoint consistency in Open Distributed Processing". IEE
+    Software Engineering Journal 11 (1): 1996, January 1996.
+   </li>
+   <li>
+    H. Bowman, E. A. Boiten, J. Derrick, M.
+    W. A. Steen. "Viewpoint consistency in ODP, a general interpretation".
+    Proceedings of the First IFIP International Workshop on Formal Methods for Open
+    Object-Based Distributed Systems (editors: E. Najm and J.-B. Stefani), pages 189-204.
+    Chapman &amp; Hall, March 1996
+   </li>
+   <li>
+    F. Durán and A. Vallecillo.
+    "Writing ODP Enterprise Specifications in Maude". Proceedings of ICEIS 2001,
+    Workshop On Open Distributed Processing - WOODPECKER`2001, J. Cordeiro, H. Kilov (Eds.),
+    Setúbal, Portugal, July 2001.
+   </li>
+   <li>
+    D. Johnson, H. Kilov. "An Approach
+    to an RM-ODP Toolkit in Z". Proceedings of the 1st Workshop on
+    Component-Based Systems. Zurich, Switzerland, 1997; in conjunction with European
+    Software Engineering Conference (ESEC) and ACM SIGSOFT Symposium on the Foundations
+    of Software Engineering (FSE), 1997.
+   </li>
+   <li>
+    D. R. Johnson, H. Kilov. "Can a flat
+    notation be used to specify an OO system: using Z to describe RM-ODP constructs". In
+    Proceedings of FMOODS96: IFIP WG 6.1 Conference on Formal Methods in Object-oriented
+    Distributed Systems;
+    E. Najm, J-B. Stephani (editors), Chapman and Hall, Paris, March 1996, pp. 407-418.
+   </li>
+   <li>
+    P.F. Linington, J. Derrick, and H.
+    Bowman. "The specification and conformance of ODP systems". In 9th
+    International Workshop on Testing of Communicating Systems, pages 93-114, IFIP
+    TC6/WG6.1. Darmstadt, Germany, Chapman &amp; Hall, September 1996.
+   </li>
+   <li>
+    E. Najm and J.-B. Stefani. "A Formal
+    Semantics for the ODP Computational Model". Computer Networks and ISDN Systems,
+    27:1305-1329, 1995.
+   </li>
+   <li>
+    E. Najm and J.-B. Stefani.
+    "Computational models for open distributed systems". H. Bowman and J. Derrick,
+    editors, Proc. of FMOODS'97, Canterbury, 1997. Chapman &amp;Hall.
+   </li>
+   <li>
+    R.O. Sinnott, K.J. Turner, "Applying
+    Formal Methods to Standard Development: The Open Distributed Processing Experience".
+    Computer Standards &amp; Interfaces Journal, volume 17, pages 615-630, 1995.
+   </li>
+   <li>
+    R. O.
+    Sinnott and K. J. Turner. "Specifying ODP Computational Objects in Z",
+    Proceedings of 1st International Workshop on Formal Methods for Open Object-Based Distributed
+    Systems, Paris, France, March 1996, pp. 375-390
+   </li>
+   <li>
+    M. W.
+    Steen and J. Derrick. ODP Enterprise Viewpoint Specification. Computer Standards and Interfaces, 
+    22(3):165-189, August 2000.
+   </li>
+  </ul>
+ </dd>
+ 
+ <dd>
+  <p>LAMS publications:</p>
+  <ul style="padding-left: 20px;">
+   <li>
+    <a href="http://lamswww.epfl.ch/people/naumenko" target="_blank">A. Naumenko</a>, 
+    <a href="http://lamswww.epfl.ch/people/wegmann/" target="_blank">A. Wegmann</a>
+    <br>
+    "Two Approaches in System Modeling and Their Illustrations with MDA and RM-ODP"
+    <br>
+    Proceedings of ICEIS 2003, the 5th International Conference on Enterprise Information Systems, 
+    Angers, France, April 2003, pp. 398-402.<br>
+    [ <a href="http://lamswww.epfl.ch/publication/publication_abstract.asp?ID=630" target="_blank">Abstract</a> ] [ 
+      <span class="link-external"><a href="http://lcawww.epfl.ch/Publications/Naumenko/NaumenkoW03.pdf" target="_blank">Full document</a></span> ] [ 
+      <span class="link-external"><a href="http://lcawww.epfl.ch/ICApublic/asp/publication_bibtex.asp?ID=630" target="_blank">BiBTeX</a></span> ]
+   </li>
+   
+   <li>
+    <a href="http://lamswww.epfl.ch/people/naumenko" target="_blank">A. Naumenko</a>
+    <br>
+    "
+    <span class="link-external"><a href="http://stella.epfl.ch/tcp/default.asp" target="_blank">Triune 
+      Continuum Paradigm: a paradigm for General System Modeling and its 
+      applications for UML and RM-ODP</a></span>"
+    <br>
+    PhD Thesis number 2581, Swiss Federal Institute of Technology - Lausanne (EPFL), June 2002.
+    <br>
+    [ <span class="link-external"><a href="http://stella.epfl.ch/tcp/" target="_blank">Abstract</a></span> ] [ 
+      <span class="link-external"><a href="http://stella.epfl.ch/tcp/Naumenko-PhD-Thesis.pdf" target="_blank">Full document</a></span> ] [ 
+      <span class="link-external"><a href="http://lcawww.epfl.ch/ICApublic/asp/publication_bibtex.asp?ID=581" target="_blank">BiBTeX</a></span> ]
+   </li>
+   
+   <li>
+    <a href="http://lamswww.epfl.ch/people/wegmann/" target="_blank">A. Wegmann</a>, 
+    <a href="http://lamswww.epfl.ch/people/naumenko" target="_blank">A. Naumenko</a>
+    <br>
+    "Conceptual Modeling of Complex Systems Using an RM-ODP Based Ontology"
+    <br>
+    Proceedings of the 5th IEEE International Enterprise Distributed Object 
+    Computing Conference - EDOC 2001, Seattle, USA, September 2001, pp. 
+    200-211.
+    <br>
+    [ <a href="http://lamswww.epfl.ch/ICApublic/asp/publication_abstract.asp?ID=499" target="_blank">Abstract</a> ] [ 
+    <span class="link-external"><a href="http://lcawww.epfl.ch/Publications/Wegmann/WegmannN01.pdf" target="_blank">
+        Full document</a></span> ] [ 
+    <span class="link-external"><a href="http://lcawww.epfl.ch/ICApublic/asp/publication_bibtex.asp?ID=499" target="_blank">
+      BiBTeX</a></span> ] 
+   </li>
+   
+   <li>
+    <a href="http://lamswww.epfl.ch/people/naumenko" target="_blank">A. Naumenko</a>, 
+    <a href="http://lamswww.epfl.ch/people/wegmann/" target="_blank">A. Wegmann</a>
+    <br>
+    "MDA and RM-ODP: two approaches in modern ontological engineering"
+    <br>
+    EPFL-DSC technical report No. DSC/2001/047, August 2001.<br>
+    [ <span class="link-external"><a href="http://lcawww.epfl.ch/ICApublic/asp/publication_abstract.asp?ID=517" target="_blank">Abstract</a></span> ] [ 
+      <span class="link-external"><a href="http://lcawww.epfl.ch/Publications/Naumenko/TR01_047.pdf" target="_blank">
+      Full document</a></span> ] [ 
+      <span class="link-external"><a href="http://lcawww.epfl.ch/ICApublic/asp/publication_bibtex.asp?ID=517" target="_blank">
+      BiBTeX</a></span> ]
+    </li>
+   
+    <li>
+     <a href="http://lamswww.epfl.ch/naumenko" target="_blank">A. Naumenko</a>, 
+     <a href="http://lamswww.epfl.ch/people/wegmann/" target="_blank">A. Wegmann</a>
+     <br>
+     "RM-ODP part 2: Foundations in Alloy"<br>
+     EPFL-DSC technical report No. DSC/2001/041, August 2001.<br>
+     [ <span class="link-external"><a href="http://lcawww.epfl.ch/ICApublic/asp/publication_abstract.asp?ID=516" target="_blank">Abstract</a></span> ] [ 
+       <span class="link-external"><a href="http://lcawww.epfl.ch/Publications/Naumenko/TR01_041.pdf" target="_blank">
+        Full document</a></span> ] [ 
+       <a href="http://lamswww.epfl.ch/ICApublic/asp/publication_bibtex.asp?ID=516" target="_blank">
+      BiBTeX</a> ]
+    </li>
+
+    <li>
+     <a href="http://lamswww.epfl.ch/naumenko" target="_blank">A. Naumenko</a>, 
+     <a href="http://lamswww.epfl.ch/people/wegmann/" target="_blank">A. Wegmann</a>
+     <br>
+     "A Formal Foundation of the RM-ODP Conceptual Framework"<br>
+     EPFL-DSC technical report No. DSC/2001/040, July 2001.<br>
+     [ <a href="http://lamswww.epfl.ch/ICApublic/asp/publication_abstract.asp?ID=503" target="_blank">Abstract</a> ] [ 
+       <span class="link-external"><a href="http://lcawww.epfl.ch/Publications/Naumenko/TR01_040.pdf" target="_blank">
+        Full document</a></span> ] [ 
+       <a href="http://lamswww.epfl.ch/ICApublic/asp/publication_bibtex.asp?ID=503" target="_blank">
+      BiBTeX</a> ]
+    </li>
+
+    <li>
+     <a href="http://lamswww.epfl.ch/people/naumenko" target="_blank">A. Naumenko</a>, 
+     <a href="http://lamswww.epfl.ch/people/wegmann/" target="_blank">A. Wegmann</a>, G. 
+      Genilloud, W. F. Frank
+      <br>
+      "Proposal for a formal foundation of RM-ODP concepts"<br>
+      Proceedings of ICEIS 2001, Workshop On Open Distributed Processing - 
+      WOODPECKER`2001, Setúbal, Portugal, July 2001, pp. 81-97.<br>
+      [ <span class="link-external"><a href="http://lcawww.epfl.ch/ICApublic/asp/publication_abstract.asp?ID=471" target="_blank">Abstract</a></span> ] [ 
+      <a href="http://lamswww.epfl.ch/Publications/Naumenko/NaumenkoWGF01.pdf" target="_blank">
+      Full document</a> ] [ 
+      <a href="http://lamswww.epfl.ch/ICApublic/asp/publication_bibtex.asp?ID=471" target="_blank">
+      BiBTeX</a> ] 
+    </li>
+    <p>
+     PhD thesis and Tutorial on foundations of RM-ODP framework: thesis 
+     entitled 
+     "Triune Continuum Paradigm: a paradigm for General System Modeling and 
+     its applications to UML and RM-ODP" 
+     (A. Naumenko, LAMS-EPFL) focusing on fundamentals of system analysis and, in 
+     particular, on foundations of RM-ODP is <span class="link-external"><a href="http://stella.epfl.ch/tcp/" target="_blank">available 
+     here</a></span>.
+    </p>
+    <p>On <span class="link-external"><a href="http://stella.epfl.ch/home/presentation/RM-ODP/default.asp" target="_blank">this page</a></span> you can watch slides and video of the 
+     presentation that was done on 18.12.2001 as a preliminary defense of this 
+     PhD thesis. The presentation is entitled "Formalization of RM-ODP: 
+     Object-Oriented Ontology for System Modeling". It can serve you as a 
+     tutorial on foundations of the RM-ODP conceptual 
+     framework. This presentation is dedicated to Part III (the paradigm 
+     application to RM-ODP) of the PhD thesis, while Part I (the paradigm 
+     definition) and Part II (the paradigm application to UML) are not covered 
+     here.
+    </p>
+  </ul>
+ </dd>
+</dl><!-- End of dl Our Research -->
+
+<hr>
+<p>Summary by <span class="link-external"><a href="http://stella.epfl.ch/home/" target="_blank">Andrey Naumenko</a></span>,
+10-2001.</p>
+        </div>
+    
+        <div class="documentByLine">
+
+  
+
+  <span>
+    Created by
+  </span>
+
+  <a href="http://lamswww.epfl.ch/Members/admin">admin</a>
+
+  
+
+  <br>
+
+  
+
+  
+
+  <span>
+    Last modified
+  </span>
+  2006-12-05 15:50
+
+  
+
+</div>
+    
+
+
+                    
+                        <div class="discussion">
+
+    
+
+</div>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- end of main content block -->
+
+        <!-- start of the left (by default at least) column -->
+        <div id="portal-column-one">
+            <div class="visualPadding">
+                
+                    
+
+    
+
+        
+            <div>
+
+      <div class="portlet" id="portlet-summary">
+
+          <h5>Summary</h5>
+
+          <div class="portletBodyNoBorder">
+
+                <span>
+                   <div class="portletContent odd">
+                         <a href="http://lamswww.epfl.ch/reference/rm-odp/#Why%20RM-ODP?">Why RM-ODP?</a>
+                   </div>
+                   
+
+                </span>
+                <span>
+                   
+                   <div class="portletContent odd">
+                         <a href="http://lamswww.epfl.ch/reference/rm-odp/#Intro%20to%20RM-ODP">Intro to RM-ODP</a>
+                   </div>
+
+                </span>
+                <span>
+                   <div class="portletContent odd">
+                         <a href="http://lamswww.epfl.ch/reference/rm-odp/#Who%27s%20who">Who's who</a>
+                   </div>
+                   
+
+                </span>
+                <span>
+                   
+                   <div class="portletContent odd">
+                         <a href="http://lamswww.epfl.ch/reference/rm-odp/#Our%20Research">Our Research</a>
+                   </div>
+
+                </span>
+                <span>
+                   <div class="portletContent odd">
+                         <a href="http://lamswww.epfl.ch/reference/rm-odp/#Bibliographyh">Bibliographyh</a>
+                   </div>
+                   
+
+                </span>
+
+          </div>
+
+      </div>
+
+  </div>
+        
+
+        
+    
+    
+
+        
+            
+        
+
+        
+    
+
+                
+                &nbsp;
+            </div>
+        </div>
+        <!-- end of the left (by default at least) column -->
+
+    </div>
+    <!-- end of the main and left columns -->
+
+    <!-- start of right (by default at least) column -->
+    <div id="portal-column-two">
+        <div class="visualPadding">
+            
+                
+
+    
+        
+            <div>
+
+      <div class="portlet" id="portlet-static">
+
+          <h5>Search</h5>
+
+          <div class="portletBodyNoBorder">
+
+              <div class="portletContent odd">
+    <form name="searchform" action="http://lamswww.epfl.ch/search">
+        <label for="searchGadget" class="hiddenStructure">Search</label>
+        <input id="searchGadget" name="SearchableText" size="10" alt="Search" title="Search" accesskey="s" class="visibility:visible" tabindex="20001" type="text">
+
+        <input class="epflSearchButton" value="" accesskey="s" tabindex="20002" type="submit">
+    </form>
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+        
+
+        
+    
+    
+        
+            
+    <div class="portlet" id="portlet-navigation-tree">
+    <div>
+        <h5>Navigation</h5>
+        <div class="portletBody">
+            <div class="portletContent odd">
+                
+                
+                    
+                        
+
+                        <a href="http://lamswww.epfl.ch/" accesskey="n" class="navItem navRootItem" title="Lamswww">
+                            <img src="rm-odp_files/site_icon.gif" alt="" class="navIconRoot" title="Plone Site" height="16" width="16">
+                            <span class="navItemText">
+                                  Home
+                            </span>
+                        </a>
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/people/" accesskey="n" class="navItem navLevel1" title="People at LAMS">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">People</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/infoscience/" accesskey="n" class="navItem navLevel1" title="This search form enables you to find publication by specifying one or more search terms.">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Publications</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/course/" accesskey="n" class="navItem navLevel1" title="Courses desc">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Courses</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/reference/" accesskey="n" class="navItem navLevel1" title="Lams References">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">References</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/reference/goal/" accesskey="n" class="navItem navLevel2" title="Goal Driven Requirements Engineering Overview">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Goal</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/reference/businessanalysis/" accesskey="n" class="navItem navLevel2" title="Solutions for Business">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Business Analysis</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/reference/phd/" accesskey="n" class="navItem navLevel2" title="Making a PhD">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Making a PhD</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/reference/rm-odp/" accesskey="n" class="navItem navLevel2 currentNavItem" title="Reference Model for Open Distributed Processing">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">RM-ODP</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/project/" accesskey="n" class="navItem navLevel1" title="">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Project</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/intranet/" accesskey="n" class="navItem navLevel1" title="">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Intranet</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/extranet/" accesskey="n" class="navItem navLevel1" title="">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">Extranet</span>
+                        </a>
+
+                        
+                    
+                
+                
+                    
+                        <a href="http://lamswww.epfl.ch/download/" accesskey="n" class="navItem navLevel1" title="Page used to publish downloadable files (not for general use). ">
+                            <img src="rm-odp_files/folder_icon.gif" alt="" class="navIcon" title="Folder" height="16" width="16">
+                            <span class="navItemText">download</span>
+                        </a>
+
+                        
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+
+        
+    
+    
+        
+            
+        
+
+        
+    
+    
+        
+            
+        
+
+        
+    
+    
+        
+            <div>
+
+      <div class="portlet" id="portlet-personalbar">
+
+          <h5>Personal Tools</h5>
+
+          <div class="portletBody">
+
+
+<ul id="epfl-portal-personalbar">
+    
+
+    <li class="portalNotLoggedIn">
+              You are not logged in
+    </li>
+
+       
+    
+        <li>
+            <a href="http://lamswww.epfl.ch/login_form" accesskey="u">
+               Log in
+            </a>
+        </li>
+    
+
+</ul>
+
+
+
+          </div>
+
+      </div>
+
+  </div>
+        
+
+        
+    
+
+            
+            &nbsp;
+        </div>
+    </div>
+    <!-- end of the right (by default at least) column -->
+
+    <div class="visualClear">&nbsp;</div>
+
+</div>
+<!-- end column wrapper -->
+
+<hr class="netscape4">
+
+<div id="portal-footer">
+
+
+© 2002-2005 Marc-André Lüthi
+
+</div>
+
+<!--
+<div id="portal-colophon" metal:use-macro="here/colophon/macros/colophon">
+  The colophon area - contains details about the production of
+  the site. Typically "powered by" buttons, standards, tools used.
+</div>
+-->
+
+
+</div>
+
+</body></html>

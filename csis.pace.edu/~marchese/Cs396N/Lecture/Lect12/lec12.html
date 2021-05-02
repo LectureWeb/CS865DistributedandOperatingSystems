@@ -1,0 +1,198 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec12</title>
+</head>
+<body text="#000000" bgcolor="#E5E5E5" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+21 - Using Applets as Front Ends to Server-Side Programs</font></font></b></td>
+</tr>
+</table>
+
+<h1>
+<font face="Arial,Helvetica">Topics</font></h1>
+<img SRC="fig1.gif" height=274 width=508>
+<p><img SRC="fig2.gif" height=375 width=511>
+<p><img SRC="fig3.gif" height=392 width=510>
+<p><b><tt>import java.applet.Applet;</tt></b>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<br><b><tt>import java.net.*;</tt></b><b><tt></tt></b>
+<p><b><tt>/** An applet that reads a value from a TextField,</tt></b>
+<br><b><tt>&nbsp;*&nbsp; then uses it to build three distinct URLs with
+embedded</tt></b>
+<br><b><tt>&nbsp;*&nbsp; GET data: one each for Google, Infoseek, and Lycos.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; The browser is directed to retrieve each of these</tt></b>
+<br><b><tt>&nbsp;*&nbsp; URLs, displaying them in side-by-side frame cells.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; Note that standard HTML forms cannot automatically</tt></b>
+<br><b><tt>&nbsp;*&nbsp; perform multiple submissions in this manner.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b><b><tt></tt></b>
+<p><b><tt>public class SearchApplet extends Applet</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+implements ActionListener {</tt></b>
+<br><b><tt>&nbsp; private TextField queryField;</tt></b>
+<br><b><tt>&nbsp; private Button submitButton;</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void init() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setBackground(Color.white);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setFont(new Font("Serif", Font.BOLD, 18));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(new Label("Search String:"));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; queryField = new TextField(40);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; queryField.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(queryField);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; submitButton = new Button("Send to Search
+Engines");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; submitButton.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(submitButton);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Submit data when button is pressed &lt;B>or&lt;/B></tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; user presses Return in the TextField.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; public void actionPerformed(ActionEvent event) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String query = URLEncoder.encode(queryField.getText());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; SearchSpec[] commonSpecs = SearchSpec.getCommonSpecs();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; // Omitting HotBot (last entry), as they
+use JavaScript to</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; // pop result to top-level frame. Thus the
+length-1 below.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;commonSpecs.length-1; i++)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SearchSpec spec =
+commonSpecs[i];</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // The SearchSpec
+class builds URLs of the</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // form needed by
+some common search engines.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL searchURL = new
+URL(spec.makeURL(query, "10"));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String frameName
+= "results" + i;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; getAppletContext().showDocument(searchURL,
+frameName);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch(MalformedURLException
+mue) {}</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br><b><tt></tt></b>&nbsp;
+<br>&nbsp;
+<p><img SRC="fig4.gif" height=382 width=513>
+<p><b><tt>/** Small class that encapsulates how to construct a</tt></b>
+<br><b><tt>&nbsp;*&nbsp; search string for a particular search engine.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b><b><tt></tt></b>
+<p><b><tt>public class SearchSpec {</tt></b>
+<br><b><tt>&nbsp; private String name, baseURL, numResultsSuffix;</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private static SearchSpec[] commonSpecs =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; { new SearchSpec("google",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://www.google.com/search?q=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;num="),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new SearchSpec("infoseek",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://infoseek.go.com/Titles?qt=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;nh="),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new SearchSpec("lycos",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://lycospro.lycos.com/cgi-bin/" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"pursuit?query=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;maxhits="),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new SearchSpec("hotbot",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"http://www.hotbot.com/?MT=",</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&amp;DC=")</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; };</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public SearchSpec(String name,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String baseURL,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String numResultsSuffix) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.name = name;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.baseURL = baseURL;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.numResultsSuffix = numResultsSuffix;</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public String makeURL(String searchString,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String numResults) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(baseURL + searchString +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+numResultsSuffix + numResults);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public String getName() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(name);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public static SearchSpec[] getCommonSpecs() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(commonSpecs);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br><b><tt></tt></b>&nbsp;
+<br>&nbsp;
+<p><img SRC="fig5.gif" height=372 width=516>
+<p><b><tt>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></tt></b>
+<br><b><tt>&lt;HTML></tt></b>
+<br><b><tt>&lt;HEAD></tt></b>
+<br><b><tt>&nbsp; &lt;TITLE>Search Applet Frame&lt;/TITLE></tt></b>
+<br><b><tt>&lt;/HEAD></tt></b><b><tt></tt></b>
+<p><b><tt>&lt;BODY BGCOLOR="WHITE"></tt></b>
+<br><b><tt>&lt;CENTER></tt></b>
+<br><b><tt>&lt;APPLET CODE="SearchApplet.class" WIDTH=600 HEIGHT=100></tt></b>
+<br><b><tt>&nbsp; &lt;B>This example requires a Java-enabled browser.&lt;/B></tt></b>
+<br><b><tt>&lt;/APPLET></tt></b>
+<br><b><tt>&lt;/CENTER></tt></b>
+<br><b><tt>&lt;/BODY></tt></b>
+<br><b><tt>&lt;/HTML></tt></b>
+<p><img SRC="fig6.gif" height=400 width=502>
+<p><img SRC="fig7.gif" height=392 width=499>
+<br>&nbsp;
+<p><img SRC="fig8.gif" height=357 width=512>
+<br>&nbsp;
+<p><img SRC="fig9.gif" height=385 width=508>
+<p><img SRC="fig10.gif" height=396 width=512>
+<p><img SRC="fig11.gif" height=323 width=511>
+<br>&nbsp;
+<p><img SRC="fig12.gif" height=343 width=510>
+<br>&nbsp;
+<p><img SRC="fig13.gif" height=378 width=471>
+<p><img SRC="fig14.gif" height=382 width=510>
+<p><img SRC="fig15.gif" height=370 width=513>
+<p><img SRC="fig16.gif" height=374 width=512>
+<p><img SRC="fig17.gif" height=377 width=485>
+<br>&nbsp;
+<p><img SRC="fig18.gif" height=372 width=502>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

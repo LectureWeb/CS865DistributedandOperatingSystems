@@ -1,0 +1,2978 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./L11new_files/filelist.xml">
+<link rel=Edit-Time-Data href="./L11new_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CS615 – Software Engineering I</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Frank Marchese</o:Author>
+  <o:LastAuthor>Francis Marchese</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>618</o:TotalTime>
+  <o:Created>2005-11-27T21:50:00Z</o:Created>
+  <o:LastSaved>2005-11-27T21:52:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>2405</o:Words>
+  <o:Characters>13710</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>114</o:Lines>
+  <o:Paragraphs>27</o:Paragraphs>
+  <o:CharactersWithSpaces>16836</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Arial;
+	mso-font-kerning:0pt;}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	color:black;}
+h3
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:16.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;
+	text-transform:uppercase;}
+h4
+	{mso-style-next:Normal;
+	margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;}
+h5
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:5;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.b1, li.b1, div.b1
+	{mso-style-name:b1;
+	margin-top:1.2pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:0in;
+	text-indent:15.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b2, li.b2, div.b2
+	{mso-style-name:b2;
+	margin-top:1.2pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b6, li.b6, div.b6
+	{mso-style-name:b6;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b17, li.b17, div.b17
+	{mso-style-name:b17;
+	margin-top:1.2pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:.5in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b16, li.b16, div.b16
+	{mso-style-name:b16;
+	margin-top:1.2pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:24.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b5, li.b5, div.b5
+	{mso-style-name:b5;
+	margin-top:2.4pt;
+	margin-right:0in;
+	margin-bottom:2.4pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:9.5pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:5404222;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-707472954 67698689 67698691 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:28724215;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-304301232 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:30880601;
+	mso-list-type:hybrid;
+	mso-list-template-ids:938799500 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3
+	{mso-list-id:118112715;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2075712484 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4
+	{mso-list-id:148208943;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1773055516 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:206573721;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-726908302 67698703 67698691 67698703 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l6
+	{mso-list-id:350687466;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1218100836 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:379861812;
+	mso-list-type:hybrid;
+	mso-list-template-ids:258887894 -106113852 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l7:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:33.0pt;
+	mso-level-number-position:left;
+	margin-left:33.0pt;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:414278461;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1275300762 1733585456 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l8:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:472141084;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-518518560 -365895856 -994160998 38724688 -1770763432 -1064538142 -881164890 -1329668102 1061447828 1359017496;}
+@list l10
+	{mso-list-id:476267947;
+	mso-list-type:hybrid;
+	mso-list-template-ids:205695884 1733585456 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l10:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:492766710;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2087107776 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l11:level2
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l11:level3
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l11:level4
+	{mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l11:level5
+	{mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-.25in;}
+@list l11:level6
+	{mso-level-tab-stop:3.25in;
+	mso-level-number-position:left;
+	margin-left:3.25in;
+	text-indent:-.25in;}
+@list l11:level7
+	{mso-level-tab-stop:3.75in;
+	mso-level-number-position:left;
+	margin-left:3.75in;
+	text-indent:-.25in;}
+@list l11:level8
+	{mso-level-tab-stop:4.25in;
+	mso-level-number-position:left;
+	margin-left:4.25in;
+	text-indent:-.25in;}
+@list l11:level9
+	{mso-level-tab-stop:4.75in;
+	mso-level-number-position:left;
+	margin-left:4.75in;
+	text-indent:-.25in;}
+@list l12
+	{mso-list-id:544216368;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-313618796 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13
+	{mso-list-id:548035059;
+	mso-list-type:hybrid;
+	mso-list-template-ids:411211672 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l13:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l14
+	{mso-list-id:608202737;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1676094940 1118336240 67698689 260740364 -1680409378 1795334618 -975957366 -2028539138 -1804450412 -727818230;}
+@list l14:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l14:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l15
+	{mso-list-id:647169273;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-95003030 67698703 67698703 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l15:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l15:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l16
+	{mso-list-id:662706017;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1203918366 67698689 67698703 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l17
+	{mso-list-id:664820674;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-958335132 67698689 67698703 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l17:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l17:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18
+	{mso-list-id:701397598;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1360735008 67698689 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l18:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l19
+	{mso-list-id:723067079;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1551503686 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l19:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l20
+	{mso-list-id:752774991;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1703911470 -106113852 2089426046 -1410434842 -1938649578 -2041414214 -1045035704 -409537716 1238684104 -1887014422;}
+@list l20:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l21
+	{mso-list-id:781191235;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1117273672 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l21:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l22
+	{mso-list-id:855726475;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-490937220 67698703 67698689 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l22:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l23
+	{mso-list-id:859859931;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-555455948 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l23:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l24
+	{mso-list-id:894193838;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1107011044 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l24:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l24:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l24:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l25
+	{mso-list-id:932591980;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1440358634 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l25:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l26
+	{mso-list-id:933515751;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2080196800 -2025454898 188123354 -2025454898 533774864 1411819698 1048741060 -959167910 -86606666 -984452570;}
+@list l26:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:0in;
+	mso-level-number-position:left;
+	margin-left:0in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l26:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l26:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l27
+	{mso-list-id:1006634122;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1436411310 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l27:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l27:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l28
+	{mso-list-id:1010066513;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2047650754 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l28:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l28:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l29
+	{mso-list-id:1034234821;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1307378066 67698703 67698689 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l29:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l30
+	{mso-list-id:1042823332;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2027217990 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l30:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l31
+	{mso-list-id:1072855264;
+	mso-list-type:hybrid;
+	mso-list-template-ids:298060890 1733585456 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l31:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l32
+	{mso-list-id:1074470368;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1564938120 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l32:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l33
+	{mso-list-id:1079332616;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2067062658 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l33:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l34
+	{mso-list-id:1097212908;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-726908302 67698689 67698691 67698703 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l34:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l34:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l35
+	{mso-list-id:1109399992;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1742701532 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l35:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l35:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l35:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l36
+	{mso-list-id:1120804062;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1360735008 67698689 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l36:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l36:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l37
+	{mso-list-id:1134444518;
+	mso-list-type:hybrid;
+	mso-list-template-ids:666377440 67698689 67698691 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l37:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l37:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l37:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l38
+	{mso-list-id:1198812551;
+	mso-list-type:hybrid;
+	mso-list-template-ids:677707254 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l38:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l39
+	{mso-list-id:1243643284;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1326037748 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l39:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l39:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l39:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l39:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l40
+	{mso-list-id:1250775037;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-485689224 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l40:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l40:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l41
+	{mso-list-id:1255631108;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1910041808 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l41:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l42
+	{mso-list-id:1275869855;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2087107776 67698689 67698689 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l42:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l42:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l43
+	{mso-list-id:1285651821;
+	mso-list-type:hybrid;
+	mso-list-template-ids:100697736 67698703 67698703 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l44
+	{mso-list-id:1288732527;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1283621692 67698703 67698689 -421094796 -1034248258 -541569378 1815389316 181798200 -1386307248 428400256;}
+@list l44:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l45
+	{mso-list-id:1315597115;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-448917796 67698689 67698691 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l45:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l45:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l45:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l46
+	{mso-list-id:1316648422;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1997401770 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l46:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l47
+	{mso-list-id:1333412365;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1413365310 67698691 2089426046 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l47:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l47:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l48
+	{mso-list-id:1347831311;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-690597574 67698689 67698691 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l48:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l48:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l48:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l49
+	{mso-list-id:1353611821;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-900584804 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l49:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l49:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l50
+	{mso-list-id:1354305189;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-422396036 2089426046 67698691 2089426046 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l50:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l50:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l50:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l51
+	{mso-list-id:1377700950;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1413365310 67698689 2089426046 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l51:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l51:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l51:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l51:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l52
+	{mso-list-id:1380862629;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1360735008 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l52:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l53
+	{mso-list-id:1381395028;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1326037748 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l53:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l53:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l54
+	{mso-list-id:1409617204;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2144550810 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l54:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l54:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l55
+	{mso-list-id:1479687555;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-231063452 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l55:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l55:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l56
+	{mso-list-id:1492596184;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1349774070 -1797345586 -1749009594 1696215042 318776866 1456762068 1648787380 2138233020 780166278 -845226430;}
+@list l56:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l57
+	{mso-list-id:1523591414;
+	mso-list-type:hybrid;
+	mso-list-template-ids:630370472 67698689 67698691 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l57:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l57:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l57:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l58
+	{mso-list-id:1525635335;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-576415850 67698703 67698703 -401810358 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l58:level3
+	{mso-level-text:"\(%3\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-fareast-font-family:"Times New Roman";}
+@list l58:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l58:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l59
+	{mso-list-id:1626080507;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-95003030 67698689 -2025454898 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l59:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l59:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l60
+	{mso-list-id:1701275287;
+	mso-list-type:hybrid;
+	mso-list-template-ids:271851960 -170334186 2089426046 -170334186 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l60:level1
+	{mso-level-start-at:3;
+	mso-level-text:"\(%1\)";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l60:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l60:level3
+	{mso-level-start-at:3;
+	mso-level-text:"\(%3\)";
+	mso-level-tab-stop:99.0pt;
+	mso-level-number-position:left;
+	margin-left:99.0pt;
+	text-indent:-.25in;}
+@list l61
+	{mso-list-id:1721322512;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1413365310 67698691 2089426046 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l61:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l61:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l62
+	{mso-list-id:1724258091;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-173494324 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l62:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l63
+	{mso-list-id:1732537591;
+	mso-list-type:hybrid;
+	mso-list-template-ids:351557080 -1652117132 697360554 -2032924176 -1600477118 -1614890530 248706804 -1795116330 1175081054 -1869196544;}
+@list l63:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l64
+	{mso-list-id:1748071736;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1703911470 2089426046 2089426046 -1410434842 -1938649578 -2041414214 -1045035704 -409537716 1238684104 -1887014422;}
+@list l64:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l64:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l65
+	{mso-list-id:1856915987;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-374830166 67698703 67698689 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l65:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l66
+	{mso-list-id:1857815438;
+	mso-list-type:hybrid;
+	mso-list-template-ids:768133520 669679760 -1807447666 -1699066970 -1456019010 -794425748 -1097457008 1832264920 -641951590 -1163762234;}
+@list l66:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l67
+	{mso-list-id:1881086459;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-914304470 67698703 67698689 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l67:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l68
+	{mso-list-id:1910919477;
+	mso-list-type:hybrid;
+	mso-list-template-ids:630370472 67698689 67698703 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l68:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l68:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l68:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l69
+	{mso-list-id:2001812875;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-231063452 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l69:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l69:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l70
+	{mso-list-id:2049060212;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-345313362 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l70:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l70:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l71
+	{mso-list-id:2073389375;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-261593364 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l71:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l72
+	{mso-list-id:2111123602;
+	mso-list-type:hybrid;
+	mso-list-template-ids:556834772 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l72:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l73
+	{mso-list-id:2113865095;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2013809178 -2025454898 67698691 67698703 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l73:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l73:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l73:level3
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l74
+	{mso-list-id:2143645995;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1079975938 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l74:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1053">
+  <o:colormru v:ext="edit" colors="#eaeaea"/>
+  <o:colormenu v:ext="edit" fillcolor="#eaeaea"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#eaeaea" lang=EN-US link=blue vlink=purple style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<table border=0 cellpadding=0 width="127%" bgcolor="#ffcccc" style='width:127.6%;
+ mso-cellspacing:1.8pt;background:#FFCCCC;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td width="99%" style='width:99.7%;padding:1.8pt 1.8pt 1.8pt 1.8pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:#000099'>CS615 –
+  Software Engineering I</span></b><span style='font-family:Arial;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="99%" style='width:99.7%;background:#FFCC33;padding:1.8pt 1.8pt 1.8pt 1.8pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:#000099'>Lecture 11</span></b><span
+  style='font-family:Arial;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<h2><span style='font-family:Arial'>Chapter 25: Risk Management<o:p></o:p></span></h2>
+
+<h3><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Arial'>Reactive
+vs. Proactive Risk Strategies<o:p></o:p></span></h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Reactive risk strategies - worrying about
+     problems when they happen<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Proactive risk strategies - begin long before
+     technical work is initiated<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l48 level2 lfo3;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Potential risks are identified<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l48 level2 lfo3;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>their probability and impact are assessed<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l48 level2 lfo3;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>they are ranked by importance<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Not all risks can be avoided<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l48 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:Arial'>Team works to develop a contingency plan that
+     will enable it to respond in a controlled and effective manner<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Arial'>Software
+Risks<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Risk always involves two
+characteristics:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo7;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Uncertainty—</span></i><span style='font-family:
+     Arial'>the risk may or may not happen; that is, there are no 100% probable
+     risks<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo7;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Loss—</span></i><span style='font-family:Arial'>if
+     the risk becomes a reality, unwanted consequences or losses will occur<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Must quantify:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l33 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:Arial'>level of uncertainty<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l33 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:Arial'>degree of loss associated with each risk<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Kinds of Risks:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Project risks </span></i><span
+style='font-family:Arial'>threaten the project plan.<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span style='font-family:Arial'>Identify potential
+budgetary, schedule, personnel (staffing and organization), resource, customer,
+and requirements problems and their impact on a software project<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Technical risks </span></i><span
+style='font-family:Arial'>threaten the quality and timeliness of the software
+to be produced<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Identify potential design, implementation,
+     interface, verification, and maintenance problems. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Specification ambiguity, technical uncertainty,
+     technical obsolescence, and &quot;leading-edge&quot; technology are risk
+     factors. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:Arial'>Technical risks occur because the problem is
+     harder to solve than we thought it would be.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Business risks </span></i><span
+style='font-family:Arial'>threaten the viability of the software to be built.<o:p></o:p></span></p>
+
+<p class=b1><span style='font-family:Arial'>Top five business risks :<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:33.0pt;text-indent:-.25in;mso-list:l7 level1 lfo15;
+tab-stops:list 33.0pt'><![if !supportLists]><span style='font-family:Arial'>(1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>building an excellent product or system that no one
+really wants (market risk)<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:33.0pt;text-indent:-.25in;mso-list:l7 level1 lfo15;
+tab-stops:list 33.0pt'><![if !supportLists]><span style='font-family:Arial'>(2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>building a product that no longer fits into the
+overall business strategy for the company (strategic risk)<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:33.0pt;text-indent:-.25in;mso-list:l7 level1 lfo15;
+tab-stops:list 33.0pt'><!p7><![if !supportLists]><span style='font-family:Arial'>(3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>building a product that the sales force doesn't
+understand how to sell<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:33.0pt;text-indent:-.25in;mso-list:l7 level1 lfo15;
+tab-stops:list 33.0pt'><!p7><![if !supportLists]><span style='font-family:Arial'>(4)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>losing the support of senior management due to a
+change in focus or a change in people (management risk)<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:33.0pt;text-indent:-.25in;mso-list:l7 level1 lfo15;
+tab-stops:list 33.0pt'><!p7><![if !supportLists]><span style='font-family:Arial'>(5)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>losing budgetary or personnel commitment (budget
+risks). <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:15.0pt;text-indent:0in'><span style='font-family:
+Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Known risks </span></i><span
+style='font-family:Arial'>- uncovered after evaluation:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>project plan<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>business and technical environment in which the
+     project is being developed<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:Arial'>other reliable information sources (e.g.,
+     unrealistic delivery date, lack of documented requirements or software
+     scope, poor development environment). <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Predictable risks - </span></i><span
+style='font-family:Arial'>extrapolated from past project experience <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>e.g.,
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo20;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>staff turnover<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo20;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>poor communication with
+the customer<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo20;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>dilution of staff
+effort as ongoing maintenance requests are serviced<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Unpredictable risks</span></i><span
+style='font-family:Arial'> - occur, but difficult to identify in advance.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Arial'>Risk
+Identification<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo22;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Attempt to specify
+threats to the project plan (estimates, schedule, resource loading, etc.)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l35 level1 lfo22;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Two types of risks:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l35 level2 lfo22;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Generic risks </span></i><span
+style='font-family:Arial'>- potential threat to every software project. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l35 level2 lfo22;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Product-specific
+risks </span></i><span style='font-family:Arial'>- identified by: those with a
+clear understanding of the technology, the people, and the environment that is
+specific to the project at hand. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l35 level3 lfo22;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Identify by looking at
+the project plan and the software statement of scope <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l35 level3 lfo22;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Ask question -
+&quot;What special characteristics of this product may threaten our project
+plan?&quot;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Risk item checklist</h1>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l66 level1 lfo25;tab-stops:list .5in'><i><span style='font-family:
+     Arial'>Product size—</span></i><span style='font-family:Arial'>risks
+     associated with the overall size of the software to be built or modified. </span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l66 level1 lfo25;tab-stops:list .5in'><i><span style='font-family:
+     Arial'>Business impact—</span></i><span style='font-family:Arial'>risks
+     associated with constraints imposed by management or the marketplace. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l66 level1 lfo25;tab-stops:list .5in'><i><span style='font-family:
+     Arial'>Customer characteristics—</span></i><span style='font-family:Arial'>risks
+     associated with the sophistication of the customer and the developer's
+     ability to communicate with the customer in a timely manner. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l66 level1 lfo25;tab-stops:list .5in'><i><span style='font-family:
+     Arial'>Process definition—</span></i><span style='font-family:Arial'>risks
+     associated with the degree to which the software process has been defined
+     and is followed by the development organization. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l66 level1 lfo25;tab-stops:list .5in'><i><span style='font-family:
+     Arial'>Development environment—</span></i><span style='font-family:Arial'>risks
+     associated with the availability and quality of the tools to be used to
+     build the product. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l66 level1 lfo25;tab-stops:list .5in'><i><span style='font-family:
+     Arial'>Technology to be built—</span></i><span style='font-family:Arial'>risks
+     associated with the complexity of the system to be built and the
+     &quot;newness&quot; of the technology that is packaged by the system. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l66 level1 lfo25;tab-stops:list .5in'><i><span style='font-family:
+     Arial'>Staff size and experience—</span></i><span style='font-family:Arial'>risks
+     associated with the overall technical and project experience of the
+     software engineers who will do the work. <o:p></o:p></span></li>
+</ul>
+
+<h4>Short List</h4>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Have top software and customer managers formally
+committed to support the project? </span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Are end-users
+enthusiastically committed to the project and the system/product to be built? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Are requirements fully
+understood by the software engineering team and their customers? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Have customers been
+involved fully in the definition of requirements? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Do end-users have
+realistic expectations? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Is project scope
+stable? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Does the software
+engineering team have the right mix of skills? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Are project
+requirements stable? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Does the project team
+have experience with the technology to be implemented? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>10.<span style='font:7.0pt "Times New Roman"'> </span></span><![endif]><span
+style='font-family:Arial'>Is the number of people on the project team adequate
+to do the job? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in;text-indent:-.25in;mso-list:l63 level1 lfo27;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Arial'>11.<span style='font:7.0pt "Times New Roman"'> </span></span><![endif]><span
+style='font-family:Arial'>Do all customer/user constituencies agree on the
+importance of the project and on the requirements for the system/product to be
+built? <o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'><a
+href="APMrisktemplate.htm">Sample Risk Checklist</a> (Long)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h4 style='margin:0in;margin-bottom:.0001pt'>Risk Components and Drivers</h4>
+
+<p class=b2 style='margin-left:.25in;text-indent:-.25in;mso-list:l38 level1 lfo29;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>U.S. Air Force pamphlet
+contains guidelines for software risk identification and abatement. <o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.25in;text-indent:-.25in;mso-list:l38 level1 lfo29;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Air Force approach
+requires that the project manager identify the risk drivers that affect
+software risk components—performance, cost, support, and schedule. <o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.25in;text-indent:-.25in;mso-list:l38 level1 lfo29;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Risk components: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l20 level1 lfo31;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Arial'>(1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Performance risk—</span></i><span
+style='font-family:Arial'>the degree of uncertainty that the product will meet
+its requirements and be fit for its intended use. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l20 level1 lfo31;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Arial'>(2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Cost risk—</span></i><span
+style='font-family:Arial'>the degree of uncertainty that the project budget
+will be maintained. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l20 level1 lfo31;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Arial'>(3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Support risk—</span></i><span
+style='font-family:Arial'>the degree of uncertainty that the resultant software
+will be easy to correct, adapt, and enhance. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l20 level1 lfo31;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Arial'>(4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Schedule risk—</span></i><span
+style='font-family:Arial'>the degree of uncertainty that the project schedule
+will be maintained and that the product will be delivered on time. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l64 level1 lfo33;
+tab-stops:list .25in'><!p2><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Impact of each risk
+driver on the risk component is divided into one of four impact
+categories—negligible, marginal, critical, or catastrophic<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='font-family:Arial'>Figure 1 - Risk Characterization Table<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:431.25pt;
+ height:376.5pt'>
+ <v:imagedata src="./L11new_files/image001.gif" o:title="pic1"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=575 height=502
+src="./L11new_files/image002.gif" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Arial'>Risk
+Projection (aka Risk Estimation)<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Attempts to rate each risk
+in two ways <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l64 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The probability that
+the risk is real <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l64 level1 lfo33;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The consequences of the
+problems associated with the risk, should it occur. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Project planner, along with
+other managers and technical staff, performs four risk projection activities: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l31 level1 lfo35;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>establish a measure that reflects the perceived
+likelihood of a risk<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l31 level1 lfo35;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>delineate the consequences of the risk <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l31 level1 lfo35;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>estimate the impact of the risk on the project and
+the product<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l31 level1 lfo35;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(4)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>note the overall accuracy of the risk projection so
+that there will be no misunderstandings.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4>Developing a Risk Table</h4>
+
+<p class=MsoNormal><span style='font-family:Arial'>Risk table provides a
+project manager with a simple technique for risk projection<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='font-family:Arial'>Figure 2 - Risk Table<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:6in;height:307.5pt'>
+ <v:imagedata src="./L11new_files/image003.gif" o:title="pic2"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=410
+src="./L11new_files/image004.gif" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></span></p>
+
+<h5><span style='font-family:Arial'>Steps in Setting up Risk Table<o:p></o:p></span></h5>
+
+<p class=b1 style='margin-left:.5in;text-indent:-.25in;mso-list:l10 level1 lfo37;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Project team begins by listing all risks in the first
+column of the table. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:0in'><span style='font-family:
+Arial'>Accomplished with the help of the risk item checklists. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:-.25in;mso-list:l10 level1 lfo37;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Each risk is categorized in the second column <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:0in'><span style='font-family:
+Arial'>(e.g., PS implies a project size risk, BU implies a business risk). <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:-.25in;mso-list:l10 level1 lfo37;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>The probability of occurrence of each risk is entered
+in the next column of the table. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:0in'><span style='font-family:
+Arial'>The probability value for each risk can be estimated by team members
+individually. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:-.25in;mso-list:l10 level1 lfo37;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Arial'>(4)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Individual team members are polled in round-robin
+fashion until their assessment of risk probability begins to converge. <o:p></o:p></span></p>
+
+<p class=b1 style='text-indent:0in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='font-family:Arial'>Assessing Impact of Each Risk<o:p></o:p></span></h5>
+
+<p class=b1 style='margin-left:.25in;text-indent:-.25in;mso-list:l8 level1 lfo39;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial'>(1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Each risk component is assessed using the Risk
+Charcterization Table (Figure 1) and impact category is determined. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.25in;text-indent:-.25in;mso-list:l8 level1 lfo39;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial'>(2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Categories for each of the four risk
+components—performance, support, cost, and schedule—are averaged to determine
+an overall impact value. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l56 level1 lfo41;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:11.0pt;font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:11.0pt;font-family:Arial'>A risk that is 100 percent probable
+is a constraint on the software project. </span><span style='font-size:11.0pt;
+font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l56 level1 lfo41;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:11.0pt;font-family:Arial'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:11.0pt;font-family:Arial'>The
+risk table should be implemented as a spreadsheet model. This enables easy
+manipulation and sorting of the entries. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l56 level1 lfo41;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:11.0pt;font-family:Arial'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:11.0pt;font-family:Arial'>A
+weighted average can be used if one risk component has more significance for
+the project. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.25in;text-indent:-.25in;mso-list:l60 level1 lfo43;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial'>(3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Once the first four columns of the risk table have
+been completed, the table is sorted by probability and by impact. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l60 level2 lfo43;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>High-probability,
+high-impact risks percolate to the top of the table, and low-probability risks
+drop to the bottom. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.25in;text-indent:-.25in;mso-list:l60 level1 lfo43;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial'>(4)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Project manager studies the resultant sorted table
+and defines a cutoff line. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l13 level1 lfo45;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><u><span style='font-family:Arial'>cutoff line</span></u></i><i><span
+style='font-family:Arial'> </span></i><span style='font-family:Arial'>(drawn
+horizontally at some point in the table) implies that only risks that lie above
+the line will be given further attention. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l13 level1 lfo45;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Risks below the line
+are re-evaluated to accomplish second-order prioritization. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l13 level1 lfo45;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Risk impact and
+probability have a distinct influence on management concern. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:1.25in;text-indent:-.25in;mso-list:l13 level2 lfo45;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Risk factor with a high
+impact but a very low probability of occurrence should not absorb a significant
+amount of management time. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:1.25in;text-indent:-.25in;mso-list:l13 level2 lfo45;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>High-impact risks with
+moderate to high probability and low-impact risks with high probability should
+be carried forward into the risk analysis steps that follow. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l13 level1 lfo45;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>All risks that lie
+above the cutoff line must be managed. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l13 level1 lfo45;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The column labeled RMMM
+contains a pointer into a <i>Risk Mitigation, Monitoring and Management Plan</i>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='font-family:Arial'>Assessing Risk Impact<o:p></o:p></span></h5>
+
+<p class=b2 style='margin-left:.25in;text-indent:-.25in;mso-list:l12 level1 lfo47;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Three factors determine
+the consequences if a risk occurs: <o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.5in;text-indent:-.25in;mso-list:l55 level1 lfo49;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><i><span style='font-family:Arial'>Nature</span></i></b><i><span
+style='font-family:Arial'> </span></i><span style='font-family:Arial'>of the
+risk - the problems that are likely if it occurs. <o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:1.0in;text-indent:-.25in;mso-list:l55 level2 lfo49;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>e.g., a poorly defined
+external interface to customer hardware (a technical risk) will preclude early
+design and testing and will likely lead to system integration problems late in
+a project. <o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.5in;text-indent:-.25in;mso-list:l55 level1 lfo49;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><i><span style='font-family:Arial'>Scope</span></i></b><i><span
+style='font-family:Arial'> </span></i><span style='font-family:Arial'>of a risk
+- combines the severity with its overall distribution (how much of the project
+will be affected or how many customers are harmed?). <o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.5in;text-indent:-.25in;mso-list:l55 level1 lfo49;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><i><span style='font-family:Arial'>Timing</span></i></b><i><span
+style='font-family:Arial'> </span></i><span style='font-family:Arial'>of a risk
+- when and how long the impact will be felt. <o:p></o:p></span></p>
+
+<p class=b2><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.25in;text-indent:-.25in;mso-list:l69 level1 lfo51;
+tab-stops:list .25in'><!p2><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Steps recommended to
+determine the overall consequences of a risk:<o:p></o:p></span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo54;tab-stops:list .5in'><span style='font-family:
+     Arial'>Determine the average probability of occurrence value for each risk
+     component. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo54;tab-stops:list .5in'><span style='font-family:
+     Arial'>Using Figure 1, determine the impact for each component based on
+     the criteria shown. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo54;tab-stops:list .5in'><span style='font-family:
+     Arial'>Complete the risk table and analyze the results as described in the
+     preceding sections. <o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span style='font-family:Arial'>Overall <b><i>risk exposure</i></b><i>,
+</i><b>RE</b>, determined using:</span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='font-family:Arial'>RE
+= <i>P</i> </span></b><b><span style='font-size:10.0pt;font-family:Arial'>x</span></b><b><span
+style='font-family:Arial'> <i>C</i><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b2><b><i><span style='font-family:Arial'>P</span></i></b><i><span
+style='font-family:Arial'> </span></i><span style='font-family:Arial'>is the
+probability of occurrence for a risk<o:p></o:p></span></p>
+
+<p class=b2><b><i><span style='font-family:Arial'>C</span></i></b><i><span
+style='font-family:Arial'> </span></i><span style='font-family:Arial'>is the
+the cost to the project should the risk occur.<o:p></o:p></span></p>
+
+<p class=b1 style='text-indent:0in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p7>
+
+<p class=b1 style='text-indent:0in'><b><span style='font-family:Arial'>Example<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Assume the software team
+defines a project risk in the following manner:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><!p8><span style='font-family:Arial'>Risk identification.
+<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l69 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Only 70 percent of the
+software components scheduled for reuse will be integrated into the
+application. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l69 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The remaining
+functionality will have to be custom developed.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><!p9><span style='font-family:Arial'>Risk probability. </span></b><span
+style='font-family:Arial'>80% (likely). <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><!p10><span style='font-family:Arial'>Risk impact. <o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l23 level1 lfo56;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>60 reusable software
+components were planned. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l23 level1 lfo56;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>If only 70 percent can
+be used, 18 components would have to be developed from scratch (in addition to
+other custom software that has been scheduled for development).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l23 level1 lfo56;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Since the average
+component is 100 LOC and local data indicate that the software engineering cost
+for each LOC is $14.00, the overall cost (impact) to develop the components
+would be 18 </span><span style='font-size:10.0pt;font-family:Arial'>x</span><span
+style='font-family:Arial'> 100 </span><span style='font-size:10.0pt;font-family:
+Arial'>x</span><span style='font-family:Arial'> 14 = $25,200. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><!p11><span style='font-family:Arial'>Risk exposure. </span></b><i><span
+style='font-family:Arial'>RE </span></i><span style='font-family:Arial'>= 0.80 </span><span
+style='font-size:10.0pt;font-family:Arial'>x</span><span style='font-family:
+Arial'> 25,200 ~ $20,200.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='font-family:Arial'>Risk Assessment<o:p></o:p></span></h5>
+
+<p class=b2 style='margin-left:.25in;text-indent:-.25in;mso-list:l37 level1 lfo58;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Have established a set
+of triplets of the form: <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b17><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>[<i>r<sub>i</sub></i>, <i>l<sub>i</sub></i>, <i>x<sub>i</sub></i>]
+<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b2><span style='font-family:Arial'>where <o:p></o:p></span></p>
+
+<p class=b2><b><i><span style='font-family:Arial'>r</span></i></b><i><sub><span
+style='font-family:Arial'>i </span></sub></i><span style='font-family:Arial'>is
+risk<o:p></o:p></span></p>
+
+<p class=b2><b><i><span style='font-family:Arial'>l<sub>i </sub></span></i></b><span
+style='font-family:Arial'>is the likelihood (probability) of the risk<o:p></o:p></span></p>
+
+<p class=b2><b><i><span style='font-family:Arial'>x<sub>i</sub></span></i></b><i><sub><span
+style='font-family:Arial'> </span></sub></i><span style='font-family:Arial'>is
+the impact of the risk. <o:p></o:p></span></p>
+
+<p class=b2><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.25in;text-indent:-.25in;mso-list:l37 level1 lfo58;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>During <b>risk
+assessment</b> :<o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo58;
+tab-stops:list .75in'><!p4><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>further examine the
+accuracy of the estimates that were made during risk projection<o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo58;
+tab-stops:list .75in'><!p4><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>attempt to rank the
+risks that have been uncovered<o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo58;
+tab-stops:list .75in'><!p4><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>begin thinking about
+ways to control and/or avert risks that are likely to occur.<o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.25in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.25in;text-indent:-.25in;mso-list:l37 level1 lfo58;
+tab-stops:list .25in'><!p4><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Must Define a <b><i>risk
+referent level</i></b><i> </i><o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo58;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>performance, cost,
+support, and schedule<span style="mso-spacerun: yes">  </span>represent risk
+referent levels. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo58;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>There is a level for
+performance degradation, cost overrun, support difficulty, or schedule slippage
+(or any combination of the four) that will cause the project to be terminated.<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo58;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A risk referent level
+has a single point, called the <b><i>referent point</i></b><i> </i>or <b><i>break
+point</i></b><i>, </i>at which the decision to proceed with the project or
+terminate it are equally weighted. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:431.25pt;height:377.25pt'>
+ <v:imagedata src="./L11new_files/image005.gif" o:title="pic4"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=575 height=503
+src="./L11new_files/image006.gif" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:-.25in;mso-list:l62 level1 lfo60;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Referent level rarely
+represented as a smooth line on a graph.<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:-.25in;mso-list:l62 level1 lfo60;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Most cases - a region
+in which there are areas of uncertainty <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.5in;text-indent:-.25in;mso-list:l62 level1 lfo60;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Therefore, during risk
+assessment, perform the following steps:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l14 level1 lfo62;tab-stops:list .75in'><![if !supportLists]><span
+style='font-family:Arial'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Define the risk referent
+levels for the project. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l14 level1 lfo62;tab-stops:list .75in'><![if !supportLists]><span
+style='font-family:Arial'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Attempt to develop a
+relationship between each (<i>r<sub>i</sub>, l<sub>i</sub>, x<sub>i</sub></i>)
+and each of the referent levels. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l14 level1 lfo62;tab-stops:list .75in'><![if !supportLists]><span
+style='font-family:Arial'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Predict the set of
+referent points that define a region of termination, bounded by a curve or
+areas of uncertainty. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l14 level1 lfo62;tab-stops:list .75in'><![if !supportLists]><span
+style='font-family:Arial'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Try to predict how
+compound combinations of risks will affect a referent level. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p9>
+
+<h3><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Arial'>Risk
+Refinement<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l40 level1 lfo64;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A risk may be stated
+generally during early stages of project planning.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l40 level1 lfo64;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>With time, more is
+learned about the project and the risk<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l40 level2 lfo64;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:"Times New Roman"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>may be possible to refine the risk into a set of more
+detailed risks </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l40 level1 lfo64;
+tab-stops:list .25in'><!p2><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Represent risk in <b><i>condition-transition-consequence</i></b>
+(CTC) format. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l40 level2 lfo64;
+tab-stops:list .75in'><!p3><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Stated in the following
+form: <o:p></o:p></span></p>
+
+<h5><!p3><span style='font-family:Arial'>Given that &lt;condition&gt; then
+there is concern that (possibly) &lt;consequence&gt;<o:p></o:p></span></h5>
+
+<p class=b2 style='margin-left:.25in;text-indent:-.25in;mso-list:l42 level1 lfo66;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Using CTC format for
+the reuse we can write: <o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2><!p6><span style='font-family:Arial'>Given that all
+reusable software components must conform to specific design standards and that
+some do not conform, then there is concern that (possibly) only 70 percent of
+the planned reusable modules may actually be integrated into the as-built
+system, resulting in the need to custom engineer the remaining 30 percent of
+components.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l42 level1 lfo66;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>This general condition
+can be refined in the following manner: <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><!p8><span style='font-family:
+Arial'>Subcondition 1.</span></b><span style='font-family:Arial'> Certain
+reusable components were developed by a third party with no knowledge of
+internal design standards. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><!p9><span style='font-family:
+Arial'>Subcondition 2.</span></b><span style='font-family:Arial'> The design
+standard for component interfaces has not been solidified and may not conform
+to certain existing reusable components. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><!p10><span style='font-family:
+Arial'>Subcondition 3.</span></b><span style='font-family:Arial'> Certain
+reusable components have been implemented in a language that is not supported
+on the target environment. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Arial'>Risk
+Mitigation, Monitoring, and Management<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Effective strategy must
+consider three issues: </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>risk avoidance <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>risk monitoring <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>risk management and contingency planning <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l42 level1 lfo66;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Proactive approach to
+risk -<span style="mso-spacerun: yes">  </span>avoidance strategy. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l42 level1 lfo66;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Develop <i>risk
+mitigation </i>plan<i>.</i></span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l50 level1 lfo71;
+tab-stops:list .75in'><!p5><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>e.g. assume high staff
+turnover is noted as a project risk, <b><i>r</i></b><i><sub>1</sub>.</i> </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l50 level1 lfo71;
+tab-stops:list .75in'><!p5><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Based on past history </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l50 level2 lfo71;
+tab-stops:list 1.25in'><!p5><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:"Times New Roman"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>the likelihood, <b><i>l</i></b><i><sub>1</sub>, </i>of
+high turnover is estimated to be 0.70 </span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l50 level2 lfo71;
+tab-stops:list 1.25in'><!p5><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:"Times New Roman"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>the impact, <b><i>x</i></b><i><sub>1</sub>, </i>is
+projected at level 2. </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l50 level2 lfo71;
+tab-stops:list 1.25in'><!p5><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:"Times New Roman"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>So… high turnover will have a critical impact on
+project cost and schedule. </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l30 level1 lfo73;
+tab-stops:list .25in'><!p5><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Develop a strategy to
+mitigate this risk for reducing turnover. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l30 level1 lfo73;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Possible steps to be
+taken <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=circle>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo76;tab-stops:list .5in'><span
+     style='font-family:Arial'>Meet with current staff to determine causes for
+     turnover (e.g., poor working conditions, low pay, competitive job market).
+     <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo76;tab-stops:list .5in'><span
+     style='font-family:Arial'>Mitigate those causes that are under our control
+     before the project starts. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo76;tab-stops:list .5in'><span
+     style='font-family:Arial'>Once the project commences, assume turnover will
+     occur and develop techniques to ensure continuity when people leave. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo76;tab-stops:list .5in'><span
+     style='font-family:Arial'>Organize project teams so that information about
+     each development activity is widely dispersed. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo76;tab-stops:list .5in'><span
+     style='font-family:Arial'>Define documentation standards and establish
+     mechanisms to be sure that documents are developed in a timely manner. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo76;tab-stops:list .5in'><span
+     style='font-family:Arial'>Conduct peer reviews of all work (so that more
+     than one person is &quot;up to speed&quot;). <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo76;tab-stops:list .5in'><span
+     style='font-family:Arial'>Assign a backup staff member for every critical
+     technologist. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l32 level1 lfo78;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Project manager
+monitors for likelihood of risk<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l32 level1 lfo78;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>For high staff
+turnover, the following factors can be monitored: </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=circle>
+ <li class=MsoNormal style='mso-list:l61 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>General attitude of team members based on
+     project pressures. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l61 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>The degree to which the team has jelled. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l61 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>Interpersonal relationships among team members. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l61 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>Potential problems with compensation and
+     benefits. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l61 level1 lfo81;tab-stops:list .5in'><span
+     style='font-family:Arial'>The availability of jobs within the company and
+     outside it. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l51 level1 lfo83;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Project manager should
+monitor the effectiveness of risk mitigation steps.<o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l51 level1 lfo83;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Risk management and
+contingency planning </span></i><span style='font-family:Arial'>assumes that
+mitigation efforts have failed and that the risk has become a reality. <o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span style='font-family:Arial'>e.g., the project is
+underway and a number of people announce that they will be leaving. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l51 level2 lfo83;
+tab-stops:list .75in'><!p12><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Mitigation strategy
+makes sure:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l51 level3 lfo83;
+tab-stops:list 1.25in'><!p12><![if !supportLists]><span style='font-family:
+Wingdings;mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'><span
+style="mso-spacerun: yes"> </span>backup is available<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l51 level3 lfo83;
+tab-stops:list 1.25in'><!p12><![if !supportLists]><span style='font-family:
+Wingdings;mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>information is
+documented<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l51 level3 lfo83;
+tab-stops:list 1.25in'><!p12><![if !supportLists]><span style='font-family:
+Wingdings;mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>knowledge has been
+dispersed across the team. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p12>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l51 level1 lfo83;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>RMMM steps incur
+additional project cost<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2><span style='font-family:Arial'>e.g. spending time
+to &quot;backup&quot; every critical technologist costs money. <o:p></o:p></span></p>
+
+<p class=b1 style='text-indent:0in'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l72 level1 lfo85;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Large project - 30 or
+40 risks.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l72 level1 lfo85;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>80 percent of the
+overall project risk (i.e., 80 percent of the potential for project failure)
+can be accounted for by only 20 percent of the identified risks. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l72 level1 lfo85;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Work performed during
+earlier risk analysis steps will help the planner to determine which of the
+risks reside in that 20 percent (e.g., risks that lead to the highest risk
+exposure). <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Arial'>The
+RMMM Plan<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l74 level1 lfo87;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><i><span style='font-family:Arial'>Risk Mitigation,
+Monitoring and Management Plan</span></i></b><span style='font-family:Arial'>
+(RMMM) - documents all work performed as part of risk analysis and is used by
+the project manager as part of the overall project plan. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l74 level1 lfo87;
+tab-stops:list .25in'><!p2><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Alternative to RMMM
+-<span style="mso-spacerun: yes">  </span><b><i>risk information sheet</i></b><i>
+</i>(RIS) <o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2><span style='font-family:Arial'>RIS is maintained
+using a database system, so that creation and information entry, priority
+ordering, searches, and other analysis may be accomplished easily.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:6in;height:439.5pt'>
+ <v:imagedata src="./L11new_files/image007.gif" o:title="pic5"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=586
+src="./L11new_files/image008.gif" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l58 level1 lfo90;tab-stops:list .5in'><span
+     style='font-family:Arial'>Risk monitoring is a project tracking activity <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l58 level1 lfo90;tab-stops:list .5in'><span
+     style='font-family:Arial'>Three primary objectives: </span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <ol style='margin-top:0in' start=1 type=1>
+  <li class=MsoNormal style='mso-list:l58 level2 lfo90;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>assess whether predicted risks do, in fact,
+      occur</span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l58 level2 lfo90;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>ensure that risk aversion steps defined for the
+      risk are being properly applied</span><span style='font-family:Arial;
+      mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l58 level2 lfo90;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>collect information that can be used for future
+      risk analysis. </span><span style='font-family:Arial;mso-fareast-font-family:
+      "Arial Unicode MS"'><o:p></o:p></span></li>
+ </ol>
+</ol>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l53 level1 lfo93;tab-stops:list .5in'><span
+     style='font-family:Arial'>Problems that occur during a project can be
+     traced to more than one risk. <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l53 level2 lfo93;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Another job of risk monitoring is to attempt to
+      allocate <i>origin </i>(what risk(s) caused which problems throughout the
+      project). </span><span style='font-family:Arial;mso-fareast-font-family:
+      "Arial Unicode MS"'><o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,3157 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="CS615l2n_files/filelist.xml">
+<link rel=Edit-Time-Data href="CS615l2n_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CS615 – Software Engineering I</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Francis Marchese</o:Author>
+  <o:LastAuthor>Frank</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>107</o:TotalTime>
+  <o:Created>2005-09-13T18:15:00Z</o:Created>
+  <o:LastSaved>2012-08-30T20:03:00Z</o:LastSaved>
+  <o:Pages>7</o:Pages>
+  <o:Words>1585</o:Words>
+  <o:Characters>9041</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>75</o:Lines>
+  <o:Paragraphs>21</o:Paragraphs>
+  <o:CharactersWithSpaces>10605</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=themeData href="CS615l2n_files/themedata.thmx">
+<link rel=colorSchemeMapping href="CS615l2n_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SplitPgBreakAndParaMark/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-134238209 -371195905 63 0 4129279 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-134238209 -371195905 63 0 4129279 0;}
+@font-face
+	{font-family:Palatino;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"Book Antiqua";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:18.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	mso-effects-shadow-color:black;
+	mso-effects-shadow-alpha:40.0%;
+	mso-effects-shadow-dpiradius:4.0pt;
+	mso-effects-shadow-dpidistance:3.0pt;
+	mso-effects-shadow-angledirection:2700000;
+	mso-effects-shadow-align:topleft;
+	mso-effects-shadow-pctsx:100.0%;
+	mso-effects-shadow-pctsy:100.0%;
+	mso-effects-shadow-anglekx:0;
+	mso-effects-shadow-angleky:0;
+	font-weight:bold;}
+h2
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 2 Char";
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 3 Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 4 Char";
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Body Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:18.0pt;
+	font-family:"Palatino","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:#F3FF07;
+	mso-effects-shadow-color:black;
+	mso-effects-shadow-alpha:40.0%;
+	mso-effects-shadow-dpiradius:4.0pt;
+	mso-effects-shadow-dpidistance:3.0pt;
+	mso-effects-shadow-angledirection:2700000;
+	mso-effects-shadow-align:topleft;
+	mso-effects-shadow-pctsx:100.0%;
+	mso-effects-shadow-pctsy:100.0%;
+	mso-effects-shadow-anglekx:0;
+	mso-effects-shadow-angleky:0;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Body Text Indent Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#FFCC00;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS","sans-serif";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#365F91;
+	mso-themecolor:accent1;
+	mso-themeshade:191;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 4";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;
+	font-style:italic;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Body Text";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Body Text Indent";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:111944915;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1304817238 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:250049755;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1483154674 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:263852706;
+	mso-list-type:hybrid;
+	mso-list-template-ids:97314726 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:326249149;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1614118914 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:362362399;
+	mso-list-type:hybrid;
+	mso-list-template-ids:171080584 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:372465907;
+	mso-list-type:hybrid;
+	mso-list-template-ids:496938596 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:378674669;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2051973842 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:560561317;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1125518112 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:621696409;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1245711962 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:666520092;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1918365340 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l9:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10
+	{mso-list-id:799962060;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1596518464 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:990602986;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-298443574 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l11:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12
+	{mso-list-id:1111314704;
+	mso-list-type:hybrid;
+	mso-list-template-ids:672318588 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13
+	{mso-list-id:1137332586;
+	mso-list-type:hybrid;
+	mso-list-template-ids:918603188 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14
+	{mso-list-id:1155873580;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1760898386 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l14:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15
+	{mso-list-id:1162938950;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1709547108 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l15:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16
+	{mso-list-id:1167554665;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1445199934 67698689 67698703 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l16:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17
+	{mso-list-id:1197890662;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-108641978 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l17:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l17:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18
+	{mso-list-id:1273514261;
+	mso-list-type:hybrid;
+	mso-list-template-ids:51434424 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l18:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l18:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19
+	{mso-list-id:1310284003;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1494712182 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l19:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l19:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20
+	{mso-list-id:1386367914;
+	mso-list-type:hybrid;
+	mso-list-template-ids:302042046 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l20:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l20:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l20:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21
+	{mso-list-id:1437602550;
+	mso-list-type:hybrid;
+	mso-list-template-ids:372288450 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l21:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22
+	{mso-list-id:1552419083;
+	mso-list-type:hybrid;
+	mso-list-template-ids:356787908 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l22:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l22:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23
+	{mso-list-id:1614480937;
+	mso-list-type:hybrid;
+	mso-list-template-ids:488145980 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l23:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l23:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l23:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24
+	{mso-list-id:1630168545;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1691260730 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l24:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l24:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25
+	{mso-list-id:1640303201;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1222887498 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l25:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l25:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l25:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26
+	{mso-list-id:1729526297;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-971198638 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l26:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l26:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l26:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27
+	{mso-list-id:1736049844;
+	mso-list-type:hybrid;
+	mso-list-template-ids:667297840 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l27:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l27:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l27:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28
+	{mso-list-id:1736780844;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1830269038 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l28:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l28:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29
+	{mso-list-id:1784223039;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1987675590 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l29:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l29:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l29:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30
+	{mso-list-id:1808039132;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1764296474 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l30:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l30:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l30:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31
+	{mso-list-id:1895656785;
+	mso-list-type:hybrid;
+	mso-list-template-ids:524606408 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l31:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l31:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l31:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027">
+  <o:colormru v:ext="edit" colors="#ddd,#eaeaea"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#EAEAEA" lang=EN-US link="#FFCC00" vlink=purple
+style='tab-interval:.5in'>
+
+<div class=WordSection1>
+
+<table class=MsoNormalTable border=0 cellspacing=3 cellpadding=0 width="83%"
+ style='width:83.0%;mso-cellspacing:2.2pt;background:silver;mso-yfti-tbllook:
+ 1184;mso-padding-alt:2.25pt 2.25pt 2.25pt 2.25pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td style='background:#999999;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <h2>SE 616 – Introduction to Software Engineering</h2>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td style='padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif"'>Lecture
+  2<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Unified Process Model (Chapter 3, Pressman, 6<sup>th</sup> <span
+class=SpellE><span class=GramE>ed</span></span>)</h3>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif"'>Unified
+Process</span></b><span style='font-family:"Arial","sans-serif"'>—a “use-case
+driven, architecture-centric, iterative and incremental” software process
+closely aligned with the Unified Modeling Language (UML)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";mso-no-proof:
+yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1031" type="#_x0000_t75"
+ alt="Description: up2" style='width:6in;height:348pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="CS615l2n_files/image001.jpg" o:title="up2"/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=464
+src="CS615l2n_files/image001.jpg" alt="Description: up2" v:shapes="Picture_x0020_1"><![endif]></span><span
+style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h2>UP Phases</h2>
+
+<h2><o:p>&nbsp;</o:p></h2>
+
+<h2><!--[if gte vml 1]><o:wrapblock><v:shape id="Picture_x0020_3" o:spid="_x0000_s1026"
+  type="#_x0000_t75" alt="Description: up" style='position:absolute;
+  margin-left:0;margin-top:0;width:533.25pt;height:327.75pt;z-index:251657728;
+  visibility:visible;mso-wrap-style:square;mso-width-percent:0;
+  mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:left;mso-position-horizontal-relative:text;
+  mso-position-vertical:top;mso-position-vertical-relative:text;
+  mso-width-percent:0;mso-height-percent:0;mso-width-relative:page;
+  mso-height-relative:page' o:allowoverlap="f">
+  <v:imagedata src="CS615l2n_files/image002.jpg" o:title="up"/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><img width=711 height=437
+ src="CS615l2n_files/image003.jpg" alt="Description: up" v:shapes="Picture_x0020_3"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</h2>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>UP Work Products</h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";mso-no-proof:
+yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2" o:spid="_x0000_i1030"
+ type="#_x0000_t75" alt="Description: upwp" style='width:514.5pt;height:296.25pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CS615l2n_files/image004.jpg" o:title="upwp"/>
+</v:shape><![endif]--><![if !vml]><img width=686 height=395
+src="CS615l2n_files/image005.jpg" alt="Description: upwp" v:shapes="Picture_x0020_2"><![endif]></span><span
+style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3><a name="OLE_LINK1"><span style='font-size:12.0pt;mso-bidi-font-size:13.0pt'>Chapter
+4 -Agile Development (Pressman, 6th ed)</span></a><span style='mso-bookmark:
+OLE_LINK1'></span><span style='font-size:12.0pt;mso-bidi-font-size:13.0pt;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h3>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.0pt'>The Manifesto for
+Agile Software Development</span><span style='font-size:12.0pt;mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>“We are
+uncovering better ways of developing software by doing it and helping others do
+it.<span style='mso-spacerun:yes'>  </span>Through this work we have come to
+value: </span><span style='font-family:"Arial","sans-serif";mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Individuals and interactions over
+     processes and tools <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Working software over
+     comprehensive documentation <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Customer collaboration over
+     contract negotiation <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l25 level1 lfo1;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Responding to change over
+     following a plan <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>That is,
+while there is value in the items on the right, we value the items on the left
+more.” - Kent Beck et al<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>What is “Agility”?</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l28 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Effective (rapid and adaptive)
+     response to change<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l28 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Effective communication among all
+     stakeholders<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l28 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Drawing the customer onto the
+     team<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l28 level1 lfo2;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Organizing a team so that it is
+     in control of the work performed<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Yielding …<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Rapid, incremental delivery of
+     software<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>An Agile Process</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Is driven by customer
+     descriptions of what is required (scenarios)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Recognizes that plans are
+     short-lived<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Develops software iteratively
+     with a heavy emphasis on construction activities<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Delivers multiple ‘software
+     increments’<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo3;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Adapts as changes occur<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Extreme Programming (XP)</h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>The most
+widely used agile process, originally proposed by Kent Beck<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h2>XP Planning</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Begins with the creation of “user
+     stories”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Agile team assesses each story
+     and assigns a cost<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Stories are grouped to for a
+     deliverable increment<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>A commitment is made on delivery
+     date<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo4;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>After the first increment
+     “project velocity” is used to help define subsequent delivery dates for
+     other increments<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h2>XP Design</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Follows the KIS principle<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Encourage the use of CRC cards
+     (see Chapter 8)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>For difficult design problems,
+     suggests the creation of “spike solutions”—a design prototype<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l21 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Encourages “refactoring”—an
+     iterative refinement of the internal program design<o:p></o:p></span></li>
+</ul>
+
+<h2>XP Coding</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l27 level1 lfo6;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Recommends the construction of a
+     unit test for a store before coding commences<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l27 level1 lfo6;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Encourages “pair programming”<o:p></o:p></span></li>
+</ul>
+
+<h2>XP Testing</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo7;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>All unit tests are executed daily<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo7;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>“Acceptance tests” are defined by
+     the customer and excuted to assess customer visible functionality<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";mso-no-proof:
+yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3" o:spid="_x0000_i1029"
+ type="#_x0000_t75" alt="Description: xp1" style='width:6in;height:357.75pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CS615l2n_files/image006.jpg" o:title="xp1"/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=477
+src="CS615l2n_files/image007.jpg" alt="Description: xp1" v:shapes="Picture_x0020_3"><![endif]></span><span
+style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Adaptive Software Development</h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo8;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Originally proposed by Jim
+     Highsmith<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo8;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>ASD — distinguishing<span
+     style='mso-spacerun:yes'>  </span>features:<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo8;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Mission-driven planning<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo8;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Component-based focus<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo8;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Uses “time-boxing” (See Chapter
+      24)<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo8;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Explicit consideration of risks<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo8;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Emphasizes collaboration for
+      requirements gathering<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo8;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Emphasizes “learning” throughout
+      the process<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";mso-no-proof:
+yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4" o:spid="_x0000_i1028"
+ type="#_x0000_t75" alt="Description: xp2" style='width:431.25pt;height:365.25pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CS615l2n_files/image008.jpg" o:title="xp2"/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=487
+src="CS615l2n_files/image009.jpg" alt="Description: xp2" v:shapes="Picture_x0020_4"><![endif]></span><span
+style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Dynamic Systems Development Method</h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Promoted by
+the DSDM Consortium (<a href="http://www.dsdm.org/" target="_parent"><span
+style='color:windowtext;text-decoration:none;text-underline:none'>http://www.dsdm.org/</span></a>)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>DSDM—distinguishing
+features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo9;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Similar in most respects to XP
+     and/or ASD<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo9;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Guiding principles:<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Active user involvement is
+      imperative. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>DSDM teams must be empowered to
+      make decisions.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>The focus is on frequent
+      delivery of products. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Fitness for business purpose is
+      the essential criterion for acceptance of deliverables.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Iterative and incremental
+      development is necessary to converge on an accurate business solution.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>All changes during development
+      are reversible.<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Requirements are baselined at a
+      high level<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo9;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Testing is integrated throughout
+      the life-cycle.<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";mso-no-proof:
+yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5" o:spid="_x0000_i1027"
+ type="#_x0000_t75" alt="Description: lifecycle" style='width:540.75pt;
+ height:340.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CS615l2n_files/image010.jpg" o:title="lifecycle"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=721 height=454
+src="CS615l2n_files/image011.jpg" alt="Description: lifecycle" v:shapes="Picture_x0020_5"><![endif]></span><span
+style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Scrum<span style='mso-fareast-font-family:"Arial Unicode MS";display:none;
+mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Originally
+proposed by Schwaber and Beedle<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Distinguishing
+features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l22 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Development work is partitioned
+     into “packets”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l22 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Testing and documentation are
+     on-going as the product is constructed<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l22 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Work occurs in “sprints” and is
+     derived from a “backlog” of existing requirements<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l22 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Meetings are very short and
+     sometimes conducted without chairs<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l22 level1 lfo10;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>“demos” are delivered to the
+     customer with the time-box allocated<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";mso-no-proof:
+yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6" o:spid="_x0000_i1026"
+ type="#_x0000_t75" alt="Description: scrum" style='width:6in;height:247.5pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CS615l2n_files/image012.jpg" o:title="scrum"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=330
+src="CS615l2n_files/image013.jpg" alt="Description: scrum" v:shapes="Picture_x0020_6"><![endif]></span><span
+style='font-family:"Arial","sans-serif"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Crystal<span style='mso-fareast-font-family:"Arial Unicode MS";display:
+none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Proposed by
+Cockburn and Highsmith<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Crystal—distinguishing
+features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l13 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>A family of process models that
+     allow “maneuverability” based on problem characteristics<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l13 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Face-to-face communication is
+     emphasized<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l13 level1 lfo11;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Suggests the use of “reflection
+     workshops” to review the work habits of the team<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Feature Driven Development<span style='mso-fareast-font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Originally
+proposed by Peter Coad et al (<span style='color:blue'><a href="jmcuch06.pdf"><span
+style='color:blue'>PDF</span></a>)</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>FDD—distinguishing
+features<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Emphasis is on defining
+     “features”<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo12;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>a feature “is a client-valued
+      function that can be implemented in two weeks or less.”<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Uses a feature template<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo12;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>&lt;action&gt; the
+      &lt;result&gt; &lt;by | for | of | to&gt; a(n) &lt;object&gt;<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoBodyTextIndent>total the value of the sale<br>
+calculate the interest for the bank account<br>
+total the hours worked for the pilot</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>A features list is created and
+     “plan by feature” is conducted<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Design and construction merge in
+     FDD<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:"Arial","sans-serif";
+mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_7" o:spid="_x0000_i1025" type="#_x0000_t75" alt="Description: fdd"
+ style='width:431.25pt;height:3in;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="CS615l2n_files/image014.jpg" o:title="fdd"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=575 height=288
+src="CS615l2n_files/image015.jpg" alt="Description: fdd" v:shapes="Picture_x0020_7"><![endif]></span><span
+style='font-family:"Arial","sans-serif";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Agile Modeling<span style='mso-fareast-font-family:"Arial Unicode MS";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Originally
+proposed by Scott <span class=GramE>Ambler<span style='mso-spacerun:yes'> 
+</span>-</span> <a href="http://www.agilemodeling.com/"><span style='color:
+windowtext'>http://www.agilemodeling.com/</span></a> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Suggests a
+set of agile modeling principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Model with a purpose<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Use multiple models<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Travel light<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Content is more important than
+     representation<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Know the models and the tools you
+     use to create them<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l15 level1 lfo13;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Adapt locally<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Chapter 5 - Practice: A Generic View<span style='mso-special-format:lastCR'>
+<span style='font-family:"Arial Unicode MS","sans-serif";display:none;
+mso-hide:all'><o:p></o:p></span></h3>
+
+<h3></span>What is “Practice”?<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Practice is a broad array of
+     concepts, principles, methods, and tools that you must consider as
+     software is planned and developed.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo14;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>It represents the details—the
+     technical considerations and how to’s—that are below the surface of the
+     software process—the things that you’ll need to actually build
+     high-quality computer software.<o:p></o:p></span></li>
+</ul>
+
+<h3>The Essence of Practice<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Understand the problem
+     (communication and analysis).<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Plan a solution (modeling and
+     software design).<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Carry out the plan (code
+     generation).<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l9 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Examine the result for accuracy
+     (testing and quality assurance)<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS","sans-serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Core Software Engineering Principles<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Provide value to the customer and
+     the user<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>KIS—keep it simple!<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Maintain the product and project
+     “vision”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>What you produce, others will
+     consume<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Be open to the future<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Plan ahead for reuse<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo16;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Think!<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS","sans-serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Software Engineering Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>The generic
+process framework<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Communication<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Planning<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Modeling<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Construction<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo17;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Deployment<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Communication Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<h2>Principles</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Listen<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Prepare before you communicate<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Facilitate the communication<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Face-to-face is best<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Take notes and document decisions<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Collaborate with the customer<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Stay focused<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Draw pictures when things are
+     unclear<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Move on …<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo18;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Negotiation works best when both
+     parties win.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<h2>Initiation</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>The parties should be physically
+     close to one another<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Make sure communication is
+     interactive<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Create solid team “ecosystems”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo19;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Use the right team structure<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h2>An abbreviated task set</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Identify who it is you need to
+     speak with<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Define the best mechanism for
+     communication<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Establish overall goals and
+     objectives and define the scope<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Get more detailed<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Have stakeholders define
+     scenarios for usage<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Extract major functions/features<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo20;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Review the results with all
+     stakeholders<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Planning Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<h2>Principles</h2>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Understand the project scope<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Involve the customer (and other
+     stakeholders)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Recognize that planning is
+     iterative<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Estimate based on what you know<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Consider risk<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Be realistic<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Adjust granularity as you plan<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Define how quality will be
+     achieved<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Define how you’ll accommodate
+     changes<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo21;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Track what you’ve planned<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h2>Initiation</h2>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Questions to
+ask<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Why is the system begin
+     developed?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>What will be done?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>When will it be accomplished?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Who is responsible?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Where are they located
+     (organizationally)?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>How will the job be done
+     technically and managerially?<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo22;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>How much of each resource is
+     needed?<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Planning Practices</h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Abbreviated
+task set<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Re-assess project scope<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Assess risks<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Evaluate functions/features<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Consider infrastructure
+     functions/features<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Create a coarse granularity plan<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Number of software increments<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Overall schedule<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Delivery dates for increments<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Create fine granularity plan for
+     first increment<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l29 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Track progress<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS","sans-serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Modeling Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>We create
+models to gain a better understanding of the actual entity to be built<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo24;tab-stops:list .5in'><b><span
+     style='font-family:"Arial","sans-serif"'>Analysis models</span></b><span
+     style='font-family:"Arial","sans-serif"'> represent the customer
+     requirements by depicting the software in three different domains: the
+     information domain, the functional domain, and the behavioral domain. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo24;tab-stops:list .5in'><b><span
+     style='font-family:"Arial","sans-serif"'>Design models</span></b><span
+     style='font-family:"Arial","sans-serif"'> represent characteristics of the
+     software that help practitioners to construct it effectively: the
+     architecture, the user interface, and component-level detail.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Analysis Modeling Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Analysis
+modeling principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo25;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Represent the information domain<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo25;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Represent software functions<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo25;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Represent software behavior<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo25;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Partition these representations<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo25;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Move from essence toward
+     implementation<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo25;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Elements of the analysis model
+     (Chapter 8)<o:p></o:p></span></li>
+ <ol style='margin-top:0in' start=1 type=1>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo25;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Data model<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo25;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Flow model<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo25;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Class model<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l16 level2 lfo25;tab-stops:list 1.0in'><span
+      style='font-family:"Arial","sans-serif"'>Behavior model<o:p></o:p></span></li>
+ </ol>
+</ul>
+
+<p class=MsoNormal><span style='font-size:5.5pt;font-family:Wingdings;
+text-shadow:auto'>n</span><o:p></o:p></p>
+
+<span style='mso-special-format:lastCR'>
+
+<div style='mso-line-spacing:"100 50 0";mso-margin-left-alt:216'>
+
+<h3>Design Modeling Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Design must be traceable to the
+     analysis model<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Always consider architecture<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Focus on the design of data<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Interfaces (both user and
+     internal) must be designed<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Components should exhibit
+     functional independence<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Components should be loosely
+     coupled<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Design representation should be
+     easily understood<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo26;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>The design model should be
+     developed iteratively<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Elements of
+the design model<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Data design<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Architectural design<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Component design<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo27;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Interface design<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS","sans-serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+<h3></span>Construction Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Preparation
+principles: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.25in'><i><span style='font-family:"Arial","sans-serif"'>Before
+you write one line of code, be sure you:<o:p></o:p></span></i></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Understand of the problem you’re
+     trying to solve (see communication and modeling)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Understand basic design
+     principles and concepts.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Pick a programming language that
+     meets the needs of the software to be built and the environment in which
+     it will operate.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Select a programming environment
+     that provides tools that will make your work easier.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo28;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Create a set of unit tests that
+     will be applied once the component you code is completed.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Coding
+principles: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.25in'><i><span style='font-family:"Arial","sans-serif"'>As
+you begin writing code, be sure you:<o:p></o:p></span></i></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Constrain your algorithms by
+     following structured programming [BOH00] practice.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Select data structures that will
+     meet the needs of the design.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Understand the software
+     architecture and create interfaces that are consistent with it.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Keep conditional logic as simple
+     as possible.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Create nested loops in a way that
+     makes them easily testable.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Select meaningful variable names
+     and follow other local coding standards.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Write code that is
+     self-documenting.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo29;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Create a visual layout (e.g.,
+     indentation and blank lines) that aids understanding.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Validation
+Principles:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.25in'><i><span style='font-family:"Arial","sans-serif"'>After
+you’ve completed your first coding pass, be sure you:<o:p></o:p></span></i></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l26 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Conduct a code walkthrough when
+     appropriate.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l26 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Perform unit tests and correct
+     errors you’ve uncovered.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l26 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Refactor the code. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial Unicode MS","sans-serif";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Testing
+Principles<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in;text-indent:-.25in;mso-list:l17 level1 lfo31;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;font-style:normal'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-style:normal'>All tests should
+be traceable to requirements<o:p></o:p></span></h4>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo31;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Tests should be planned<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo31;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Testing begins “in the small” and
+     moves toward “in the large”<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo31;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Exhaustive testing is not
+     possible<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<h3>Deployment Practices<span style='font-family:"Arial Unicode MS","sans-serif";
+display:none;mso-hide:all'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'>Principles<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Manage customer expectations for
+     each increment<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>A complete delivery package
+     should be assembled and tested<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>A support regime should be
+     established<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Instructional materials must be
+     provided to end-users<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo32;tab-stops:list .5in'><span
+     style='font-family:"Arial","sans-serif"'>Buggy software should be fixed
+     first, delivered later <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

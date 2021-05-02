@@ -1,0 +1,131 @@
+<html>
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+
+	<title> Middle East SVG Example</title>
+<head>
+
+<script language="JavaScript"> //<![CDATA[
+
+function passBackSVG(){
+	var embedNodes=document.embeds;
+	for (var i=0;i<embedNodes.length;i++){
+		embedNode = embedNodes[i];
+		if(embedNode.window.passState){
+		   embedNode.window.passState(embedNode);
+		}
+	}
+}
+
+//]]>    </script> 
+
+</head>
+
+<style type="text/css">
+h1
+{
+	background: silver;
+}
+h2
+ {
+	color: navy;
+	background: silver;
+	font-family: sans-serif;
+	cursor: hand;
+}
+
+h3
+{
+	color: yellow;
+	background: blue;
+}
+
+span
+{
+	color: black;
+	font-family: sans-serif;
+	font-weight:  bold;
+	font-style: italic;
+	background: yellow;
+	cursor: pointer;
+}
+
+em
+{
+	font-family: sans-serif;
+	//font-weight:  bold;
+	cursor: pointer;
+}
+
+#main 
+{
+	width:100%;
+	height:100%;
+	overflow:scroll;
+	font-family: helvetica;
+	font-weight:  normal;
+
+}
+
+a:link { text-decoration: underline; color: blue }
+a:visited { text-decoration: underline; color: blue }
+a:active { text-decoration: underline; color: blue }
+a:hover { text-decoration: underline; color: blue }
+
+</style>
+
+	
+<body > <h1> Middle East </h1>
+
+<table  cellspacing=0 cellpadding=5 width="100%" style='width:100.0%; height:400;
+ border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ 
+<COLGROUP span="4" width="800" height="240">
+   </COLGROUP>
+
+<tr>
+<td rowspan=10>
+<embed src="html2svg_a.svg" width="700" height="700" 
+ wmode="transparent" id="bars"/>
+</td>
+
+<td colspan=3 >
+ 
+<h2 align="center" onclick="bars.window.setColors()" id="display"> Countries and Territories </h2>
+
+
+<tr><td onclick="bars.window.setCountry('me1')" id="t1a"> <em>Cyprus </em> </td>	
+	<td onclick="bars.window.setCountry('me2')"id="t2a"><em>Egypt</em></td>
+	<td onclick="bars.window.setCountry('me3')" id="t3a" ><em>Gaza Strip</em></td></tr>
+
+<tr><td onclick="bars.window.setCountry('me4')" id="t4a"><em>Israel</em></td>
+	<td onclick="bars.window.setCountry('me5')" id="t5a"><em>Iraq</em></td>
+	<td onclick="bars.window.setCountry('me6')"id="t6a"><em>Jordan</em></td></tr>
+
+<tr><td onclick="bars.window.setCountry('me7')" id="t7a" ><em>Lebanon</em></td>
+	<td onclick="bars.window.setCountry('me8')" id="t8a"><em>Qatar</em></td>
+	<td onclick="bars.window.setCountry('me9')"id="t9a"><em>Saudi Arabia</em></td></tr>
+
+<tr><td onclick="bars.window.setCountry('me10')" id="t10a" ><em>Syria</em></td>
+	<td onclick="bars.window.setCountry('me11')" id="t11a"><em>Turkey</em></td>
+	<td onclick="bars.window.setCountry('me12')" id="t12a"><em>West Bank</td></tr>
+
+<tr><td onclick="bars.window.setCountry('me13')"id="t13a"><em>Yemen</em></td>
+	<td onclick="bars.window.setCountry('me14')" id="t14a" ><em>Bahrain</td>
+	<td onclick="bars.window.setCountry('me15')" id="t15a"><em>United Arab Emirates</em></td></tr>
+	
+<tr><td onclick="bars.window.setCountry('me16')"id="t16a"><em>Iran</em></td>
+	<td onclick="bars.window.setCountry('me17')" id="t17a" ><em>Oman</em></td>
+	<td onclick="bars.window.setCountry('me18')" id="t18a"><em>Kuwait</em></td><tr>
+
+
+<tr>  <td colspan=3 height="300" id="t1"> <div id="main">  </div> </td>  </tr>	
+
+</td>
+
+</table>
+
+</body> 
+
+</html>
+

@@ -1,0 +1,814 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec10a</title>
+</head>
+<body text="#000000" bgcolor="#E6E6E6" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+19 - Server-Side Java Servlets</font></font></b></td>
+</tr>
+</table>
+
+<h2>
+<font face="Arial,Helvetica">Lecture 2</font></h2>
+
+<h2>
+<b><font face="Arial,Helvetica"><font color="#000066">Generating the Server
+Response</font></font></b></h2>
+<img SRC="fga8.gif" height=381 width=598>
+<p><img SRC="fga9.gif" height=454 width=590>
+<p><img SRC="fga10.gif" height=470 width=538>
+<p><img SRC="fga11.gif" height=430 width=602>
+<br><img SRC="fga12.gif" height=328 width=614>
+<br><img SRC="fga13.gif" height=372 width=615>
+<br>&nbsp;
+<p><img SRC="fga14.gif" height=458 width=592>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000066">Prime Number Program</font></font></b></h3>
+<b><tt>package cwp;</tt></b>
+<p><b><tt>import java.io.*;</tt></b>
+<br><b><tt>import javax.servlet.*;</tt></b>
+<br><b><tt>import javax.servlet.http.*;</tt></b>
+<br><b><tt>import java.util.*;</tt></b>
+<p><b><tt>/** Servlet that processes a request to generate n</tt></b>
+<br><b><tt>&nbsp;*&nbsp; prime numbers, each with at least m digits.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; It performs the calculations in a low-priority
+background</tt></b>
+<br><b><tt>&nbsp;*&nbsp; thread, returning only the results it has found
+so far.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; If these results are not complete, it sends a
+Refresh</tt></b>
+<br><b><tt>&nbsp;*&nbsp; header instructing the browser to ask for new
+results a</tt></b>
+<br><b><tt>&nbsp;*&nbsp; little while later. It also maintains a list of
+a</tt></b>
+<br><b><tt>&nbsp;*&nbsp; small number of previously calculated prime lists</tt></b>
+<br><b><tt>&nbsp;*&nbsp; to return immediately to anyone who supplies the</tt></b>
+<br><b><tt>&nbsp;*&nbsp; same n and m as a recent completed computation.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class PrimeNumbers extends HttpServlet {</tt></b>
+<br><b><tt>&nbsp; private Vector primeListVector = new Vector();</tt></b>
+<br><b><tt>&nbsp; private int maxPrimeLists = 30;</tt></b>
+<p><b><tt>&nbsp; public void doGet(HttpServletRequest request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws ServletException, IOException
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int numPrimes =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ServletUtilities.getIntParameter(request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"numPrimes", 50);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int numDigits =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ServletUtilities.getIntParameter(request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"numDigits", 120);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; PrimeList primeList =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; findPrimeList(primeListVector,
+numPrimes, numDigits);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (primeList == null) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; primeList = new PrimeList(numPrimes,
+numDigits, true);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Multiple servlet request threads
+share the instance</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // variables (fields) of PrimeNumbers.
+So</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // synchronize all access to
+servlet fields.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; synchronized(primeListVector)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (primeListVector.size()
+>= maxPrimeLists)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; primeListVector.removeElementAt(0);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; primeListVector.addElement(primeList);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Vector currentPrimes = primeList.getPrimes();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int numCurrentPrimes = currentPrimes.size();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int numPrimesRemaining = (numPrimes - numCurrentPrimes);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; boolean isLastResult = (numPrimesRemaining
+== 0);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">if (!isLastResult)
+{</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.setHeader("Refresh",
+"5")</font>;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; response.setContentType("text/html");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String title = "Some " + numDigits + "-Digit
+Prime Numbers";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println(ServletUtilities.headWithTitle(title)
++</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;BODY BGCOLOR=\"#FDF5E6\">\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H2 ALIGN=CENTER>" + title + "&lt;/H2>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H3>Primes found with " + numDigits +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+" or more digits: " + numCurrentPrimes +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+".&lt;/H3>");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (isLastResult)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("&lt;B>Done searching.&lt;/B>");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; else</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("&lt;B>Still looking
+for " + numPrimesRemaining +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+" more&lt;BLINK>...&lt;/BLINK>&lt;/B>");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println("&lt;OL>");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;numCurrentPrimes; i++)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("&nbsp; &lt;LI>"
++ currentPrimes.elementAt(i));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println("&lt;/OL>");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; out.println("&lt;/BODY>&lt;/HTML>");</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public void doPost(HttpServletRequest request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws ServletException, IOException
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; doGet(request, response);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; // See if there is an existing ongoing or completed</tt></b>
+<br><b><tt>&nbsp; // calculation with the same number of primes and number</tt></b>
+<br><b><tt>&nbsp; // of digits per prime. If so, return those results instead</tt></b>
+<br><b><tt>&nbsp; // of starting a new background thread. Keep this list</tt></b>
+<br><b><tt>&nbsp; // small so that the Web server doesn't use too much
+memory.</tt></b>
+<br><b><tt>&nbsp; // Synchronize access to the list since there may be</tt></b>
+<br><b><tt>&nbsp; // multiple simultaneous requests.</tt></b>
+<p><b><tt>&nbsp; private PrimeList findPrimeList(Vector primeListVector,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int numPrimes,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int numDigits) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; synchronized(primeListVector) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;primeListVector.size();
+i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PrimeList primes
+=</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (PrimeList)primeListVector.elementAt(i);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((numPrimes ==
+primes.numPrimes()) &amp;&amp;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(numDigits == primes.numDigits()))</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return(primes);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return(null);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">HTML Code</font></font></b>
+<br><b><tt><font color="#000000">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Transitional//EN"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HTML></font></tt></b>
+<br><b><tt><font color="#000000">&lt;HEAD></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;TITLE>Finding Large Prime Numbers&lt;/TITLE></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HEAD></font></tt></b>
+<p><b><tt><font color="#000000">&lt;BODY BGCOLOR="#FDF5E6"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;H2 ALIGN="CENTER">Finding Large Prime
+Numbers&lt;/H2></font></tt></b>
+<br><b><tt><font color="#000000">&lt;BR>&lt;BR></font></tt></b>
+<br><b><tt><font color="#000000">&lt;CENTER></font></tt></b>
+<br><b><tt><font color="#000000">&lt;FORM </font><font color="#3333FF">ACTION="/servlet/cwp.PrimeNumbers"></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;B>Number of primes to calculate:&lt;/B></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;INPUT TYPE="TEXT" </font><font color="#3333FF">NAME="numPrimes"</font><font color="#000000">
+VALUE=25 SIZE=4>&lt;BR></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;B>Number of digits:&lt;/B></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;INPUT TYPE="TEXT" </font><font color="#3333FF">NAME="numDigits"</font><font color="#000000">
+VALUE=150 SIZE=3>&lt;BR></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; &lt;INPUT TYPE="SUBMIT" VALUE="Start
+Calculating"></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/FORM></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/CENTER></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/BODY></font></tt></b>
+<br><b><tt><font color="#000000">&lt;/HTML></font></tt></b>
+<p><img SRC="fga15.gif" height=371 width=504>
+<p><img SRC="fga16.gif" height=372 width=512>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Supporting Files</font></font></b><b><font face="Arial,Helvetica"><font color="#000066"></font></font></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">PrimeList.java</font></font></b><b><font face="Arial,Helvetica"><font color="#000066"></font></font></b>
+<p><b><tt><font color="#000000">package cwp;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">import java.util.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.math.BigInteger;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">/** Creates a Vector of large prime numbers,
+usually in</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; a low-priority background
+thread. Provides a few small</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; thread-safe access methods.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; &lt;P></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; Taken from Core Web Programming
+Java 2 Edition</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; from Prentice Hall and Sun
+Microsystems Press,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; http://www.corewebprogramming.com/.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; May be freely used or adapted.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">public class </font><font color="#3333FF">PrimeList</font><font color="#000000">
+implements Runnable {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private Vector primesFound;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private int numPrimes, numDigits;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Finds numPrimes prime numbers,
+each of which are</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; numDigits long or
+longer. You can set it to only</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; return when done,
+or have it return immediately,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; and you can later
+poll it to see how far it</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; has gotten.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public PrimeList(int numPrimes,
+int numDigits,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boolean runInBackground) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // Using Vector instead
+of ArrayList</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; // to support JDK 1.1
+servlet engines</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; primesFound = new Vector(numPrimes);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.numPrimes = numPrimes;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.numDigits = numDigits;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (runInBackground)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread
+t = new Thread(this);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Use
+low priority so you don't slow down server.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t.setPriority(Thread.MIN_PRIORITY);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t.start();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } else {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; run();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void run() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; BigInteger start =
+Primes.random(numDigits);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;numPrimes;
+i++) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start =
+Primes.nextPrime(start);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; synchronized(this)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+primesFound.addElement(start);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public synchronized boolean isDone()
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(primesFound.size()
+== numPrimes);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public synchronized Vector getPrimes()
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (isDone())</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return(primesFound);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; else</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return((Vector)primesFound.clone());</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public int numDigits() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(numDigits);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public int numPrimes() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(numPrimes);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public synchronized int numCalculatedPrimes()
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(primesFound.size());</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Primes.java</font></font></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt>package cwp;</tt></b><b><tt></tt></b>
+<p><b><tt>import java.math.BigInteger;</tt></b><b><tt></tt></b>
+<p><b><tt>/** A few utilities to generate a large random BigInteger,</tt></b>
+<br><b><tt>&nbsp;*&nbsp; and find the next prime number above a given BigInteger.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; &lt;P></tt></b>
+<br><b><tt>&nbsp;*&nbsp; Taken from Core Web Programming Java 2 Edition</tt></b>
+<br><b><tt>&nbsp;*&nbsp; from Prentice Hall and Sun Microsystems Press,</tt></b>
+<br><b><tt>&nbsp;*&nbsp; http://www.corewebprogramming.com/.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; May be freely used or adapted.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b><b><tt></tt></b>
+<p><b><tt>public class Primes {</tt></b>
+<br><b><tt>&nbsp; // Note that BigInteger.ZERO was new in JDK 1.2, and
+1.1</tt></b>
+<br><b><tt>&nbsp; // code is being used to support the most servlet engines.</tt></b>
+<br><b><tt>&nbsp; private static final BigInteger ZERO = new BigInteger("0");</tt></b>
+<br><b><tt>&nbsp; private static final BigInteger ONE = new BigInteger("1");</tt></b>
+<br><b><tt>&nbsp; private static final BigInteger TWO = new BigInteger("2");</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; // Likelihood of false prime is less than 1/2^ERR_VAL</tt></b>
+<br><b><tt>&nbsp; // Assumedly BigInteger uses the Miller-Rabin test or</tt></b>
+<br><b><tt>&nbsp; // equivalent, and thus is NOT fooled by Carmichael numbers.</tt></b>
+<br><b><tt>&nbsp; // See section 33.8 of Cormen et al's Introduction to</tt></b>
+<br><b><tt>&nbsp; // Algorithms for details.</tt></b>
+<br><b><tt>&nbsp; private static final int ERR_VAL = 100;</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; public static BigInteger nextPrime(BigInteger start)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (isEven(start))</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start = start.add(ONE);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; else</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start = start.add(TWO);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (start.isProbablePrime(ERR_VAL))</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return(start);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; else</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return(nextPrime(start));</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private static boolean isEven(BigInteger n) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(n.mod(TWO).equals(ZERO));</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private static StringBuffer[] digits =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; { new StringBuffer("0"), new StringBuffer("1"),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new StringBuffer("2"), new StringBuffer("3"),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new StringBuffer("4"), new StringBuffer("5"),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new StringBuffer("6"), new StringBuffer("7"),</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new StringBuffer("8"), new StringBuffer("9")
+};</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private static StringBuffer randomDigit() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int index = (int)Math.floor(Math.random()
+* 10);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(digits[index]);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; public static BigInteger random(int numDigits) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; StringBuffer s = new StringBuffer("");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;numDigits; i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s.append(randomDigit());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(new BigInteger(s.toString()));</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Simple command-line program to test. Enter number</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; of digits, and it picks a random number
+of that</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; length and then prints the first 50 prime
+numbers</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; above that.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; public static void main(String[] args) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int numDigits;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (args.length > 0)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; numDigits = Integer.parseInt(args[0]);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; else</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; numDigits = 150;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; BigInteger start = random(numDigits);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;50; i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start = nextPrime(start);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Prime " +
+i + " = " + start);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br><b><tt></tt></b>&nbsp;
+<br><b><tt></tt></b>&nbsp;<tt></tt>
+<p><img SRC="fga17.gif" height=385 width=609>
+<p><img SRC="fga18.gif" height=465 width=615>
+<p><img SRC="fga19.gif" height=424 width=609>
+<p><img SRC="fga20.gif" height=462 width=608>
+<p><img SRC="fga21.gif" height=478 width=607>
+<p><img SRC="fga22.gif" height=435 width=607>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000066">Example : SetCookies.java</font></font></b></h3>
+<b><tt><font color="#000000">package cwp;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.http.*;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">/** Sets six cookies: three that apply
+only to the current</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; session (regardless of how
+long that session lasts)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; and three that persist for
+an hour (regardless of</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; whether the browser is restarted).</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; &lt;P></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; Taken from Core Web Programming
+Java 2 Edition</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; from Prentice Hall and Sun
+Microsystems Press,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; http://www.corewebprogramming.com/.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; May be freely used or adapted.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">public class SetCookies extends HttpServlet
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public void doGet(HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;3;
+i++) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Default
+maxAge is -1, indicating cookie</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // applies
+only to current browsing session.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">Cookie
+cookie = new Cookie("Session-Cookie-" + i,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"Cookie-Value-S" + i);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.addCookie(cookie);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cookie
+= new Cookie("Persistent-Cookie-" + i,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"Cookie-Value-P" + i);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Cookie
+is valid for an hour, regardless of whether</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // user
+quits browser, reboots computer, or whatever.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">cookie.setMaxAge(3600);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.addCookie(cookie);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; response.setContentType("text/html");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String title = "Setting
+Cookies";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (ServletUtilities.headWithTitle(title)
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;BODY
+BGCOLOR=\"#FDF5E6\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;H1
+ALIGN=\"CENTER\">" + title + "&lt;/H1>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "There
+are six cookies associated with this page.\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "To
+see them, visit the\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;A
+HREF=\"/servlet/cwp.ShowCookies\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;CODE>ShowCookies&lt;/CODE>
+servlet&lt;/A>.\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;P>\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Three
+of the cookies are associated only with the\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "current
+session, while three are persistent.\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Quit
+the browser, restart, and return to the\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;CODE>ShowCookies&lt;/CODE>
+servlet to verify that\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "the
+three long-lived ones persist across sessions.\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;/BODY>&lt;/HTML>");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><img SRC="fga23.gif" height=366 width=454>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example : ShowCookies.java</font></font></b>
+<br><b><tt><font color="#000000">package cwp;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.http.*;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">/** Creates a table of the cookies associated
+with</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; the current page.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; &lt;P></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; Taken from Core Web Programming
+Java 2 Edition</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; from Prentice Hall and Sun
+Microsystems Press,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; http://www.corewebprogramming.com/.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; May be freely used or adapted.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">public class ShowCookies extends HttpServlet
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public void doGet(HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; response.setContentType("text/html");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String title = "Active
+Cookies";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println(ServletUtilities.headWithTitle(title)
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;BODY BGCOLOR=\"#FDF5E6\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H1 ALIGN=\"CENTER\">" + title + "&lt;/H1>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TABLE BORDER=1 ALIGN=\"CENTER\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TR BGCOLOR=\"#FFAD00\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TH>Cookie Name\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TH>Cookie Value");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">Cookie[]
+cookies = request.getCookies();</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; if (cookies != null)
+{</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cookie
+cookie;</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(int
+i=0; i&lt;cookies.length; i++) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cookie = cookies[i];</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+out.println("&lt;TR>\n" +</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>" + cookie.getName() + "\n" +</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>" + cookie.getValue());</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println("&lt;/TABLE>&lt;/BODY>&lt;/HTML>");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><img SRC="fga24.gif" height=469 width=605>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000066">ServletUtilities.java</font></font></b></h3>
+<b><tt>package cwp;</tt></b><b><tt></tt></b>
+<p><b><tt>import javax.servlet.*;</tt></b>
+<br><b><tt>import javax.servlet.http.*;</tt></b><b><tt></tt></b>
+<p><b><tt>/** Some simple time savers. Note that most are static methods.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; &lt;P></tt></b>
+<br><b><tt>&nbsp;*&nbsp; Taken from Core Web Programming Java 2 Edition</tt></b>
+<br><b><tt>&nbsp;*&nbsp; from Prentice Hall and Sun Microsystems Press,</tt></b>
+<br><b><tt>&nbsp;*&nbsp; http://www.corewebprogramming.com/.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; May be freely used or adapted.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b><b><tt></tt></b>
+<p><b><tt>public class ServletUtilities {</tt></b>
+<br><b><tt>&nbsp; public static final String DOCTYPE =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; "&lt;!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML
+4.0 " +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; "Transitional//EN\">";</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public static String headWithTitle(String title) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(DOCTYPE + "\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;HTML>\n" +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;HEAD>&lt;TITLE>" + title + "&lt;/TITLE>&lt;/HEAD>\n");</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Read a parameter with the specified name, convert
+it</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; to an int, and return it. Return the designated
+default</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; value if the parameter doesn't exist or
+if it is an</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; illegal integer format.</tt></b>
+<br><b><tt>&nbsp; */</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; public static int getIntParameter(HttpServletRequest
+request,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String paramName,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int defaultValue) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String paramString = request.getParameter(paramName);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int paramValue;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; paramValue = Integer.parseInt(paramString);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(NumberFormatException nfe) { // null
+or bad format</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; paramValue = defaultValue;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(paramValue);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Given an array of Cookies, a name, and a default value,</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; this method tries to find the value of
+the cookie with</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; the given name. If there is no cookie matching
+the name</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; in the array, then the default value is
+returned instead.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; <font color="#3333FF">public static String getCookieValue(Cookie[]
+cookies,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String cookieName,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String defaultValue) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; if (cookies != null)
+{</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(int
+i=0; i&lt;cookies.length; i++) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Cookie cookie = cookies[i];</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (cookieName.equals(cookie.getName()))</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(cookie.getValue());</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; return(defaultValue);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; }</font></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Given an array of cookies and a name, this method
+tries</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; to find and return the cookie from the
+array that has</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; the given name. If there is no cookie matching
+the name</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; in the array, null is returned.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; <font color="#3333FF">public static Cookie getCookie(Cookie[]
+cookies,</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String cookieName) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; if (cookies != null)
+{</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(int
+i=0; i&lt;cookies.length; i++) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Cookie cookie = cookies[i];</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (cookieName.equals(cookie.getName()))</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(cookie);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; return(null);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp; }</font></tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Given a string, this method replaces all occurrences
+of</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; '&lt;' with '&amp;lt;', all occurrences
+of '>' with</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; '&amp;gt;', and (to handle cases that occur
+inside attribute</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; values), all occurrences of double quotes
+with</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; '&amp;quot;' and all occurrences of '&amp;'
+with '&amp;amp;'.</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; Without such filtering, an arbitrary string</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; could not safely be inserted in a Web page.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public static String filter(String input) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; StringBuffer filtered = new StringBuffer(input.length());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; char c;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;input.length(); i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c = input.charAt(i);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (c == '&lt;') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;lt;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (c == '>') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;gt;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (c == '"') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;quot;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (c == '&amp;') {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append("&amp;amp;");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filtered.append(c);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(filtered.toString());</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br><b><tt></tt></b>&nbsp;<b><tt></tt></b>
+<p><img SRC="fga25.gif" height=442 width=612>
+<br><img SRC="fga26.gif" height=362 width=613>
+<br>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Session Tracking</font></b></h2>
+<b><tt></tt></b>
+<p><br><img SRC="fga27.gif" height=429 width=610><b><tt></tt></b>
+<p><img SRC="fga28.gif" height=467 width=610>
+<p><img SRC="fga29.gif" height=443 width=605>
+<br><img SRC="fga30.gif" height=387 width=614>
+<p><b><font face="Arial,Helvetica"><font color="#000066">Example: ShowSession.java</font></font></b>
+<br><b><tt><font color="#000000">package cwp;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.*;</font></tt></b>
+<br><b><tt><font color="#000000">import javax.servlet.http.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.net.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.util.*;</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">/** Simple example of session tracking.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; &lt;P></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; Taken from Core Web Programming
+Java 2 Edition</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; from Prentice Hall and Sun
+Microsystems Press,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; http://www.corewebprogramming.com/.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; May be freely used or adapted.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">public class ShowSession extends HttpServlet
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public void doGet(HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; response.setContentType("text/html");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String title = "Session
+Tracking Example";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">HttpSession
+session = request.getSession(true);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; String heading;</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; Integer accessCount
+=</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Integer)session.getAttribute("accessCount");</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; if (accessCount ==
+null) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; accessCount
+= new Integer(0);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; heading
+= "Welcome, Newcomer";</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; } else {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; heading
+= "Welcome Back";</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; accessCount
+= new Integer(accessCount.intValue() + 1);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; // Use setAttribute
+instead of putValue in version 2.2.</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; session.setAttribute("accessCount",
+accessCount);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println(ServletUtilities.headWithTitle(title)
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;BODY BGCOLOR=\"#FDF5E6\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H1 ALIGN=\"CENTER\">" + heading + "&lt;/H1>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;H2>Information on Your Session:&lt;/H2>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TABLE BORDER=1 ALIGN=\"CENTER\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TR BGCOLOR=\"#FFAD00\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TH>Info Type&lt;TH>Value\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TR>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>ID\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>" + </font><font color="#3333FF">session.getId()</font><font color="#000000">
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TR>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>Creation Time\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+new Date(</font><font color="#3333FF">session.getCreationTime()</font><font color="#000000">)
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TR>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>Time of Last Access\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+new Date(</font><font color="#3333FF">session.getLastAccessedTime()</font><font color="#000000">)
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;TR>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>Number of Previous Accesses\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; &lt;TD>" + </font><font color="#3333FF">accessCount </font><font color="#000000">+
+"\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;/TABLE>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&lt;/BODY>&lt;/HTML>");</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; }</font></tt></b><b><tt><font color="#000000"></font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Handle GET and POST requests
+identically. */</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public void doPost(HttpServletRequest
+request,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HttpServletResponse response)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+ServletException, IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; doGet(request, response);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<br><b><tt><font color="#000000"></font></tt></b>&nbsp;
+<br><b><font face="Arial,Helvetica"><font color="#000066"></font></font></b>&nbsp;
+<p><img SRC="fga31.gif" height=466 width=598>
+<p><img SRC="fga32.gif" height=468 width=599>
+<br>&nbsp;
+</body>
+</html>

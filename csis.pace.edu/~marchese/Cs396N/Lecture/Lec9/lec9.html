@@ -1,0 +1,338 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec9</title>
+</head>
+<body text="#000000" bgcolor="#E4E4E4" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+18 - HTML Forms</font></font></b></td>
+</tr>
+</table>
+
+<h3>
+<b><font face="Arial,Helvetica">Sending Data to Server via HTML Forms:
+Get &amp; Post</font></b></h3>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Create Interface controls to collect input
+on Web page</font></li>
+
+<li>
+<font face="Arial,Helvetica">Each contol has name and value</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Name in HTML</font></li>
+
+<li>
+<font face="Arial,Helvetica">Value from HTML or user input</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Entire form associated with URL of program
+that processed the data</font></li>
+
+<li>
+<font face="Arial,Helvetica">Upon data submission, names and values sent
+to designated URL as string</font></li>
+
+<li>
+<font face="Arial,Helvetica">String Sent as Get or Post</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">HTTP </font><b><tt><font size=+1>GET</font></tt></b><font face="Arial,Helvetica">
+- appends string to end of specified URL</font></li>
+
+<li>
+<font face="Arial,Helvetica">HTTP </font><b><tt><font size=+1>POST</font></tt></b><font face="Arial,Helvetica">
+- HTTP request header and blank line sent then data on following line</font></li>
+</ul>
+</ul>
+
+<h3>
+<font face="Arial,Helvetica"><font color="#000099">Sending Data with GET</font></font></h3>
+<b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HTML></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&nbsp;
+&lt;TITLE>A Sample Form Using GET&lt;/TITLE></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HEAD></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;BODY
+BGCOLOR="#FDF5E6"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;H2
+ALIGN="CENTER">A Sample Form Using GET&lt;/H2></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#3333FF"><font size=-1>&lt;FORM
+ACTION="http://localhost:8088/SomeProgram"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1>&nbsp; &lt;CENTER></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1>&nbsp; First name:</font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1>&nbsp; &lt;INPUT
+TYPE="TEXT" <font color="#3333FF">NAME="firstName"</font> VALUE="Joe">&lt;BR></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1>&nbsp; Last name:</font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1>&nbsp; &lt;INPUT
+TYPE="TEXT" <font color="#3333FF">NAME="lastName"</font> VALUE="Hacker">&lt;P></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1>&nbsp; &lt;INPUT
+TYPE="SUBMIT"> &lt;!-- Press this button to submit form --></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1>&nbsp; &lt;/CENTER></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#3333FF"><font size=-1>&lt;/FORM></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HTML></font></font></font></b><b><font face="Arial,Helvetica"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Arial,Helvetica"><font color="#000000">1st Start Server</font></font></b>
+<br><img SRC="fg2.gif" height=46 width=644>
+<p><b><font face="Arial,Helvetica"><font color="#000000">2nd Start Client
+page</font></font></b>
+<br><img SRC="fg1.gif" height=375 width=645>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000000">3rd Return from
+Server</font></font></b>
+<br><img SRC="fg3a.gif" height=423 width=836>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica"><font color="#000099">Sending Data with POST</font></font></h3>
+<b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HTML></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&nbsp;
+&lt;TITLE>A Sample Form Using POST&lt;/TITLE></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HEAD></font></font></font></b><font color="#999999"></font>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;BODY
+BGCOLOR="#FDF5E6"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;H2
+ALIGN="CENTER">A Sample Form Using POST&lt;/H2></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;FORM
+ACTION="http://localhost:8088/SomeProgram"</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#3333FF">METHOD="POST"</font><font color="#000000">></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;
+&lt;CENTER></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;
+First name:</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;
+&lt;INPUT TYPE="TEXT" NAME="firstName" VALUE="Joe">&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;
+Last name:</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;
+&lt;INPUT TYPE="TEXT" NAME="lastName" VALUE="Hacker">&lt;P></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;
+&lt;INPUT TYPE="SUBMIT"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;
+&lt;/CENTER></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/FORM></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HTML></font></font></font></b>
+<p><img SRC="fg4.gif" height=348 width=769>
+<p><img SRC="fg5.gif" height=509 width=806>
+<br>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica"><font color="#000099">Text Controls</font></font></b></h2>
+<img SRC="fg6.gif" height=402 width=655>
+<br>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica"><font color="#000099">Push Buttons</font></font></b></h2>
+<img SRC="fg7.gif" height=415 width=655>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">Multiple Submit Buttons</font></font></h2>
+<b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HTML></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&nbsp;
+&lt;TITLE>The BUTTON Element&lt;/TITLE></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;BODY
+BGCOLOR="WHITE"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;H2
+ALIGN="CENTER">The BUTTON Element&lt;/H2></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;FORM
+ACTION="http://localhost:8088/SomeProgram"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;CENTER></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;BUTTON
+TYPE="SUBMIT">Single-line Label&lt;/BUTTON></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&amp;nbsp;&amp;nbsp;</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;BUTTON
+TYPE="SUBMIT">Multi-line&lt;BR>label&lt;/BUTTON></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;P></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;BUTTON
+TYPE="SUBMIT"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;B>Label&lt;/B>
+with &lt;I>font&lt;/I> changes.</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/BUTTON></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;P></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;BUTTON
+TYPE="SUBMIT"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;IMG
+SRC="images/Java-Logo.gif" WIDTH=110 HEIGHT=101</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+ALIGN="LEFT" ALT="Java Cup Logo"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Label&lt;BR>with
+image</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/BUTTON></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/CENTER></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/FORM></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HTML></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><img SRC="fg8.gif" height=509 width=582>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">Check Boxes</font></font></h2>
+<img SRC="fg9.gif" height=380 width=652>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">Radio Buttons</font></font></h2>
+<img SRC="fg10.gif" height=396 width=666>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">Combo Boxs</font></font></h2>
+<img SRC="fg11.gif" height=354 width=673>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">List Boxes</font></font></h2>
+<img SRC="fg12.gif" height=339 width=655>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">Server-Side Image Maps</font></font></h2>
+<b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HTML></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&nbsp;
+&lt;TITLE>The IMAGE Input Control&lt;/TITLE></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HEAD></font></font></font></b><b><font face="Courier New,Courier"><font color="#999999"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;H1
+ALIGN="CENTER">The IMAGE Input Control&lt;/H1></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>Which
+island is Java? Click and see if you are correct.</font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;FORM
+ACTION="http://localhost:8088/GeographyTester"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1><font color="#000000">&nbsp;
+</font><font color="#3333FF">&lt;INPUT TYPE="IMAGE" NAME="map" SRC="images/indonesia.gif"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/FORM></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Of
+course, image maps can be implemented &lt;B>in&lt;/B></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Java
+as well. :-)</font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HTML></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><img SRC="fg13.gif" height=396 width=600>
+<p><img SRC="fg14.gif" height=396 width=600>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">ISMAP - Alternative
+server-Side Image Maps</font></font></h2>
+<b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HTML></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&nbsp;
+&lt;TITLE>The ISMAP Attribute&lt;/TITLE></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HEAD></font></font></font></b><b><font face="Courier New,Courier"><font color="#999999"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;BODY></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;H1
+ALIGN="CENTER">The ISMAP Attribute&lt;/H1></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;H2>Select
+a pin:&lt;/H2></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#3333FF"><font size=-1>&lt;A
+HREF="http://localhost:8088/ChipTester"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#3333FF"><font size=-1>&lt;IMG
+SRC="images/chip.gif" WIDTH=495 HEIGHT=200 ALT="Chip"</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#3333FF"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+BORDER=0 ISMAP>&lt;/A></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HTML></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><img SRC="fg15.gif" height=522 width=598>
+<p><img SRC="fg16.gif" height=522 width=761>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">Grouping Controls</font></font></h2>
+<b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HTML></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&nbsp;
+&lt;TITLE>Grouping Controls in Internet Explorer&lt;/TITLE></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HEAD></font></font></font></b><b><font face="Courier New,Courier"><font color="#999999"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;BODY
+BGCOLOR="#FDF5E6"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;H2
+ALIGN="CENTER">Grouping Controls in Internet Explorer&lt;/H2></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;FORM
+ACTION="http://localhost:8088/SomeProgram"></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;FIELDSET></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;LEGEND>Group
+One&lt;/LEGEND></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+1A: &lt;INPUT TYPE="TEXT" NAME="field1A" VALUE="Field A">&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+1B: &lt;INPUT TYPE="TEXT" NAME="field1B" VALUE="Field B">&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+1C: &lt;INPUT TYPE="TEXT" NAME="field1C" VALUE="Field C">&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/FIELDSET></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;FIELDSET></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;LEGEND
+ALIGN="RIGHT">Group Two&lt;/LEGEND></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+2A: &lt;INPUT TYPE="TEXT" NAME="field2A" VALUE="Field A">&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+2B: &lt;INPUT TYPE="TEXT" NAME="field2B" VALUE="Field B">&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+2C: &lt;INPUT TYPE="TEXT" NAME="field2C" VALUE="Field C">&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/FIELDSET></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/FORM></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HTML></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><img SRC="fg17.gif" height=493 width=633>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica"><font color="#000099">Tab Order Control</font></font></h2>
+<b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HTML></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;HEAD></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&nbsp;
+&lt;TITLE>Controlling TAB Order&lt;/TITLE></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HEAD></font></font></font></b><b><font face="Courier New,Courier"><font color="#999999"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;BODY
+BGCOLOR="#FDF5E6"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;H2
+ALIGN="CENTER">Controlling TAB Order&lt;/H2></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;FORM
+ACTION="http://localhost:8088/SomeProgram"></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+1 (first tab selection):</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1><font color="#000000">&lt;INPUT
+TYPE="TEXT" NAME="field1" </font><font color="#3333FF">TABINDEX=1</font><font color="#000000">>&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+2 (third tab selection):</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1><font color="#000000">&lt;INPUT
+TYPE="TEXT" NAME="field2" </font><font color="#3333FF">TABINDEX=3</font><font color="#000000">>&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>Field
+3 (second tab selection):</font></font></font></b>
+<br><b><font face="Courier New,Courier"><font size=-1><font color="#000000">&lt;INPUT
+TYPE="TEXT" NAME="field3" </font><font color="#3333FF">TABINDEX=2</font><font color="#000000">>&lt;BR></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"><font size=-1>&lt;/FORM></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/BODY></font></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#999999"><font size=-1>&lt;/HTML></font></font></font></b><b><font face="Courier New,Courier"><font color="#000000"><font size=-1></font></font></font></b>
+<p><img SRC="fg18.gif" height=365 width=542>
+</body>
+</html>

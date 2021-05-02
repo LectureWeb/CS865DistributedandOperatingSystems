@@ -1,0 +1,994 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>lec8</title>
+</head>
+<body text="#000000" bgcolor="#E4E4E4" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+17 - Network Programming</font></font></b></td>
+</tr>
+</table>
+
+<h2>
+<b><font face="Arial,Helvetica"><font color="#000066">Clients and Servers</font></font></b></h2>
+
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000066">Implementing a Client</font></font></b></h3>
+
+<ol>
+<li>
+<font face="Arial,Helvetica"><font color="#000000">Create a socket object</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font color="#000000">Create an output stream
+that can be used to send info to the Socket</font></font></li>
+
+<li>
+<font face="Arial,Helvetica">Create an input stream to read the response
+from the server</font></li>
+
+<li>
+<font face="Arial,Helvetica">Do I/O with the input and output streams</font></li>
+
+<li>
+<font face="Arial,Helvetica">Close the socket when done</font></li>
+</ol>
+<b><font face="Arial,Helvetica"><font color="#000099">Example: A Generic
+Network Client</font></font></b>
+<br><i><font face="Arial,Helvetica">Part 1:&nbsp; NetworkClient.java</font></i>
+<p><b><tt><font color="#3333FF">import java.net.*;</font></tt></b>
+<br><b><tt><font color="#3333FF"></font></tt></b>&nbsp;
+<p><b><tt>public class NetworkClient {</tt></b>
+<br><b><tt>&nbsp; protected String host;</tt></b>
+<br><b><tt>&nbsp; protected int port;</tt></b>
+<p><b><tt>&nbsp; /** Register host and port. The connection won't</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; actually be established until you call</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; connect.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<p><b><tt>&nbsp; public NetworkClient(String host, int port) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.host = host;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.port = port;</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** Establishes the connection, then passes the socket</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; to handleConnection.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<p><b><tt>&nbsp; public void <font color="#3333FF">connect()</font> {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#3333FF">Socket
+client = new Socket(host, port);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handleConnection(client);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(UnknownHostException uhe) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Unknown host:
+" + host);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uhe.printStackTrace();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(IOException ioe) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("IOException:
+" + ioe);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ioe.printStackTrace();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** This is the method you will override when</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; making a network client for your task.</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; The default version sends a single line</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; ("Generic Network Client") to the server,</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; reads one line of response, prints it,
+then exits.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<p><b><tt>&nbsp; protected void <font color="#3333FF">handleConnection</font>(Socket
+client)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; throws IOException {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">PrintWriter out</font>
+= SocketUtil.getWriter(client);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">BufferedReader in</font>
+= SocketUtil.getReader(client);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">out.println("Generic
+Network Client");</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; System.out.println</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ("Generic Network Client:\n"
++</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Made connection to " +
+host +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " and got '" + <font color="#3333FF">in.readLine()</font>
++ "' in response");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; client.close();</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** The hostname of the server we're contacting. */</tt></b>
+<p><b><tt>&nbsp; public String getHost() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(host);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** The port connection will be made on. */</tt></b>
+<p><b><tt>&nbsp; public int getPort() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(port);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><i><font face="Arial,Helvetica">Part 2:&nbsp; SocketUtil.java</font></i>
+<p><b><tt>import java.net.*;</tt></b>
+<br><b><tt>import java.io.*;</tt></b>
+<p><b><tt>/** A shorthand way to create BufferedReaders and</tt></b>
+<br><b><tt>&nbsp;*&nbsp; PrintWriters associated with a Socket.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class SocketUtil {</tt></b>
+<br><b><tt>&nbsp; /** Make a BufferedReader to get incoming data. */</tt></b>
+<p><b><tt>&nbsp; public <font color="#3333FF">static BufferedReader getReader</font>(Socket
+s)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws IOException {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(new BufferedReader(</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new InputStreamReader(s.getInputStream())));</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** Make a PrintWriter to send outgoing data.</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; This PrintWriter will automatically flush
+stream</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; when println is called.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<p><b><tt>&nbsp; public <font color="#3333FF">static PrintWriter getWriter</font>(Socket
+s)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws IOException {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; // Second argument of true means autoflush.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(new PrintWriter(s.getOutputStream(),
+true));</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><i><font face="Arial,Helvetica">Part 3:&nbsp; NetworkClientTest.java</font></i>
+<p><b><tt>/** Make simple connection to host and port specified. */</tt></b>
+<p><b><tt>public class NetworkClientTest {</tt></b>
+<br><b><tt>&nbsp; public static void main(String[] args) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; String host = "localhost";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int port = 8088;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (args.length > 0) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; host = args[0];</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (args.length > 1) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; port = Integer.parseInt(args[1]);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">NetworkClient nwClient
+= new NetworkClient(host, port);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; nwClient.connect();</font></tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><i><font face="Arial,Helvetica">Part 4:&nbsp; <font color="#000099">Running
+Program</font></font></i>
+<br><b><tt><font size=+1>>java <font color="#3333FF">NetworkClientTest
+ftp.netscape.com 21</font></font></tt></b>
+<br><b><tt><font size=+1>Generic Network Client:</font></tt></b>
+<br><b><tt><font size=+1>Made Connection to ftp.netscape.com and got</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; `220 ftp26 FTP server (UNIX(r)
+System V Release 4.0)</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; ready.` in response</font></tt></b>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica"><font color="#000099">Parsing Strings with
+String Tokenizer</font></font></h3>
+<img SRC="fg1.gif" height=340 width=600>
+<p><img SRC="fg2.gif" height=393 width=600>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example : Interactive
+Tokenizer</font></font></b>
+<p><b><tt>import java.util.StringTokenizer;</tt></b>
+<p><b><tt>/** Prints the tokens resulting from treating the first</tt></b>
+<br><b><tt>&nbsp;*&nbsp; command-line argument as the string to be tokenized</tt></b>
+<br><b><tt>&nbsp;*&nbsp; and the second as the delimiter set.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class TokTest {</tt></b>
+<br><b><tt>&nbsp; public static void main(String[] args) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (args.length == 2) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String input = args[0], <font color="#3333FF">delimiters
+= args[1]</font>;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#3333FF">StringTokenizer
+tok =</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+new StringTokenizer(input, delimiters);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (<font color="#3333FF">tok.hasMoreTokens()</font>)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(<font color="#3333FF">tok.nextToken()</font>);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } else {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ("Usage: java TokTest
+string delimeters");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><font face="Arial,Helvetica">Output:</font></b>
+<br><img SRC="fg3.gif" height=118 width=652>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example : A Client
+to Verify Email Addresses</font></font></b>
+<p><img SRC="fg4.gif" height=386 width=600>
+<p><b><i><font face="Arial,Helvetica">Part 1: AddressVerifier.java</font></i></b>
+<p><b><tt>import java.net.*;</tt></b>
+<br><b><tt>import java.io.*;</tt></b>
+<p><b><tt>/** Given an e-mail address of the form user@host,</tt></b>
+<br><b><tt>&nbsp;*&nbsp; connect to port 25 of the host and issue an</tt></b>
+<br><b><tt>&nbsp;*&nbsp; 'expn' request for the user. Print the results.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class AddressVerifier <font color="#3333FF">extends NetworkClient</font>
+{</tt></b>
+<br><b><tt>&nbsp; private String username;</tt></b>
+<p><b><tt>&nbsp; public static void main(String[] args) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (args.length != 1) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; usage();</tt></b>
+<br><b><tt>&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; MailAddress address = new MailAddress(args[0]);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">AddressVerifier verifier</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = new AddressVerifier(address.getUsername(),</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+address.getHostname(), 25);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; verifier.<font color="#3333FF">connect()</font>;</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public AddressVerifier(String username, String hostname,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int port) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; super(hostname, port);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.username = username;</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** NetworkClient, the parent class, automatically establishes</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; the connection and then passes the Socket
+to</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; handleConnection. This method does all
+the real work</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; of talking to the mail server.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b>
+<p><b><tt>&nbsp; // You can't use readLine, because it blocks. Blocking
+I/O</tt></b>
+<br><b><tt>&nbsp; // by readLine is only appropriate when you know how
+many</tt></b>
+<br><b><tt>&nbsp; // lines to read. Note that mail servers send a varying</tt></b>
+<br><b><tt>&nbsp; // number of lines when you first connect or send no
+line</tt></b>
+<br><b><tt>&nbsp; // closing the connection (as HTTP servers do), yielding</tt></b>
+<br><b><tt>&nbsp; // null for readLine. Also, we'll assume that 1000 bytes</tt></b>
+<br><b><tt>&nbsp; // is more than enough to handle any server welcome</tt></b>
+<br><b><tt>&nbsp; // message and the actual EXPN response.</tt></b>
+<p><b><tt>&nbsp; protected void <font color="#3333FF">handleConnection(Socket
+client)</font> {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PrintWriter out = SocketUtil.getWriter(client);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InputStream in = client.getInputStream();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#3333FF">byte[]
+response = new byte[1000];</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Clear out mail server's welcome
+message.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#3333FF">in.read(response);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("EXPN " + username);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Read the response to the EXPN
+command.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int numBytes = <font color="#3333FF">in.read(response);</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // The 0 means to use normal
+ASCII encoding.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.write(response, 0,
+numBytes);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println("QUIT");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; client.close();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(IOException ioe) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Couldn't
+make connection: " + ioe);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; /** If the wrong arguments, then warn user. */</tt></b>
+<p><b><tt>&nbsp; public static void usage() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; System.out.println ("You must supply an email
+address " +</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "of the form 'username@hostname'.");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; System.exit(-1);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><i><font face="Arial,Helvetica">Part 2: MailAddress.java</font></i></b>
+<p><b><tt>import java.util.*;</tt></b>
+<p><b><tt>/** Takes a string of the form "user@host" and</tt></b>
+<br><b><tt>&nbsp;*&nbsp; separates it into the "user" and "host" parts.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b>
+<p><b><tt>public class MailAddress {</tt></b>
+<br><b><tt>&nbsp; private String username, hostname;</tt></b>
+<p><b><tt>&nbsp; public MailAddress(String emailAddress) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; StringTokenizer tokenizer</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <font color="#3333FF">new StringTokenizer(emailAddress,
+"@");</font></tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.<font color="#3333FF">username</font>
+= getArg(tokenizer);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.<font color="#3333FF">hostname</font>
+= getArg(tokenizer);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; private static String getArg(StringTokenizer tok) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try { return(tok.nextToken()); }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; catch (NoSuchElementException nsee) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Illegal email
+address");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.exit(-1);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return(null);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public String getUsername() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(username);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<p><b><tt>&nbsp; public String getHostname() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return(hostname);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><font face="Arial,Helvetica">Output:</font></b>
+<br><img SRC="fg5.gif" height=127 width=608>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example : A Class
+to retrieve a Given URL</font></font></b>
+<p><b><tt><font color="#000000">import java.util.*;</font></tt></b>
+<p><b><tt><font color="#000000">/** This parses the input to get a host,
+port, and file, then</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; passes these three values
+to the UriRetriever class to</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; grab the URL from the Web.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class UrlRetriever {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public static void main(String[]
+args) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; checkUsage(args);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; StringTokenizer tok
+= new StringTokenizer(args[0]);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String protocol = tok.nextToken(":");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; checkProtocol(protocol);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String host = tok.nextToken(":/");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String uri;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; int port = 80;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uri = tok.nextToken("");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (uri.charAt(0)
+== ':') {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tok = new StringTokenizer(uri);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+port = Integer.parseInt(tok.nextToken(":/"));</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+uri = tok.nextToken("");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } catch(NoSuchElementException
+nsee) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uri = "/";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">UriRetriever
+uriClient = new UriRetriever(host, port, uri);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; uriClient.connect();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Warn user if the URL was forgotten.
+*/</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private static void checkUsage(String[]
+args) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (args.length !=
+1) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Usage:
+UrlRetriever &lt;URL>");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.exit(-1);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Tell user that this can only
+handle HTTP. */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private static void checkProtocol(String
+protocol) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (!protocol.equals("http"))
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Don't
+understand protocol " + protocol);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.exit(-1);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><b><font face="Arial,Helvetica">Output:</font></b>
+<br><img SRC="fg6.gif" height=429 width=603>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example : A Class
+to retrieve a Given URL using </font><font color="#FF0000">Java's<i> URL
+Class</i></font></font></b>
+<p><b><tt><font color="#000099">i</font><font color="#000000">mport java.net.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<p><b><tt><font color="#000000">/** Read a remote file using the standard
+URL class</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; instead of connecting explicitly
+to the HTTP server.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class UrlRetriever2 {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public static void main(String[]
+args) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; checkUsage(args);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3333FF">&nbsp;
+URL url = new URL(args[0]);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BufferedReader
+in = new BufferedReader(</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+new InputStreamReader(</font><font color="#3333FF">url.openStream()</font><font color="#000000">));</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String
+line;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">while
+((line = in.readLine()) != null) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.println("> " + line);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; in.close();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } catch(MalformedURLException
+mue) { // URL constructor</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.println(args[0] + "is an invalid URL: " + mue);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } catch(IOException
+ioe) { // Stream constructors</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("IOException:
+" + ioe);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private static void checkUsage(String[]
+args) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (args.length !=
+1) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Usage:
+UrlRetriever2 &lt;URL>");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.exit(-1);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><b><font face="Arial,Helvetica">Output:</font></b>
+<br><img SRC="fg7.gif" height=325 width=605>
+<p><img SRC="fg8.gif" height=398 width=600>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example : Using
+URL Methods</font></font></b>
+<p><b><tt><font color="#000000">import java.net.*;</font></tt></b>
+<p><b><tt><font color="#000000">/** Read a URL from the command line, then
+print</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; the various components.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class UrlTest {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public static void main(String[]
+args) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (args.length ==
+1) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3333FF">
+URL url = new URL(args[0]);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.println</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+("URL: " + url.toExternalForm() + "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; File:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " + url.</font><font color="#3333FF">getFile</font><font color="#000000">()
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; Host:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " + url.</font><font color="#3333FF">getHost</font><font color="#000000">()
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; Port:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " + url.</font><font color="#3333FF">getPort</font><font color="#000000">()
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; Protocol:&nbsp; " + url.</font><font color="#3333FF">getProtocol</font><font color="#000000">()
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"&nbsp; Reference: " + url.</font><font color="#3333FF">getRef</font><font color="#000000">());</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch(MalformedURLException
+mue) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.println("Bad URL.");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } else</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Usage:
+UrlTest &lt;URL>");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><b><font face="Arial,Helvetica">Output:</font></b>
+<br><img SRC="fg9.gif" height=128 width=589>
+<br><font face="Arial,Helvetica">Note: If Port is not explicitly stated
+in the URL, then the standard port for the protocol is assumed and </font><b><tt><font color="#3333FF"><font size=+1>getPort
+</font></font></tt></b><font face="Arial,Helvetica">returns
+-1</font>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000066">Implementing a Server</font></font></b></h3>
+
+<ol>
+<li>
+<font face="Arial,Helvetica"><font color="#000000">Create a ServerSocket
+object</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font color="#000000">Create a Server object
+from ServerSocket</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font color="#000000">Create an input stream</font></font></li>
+
+<li>
+<font face="Arial,Helvetica">Create an output stream</font></li>
+
+<li>
+<font face="Arial,Helvetica">Do I/O with the input and output streams</font></li>
+
+<li>
+<font face="Arial,Helvetica">Close the socket</font></li>
+</ol>
+<b><font face="Arial,Helvetica"><font color="#000099">Example : Generic
+Network Server</font></font></b>
+<br><i><font face="Arial,Helvetica"><font color="#000099">Part 1:&nbsp;
+NetworkServer.java</font></font></i>
+<p><b><tt><font color="#000000">import java.net.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<p><b><tt><font color="#000000">/** A starting point for network servers.
+You'll need to</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; override handleConnection,
+but in many cases listen can</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; remain unchanged. NetworkServer
+uses SocketUtil to simplify</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; the creation of the PrintWriter
+and BufferedReader.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class </font><font color="#3333FF">NetworkServer</font><font color="#000000">
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private int port, maxConnections;</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Build a server on specified
+port. It will continue to</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; accept connections,
+passing each to handleConnection until</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; an explicit exit
+command is sent (e.g., System.exit) or</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; the maximum number
+of connections is reached. Specify</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; 0 for maxConnections
+if you want the server to run</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; indefinitely.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public NetworkServer(int port, int
+maxConnections) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; setPort(port);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; setMaxConnections(maxConnections);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Monitor a port for connections.
+Each time one is</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; established, pass
+resulting Socket to handleConnection.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void </font><font color="#3333FF">listen</font><font color="#000000">()
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; int i=0;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">ServerSocket
+listener = new ServerSocket(port);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Socket
+server;</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while((i++
+&lt; maxConnections) || (maxConnections == 0)) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+server = listener.accept();</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+handleConnection(server);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } catch (IOException
+ioe) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("IOException:
+" + ioe);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ioe.printStackTrace();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** This is the method that provides
+the behavior to the</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; server, since it
+determines what is done with the</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; resulting socket.
+&lt;B>Override this method in servers</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; you write.&lt;/B></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; &lt;P></font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; This generic version
+simply reports the host that made</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; the connection, shows
+the first line the client sent,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; and sends a single
+line in response.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; protected void </font><font color="#3333FF">handleConnection</font><font color="#000000">(Socket
+server)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+IOException{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; BufferedReader in =
+</font><font color="#3333FF">SocketUtil.getReader(server)</font><font color="#000000">;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; PrintWriter out = </font><font color="#3333FF">SocketUtil.getWriter(server)</font><font color="#000000">;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; System.out.println</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ("Generic
+Network Server: got connection from " +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server.getInetAddress().getHostName()
++ "\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "with
+first line '" + </font><font color="#3333FF">in.readLine()</font><font color="#000000">
++ "'");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println("Generic
+Network Server");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">server.close()</font><font color="#000000">;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Gets the max connections server
+will handle before</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; exiting. A value
+of 0 indicates that server should run</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; until explicitly
+killed.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public int getMaxConnections() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(maxConnections);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Sets max connections. A value
+of 0 indicates that server</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; should run indefinitely
+(until explicitly killed).</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void setMaxConnections(int
+maxConnections) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.maxConnections
+= maxConnections;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Gets port on which server is
+listening. */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public int getPort() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(port);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Sets port. &lt;B>You can only
+do before "connect" is</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; called.&lt;/B> That
+usually happens in the constructor.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; protected void setPort(int port)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.port = port;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><i><font face="Arial,Helvetica"><font color="#000099">Part 2:&nbsp;
+NetworkServerTest.java</font></font></i>
+<p><b><tt>public class NetworkServerTest {</tt></b>
+<br><b><tt>&nbsp; public static void main(String[] args) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; int port = 8088;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (args.length > 0) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; port = Integer.parseInt(args[0]);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; <font color="#3333FF">NetworkServer nwServer
+= new NetworkServer(port, 1);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; nwServer.listen();</font></tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<h3>
+<b><font face="Arial,Helvetica">Output</font></b></h3>
+<b><font face="Arial,Helvetica">1st - Start server on host system at some
+port, say 6001</font></b>
+<br><img SRC="fg10.gif" height=90 width=570>
+<p><b><font face="Arial,Helvetica">2nd - Start client on host system&nbsp;
+port 6001</font></b>
+<br><img SRC="fg11.gif" height=79 width=592>
+<br>&nbsp;
+<p><img SRC="fg12.gif" height=404 width=600>
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example : EchoServer</font></font></b>
+<p><b><tt><font color="#000000">import java.net.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.util.StringTokenizer;</font></tt></b>
+<p><b><tt><font color="#000000">/** A simple HTTP server that generates
+a Web page showing all</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; of the data that it received
+from the Web client (usually</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; a browser). To use this
+server, start it on the system of</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; your choice, supplying a
+port number if you want something</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; other than port 8088. Call
+this system server.com. Next,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; start a Web browser on the
+same or a different system, and</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; connect to http://server.com:8088/whatever.
+The resultant</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; Web page will show the data
+that your browser sent. For</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; debugging in servlet or
+CGI programming, specify</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; http://server.com:8088/whatever
+as the ACTION of your HTML</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; form. You can send GET or
+POST data; either way, the</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; resultant page will show
+what your browser sent.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">public class EchoServer </font><font color="#3333FF">extends
+NetworkServer</font><font color="#000000"> {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; protected int maxRequestLines =
+50;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; protected String serverName = "EchoServer";</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Supply a port number as a command-line</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; argument. Otherwise,
+use port 8088.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public static void main(String[]
+args) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; int port = 8088;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (args.length > 0)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+port = Integer.parseInt(args[0]);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch(NumberFormatException
+nfe) {}</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; new EchoServer(port,
+0);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public EchoServer(int port, int
+maxConnections) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; super(port, maxConnections);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; listen();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** Overrides the NetworkServer
+handleConnection method to</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; read each line of
+data received, save it into an array</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; of strings, then
+send it back embedded inside a PRE</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; element in an HTML
+page.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void </font><font color="#3333FF">handleConnection</font><font color="#000000">(Socket
+server)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+IOException{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; System.out.println</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(serverName + ": got connection from " +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+server.getInetAddress().getHostName());</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; BufferedReader in =
+SocketUtil.getReader(server);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; PrintWriter out = SocketUtil.getWriter(server);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String[] inputLines
+= new String[maxRequestLines];</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; int i;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; for (i=0; i&lt;maxRequestLines;
+i++) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">inputLines[i]
+= in.readLine();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (inputLines[i]
+== null) // Client closed connection.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (inputLines[i].length()
+== 0) { // Blank line.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (usingPost(inputLines)) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+readPostData(inputLines, i, in);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+i = i + 2;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">printHeader(out);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; for (int j=0; j&lt;i;
+j++) {</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out.println(inputLines[j]);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; printTrailer(out);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; server.close();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; // Send standard HTTP response and
+top of a standard Web page.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; // Use HTTP 1.0 for compatibility
+with all clients.</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private void printHeader(PrintWriter
+out) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ("HTTP/1.0
+200 OK\r\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Server:
+" + serverName + "\r\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Content-Type:
+text/html\r\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "\r\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;!DOCTYPE
+HTML PUBLIC " +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"\"-//W3C//DTD HTML 4.0 Transitional//EN\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;HTML>\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;HEAD>\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&nbsp;
+&lt;TITLE>" + serverName + " Results&lt;/TITLE>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;/HEAD>\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;BODY
+BGCOLOR=\"#FDF5E6\">\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;H1
+ALIGN=\"CENTER\">" + serverName +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+" Results&lt;/H1>\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Here
+is the request line and request headers\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "sent
+by your browser:\n" +</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;PRE>");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; // Print bottom of a standard Web
+page.</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private void printTrailer(PrintWriter
+out) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; out.println</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ("&lt;/PRE>\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;/BODY>\n"
++</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;/HTML>\n");</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; // Normal Web page requests use
+GET, so this server can simply</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; // read a line at a time. However,
+HTML forms can also use</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; // POST, in which case we have
+to determine the number of POST</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; // bytes that are sent so we know
+how much extra data to read</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; // after the standard HTTP headers.</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private boolean usingPost(String[]
+inputs) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(inputs[0].toUpperCase().startsWith("POST"));</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private void readPostData(String[]
+inputs, int i,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BufferedReader in)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws
+IOException {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; int contentLength =
+contentLength(inputs);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; char[] postData = new
+char[contentLength];</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; in.read(postData, 0,
+contentLength);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; inputs[++i] = new String(postData,
+0, contentLength);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; // Given a line that starts with
+Content-Length,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; // this returns the integer value
+specified.</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private int contentLength(String[]
+inputs) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; String input;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; for (int i=0; i&lt;inputs.length;
+i++) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (inputs[i].length()
+== 0)</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; input =
+inputs[i].toUpperCase();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (input.startsWith("CONTENT-LENGTH"))</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(getLength(input));</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(0);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; private int getLength(String length)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; StringTokenizer tok
+= new StringTokenizer(length);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; tok.nextToken();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return(Integer.parseInt(tok.nextToken()));</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<h3>
+<b><font face="Arial,Helvetica">Output</font></b></h3>
+<b><font face="Arial,Helvetica">1st - Start server on host system at some
+port, say 6001</font></b>
+<br><img SRC="fg13.gif" height=44 width=477>
+<p><b><font face="Arial,Helvetica">2nd - Access server with Browser</font></b>
+<p><img SRC="fg14.gif" height=324 width=600>
+<br>&nbsp;
+<p><b><font face="Arial,Helvetica"><font color="#000099">Example : EchoServer
+with Multithreading</font></font></b>
+<p><b><tt><font color="#000000">import java.net.*;</font></tt></b>
+<br><b><tt><font color="#000000">import java.io.*;</font></tt></b>
+<p><b><tt><font color="#000000">/** A multithreaded variation of EchoServer.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">public class ThreadedEchoServer </font><font color="#3333FF">extends
+EchoServer</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+implements Runnable</font><font color="#000000"> {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; public static void main(String[]
+args) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; int port = 8088;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; if (args.length > 0)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+port = Integer.parseInt(args[0]);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch(NumberFormatException
+nfe) {}</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; ThreadedEchoServer
+echoServer =</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new ThreadedEchoServer(port,
+0);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; echoServer.serverName
+= "Threaded EchoServer";</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public ThreadedEchoServer(int port,
+int connections) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; super(port, connections);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; /** The new version of handleConnection
+starts a thread. This</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; new thread will call
+back to the &lt;I>old&lt;/I> version of</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; handleConnection,
+resulting in the same server behavior</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; in a multithreaded
+version. The thread stores the Socket</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; instance since run
+doesn't take any arguments, and since</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; storing the socket
+in an instance variable risks having</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; it overwritten if
+the next thread starts before the run</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; *&nbsp; method gets a chance
+to copy the socket reference.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp; */</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void handleConnection(Socket
+server) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">Connection
+connectionThread = new Connection(this, server);</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; connectionThread.start();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public void run() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">Connection
+currentThread =</font></tt></b>
+<br><b><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Connection)Thread.currentThread();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; try {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#3333FF">super.handleConnection(currentThread.getSocket());</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; } catch(IOException
+ioe) {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("IOException:
+" + ioe);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ioe.printStackTrace();</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><b><tt><font color="#000000">/** This is just a Thread with a field
+to store a Socket object.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; Used as a thread-safe means
+to pass the Socket from</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*&nbsp; handleConnection to run.</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;*/</font></tt></b>
+<p><b><tt><font color="#000000">class Connection extends Thread {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; private Socket </font><font color="#3333FF">serverSocket;</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public Connection(Runnable serverObject,</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Socket </font><font color="#3333FF">serverSocket</font><font color="#000000">)
+{</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; super(serverObject);</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; this.serverSocket =
+serverSocket;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<p><b><tt><font color="#000000">&nbsp; public Socket getSocket() {</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; return serverSocket;</font></tt></b>
+<br><b><tt><font color="#000000">&nbsp; }</font></tt></b>
+<br><b><tt><font color="#000000">}</font></tt></b>
+<p><b><font face="Arial,Helvetica">Output - System providing 2 threads
+to 2 clients</font></b>
+<br><img SRC="fg15.gif" height=56 width=511>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

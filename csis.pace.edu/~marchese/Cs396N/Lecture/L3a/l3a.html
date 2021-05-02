@@ -1,0 +1,351 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>l3a</title>
+</head>
+<body text="#000000" bgcolor="#ECECEC" link="#0080FF" vlink="#FF0000" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr>
+<td><font face="Arial,Helvetica">CS396N - Web Programming</font></td>
+</tr>
+
+<tr>
+<td><font face="Arial,Helvetica">Spring 2002</font></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><font face="Arial,Helvetica">Java 2D</font></td>
+</tr>
+</table>
+
+<p><img SRC="Image1.jpg" height=396 width=670>
+<br>&nbsp;
+<p><img SRC="Image2.jpg" height=402 width=678>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica">Java2D Drawing Process:</font></h2>
+
+<h2>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Step 1</font></font></i></h2>
+<img SRC="Image3.jpg" height=400 width=664>
+<br>&nbsp;
+<h2>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Step 2</font></font></i></h2>
+<img SRC="Image4.jpg" height=344 width=538>
+<br>&nbsp;
+<h2>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Step 3</font></font></i></h2>
+<img SRC="Image5.jpg" height=388 width=636>
+<br>&nbsp;
+<h2>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Built-in Shape Classes</font></font></i></h2>
+<img SRC="Image6.jpg" height=254 width=660>
+<br>&nbsp;
+<h2>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Step 4</font></font></i></h2>
+<img SRC="Image7.jpg" height=152 width=612>
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example 1</font></font></i></h3>
+<font face="Arial,Helvetica">Draw Rectangle and Filled Circle</font>
+<br><img SRC="Image8.jpg" height=479 width=408>
+<p><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.*;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// For Graphics, etc.</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.geom.*; // For Ellipse2D, etc.</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>public class ShapeExample2 extends Applet {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private Ellipse2D.Double circle =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new Ellipse2D.Double(10, 10,
+350, 350);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private Rectangle2D.Double square =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new Rectangle2D.Double(10,
+10, 350, 350);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;public void init()</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;setSize (400,400); <font color="#FF0000">//
+sets image size</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp;}</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void paint(Graphics g) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; Graphics2D g2d = (Graphics2D)g;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.fill(circle);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(square);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp;&nbsp; protected Ellipse2D.Double getCircle()
+{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; return(circle);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>}</font></tt></b>
+<br><b><tt><font size=+1></font></tt></b>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example 2</font></font></i></h3>
+
+<h3>
+<font face="Arial,Helvetica">Draw Gradient Filled Circle</font></h3>
+<b><tt></tt></b>
+<p><br><img SRC="Image9.jpg" height=479 width=408>
+<p><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.*;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// For Graphics, etc.</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.geom.*; // For Ellipse2D, etc.</font></tt></b>
+<br><b><tt><font size=+1></font></tt></b>&nbsp;<b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>public class GradientPaintExample2 extends Applet
+{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;private Ellipse2D.Double circle =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new Ellipse2D.Double(10, 10,
+350, 350);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; <font color="#3333FF">private GradientPaint
+gradient =</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; new GradientPaint(0,
+0, Color.red, 175, 175, Color.yellow,</font></font></tt></b>
+<br><b><tt><font size=+1><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true);</font> <font color="#FF0000">// true means to repeat pattern</font></font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp;public void init()</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;{</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; setSize (400,400);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;}</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void paint(Graphics g) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; Graphics2D g2d = (Graphics2D)g;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawGradientCircle(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; protected void drawGradientCircle(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(gradient);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.fill(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.black);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>protected Ellipse2D.Double getCircle() {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; return(circle);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<h2>
+<b><font face="Arial,Helvetica"><font size=+1>Stroke Styles</font></font></b></h2>
+<img SRC="Image12.jpg" height=408 width=668>
+<br><b><tt></tt></b>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example 3</font></font></i></h3>
+
+<h3>
+<font face="Arial,Helvetica"><font color="#000000">Stroke Thickness</font></font></h3>
+<img SRC="Image10.jpg" height=479 width=408>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.geom.*;</font></tt></b><tt><font size=+1></font></tt>
+<p><b><tt><font size=+1>public class StrokeThicknessExample2 extends Applet
+{</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; private Ellipse2D.Double circle =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new Ellipse2D.Double(10, 10,
+350, 350);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private GradientPaint gradient =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new GradientPaint(0, 0, Color.red,
+175, 175, Color.yellow,</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true); // true means to repeat pattern</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void init()</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; <font color="#3333FF">GraphicsEnvironment
+env =</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GraphicsEnvironment.getLocalGraphicsEnvironment();</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; env.getAvailableFontFamilyNames();</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; setFont(new
+Font("Counterscraps", Font.PLAIN, 75));</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp; setSize(400,400);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void paint(Graphics g) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; Graphics2D g2d = (Graphics2D)g;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawGradientCircle(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawBigString(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawThickCircleOutline(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; protected void drawGradientCircle(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(gradient);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.fill(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.black);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; protected void drawBigString(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.black);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.drawString("Java 2D", 25,
+215);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; protected void drawThickCircleOutline(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; <font color="#3333FF">g2d.setStroke(new
+BasicStroke(8)); </font><font color="#FF6666">// 8-pixel wide pen</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>protected Ellipse2D.Double getCircle() {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; return(circle);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<br><b><tt></tt></b>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example 4</font></font></i></h3>
+
+<h3>
+<font face="Arial,Helvetica"><font color="#000000">Dashed Stroke</font></font></h3>
+<img SRC="Image11.jpg" height=479 width=408>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.geom.*;</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>public class DashedStrokeExample2 extends Applet
+{</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; private Ellipse2D.Double circle =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new Ellipse2D.Double(10, 10,
+350, 350);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private GradientPaint gradient =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new GradientPaint(0, 0, Color.red,
+175, 175, Color.yellow,</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true); // true means to repeat pattern</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void init()</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; G<font color="#3333FF">raphicsEnvironment
+env =</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GraphicsEnvironment.getLocalGraphicsEnvironment();</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; env.getAvailableFontFamilyNames();</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; setFont(new
+Font("Counterscraps", Font.PLAIN, 75));</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp; setSize(400,400);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void paint(Graphics g) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; Graphics2D g2d = (Graphics2D)g;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawGradientCircle(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawBigString(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawDashedCircleOutline(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; protected void drawGradientCircle(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(gradient);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.fill(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.black);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; protected void drawBigString(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.black);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.drawString("Java 2D", 25,
+215);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>&nbsp; protected void drawDashedCircleOutline(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; <font color="#FF6666">// 30-pixel
+line, 10-pixel gap, 10-pixel line, 10-pixel gap</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; <font color="#3333FF">float[]
+dashPattern = { 30, 10, 10, 10 };</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setStroke(new
+BasicStroke(8, BasicStroke.CAP_BUTT,</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BasicStroke.JOIN_MITER, 10,</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+dashPattern, 0));</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>protected Ellipse2D.Double getCircle() {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; return(circle);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+<br>&nbsp;
+<h2>
+<font face="Arial,Helvetica">Coordinate Transforms</font></h2>
+<img SRC="Image13.jpg" height=392 width=650>
+<br>&nbsp;
+<h3>
+<i><font face="Arial,Helvetica"><font color="#3333FF">Example 5</font></font></i></h3>
+
+<h3>
+<font face="Arial,Helvetica"><font color="#000000">Rotation</font></font></h3>
+<img SRC="Image14.jpg" height=479 width=408>
+<p><b><tt><font size=+1>import java.awt.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.applet.*;</font></tt></b>
+<br><b><tt><font size=+1>import java.awt.geom.*;</font></tt></b><b><tt><font size=+1></font></tt></b>
+<p><b><tt><font size=+1>public class RotationExample2 extends Applet {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private Color[] colors = { Color.white,
+Color.black };</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private Ellipse2D.Double circle =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new Ellipse2D.Double(10, 10,
+350, 350);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; private GradientPaint gradient =</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; new GradientPaint(0, 0, Color.red,
+175, 175, Color.yellow,</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+true); // true means to repeat pattern</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void init()</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; setSize(400,400);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; public void paint(Graphics g) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; Graphics2D g2d = (Graphics2D)g;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawGradientCircle(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; drawThickCircleOutline(g2d);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;g2d.setFont(new Font("Serif",Font.ITALIC,90));</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;<font color="#009900">// Move the origin
+to the center of the circle.</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; <font color="#3333FF">g2d.translate(185.0,
+185.0);</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; <font color="#3333FF">for (int
+i=0; i&lt;16; i++) {</font></font></tt></b>
+<br><b><tt><font size=+1><font color="#3333FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font><font color="#009900">// Rotate the coordinate system around current</font></font></tt></b>
+<br><b><tt><font color="#009900"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// origin, which is at the center of the circle.</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+g2d.rotate(Math.PI/8.0);</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+g2d.setPaint(colors[i%2]);</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+g2d.drawString("Java", 0, 0);</font></font></tt></b>
+<br><b><tt><font color="#3333FF"><font size=+1>&nbsp;&nbsp;&nbsp; }</font></font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; protected void drawGradientCircle(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(gradient);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.fill(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.black);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; protected void drawThickCircleOutline(Graphics2D
+g2d) {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setPaint(Color.blue);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.setStroke(new BasicStroke(8));
+// 8-pixel wide pen</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; g2d.draw(getCircle());</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>protected Ellipse2D.Double getCircle() {</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;&nbsp;&nbsp; return(circle);</font></tt></b>
+<br><b><tt><font size=+1>&nbsp; }</font></tt></b>
+<br><b><tt><font size=+1>&nbsp;</font></tt></b>
+<br><b><tt><font size=+1>}</font></tt></b>
+</body>
+</html>

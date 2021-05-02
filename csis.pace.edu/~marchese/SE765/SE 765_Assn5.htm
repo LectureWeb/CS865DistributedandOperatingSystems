@@ -1,0 +1,1190 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman","serif";}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman","serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=1236
+ style='width:927.0pt;background:#FBD4B4;border-collapse:collapse'>
+ <tr style='height:21.0pt'>
+  <td width=1236 style='width:927.0pt;padding:0in 5.4pt 0in 5.4pt;height:21.0pt'>
+  <p class=MsoNormal style='line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Verdana","sans-serif"'>SE 765 - Distributed Software Development
+  (CRN 73169)</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:21.0pt'>
+  <td width=1236 style='width:927.0pt;background:#DBE5F1;padding:0in 5.4pt 0in 5.4pt;
+  height:21.0pt'>
+  <p class=MsoNormal style='line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Verdana","sans-serif"'>CS 610 - Introduction to Parallel and
+  Distributed Computing (CRN 73173)</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal'><b><span style='font-size:12.0pt;
+font-family:"Verdana","sans-serif"'>Assignment #5</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:12.0pt;font-family:"Verdana","sans-serif"'>To
+be begun in class and completed at home. The final program, a snapshot of its
+workings, and answers to questions should be emailed to me by 6PM, December 10<sup>th</sup>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>Simple
+client/server in Erlang exercise.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.0pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>1</span></b><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif"'>     </span><b><span
+style='font-size:14.5pt;font-family:"Arial","sans-serif"'>Introduction</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.0pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>You
+will build a simple client server system in Erlang.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+15.8pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:14.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>2</span></b><span style='font-size:12.0pt;
+line-height:99%;font-family:"Times New Roman","serif"'>     </span><b><span
+style='font-size:13.5pt;line-height:99%;font-family:"Arial","sans-serif"'>A simple
+server</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.1pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>A server generally has some state. Thus we
+have to use patterns similar to the following:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:272.0pt;margin-bottom:
+0in;margin-left:14.0pt;margin-bottom:.0001pt;text-indent:-5.15pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>server(State) -&gt; receive</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.4pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:19.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>some_request  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.55pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:29.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>%%.....  
+do   some   stuff</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:130.0pt;margin-bottom:
+0in;margin-left:29.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>%% ..... compute the new state NewState
+server(NewState)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:14.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:20.0pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:normal;punctuation-wrap:
+simple;text-autospace:none'><b><span style='font-size:9.5pt;font-family:"Arial","sans-serif"'>You
+will extend the following very simple server. Your server should have one piece
+of state, a value that records how many times it has been called.</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:20.0pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:normal;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:277.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-21.0pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>server(State) -&gt; receive</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>{request,Return_PID}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:124.0pt;margin-bottom:.0001pt;text-indent:-.8in;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>io:format(&quot;SERVER ~w: Client
+request received from ~w~n&quot;, [self(), Return_PID]) ,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.55pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>NewState  
+=   State   +   1,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.45pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>Return_PID  
+!   {hit_count,NewState},</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:12.0pt;line-height:99%;font-family:"Courier New"'>server(NewState)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:12.0pt;line-height:99%;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>The  client  is  simpler,  it  takes  as  a 
+parameter  the  server  PID,  sends  a  request, and  prints  out  a  value.</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:10.55pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>client(Server_Address)  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>Server_Address  
+!   {request,   self()},</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>receive</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>{hit_count,Number}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>io:format(&quot;CLIENT  
+~w:   Hit   count   was   ~w~n&quot;,[self(),   Number])</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+"Courier New"'>    end.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>Combine server and client in one  file 
+named  </span></b><span style='font-size:10.0pt;line-height:115%;font-family:
+"Courier New"'>simple.erl</span><b><span style='font-size:10.0pt;line-height:
+115%;font-family:"Arial","sans-serif"'>  and  try  it.  .</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:10.55pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>-module(simple).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>-export([server/1,client/1,start/0]).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>  server(State)  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>receive</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>{request,Return_PID}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>io:format(&quot;SERVER  
+~w:   Client   request   received   from   ~w~n&quot;,</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:124.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>[self(),  
+Return_PID])   ,</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>NewState   =  
+State   +   1,</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>Return_PID   !  
+{hit_count,NewState},</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>server(NewState)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>client(Server_Address)  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>Server_Address  
+!   {request,   self()},</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>receive</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>{hit_count,Number}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>io:format(&quot;CLIENT  
+~w:   Hit   count   was   ~w~n&quot;,[self(),   Number])</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:normal;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>start()   -&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:11.45pt;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>Server_PID   =  
+spawn(simple,server,[0]),</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+"Courier New"'>spawn(simple,client,[Server_PID]).</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>Compile  and  run this code  from  the 
+Erlang  shell</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>3</span></b><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif"'>     </span><b><span
+style='font-size:14.0pt;font-family:"Arial","sans-serif"'>Many  clients</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.0pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+95%;punctuation-wrap:simple;text-autospace:none'><b><span style='font-size:
+10.0pt;line-height:95%;font-family:"Arial","sans-serif"'>Add the following
+function to spawn multiple clients:</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+95%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:12.0pt;
+line-height:95%;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:215.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-21.0pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>spawn_n(N,Server_PID) -&gt; if</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:99.0pt;margin-bottom:
+0in;margin-left:66.0pt;margin-bottom:.0001pt;text-indent:-20.9pt;line-height:
+normal;punctuation-wrap:simple;text-autospace:none'><span style='font-size:
+10.0pt;font-family:"Courier New"'>N&gt;0 -&gt;
+spawn(simple,client,[Server_PID]),</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+11.15pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:82.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-16.1pt;
+line-height:normal;punctuation-wrap:simple;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>%%<span style='font:7.0pt "Times New Roman"'>
+</span></span><span style='font-size:10.0pt;font-family:"Courier New"'>Use a random
+sleep in  miliseconds to simulate the </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.85pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:105.0pt;margin-bottom:
+0in;margin-left:66.0pt;margin-bottom:.0001pt;text-indent:-.1pt;line-height:
+118%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:118%;font-family:"Courier New"'>%%<span style='font:7.0pt "Times New Roman"'>
+</span></span><span style='font-size:10.0pt;line-height:118%;font-family:"Courier New"'>client
+traffic pattern. timer:sleep(random:uniform(100)), </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:105.0pt;margin-bottom:
+0in;margin-left:29.9pt;margin-bottom:.0001pt;text-indent:.5in;line-height:118%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:118%;font-family:"Courier New"'>spawn_n(N-1,Server_PID); </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:55.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-9.95pt;
+line-height:99%;punctuation-wrap:simple;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>N<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.0pt;line-height:99%;font-family:"Courier New"'>==   0      -&gt; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.55pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>io:format(&quot;Last  
+client   spawned.~n&quot;)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.55pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>4</span></b><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif"'>     </span><b><span
+style='font-size:14.0pt;font-family:"Arial","sans-serif"'>Questions</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+18.45pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>You should turn in (email to me)  answers 
+to  the  questions  below .</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+9.05pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>Question 1:   In  the  simple  server</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:277.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-21.0pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:277.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-21.0pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>server(State) -&gt; receive</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>{request,Return_PID}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:118.0pt;margin-bottom:.0001pt;text-indent:-52.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>io:format(&quot;SERVER ~w: Client
+request received from ~w~n&quot;, [self(), Return_PID]),</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>NewState  
+=   State   +   1,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:119.0pt;margin-bottom:
+0in;margin-left:66.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>Return_PID ! {hit_count,NewState}, server(NewState)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>What does the following line do?</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:63.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>Return_PID  
+!   {hit_count,NewState},</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>Question  2:   In  the  simple  client</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:168.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-21.0pt;line-height:
+normal;punctuation-wrap:simple;text-autospace:none'><span style='font-size:
+10.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:168.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-21.0pt;line-height:
+normal;punctuation-wrap:simple;text-autospace:none'><span style='font-size:
+10.0pt;font-family:"Courier New"'>client(Server_Address) -&gt; Server_Address !
+{request, self()}, receive</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>{hit_count,Number}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.55pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>io:format(&quot;CLIENT  
+~w:   Hit   count   was   ~w~n&quot;,[self(),   Number])</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.45pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+16.35pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>What  does  </span></b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>self()</span><b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Arial","sans-serif"'>  do 
+and  why  is  it  used  in  this  example?</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+9.05pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>Question 3:    In the  simple  </span></b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>start()</span><b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Arial","sans-serif"'> function 
+what  does the following line do?</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:21.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>spawn(simple,client,[Server_PID]).</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>5</span></b><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif"'>     </span><b><span
+style='font-size:14.0pt;font-family:"Arial","sans-serif"'>Add functionality to the
+client and server</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.0pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+94%;punctuation-wrap:simple;text-autospace:none'><b><span style='font-size:
+10.0pt;line-height:94%;font-family:"Arial","sans-serif"'>Start with the </span></b><span
+style='font-size:10.0pt;line-height:94%;font-family:"Arial","sans-serif"'>simple.erl<b>
+file and add functionality by following the steps below. Submit the completed </b></span><span
+style='font-size:10.0pt;line-height:94%;font-family:"Courier New"'>simple.erl</span><b><span
+style='font-size:10.0pt;line-height:94%;font-family:"Arial","sans-serif"'> file.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.75pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+111%;punctuation-wrap:simple;text-autospace:none'><b><span style='font-size:
+10.0pt;line-height:111%;font-family:"Arial","sans-serif"'>Step 1: Modify </span></b><b><span
+style='font-size:10.0pt;line-height:111%;font-family:"Courier New"'>start()</span></b><b><span
+style='font-size:10.0pt;line-height:111%;font-family:"Arial","sans-serif"'> to
+take a single parameter which is the number of clients that have to be spawned.
+Don’t forget to modify the </span></b><span style='font-size:10.0pt;line-height:
+111%;font-family:"Courier New"'>export</span><b><span style='font-size:10.0pt;
+line-height:111%;font-family:"Arial","sans-serif"'> directives correctly.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+9.5pt;text-autospace:none'><span style='position:relative;z-index:251661309'><span
+style='position:absolute;left:0px;top:-16px;width:44px;height:1px'><img
+width=44 height=1 src="SE%20765_Assn5_files/image001.png"></span></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:20.0pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:normal;punctuation-wrap:
+simple;text-autospace:none'><b><span style='font-size:9.5pt;font-family:"Arial","sans-serif"'>Step
+2: The owner of the server should have the right to query the count without
+incrementing it. Modify the server by inserting code for the message:</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+18.45pt;text-autospace:none'><span style='position:relative;z-index:251663357'><span
+style='position:absolute;left:0px;top:-15px;width:44px;height:1px'><img
+width=44 height=1 src="SE%20765_Assn5_files/image001.png"></span></span><span
+style='font-size:10.0pt;font-family:"Courier New"'>{server_owner,Server_PID}</span></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+99%;text-autospace:none'><b><span style='font-size:10.0pt;line-height:99%;
+font-family:"Arial","sans-serif"'>into the postion shown below</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+19.2pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:272.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-15.7pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>server(State) -&gt; receive</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.4pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>{request,Return_PID}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:124.0pt;margin-bottom:.0001pt;text-indent:-.8in;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>io:format(&quot;SERVER ~w: Client
+request received from ~w~n&quot;, [self(), Return_PID]) ,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.4pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>NewState  
+=   State   +   1,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:119.0pt;margin-bottom:
+0in;margin-left:66.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>Return_PID ! {hit_count,NewState}, server(NewState)
+;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.4pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:normal;text-autospace:
+none'><span style='font-size:10.0pt;font-family:"Courier New"'>{server_owner,Owner_PID}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:71.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>.......</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.55pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:24.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>end.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:20.0pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;text-align:justify;line-height:99%;
+punctuation-wrap:simple;text-autospace:none'><b><span style='font-size:10.0pt;
+line-height:99%;font-family:"Arial","sans-serif"'>Step 3: Modify </span></b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>start()</span><b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Arial","sans-serif"'> to
+have a single owner process that constantly queries the server for its state.
+You should fill in the </span></b><span style='font-size:10.0pt;line-height:
+99%;font-family:"Arial","sans-serif"'>....<b>s and decide on what other
+messages are passed between the server and the owner. You should print out the
+value received from the server using </b></span><span style='font-size:10.0pt;
+line-height:99%;font-family:"Courier New"'>io:format</span><b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Arial","sans-serif"'>.</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:20.0pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;text-align:justify;line-height:99%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:12.0pt;
+line-height:99%;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:8.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>owner(Server_PID)  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.8pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:19.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:simple;
+text-autospace:none'><span style='font-size:10.0pt;line-height:91%;font-family:
+"Courier New"'>%% Use a random sleep in ms to simulate the owner traffic
+pattern. timer:sleep(random:uniform(100)),</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.8pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:251.0pt;margin-bottom:
+0in;margin-left:19.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>Server_PID! .... , receive</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.55pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:29.0pt;margin-bottom:.0001pt;text-align:justify;line-height:99%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:99%;font-family:"Courier New"'>{   ....   }   -&gt; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.8pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:225.0pt;margin-bottom:
+0in;margin-left:40.0pt;margin-bottom:.0001pt;line-height:normal;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>.....
+, io:format(......) , </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+12.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:235.0pt;margin-bottom:
+0in;margin-left:19.0pt;margin-bottom:.0001pt;text-indent:20.9pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>owner(Server_PID) end.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:20.0pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:95%;punctuation-wrap:
+simple;text-autospace:none'><b><span style='font-size:10.0pt;line-height:95%;
+font-family:"Arial","sans-serif"'>Step 4: Give the owner the power to reset the
+server counter to 0. Modify the server as follows:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:20.0pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:95%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:12.0pt;line-height:95%;
+font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:272.0pt;margin-bottom:
+0in;margin-left:24.0pt;margin-bottom:.0001pt;text-indent:-15.7pt;line-height:
+91%;punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>server(State) -&gt; receive</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.4pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:45.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>{request,Return_PID}  
+-&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:124.0pt;margin-bottom:.0001pt;text-indent:-.8in;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>io:format(&quot;SERVER ~w: Client
+request received from ~w~n&quot;, [self(), Return_PID]) ,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.4pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:66.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>NewState  
+=   State   +   1,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:119.0pt;margin-bottom:
+0in;margin-left:66.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>Return_PID ! {hit_count,NewState}, server(NewState)
+;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:"Courier New"'>        reset  
+-&gt;</span></p>
+
+<p class=MsoNoSpacing style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New"'>io:format(   ....   )   ,</span></p>
+
+<p class=MsoNoSpacing style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New"'>server(....)</span></p>
+
+<p class=MsoNoSpacing style='text-indent:.5in'><span style='font-family:"Courier New"'> 
+end.</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:97%;punctuation-wrap:simple;text-autospace:none'><b><span
+style='font-size:10.0pt;line-height:97%;font-family:"Arial","sans-serif"'>Again
+print out messages to demonstrate that the server has been reset.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.75pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+97%;punctuation-wrap:simple;text-autospace:none'><b><span style='font-size:
+10.0pt;line-height:97%;font-family:"Arial","sans-serif"'>Step 5: Now modify the
+</span></b><span style='font-size:10.0pt;line-height:97%;font-family:"Arial","sans-serif"'>owner<b>
+process to reset the server counter if it exceeds 5. Hint: look at how the
+Erlang </b></span><span style='line-height:97%;font-family:"Courier New"'>if<b>
+</b></span><b><span style='font-size:10.0pt;line-height:97%;font-family:"Arial","sans-serif"'>statement
+works or how to use </span></b><span style='font-size:10.0pt;line-height:97%;
+font-family:"Courier New"'>guards</span><b><span style='font-size:10.0pt;
+line-height:97%;font-family:"Arial","sans-serif"'> in Erlang </span></b><span
+style='font-size:10.0pt;line-height:97%;font-family:"Courier New"'>receive </span><b><span
+style='font-size:10.0pt;line-height:97%;font-family:"Arial","sans-serif"'>statements.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+15.95pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:14.0pt;font-family:"Arial","sans-serif"'>6</span></b><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif"'>     </span><b><span
+style='font-size:14.0pt;font-family:"Arial","sans-serif"'>Test  run</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.0pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+10.2pt;text-autospace:none'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><b><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>A
+test  run  of  the  finished  program  should  look  something  similar  to 
+this:</span></b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Client request received from
+&lt;0.29.0&gt; </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>CLIENT &lt;0.29.0&gt;: Hit count was 1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner query received from
+&lt;0.28.0&gt; </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Client request received from
+&lt;0.30.0&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.8pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>OWNER &lt;0.28.0&gt;: Hit count is 1
+</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>CLIENT &lt;0.30.0&gt;: Hit count was
+2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner query received from
+&lt;0.28.0&gt; </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Client request received from
+&lt;0.31.0&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>OWNER &lt;0.28.0&gt;: Hit count is 2
+CLIENT &lt;0.31.0&gt;: Hit count was 3</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner query received from
+&lt;0.28.0&gt; </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Client request received from
+&lt;0.32.0&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.8pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>OWNER &lt;0.28.0&gt;: Hit count is 3
+</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>CLIENT &lt;0.32.0&gt;: Hit count was
+4</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner query received from
+&lt;0.28.0&gt; </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Client request received from
+&lt;0.33.0&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>OWNER &lt;0.28.0&gt;: Hit count is 4
+</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>CLIENT &lt;0.33.0&gt;: Hit count was
+5</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner query received from
+&lt;0.28.0&gt; </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Client request received from
+&lt;0.34.0&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.8pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>OWNER &lt;0.28.0&gt;: Hit count is 5
+</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:147.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;text-indent:5.3pt;line-height:91%;
+punctuation-wrap:simple;text-autospace:none'><span style='font-size:10.0pt;
+line-height:91%;font-family:"Courier New"'>CLIENT &lt;0.34.0&gt;: Hit count was
+6</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.9pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner query received from
+&lt;0.28.0&gt; </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:32.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Client request received from
+&lt;0.35.0&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.5pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:8.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>OWNER  
+&lt;0.28.0&gt;:   Hit   count   is   6,   send   reset   message....</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+.45pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:3.0pt;margin-bottom:.0001pt;line-height:99%;text-autospace:none'><span
+style='font-size:10.0pt;line-height:99%;font-family:"Courier New"'>CLIENT  
+&lt;0.35.0&gt;:   Hit   count   was   7</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+2.95pt;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:48.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner reset message received </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:48.0pt;margin-bottom:
+0in;margin-left:3.0pt;margin-bottom:.0001pt;line-height:91%;punctuation-wrap:
+simple;text-autospace:none'><span style='font-size:10.0pt;line-height:91%;
+font-family:"Courier New"'>SERVER &lt;0.27.0&gt;: Owner query received from
+&lt;0.28.0&gt;</span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>SERVER
+&lt;0.27.0&gt;: Client request received from &lt;0.36.0&gt; </span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>OWNER
+&lt;0.28.0&gt;: Hit count is 0</span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>CLIENT  
+&lt;0.36.0&gt;:   Hit   count   was   1</span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>SERVER
+&lt;0.27.0&gt;: Owner query received from &lt;0.28.0&gt; </span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>SERVER
+&lt;0.27.0&gt;: Client request received from &lt;0.37.0&gt;</span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>OWNER
+&lt;0.28.0&gt;: Hit count is 1 </span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>CLIENT
+&lt;0.37.0&gt;: Hit count was 2</span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>SERVER
+&lt;0.27.0&gt;: Owner query received from &lt;0.28.0&gt; </span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>SERVER
+&lt;0.27.0&gt;: Client request received from &lt;0.38.0&gt;</span></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:99%;punctuation-wrap:simple;text-autospace:none'><b><span
+style='font-size:10.0pt;line-height:99%;font-family:"Arial","sans-serif"'>Note:
+The server hit count may not be immediately reset once the owner process
+discover the count to exceed the limit (5). This is due to client requests
+being received by the server before the owner reset message is received by the
+server.</span></b></p>
+
+<p class=MsoNoSpacing><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

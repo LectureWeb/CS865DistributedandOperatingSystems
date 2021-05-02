@@ -1,0 +1,1540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><!-- InstanceBegin template="/Templates/interiortemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><!-- InstanceBeginEditable name="doctitle" --><title>Tools for Software Developers - Java Development Platform, Integration Platform, Toolkits - Java, C++, .NET</title><!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
+
+
+
+<style type="text/css">
+
+#tablist{
+	border-bottom: 1px solid #999999;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 0px;
+	padding-right: 0;
+	padding-bottom: 0px;
+	padding-left: 0;
+	margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	line-height: 22px;
+}
+
+#tablist li{
+list-style: none;
+display: inline;
+margin: 0;
+}
+
+#tablist li a{
+padding: 3px 0.5em;
+margin: 0px;
+border-bottom: none;
+background: #CCCCCC;
+}
+
+#tablist li a:link, #tablist li a:visited{
+	color: #333333;
+	background: #CCCCCC;
+	text-decoration: none;
+}
+
+#tablist li a:hover{
+	color: #333333;
+	background: #FF9933;
+	text-decoration: none;
+}
+
+#tablist li a.current{
+	background: #FF9933;
+	color:#333333;
+	text-decoration: none;
+}
+
+#tabcontentcontainer{
+	/* Insert Optional Height definition here to give all the content a unified height */
+padding: 0px;
+	border: 0px;
+	width: 500px;
+	background-color: #FFFFFF;
+}
+
+.tabcontent{
+	display:none;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 14px;
+	background-color: #FFFFFF;
+}
+
+#printicon {
+	font-size: 10px;
+	color: #666666;
+	height: 15px;
+}
+#printicon a:link {
+	font-size: 10px;
+	color: #666666;
+	height: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+#printicon a:hover {
+	font-size: 10px;
+	color: #666666;
+	height: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+
+/***********************************************
+* Tab Content script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Set tab to intially be selected when page loads:
+//[which tab (1=first tab), ID of tab content to display]:
+//this has been modified to pass var from link:
+var value=unescape(window.location.href)
+if (value.indexOf('=')!==-1)
+value=Math.abs(value.substr(value.indexOf('=')+3,1))
+else
+value=1
+var initialtab=[value, "sc"+value]
+
+
+////////Stop editting////////////////
+
+function cascadedstyle(el, cssproperty, csspropertyNS){
+if (el.currentStyle)
+return el.currentStyle[cssproperty]
+else if (window.getComputedStyle){
+var elstyle=window.getComputedStyle(el, "")
+return elstyle.getPropertyValue(csspropertyNS)
+}
+}
+
+var previoustab=""
+
+function expandcontent(cid, aobject){
+if (document.getElementById){
+highlighttab(aobject)
+detectSourceindex(aobject)
+if (previoustab!="")
+document.getElementById(previoustab).style.display="none"
+document.getElementById(cid).style.display="block"
+previoustab=cid
+if (aobject.blur)
+aobject.blur()
+return false
+}
+else
+return true
+}
+
+function highlighttab(aobject){
+if (typeof tabobjlinks=="undefined")
+collecttablinks()
+for (i=0; i<tabobjlinks.length; i++)
+tabobjlinks[i].style.backgroundColor=initTabcolor
+var themecolor=aobject.getAttribute("theme")? aobject.getAttribute("theme") : initTabpostcolor
+aobject.style.backgroundColor=document.getElementById("tabcontentcontainer").style.backgroundColor=themecolor
+}
+
+function collecttablinks(){
+var tabobj=document.getElementById("tablist")
+tabobjlinks=tabobj.getElementsByTagName("A")
+}
+
+function detectSourceindex(aobject){
+for (i=0; i<tabobjlinks.length; i++){
+if (aobject==tabobjlinks[i]){
+tabsourceindex=i //source index of tab bar relative to other tabs
+break
+}
+}
+}
+
+function do_onload(){
+var cookiename=(typeof persisttype!="undefined" && persisttype=="sitewide")? "tabcontent" : window.location.pathname
+var cookiecheck=window.get_cookie && get_cookie(cookiename).indexOf("|")!=-1
+collecttablinks()
+initTabcolor=cascadedstyle(tabobjlinks[1], "backgroundColor", "background-color")
+initTabpostcolor=cascadedstyle(tabobjlinks[0], "backgroundColor", "background-color")
+if (typeof enablepersistence!="undefined" && enablepersistence && cookiecheck){
+var cookieparse=get_cookie(cookiename).split("|")
+var whichtab=cookieparse[0]
+var tabcontentid=cookieparse[1]
+expandcontent(tabcontentid, tabobjlinks[whichtab])
+}
+else
+expandcontent(initialtab[1], tabobjlinks[initialtab[0]-1])
+}
+
+if (window.addEventListener)
+window.addEventListener("load", do_onload, false)
+else if (window.attachEvent)
+window.attachEvent("onload", do_onload)
+else if (document.getElementById)
+window.onload=do_onload
+
+
+</script>
+<script type="text/javascript">
+<!--
+//Dynamicdrive.com persistence feature add-on
+
+var enablepersistence=false //true to enable persistence, false to turn off (or simply remove this entire script block).
+var persisttype="local" //enter "sitewide" for Tab content order to persist across site, "local" for this page only
+
+function get_cookie(Name) {
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) {
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function savetabstate(){
+var cookiename=(persisttype=="sitewide")? "tabcontent" : window.location.pathname
+var cookievalue=(persisttype=="sitewide")? tabsourceindex+"|"+previoustab+";path=/" : tabsourceindex+"|"+previoustab
+document.cookie=cookiename+"="+cookievalue
+}
+
+window.onunload=savetabstate
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_validateForm() { //v4.0
+  var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+  for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=MM_findObj(args[i]);
+    if (val) { nm=val.name; if ((val=val.value)!="") {
+      if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+        if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+      } else if (test!='R') { num = parseFloat(val);
+        if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
+        if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+          min=test.substring(8,p); max=test.substring(p+1);
+          if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+    } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+  } if (errors) alert('The following error(s) occurred:\n'+errors);
+  document.MM_returnValue = (errors == '');
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script><!--END HORZONTAL TAB STYLE AND JS --><!--BEGIN NAV BAR -->
+
+
+
+
+<script language="JavaScript1.2" type="text/javascript" src="voyager_files/mm_css_menu.js"></script>
+<script language="JavaScript" src="voyager_files/javascripts.js"></script><!--FORM VALIDATION SCRIPTS-->
+
+    <script src="voyager_files/prototype.js" type="text/javascript"></script>
+    <script src="voyager_files/effects.js" type="text/javascript"></script>
+    <script src="voyager_files/validation.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="voyager_files/style.css">
+
+<link href="voyager_files/recursionnav.css" rel="stylesheet" type="text/css"><!--END NAV BAR -->
+
+<link href="voyager_files/recursionmain.css" rel="stylesheet" type="text/css"><!-- InstanceEndEditable --><!-- InstanceParam name="leftnav" type="boolean" value="true" --><!-- InstanceParam name="righthav" type="boolean" value="true" --><!-- InstanceParam name="rightnav" type="boolean" value="true" --><!-- IndexTools Customization Code --><!-- Remove leading // to activate custom variables -->
+
+ 
+
+<script language="Javascript">
+//var DOCUMENTGROUP='';
+//var DOCUMENTNAME='';
+//var ACTION='';
+</script><!-- End of Customization Code --><!-- IndexTools Code v3.01 - All rights reserved -->
+
+
+<script language="javascript1.1" src="voyager_files/indextools.js"></script><!--//--><!-- End of IndexTools Code --></head><noscript>
+<img src="http://stats.indextools.com/p.pl?a=10001738148636&js=no" width="1" height="1"></noscript><body onload="MM_preloadImages('../images/About_Recursion_f2.gif','../images/Recursion_Products_f3.gif','../images/Recursion_Solutions_f4.gif','../images/Recursion_Support_f5.gif')">
+	<table style="height: 100%;" border="0" bordercolor="#ffffff" cellpadding="0" cellspacing="0" width="100%">
+	  <tbody><tr>
+		<td align="center" valign="top" width="100%">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+<!--LEFT MARGIN COUMN -->
+    <td class="greyltbgL" align="right" valign="top" width="25%">&nbsp;</td>
+<!--CENTER CONTENT COLUMN -->
+    <td align="center" bgcolor="#ffffff" valign="top" width="820">
+		<table align="center" border="0" cellpadding="0" cellspacing="0">
+		  <tbody><tr>
+	<!--1 HEADER ROW -->
+			<td>
+				<table align="left" border="0" cellpadding="0" cellspacing="0">
+				  <tbody><tr>
+				<!--1 HEADER ROW : 1 RECURSION LOGO AND SEARCH BAR -->
+					<td align="left"><!-- #BeginLibraryItem "/Library/logoheaderrow.lbi" -->
+<script type="text/javascript">
+<!-- 
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<!--CHANGE CELLPADD AND BG COLOR IF  -->
+<table background="voyager_files/topbarbg.gif" border="0" cellpadding="0" cellspacing="0" height="60" width="820">
+				  <tbody><tr>
+					<td valign="middle" width="252"><a href="http://www.recursionsw.com/index.html" target="_self"><img src="voyager_files/recursion_logo.gif" alt="Recursion Software Home" border="0" height="60" width="252"></a>					</td>
+					<td align="center" height="41" valign="middle"></td>
+                    <td class="dkblue10" align="right" height="41" valign="middle" width="150"><form><img src="voyager_files/arrow_dkblue.gif" height="7" width="7">
+                                    <a href="http://www.recursionsw.com/sitemap.html" target="_self">Site Map</a>&nbsp;&nbsp;&nbsp;
+                    </form></td>
+            <td align="left" height="41" valign="middle" width="200"><form action="http://search.recursionsw.com/servlet/SearchServlet" method="post" name="search" id="search"> <input value="Search" name="query" size="30" maxlength="80" class="searchtext" type="text">
+                            <input name="search" src="voyager_files/arrow_dkblue.gif" alt="Search" border="0" type="image">
+            </form></td>
+			<td align="center" valign="middle" width="112"><strong class="orange16">&nbsp;&nbsp;&nbsp;800.727.8674&nbsp;&nbsp;&nbsp;</strong></td>
+				  </tr>
+</tbody></table>
+<!-- #EndLibraryItem --></td>
+				  </tr>
+		<!--2 HEADER ROW : RECURSION DROP-DOWN NAVIGATION -->
+				  <tr>
+					<td align="right" bgcolor="#003366" width="820"><!-- #BeginLibraryItem "/Library/recursionnav.lbi" --><div id="FWTableContainer1519380281">
+  <table border="0" cellpadding="0" cellspacing="0" width="820">
+    <!-- fwtable fwsrc="recursionnavigation5.png" fwbase="RecursionSoftware_nav" fwstyle="Dreamweaver" fwdocid = "1519380281" fwnested="0" -->
+    <tbody><tr>
+      <!-- row 1 -->
+      <td><img name="Recursion_tag" src="voyager_files/Recursion_tag.gif" id="Recursion_tag" alt="" border="0" height="36" width="212"></td>
+      <td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(600)" onmouseover="MM_menuShowMenu('MMMenuContainer0823152836_0', 'MMMenu0823152836_0',0,36,'About_Recursion');MM_swapImage('About_Recursion','','../images/About_Recursion_f2.gif',1);"><img name="About_Recursion" src="voyager_files/About_Recursion.gif" id="About_Recursion" alt="" border="0" height="36" width="141"></a></td>
+      <td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(600)" onmouseover="MM_menuShowMenu('MMMenuContainer0823152133_1', 'MMMenu0823152133_1',0,36,'Recursion_Products');MM_swapImage('Recursion_Products','','../images/Recursion_Products_f3.gif',1);"><img name="Recursion_Products" src="voyager_files/Recursion_Products.gif" id="Recursion_Products" alt="" border="0" height="36" width="185"></a></td>
+      <td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(600)" onmouseover="MM_menuShowMenu('MMMenuContainer0823152133_2', 'MMMenu0823152133_2',0,36,'Recursion_Solutions');MM_swapImage('Recursion_Solutions','','../images/Recursion_Solutions_f4.gif',1);"><img name="Recursion_Solutions" src="voyager_files/Recursion_Solutions.gif" id="Recursion_Solutions" alt="" border="0" height="36" width="139"></a></td>
+      <td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(600)" onmouseover="MM_menuShowMenu('MMMenuContainer0823152133_3', 'MMMenu0823152133_3',0,36,'Recursion_Support');MM_swapImage('Recursion_Support','','../images/Recursion_Support_f5.gif',1);"><img name="Recursion_Support" src="voyager_files/Recursion_Support.gif" id="Recursion_Support" alt="" border="0" height="36" width="143"></a></td>
+    </tr>
+    <!--   This table was automatically created with Macromedia Fireworks   -->
+    <!--   http://www.macromedia.com   -->
+  </tbody></table>
+  <div id="MMMenuContainer0823152836_0">
+    <div id="MMMenu0823152836_0" onmouseout="MM_menuStartTimeout(600);" onmouseover="MM_menuResetTimeout();"> <a href="http://www.recursionsw.com/About_Us/aboutus.html" target="_self" id="MMMenu0823152836_0_Item_0" class="MMMIFVStyleMMMenu0823152836_0" onmouseover="MM_menuOverMenuItem('MMMenu0823152836_0');"> Company&nbsp;Overview </a> <a href="http://www.recursionsw.com/About_Us/aboutus.html?var1=sc2" target="_self" id="MMMenu0823152836_0_Item_1" class="MMMIVStyleMMMenu0823152836_0" onmouseover="MM_menuOverMenuItem('MMMenu0823152836_0');"> Management </a> <a href="http://www.recursionsw.com/About_Us/aboutus.html?var1=sc3" target="_self" id="MMMenu0823152836_0_Item_2" class="MMMIVStyleMMMenu0823152836_0" onmouseover="MM_menuOverMenuItem('MMMenu0823152836_0');"> Customers </a> <a href="http://www.recursionsw.com/About_Us/news.html" target="_self" id="MMMenu0823152836_0_Item_3" class="MMMIVStyleMMMenu0823152836_0" onmouseover="MM_menuOverMenuItem('MMMenu0823152836_0');"> News&nbsp;Room </a> <a href="http://www.recursionsw.com/About_Us/wp_mobileagents.html" target="_self" id="MMMenu0823152836_0_Item_4" class="MMMIVStyleMMMenu0823152836_0" onmouseover="MM_menuOverMenuItem('MMMenu0823152836_0');"> White&nbsp;Papers </a> <a href="http://www.recursionsw.com/About_Us/partners.html" target="_self" id="MMMenu0823152836_0_Item_5" class="MMMIVStyleMMMenu0823152836_0" onmouseover="MM_menuOverMenuItem('MMMenu0823152836_0');"> Partners&nbsp;&amp;&nbsp;Universities&nbsp; </a> <a href="http://www.recursionsw.com/About_Us/contact.html" target="_self" id="MMMenu0823152836_0_Item_6" class="MMMIVStyleMMMenu0823152836_0" onmouseover="MM_menuOverMenuItem('MMMenu0823152836_0');"> Contact </a> </div>
+  </div>
+  <div id="MMMenuContainer0823152133_1">
+    <div id="MMMenu0823152133_1" onmouseout="MM_menuStartTimeout(600);" onmouseover="MM_menuResetTimeout();"> <a href="http://www.recursionsw.com/Products/voyager.html" target="_self" id="MMMenu0823152133_1_Item_0" class="MMMIFVStyleMMMenu0823152133_1" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_1');"> Voyager&nbsp;Edge </a> <a href="http://www.recursionsw.com/Products/cinergi.html" target="_self" id="MMMenu0823152133_1_Item_1" class="MMMIVStyleMMMenu0823152133_1" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_1');"> Cinergi </a> <a href="http://www.recursionsw.com/Products/cplusplus.html" target="_self" id="MMMenu0823152133_1_Item_2" class="MMMIVStyleMMMenu0823152133_1" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_1');"> C++Toolkit </a> <a href="http://www.recursionsw.com/Products/csharp.html" target="_self" id="MMMenu0823152133_1_Item_3" class="MMMIVStyleMMMenu0823152133_1" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_1');"> C#&nbsp;Toolkit </a> <a href="http://www.recursionsw.com/Products/jgl.html" target="_self" id="MMMenu0823152133_1_Item_4" class="MMMIVStyleMMMenu0823152133_1" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_1');"> JGL&nbsp;Toolkit </a> </div>
+  </div>
+  <div id="MMMenuContainer0823152133_2">
+    <div id="MMMenu0823152133_2" onmouseout="MM_menuStartTimeout(600);" onmouseover="MM_menuResetTimeout();"> <a href="http://www.recursionsw.com/Solutions/government.html" target="_self" id="MMMenu0823152133_2_Item_0" class="MMMIFVStyleMMMenu0823152133_2" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_2');"> Government </a> <a href="http://www.recursionsw.com/Solutions/energy.html" target="_self" id="MMMenu0823152133_2_Item_1" class="MMMIVStyleMMMenu0823152133_2" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_2');"> Energy </a> <a href="http://www.recursionsw.com/Solutions/healthcare.html" target="_self" id="MMMenu0823152133_2_Item_2" class="MMMIVStyleMMMenu0823152133_2" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_2');"> Heathcare </a> <a href="http://www.recursionsw.com/Solutions/finance.html" target="_self" id="MMMenu0823152133_2_Item_3" class="MMMIVStyleMMMenu0823152133_2" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_2');"> Finance </a> </div>
+  </div>
+  <div id="MMMenuContainer0823152133_3">
+    <div id="MMMenu0823152133_3" onmouseout="MM_menuStartTimeout(600);" onmouseover="MM_menuResetTimeout();"> <a href="http://www.recursionsw.com/Service&amp;Support/support.html" target="_self" id="MMMenu0823152133_3_Item_0" class="MMMIFVStyleMMMenu0823152133_3" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_3');"> Tech&nbsp;Support </a> <a href="http://www.recursionsw.com/Service&amp;Support/downloads.html" target="_self" id="MMMenu0823152133_3_Item_1" class="MMMIVStyleMMMenu0823152133_3" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_3');"> Downloads </a> <a href="http://www.recursionsw.com/Service&amp;Support/support.html?var1=sc2" target="_self" id="MMMenu0823152133_3_Item_2" class="MMMIVStyleMMMenu0823152133_3" onmouseover="MM_menuOverMenuItem('MMMenu0823152133_3');"> Contact&nbsp;Tech&nbsp;Support </a> </div>
+  </div>
+</div><!-- #EndLibraryItem --></td>
+				  </tr>
+			  </tbody></table>			</td>
+		  </tr>
+	<!--END 1 HEADER ROW -->
+	<!--END 2 PADDING ROW  -->
+	<!--3 SIDE NAV AND CONTENT ROW -->
+		  <tr>
+			<td>
+<!-- 3 NAV AND CONENT ROW:  2 CELL NAV AND CONTENT -->
+				<table border="0" cellpadding="0" cellspacing="0" height="283">
+						  <tbody><tr>
+						  <td rowspan="2" width="8">						  </td>
+						  <td>						  </td>
+	<!--3 PADDING ROW-->
+			<td height="25">			  			</td>
+<!--3 RIGHT SIDEBAR BG			 -->
+			<td align="left" valign="top" width="140">
+<!--BEGIN BENEFITS NAV--></td>
+            <!--END BENEFIT NAV -->
+						  <td rowspan="2" width="8">						  </td>
+		  </tr>
+		<tr>
+			<td align="left" valign="top" width="140">
+<!--3 NAV AND CONENT ROW:  2 SIDE NAV TABLE -->
+<!-- InstanceBeginEditable name="leftnav" --><!-- #BeginLibraryItem "/Library/service.lbi" -->
+
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<table border="0" cellpadding="0" cellspacing="0" width="140">
+  <tbody><tr>
+    <td class="grey12" height="21" valign="bottom"><b>+ Service &amp; Support </b></td>
+  </tr>
+  <tr>
+    <td bgcolor="#666666" height="1" width="1"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+	<ul class="sidenavlist">
+      <li><img src="voyager_files/arrow_grey.gif">Tech Support &amp; <br>
+        &nbsp; Downloads Home </li>
+	  <li>
+	  	<ul class="sidenavlist2">
+		  <li>- <a href="http://www.recursionsw.com/Service&amp;Support/support.html" target="_self">Technical Support</a></li>
+		  <li>- <a href="http://www.recursionsw.com/Service&amp;Support/downloads.html" target="_self">Downloads</a></li>
+		  <li>- <a href="http://www.recursionsw.com/Service&amp;Support/support.html?var1=sc2" target="_self">Contact</a></li>
+		</ul></li>
+	</ul> 
+</td>
+  </tr>
+
+<!--ANNOUNCEMENTS -->
+
+     
+ <!--PROMOTIONAL SPACE -->
+<!--  <tr>
+  <td height="150" align="right" valign="bottom" background="../images/C-promotion.gif" class="o_learn10">- <a href="#">Learn more</a><br><br></td>
+  </tr> -->
+</tbody></table>
+<!-- #EndLibraryItem --><br>
+<!-- InstanceEndEditable --><br><!-- #BeginLibraryItem "/Library/contact_sbar.lbi" -->
+
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<table border="0" cellpadding="0" cellspacing="0" width="140">
+  <tbody><tr>
+    <td class="grey12" height="21" valign="bottom"><b>+ Contact Us </b></td>
+  </tr>
+  <tr>
+    <td bgcolor="#666666" height="1" width="1"></td>
+  </tr>
+  <tr>
+    <td class="grey12" align="left" valign="top">
+	To discuss how we can
+help you prepare for tomorrow's business challanges today, call
+us toll-free or send us an e-mail.
+	  <ul class="nobullet12">
+      <li><img src="voyager_files/arrow_grey.gif">&nbsp;<strong>800.727.8674</strong></li>
+	</ul></td>
+  </tr>
+  <tr>
+    <td height="8" width="1"></td>
+  </tr>
+  <tr>
+    <td class="grey12"><strong>+ Company </strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#666666" height="1" width="1"></td>
+  </tr>
+  <tr>
+    <td class="grey12">
+<ul class="sidenavlist2">
+
+      <li>- <a href="http://www.recursionsw.com/About_Us/aboutus.html" target="_self">About Us  </a></li>
+	  <li>- <a href="http://www.recursionsw.com/About_Us/news.html" target="_self">News Room </a></li>
+	  </ul>	</td>
+  </tr>
+  <tr>
+    <td height="1" width="1"></td>
+  </tr>
+  <tr>
+    <td height="1" width="1"></td>
+  </tr>
+  <tr>
+    <td height="20" width="1"></td>
+  </tr>
+<!--ANNOUNCEMENTS -->
+
+     
+ <!--PROMOTIONAL SPACE -->
+<!--  <tr>
+  <td height="150" align="right" valign="bottom" background="../images/C-promotion.gif" class="o_learn10">- <a href="#">Learn more</a><br><br></td>
+  </tr> -->
+</tbody></table>
+<!-- #EndLibraryItem --></td>
+						<td align="left" valign="top">
+<!--3 MATRIX ROW:  2 CONTENT TABLE-->
+<!-- InstanceBeginEditable name="centertabs" -->
+<!--NO HEIGHT ON ROW -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" height="420">
+  <tbody><tr>
+    <!--CHANGE WIDTH TO INC PADDING -->
+    <td rowspan="3" align="left" valign="top" width="20"></td>
+    <!--matrix row cut	 -->
+    <td align="left" bgcolor="#ffffff" valign="top"><ul id="tablist">
+      <li><a style="background-color: rgb(204, 204, 204);" href="#" class="current" onclick="return expandcontent('sc1', this)" theme="#FF9933">Developer Evals</a></li>
+      <li><a style="background-color: rgb(255, 153, 51);" href="#" onclick="return expandcontent('sc2', this)" theme="#FF9933">Voyager CE</a></li>
+      <li><a style="background-color: rgb(204, 204, 204);" href="#" onclick="return expandcontent('sc3', this)" theme="#FF9933">Student &amp; University Evals</a></li>
+      <li><a style="background-color: rgb(204, 204, 204);" href="#" onclick="return expandcontent('sc4', this)" theme="#FF9933">Download Updates</a></li>
+
+    </ul></td>
+    <td rowspan="3" align="left" valign="top" width="20"></td>
+  </tr>
+  <!--END TAB ROW -->
+  <!--BEGIN ICON ROW/CONTENT CONTAINER PAD -->
+  <tr>
+    <td height="10"></td>
+  </tr>
+  <!--TAB CONTAINER ROW -->
+  <tr>
+    <td valign="top"><div style="background-color: rgb(255, 153, 51);" id="tabcontentcontainer">
+      <!--TAB 1 CONTENT -->
+      <div id="sc1" class="tabcontent">
+		     <table align="left" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td valign="top"><strong class="orange16">Developer 30-day Eval<br>
+with Free Support</strong><br>
+<br>
+</td>
+		<td class="grey11" align="right" valign="middle"><a href="http://www.recursionsw.com/Service&amp;Support/downloads.html?var1=sc2" class="greydk11">Get Voyager CE- no forms no questions »</a></td>
+  </tr>
+  <tr>
+    <td colspan="2">Download a free eval of our products for 30-days, including <span class="orange11">free support directly from one of our engineers- never a call center</span>.
+Upon completion of the trial license agreement and the registration
+form you will receive a your software and a key to unlock the program
+via email. <br>
+<br>
+
+If you have any questions or problems please do not hesitate to contact <a href="http://www.recursionsw.com/Service&amp;Support/support.html" target="_self" class="orange11">Tech Support</a> and one of our engineers will assist you.<br>
+<br>
+</td>
+  </tr>
+	<tr>
+    <td colspan="2"><strong class="orange11">All fields are required unless otherwise indicated.</strong><br>
+<br>
+	<form action="/Service&amp;Support/process_evaldownload_request.jsp" method="post" name="download_request" id="download_request">
+<fieldset>
+        <legend class="orange14"><strong>Download Request Form</strong></legend>
+        <div class="form-row">
+          <div class="field-label"><label for="field1">Product Name</label></div>
+          <div class="field-widget"><select size="1" name="product_name" id="field1" class="required" title="product_name">
+<option>Select a Product</option>
+<option>Cinergi- Multi-language Application Integration (ESB)</option>
+<option>VOYAGER Edge - Intelligent Mobile Agent Framework</option>
+<option>C++ Toolkits - Advanced Class Libraries</option>
+<option>C# Toolkit</option>
+<option>JGL Toolkit 5.0 for JDK 5.0</option>
+<option>JGL Toolkit 4.1 for JDK 1.4 or earlier</option>
+</select>
+</div></div>
+        <div class="form-row">
+          <div class="field-label"><label for="field2">Select an Operating System</label></div>
+          <div class="field-widget"><input name="Operating_System" id="field2" class="required" title="Operating_System" size="36" maxlength="50">
+</div>
+        </div>
+<div class="form-row">
+<div class="field-label"><label for="field3">Last Name</label></div>
+<div class="field-widget"><input id="field3" title="Last Name" name="Last_Name" size="36" class="required" maxlength="30">
+</div>
+</div>
+<div class="form-row">
+<div class="field-label"><label for="field4">First Name</label></div>
+<div class="field-widget"><input id="field4" title="First Name" name="First_Name" size="36" class="required" maxlength="30">
+</div>
+</div>
+<div class="form-row">
+<div class="field-label"><label for="field5">Company Name</label></div>
+<div class="field-widget"><input id="field5" title="Company Name" name="Company_Name" size="36" class="required" maxlength="50">
+</div>
+</div>
+<div class="form-row">
+<div class="field-label"><label for="field6">Company Phone</label></div>
+<div class="field-widget"><input id="field6" title="Company Phone" name="Company_Phone" size="36" class="required" maxlength="50">
+</div>
+</div>
+<div class="form-row">
+<div class="field-label"><label for="field7">Company Email</label></div>
+<div class="field-widget"><input id="field7" title="Company Email" name="Email" size="36" class="required" maxlength="50">
+</div>
+</div>
+<div class="form-row">
+<div class="field-label"><label for="field8">Country</label></div>
+<div class="field-widget"><select id="field8" title="Country" name="country" class="required">
+<option selected="selected" value="None selected">Select a Country ----</option>
+<option>United States of America</option>
+<option>Albania</option>
+<option>American Samoa</option>
+<option>Argentina</option>
+<option>Armenia</option>
+<option>Aruba</option>
+<option>Australia</option>
+<option>Austria</option>
+<option>Bahamas</option>
+<option>Bangladesh</option>
+<option>Barbados</option>
+<option>Belarus</option>
+<option>Belgium</option>
+<option>Belize</option>
+<option>Bermuda</option>
+<option>Bolivia</option>
+<option>Botswana</option>
+<option>Brazil</option>
+<option>British Indian Ocean territory</option>
+<option>Bulgaria</option>
+<option>Cambodia</option>
+<option>Cameroon</option>
+<option>Canada</option>
+<option>Cayman Islands</option>
+<option>Chad</option>
+<option>Chile</option>
+<option>China</option>
+<option>Colombia</option>
+<option>Cook Islands</option>
+<option>Costa Rica</option>
+<option>Cuba</option>
+<option>Cyprus</option>
+<option>Czech Republic</option>
+<option>Denmark</option>
+<option>Djibouti</option>
+<option>Dominica</option>
+<option>Dominican Republic</option>
+<option>East Timor</option>
+<option>Ecuador</option>
+<option>Egypt</option>
+<option>El Salvador</option>
+<option>Eritrea</option>
+<option>Estonia</option>
+<option>Ethiopia</option>
+<option>Fiji</option>
+<option>Finland</option>
+<option>France</option>
+<option>French Guiana</option>
+<option>French Polynesia</option>
+<option>Georgia</option>
+<option>Germany</option>
+<option>Ghana</option>
+<option>Greece</option>
+<option>Greenland</option>
+<option>Grenada</option>
+<option>Guam</option>
+<option>Guatemala</option>
+<option>Guinea-Bissau</option>
+<option>Guyana</option>
+<option>Honduras</option>
+<option>Hong Kong</option>
+<option>Hungary</option>
+<option>Iceland</option>
+<option>India</option>
+<option>Ireland</option>
+<option>Israel</option>
+<option>Italy</option>
+<option>Jamaica</option>
+<option>Japan</option>
+<option>Jordan</option>
+<option>Korea (South)</option>
+<option>Kuwait</option>
+<option>Laos</option>
+<option>Latvia</option>
+<option>Liechtenstein</option>
+<option>Lithuania</option>
+<option>Luxembourg</option>
+<option>Macedonia</option>
+<option>Madagascar</option>
+<option>Malaysia</option>
+<option>Mexico</option>
+<option>Micronesia</option>
+<option>Moldova</option>
+<option>Monaco</option>
+<option>Mongolia</option>
+<option>Morocco</option>
+<option>Mozambique</option>
+<option>Myanmar</option>
+<option>Nepal</option>
+<option>Netherland Antilles</option>
+<option>Netherlands</option>
+<option>New Zealand</option>
+<option>Nicaragua</option>
+<option>Niger</option>
+<option>Nigeria</option>
+<option>Norway</option>
+<option>Panama</option>
+<option>Paraguay</option>
+<option>Peru</option>
+<option>Philippines</option>
+<option>Poland</option>
+<option>Portugal</option>
+<option>Puerto Rico</option>
+<option>Qatar</option>
+<option>Reunion</option>
+<option>Romania</option>
+<option>Russian Federation</option>
+<option>Rwanda</option>
+<option>Saint Helena</option>
+<option>Saint Kitts and Nevis</option>
+<option>Saint Lucia</option>
+<option>Saint Pierre and Miquelon</option>
+<option>Saint Vincent and the Grenadines</option>
+<option>Samoa</option>
+<option>San Marino</option>
+<option>Sao Tome and Principe</option>
+<option>Saudi Arabia</option>
+<option>Senegal</option>
+<option>Seychelles</option>
+<option>Singapore</option>
+<option>Slovak Republic</option>
+<option>Slovenia</option>
+<option>Solomon Islands</option>
+<option>Somalia</option>
+<option>South Africa</option>
+<option>Spain</option>
+<option>Sri Lanka</option>
+<option>Sweden</option>
+<option>Switzerland</option>
+<option>Taiwan</option>
+<option>Thailand</option>
+<option>Trinidad and Tobago</option>
+<option>Tunisia</option>
+<option>Turkey</option>
+<option>Turkmenistan</option>
+<option>Turks and Caicos Islands</option>
+<option>Ukraine</option>
+<option>United Arab Emirates</option>
+<option>United Kingdom</option>
+<option>Uruguay</option>
+<option>Venezuela</option>
+<option>Vietnam</option>
+<option>Virgin Islands (British)</option>
+<option>Virgin Islands (US)</option>
+<option>Yemen</option>
+<option>Yugoslavia</option>
+<option>Zambia</option>
+<option>Zimbabwe</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="field-label"><label for="field9">Through</label></div>
+<div class="field-widget"><select id="field9" title="Through" name="Through" class="required">
+<option selected="selected" value="None selected">How did you find us? </option>
+<option value="Referral">Referral from another user</option>
+<option value="Google">Google</option>
+<option value="yahoo">Yahoo</option>
+<option value="AltaVista">AltaVista</option>
+<option value="CNET">CNET.com</option>
+<option value="Dload">Download.com</option>
+<option value="Ask_Jeeves">Ask Jeeves</option>
+<option value="Lycos">Lycos</option>
+<option value="MSN">MSN</option>
+<option value="Northern_Lights">Northern Lights</option>
+<option value="Lycos">Other search engine</option>
+<option value="Magazine Newspaper">News Article</option>
+<option value="JDJ">Java Developes Journal</option>
+<option value="NETDJ">.NET Developes Journal</option>
+<option value="DRDOBBS">Dr. Dobbs</option>
+<option value="NYC_JMug">NYC Java Mug</option>
+<option value="OtherJUG">Other Javamug or JUG</option>
+<option value="Web_Svcs_Edge_Conference">Web Services Edge Conference</option>
+<option value="SDWest">SD West</option>
+<option value="Other_tradeshow">Other Trade Show</option>
+<option value="other">Other</option>
+</select> <span class="greydk11">(optional)</span><br>
+</div>
+</div>
+<b>Trial License Agreement</b><br>
+
+<img src="voyager_files/pdficon.gif" align="texttop">&nbsp;<a target="_blank" href="http://www.recursionsw.com/Service&amp;Support/inc/2005-01-26_recursion_software_evaluation_license_click_wrap.pdf" class="orange11">
+Printable
+Version</a><br>
+<br>
+<div class="form-row">
+<div class="field-label"><label for="field10">License Agreement</label></div>
+<div class="field-widget"><textarea id="field10" title="License Agreement" rows="10" name="license_agreement" cols="50" class="required">Please
+carefully read the following Trial License
+Agreement. If you concur please click on "ACCEPT" button at the button
+of this page.
+SOFTWARE EVALUATION LICENSE AGREEMENT
+The software accompanying this Software Evaluation License Agreement is
+the property of Recursion Software, Inc., a Texas Corporation
+("Recursion"). Recursion has granted you ("Licensee") a license to this
+software upon the terms and conditions set forth in this Software
+Evaluation License Agreement (this "Agreement") and by installing the
+software you agree to all of the terms and conditions set forth in this
+Agreement.
+1. DEFINITIONS.
+1.1 "Agreement" means this Software Evaluation License Agreement.
+1.2 "Documentation" means all printed and electronic user manuals and
+other materials provided by Recursion to Licensee describing the
+installation and operation of the Software.
+1.3 "Licensed Product(s)" means a current or future product of
+Licensee, including a new version or release of that product, that
+contains some or all of the Software and that adds significant function
+or value to the Software by integrating, embedding, bundling, or
+incorporating the Software into the product such that the primary
+reason for developing the product is other than to license the Software
+by itself to third parties.
+1.4 "Software" means authorized copies of the computer software
+programs accompanying this Agreement, in source code, object code form,
+binary file form, as limited by the code and form received by Licensee
+from Recursion.
+2. LICENSE GRANTS AND RESTRICTIONS.
+2.1 Subject to the terms of this Agreement, Recursion grants to
+Licensee a worldwide, non-transferable, and non-exclusive license to
+copy and use the Software on not more than five of Licensee's
+workstations/terminals, solely in connection with the design,
+development and internal testing of Licensed Products and copy, merge,
+and incorporate the Software into the Licensed Products, in each case
+solely for the purpose of evaluating the Software.
+2.2 Except as expressly set forth in this Agreement, Licensee may not:
+(a) copy, modify, merge, embed, sell, lease, assign, distribute or
+transfer in any manner or form, in whole or in part, the Software,
+Licensed Products or Documentation except as otherwise required by law;
+or (b) use the Software or Documentation to develop or distribute any
+software product that competes in the marketplace with the Software, or
+any other tool, system or library developed or marketed by Recursion.
+Notwithstanding the foregoing, Licensee may make copies of the Software
+and Documentation solely for archive or backup purposes or as otherwise
+required by law.
+2.3 Licensee acknowledges that this Agreement does not grant Licensee
+any rights to the source code for the Software, unless Licensee has
+received source code directly from Recursion, and in such event, this
+Agreement shall govern Licensee's use of such source code. Licensee
+agrees not to reverse engineer, disassemble or decompile the Software
+or otherwise attempt to reproduce its source code or equivalent.
+2.4 Licensee acknowledges that Recursion has, and will from time to
+time create, other computer software programs that may be based upon or
+related to the Software and that those other programs are not licensed
+to Licensee under this Agreement.
+2.5 Licensee acknowledges that Recursion has no responsibility for
+providing Licensee with any support, product upgrades or other
+enhancements for, and that Recursion is under no obligation to create
+any product upgrades or enhancements to, the Software.
+3. WARRANTIES AND DISCLAIMERS.
+Licensee acknowledges that Recursion makes no representations or
+warranties with respect to the Software or Licensee's use of the
+Software. The Software is provided to Licensee "as is" and with all
+faults.
+4. LIMITATION OF LIABILITY; INDEMNIFICATION
+4.1 IN NO EVENT WILL RECURSION BE LIABLE OR OBLIGATED UNDER THIS
+AGREEMENT OR UNDER CONTRACT, NEGLIGENCE, BREACH OF WARRANTY, STRICT
+LIABILITY OR OTHER LEGAL OR EQUITABLE THEORY FOR ANY DIRECT, SPECIAL,
+INDIRECT, OR CONSEQUENTIAL DAMAGES ARISING OUT OF
+THIS AGREEMENT OR IN CONNECTION WITH THE DELIVERY, USE OR PERFORMANCE
+OF THE SOFTWARE, EVEN IF RECURSION HAS BEEN ADVISED, OR SHOULD HAVE
+KNOWN OF THE POSSIBILITY OF SUCH DAMAGES, INCLUDING BUT NOT LIMITED TO,
+LOST PROFITS, LOST BUSINESS REVENUES, FAILURE TO REALIZE EXPECTED
+SAVINGS, OR OTHER COMMERCIAL OR ECONOMIC LOSS OF ANY KIND. THIS SECTION
+DOES NOT LIMIT LIABILITY FOR BODILY INJURY.
+4.2 Licensee agrees to indemnify and hold Recursion harmless from any
+and all claims, damages, losses, liability, cost and expenses
+(including, but not limited to, court costs and reasonable attorneys'
+fees) arising out of, or in connection with, Licensee's manufacture,
+use, sale, or distribution of any Licensed Products. Recursion will
+promptly notify Licensee of any such suit or claim; provided however,
+that Recursion's failure of timely notify Licensee will not relieve
+Licensee of its indemnification obligations under this Section.
+5. TRADE SECRETS AND PROPRIETARY INFORMATION.
+5.1 Licensee acknowledges that (a) Recursion is the owner of all
+rights, title and interest, including, but not limited to, all
+trademarks, copyrights, patent rights, and all other proprietary rights
+in the Software; (b) the Software is confidential in nature and not in
+the public domain; (c) Recursion claims all intellectual and industrial
+property rights granted by law therein; and (d) except as set forth in
+this Agreement, Recursion does not grant any rights to or ownership of
+the Software to Licensee. Licensee further acknowledges that Recursion
+retains all right, title and interest in the Software and in all
+improvements, enhancements, modifications and derivative works of the
+Software including all rights to patent, copyright, trade secret and
+trademark.
+5.2 Licensee agrees to take all reasonable steps to ensure that
+unauthorized persons will not have access to any of the Software or
+Documentation and that all authorized persons having access will
+refrain from any disclosure, duplication or reproduction of the
+Software and Documentation except to the extent permitted under this
+Agreement.
+5.3 Licensee agrees to accord the Software and the Documentation and
+all other confidential information relating to this Agreement the same
+degree and methods of protection as Licensee generally undertakes with
+respect to its similar confidential information, trade secrets and
+other proprietary data.
+5.4 Licensee agrees not to challenge, directly or indirectly, any right
+or interest of Recursion in the Software, nor the validity or
+enforceability of Recursion's rights under applicable law. Licensee
+agrees not to directly or indirectly register, apply for registration
+or attempt to acquire any legal protection for any of the Software or
+any proprietary rights in the Software or to take any other action
+which may adversely affect Recursion's rights or interest in the
+Software or Documentation in any jurisdiction.
+5.5 Licensee agrees to notify Recursion immediately and in writing of
+all circumstances, of which Licensee is aware, surrounding the
+unauthorized possession or use of the Software and Documentation by any
+person or entity. Licensee agrees to cooperate fully with Recursion, at
+Recursion's expense, in any litigation relating to or arising from such
+unauthorized possession or use. 5.6 Licensee acknowledges that, in the
+event of a breach by Licensee of its obligations under this Section 5,
+Recursion may (a) immediately terminate this Agreement, without
+liability to Licensee; (b) bring an appropriate legal action to enjoin
+any such breach of this Agreement; and (c) recover from Licensee
+reasonable attorneys' fees and costs in addition to other appropriate
+relief.
+6. TRADEMARKS.
+6.1 Licensee acknowledges Recursion's ownership of the trademark
+"Recursion," the Software names, and all related trademarks and service
+marks. Licensee further acknowledges that it will acquire no interest
+in such trademarks and service marks by virtue of this Agreement or the
+performance by Licensee of its duties and obligations under this
+Agreement. Licensee agrees not to use the name "Recursion"
+or any of the Software names or marks (or any confusingly similar name
+or symbol), in whole or in part, as part of Licensee's business or
+trade name.
+6.2 Recursion grants to Licensee the non-exclusive, limited right to
+use the Software names and marks solely in connection with the license,
+granted to Licensee under this Agreement. Recursion makes no warranty,
+express or implied, to Licensee concerning the use or validity of such
+names and marks.
+6.3 Upon termination of this Agreement, Licensee agrees not to use
+Recursion's proprietary names and marks or any names or marks similar
+in sound or appearance.
+7. EXPORT.
+Licensee agrees that it will not, directly or indirectly, export or
+re-export, or knowingly permit the export or re-export of, the Software
+or Documentation, or any technical information about the Software or
+Documentation, to any country for which the United States Export
+Administration Act, any regulation thereunder, or any similar United
+States law or regulation, requires an export license or other United
+States government approval, unless the appropriate export license or
+approval has been obtained.
+8. TERM; TERMINATION.
+8.1 The term of this Agreement shall begin on the date the Software is
+received by Licensee and shall terminate on the thirtieth day
+thereafter. Licensee acknowledges that the Software may have encoded
+commands which will prevent the Software from functioning after the
+termination date of this Agreement.
+8.2 Upon termination of this Agreement Licensee will (a) immediately
+discontinue all use of the applicable Software and Documentation; (b)
+immediately delete the applicable Software and Documentation and all
+copies in any form, including, but not limited to, any back-up or
+archival copies, from its system files and storage media; and (c) will
+return to Recursion within ten (10) days or destroy all printed copies
+of the Software and Documentation. At Recursion's request, Licensee
+will verify in writing to Recursion that the actions set forth in (a),
+(b), and (c) above have been taken.
+8.3 The provisions of Sections 4, 5.4, and 5.6 will survive the
+termination of this Agreement, as will the continuing obligations of
+the parties under this Section 8.
+9. GENERAL PROVISIONS.
+9.1 This Agreement does not create any relationship of association,
+partnership, joint venture or agency between the parties. Neither party
+will have any right or authority to assume, create or incur any
+liability or obligation of any kind against or in the name of the other
+party.
+9.2 This Agreement sets forth the entire agreement and understanding
+between the parties with respect to the subject matter in this
+Agreement. This Agreement merges all previous discussions and
+negotiations between the parties and supersedes and replaces any and
+every other agreement, which may have existed between Recursion and
+Licensee with respect to the contents of this Agreement.
+9.3 Except to the extent and in the manner specified in this Agreement,
+any modification or amendment of any provision of this Agreement must
+be in writing and bear the signature of the duly authorized
+representative of each party.
+9.4 The failure of either party to exercise any right granted under
+this Agreement, or to require the performance by the other party of any
+provision of this Agreement, or the waiver by either party of any
+breach of this Agreement, will not prevent a subsequent exercise or
+enforcement of such provisions or be deemed a waiver of any subsequent
+breach of the same or any other provision of this Agreement.
+9.5 Licensee may not sell, assign or transfer any of its rights, duties
+or obligations under this Agreement without the prior written consent
+of Recursion and the payment of license transfer fees. Recursion
+reserves the right to assign or transfer this Agreement or any of its
+rights, duties and obligations to any direct or indirect subsidiary or
+affiliate of Recursion.
+9.6 The parties agree that no person or entity who is not a party to
+this Agreement will be deemed to be a third-party beneficiary or
+entitled to any rights under this Agreement.
+9.7 All notices, requests, reports, submissions and other
+communications permitted or required to be given under this Agreement
+will be deemed to have been duly given if such notice or communication
+is in writing and sent by personal delivery or by airmail, cable,
+telegram, telex, facsimile transmission, email or other commercial
+means of rapid delivery, postage or costs of transmission and delivery
+prepaid, to the parties at addresses specified below until such time as
+either party gives the other party not less than ten (10) days' prior
+written notice of a change of address in accordance with the provisions
+of this Agreement.
+9.8 If any provision of this Agreement is determined by a court of
+competent jurisdiction to be in violation of any applicable law or
+otherwise invalid or unenforceable, such provision will to such extent
+as it is determined to be illegal, invalid or unenforceable under such
+law be deemed null and void, but this Agreement will otherwise remain
+in full force and effect. Furthermore, it is the intention of the
+parties that in lieu of such illegal, invalid, or unenforceable
+provision, there automatically be added as a part of this Agreement a
+provision as similar in terms to such illegal, invalid, or
+unenforceable provision as may be possible and be legal, valid, and
+enforceable.
+9.9 Licensee may not publicize or disclose to any third party any of
+the terms or provisions of this Agreement, or the discussions relating
+to any of the contents of this Agreement, without the prior written
+consent of a duly authorized officer of Recursion, except as required
+by law. Recursion may issue press releases and other public
+announcements regarding its relationship with Licensee, with Licensee's
+prior approval. Licensee will be deemed to have approved Recursion's
+proposed release or announcement if: (a) Recursion requests approval
+and provides Licensee with a copy of the proposed release or
+announcement; and (b) Licensee's has not responded to Recursion's
+request within ten (10) days of its submission to Licensee. 9.10 Any
+disputes or proceedings related or arising out of this Agreement will
+be governed by and construed in accordance with the substantive laws of
+the State of Texas, without giving effect to its rules regarding
+conflicts of law. The International Convention for the Sale of Goods is
+expressly disclaimed. The sole and official language of this Agreement
+is English. The parties agree that the exclusive venue for any action
+arising under this Agreement will be in the state or federal courts
+located in Dallas, Texas, USA.
+9.10 Any disputes or proceedings related or arising out of this
+Agreement will be governed by and construed in accordance with the
+substantive laws of the State of Texas, without giving effect to its
+rules regarding conflicts of law. The International Convention for the
+Sale of Goods is expressly disclaimed. The sole and official language
+of this Agreement is English. The parties agree that the exclusive
+venue for any action arising under this Agreement will be in the state
+or federal courts located in Dallas, Texas, USA.
+</textarea>
+</div>
+</div>
+<div class="form-row">
+<div class="field-label"><label for="field11">Receive Information</label></div>
+<div class="field-widget"><input id="field11" title="Receive Information" name="Receive_Information" value="Yes" type="checkbox">&nbsp; I would
+like to be kept up to date on product information.
+</div>
+</div>
+<input name="Subject" value="Evaluation Software - Download Request" type="hidden">
+
+<input value="Accept" name="accept" type="submit">
+<input value="Decline" name="decline" type="submit"><br>
+</fieldset>
+</form>
+    <script type="text/javascript">
+      var valid = new Validation('download_request', {immediate : false});
+    </script>
+
+</td>
+  </tr>
+</tbody></table>
+<!--END FORM -->
+       </div>
+<div style="display: block;" id="sc2" class="tabcontent">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	  <tbody><tr>
+		<td><strong class="orange16">Voyager Edge Community Edition (CE)</strong><br>
+<br>
+</td>
+		<td class="grey11" align="right" valign="middle"><a href="http://www.recursionsw.com/Service&amp;Support/downloads.html?var1=sc1" class="greydk11">Get Voyager with free support »</a></td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Download a free copy of our award-wining Voyager Edge software for your testing and build process- <span class="orange11">no forms to fill out, no sales calls, and free updates until you're ready to deploy.</span> <br>
+<br>
+Compare Voyager CE with our regular Voyager Edge Developer Eval to choose which version is right for you.<br><br>
+
+</td>
+	</tr>
+	  <tr>
+		<td colspan="2">
+			<table align="left" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td valign="top"><strong class="orange14">Feature</strong></td>
+    <td class="orange14" align="center" valign="top"><a href="#" class="orange14">Voyager Edge</a> Eval</td>
+    <td colspan="3" align="center" valign="top">v.s.</td>
+    <td class="orange14" align="center" valign="top"><a href="#" class="orange14">Voyager Edge CE</a></td>
+  </tr>
+  <tr>
+    <td valign="top">Cost</td>
+    <td valign="top"><span class="orange11">Free&nbsp;&nbsp;</span>(for 30-days)</td>
+    <td rowspan="10" align="center" width="2"></td>
+    <td rowspan="10" background="voyager_files/dkgreypxl.gif"></td>
+    <td rowspan="10" align="center" width="2"></td>
+    <td valign="top"><span class="orange11">Free&nbsp;&nbsp;</span> (license good for 1 year &amp; extended with each free update)</td>
+  </tr>
+    <tr>
+    <td colspan="6"><hr class="greybg"></td>
+	</tr>
+  <tr>
+    <td valign="top">Support</td>
+    <td valign="top"><span class="orange11">Free&nbsp;&nbsp;</span> (free for 30-days)			
+		</td>
+    <td valign="top"><span class="orange11">No&nbsp;&nbsp;</span> (maintenance &amp; support is available for purchase.  <!--<a href="#" class="orange11">More info&nbsp; &raquo;</a>   -->)</td>
+  </tr>
+  
+    <tr>
+    <td colspan="6"><hr class="greybg"></td>
+	</tr>
+  <tr>
+    <td valign="top">Full Development License</td>
+    <td valign="top"><span class="orange11">Yes&nbsp;&nbsp;</span> </td>
+    <td valign="top"><span class="orange11">Yes&nbsp;&nbsp;</span> (program must be restarted every 8 hours)</td>
+  </tr>
+    
+    <tr>
+    <td colspan="6"><hr class="greybg"></td>
+</tr>
+  <tr>
+    <td valign="top">Deployment Capabilities</td>
+    <td valign="top"><span class="orange11">No&nbsp;&nbsp;</span> (this free version is for evaluation only)</td>
+    <td valign="top"><span class="orange11">No&nbsp;&nbsp;</span> (this free version is for development and testing only)</td>
+  </tr>
+  
+    <tr>
+    <td colspan="6"><hr class="greybg"></td>
+</tr>
+  <tr>
+    <td valign="top">Upgrades</td>
+    <td valign="top"><span class="orange11">N/A&nbsp;&nbsp;</span> (unless new release falls within 30-day trial period)</td>
+    <td class="orange11" valign="top">Free  </td>
+  </tr>
+</tbody></table>
+<!--DOWNLOAD BUTTON -->
+</td>
+	</tr>
+	 </tbody></table><br>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td valign="middle"><strong class="green16">Get Voyager CE now&nbsp;&nbsp;»</strong> &nbsp;&nbsp;&nbsp;</td>
+    <td valign="middle"><a href="ftp://ftp.recursionsw.com/voyager/vece/" target="_blank"><img src="voyager_files/freedload.jpg" border="0"></a></td>
+  </tr>
+</tbody></table>
+
+</div>
+      <div id="sc3" class="tabcontent">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	  <tbody><tr>
+		<td>&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td><strong class="orange16">Download Student and University Research Eval</strong><br>
+<br>
+</td>
+	  </tr>
+	  <tr>
+		<td class="greydk11">Upon completion of the
+research license agreement and the registration form you will be
+emailed your software and a key to unlock the program. Our standard
+evaluation period for students and researchers is one semester (6
+months).<br> <br>
+	
+	If you have any questions or problems please do not hesitate to contact  
+	<a href="mailto:engineer@recursionsw.com?subject=Download%20Question%20from%20Web%20Site" class="orange11"> Tech Support</a>  and one of our engineers will assist you. Help during the evaluation period is available at no charge.<br>
+	<br>
+	
+		</td>
+  </tr>
+  <tr>
+    <td><strong class="orange11">All fields are required unless otherwise indicated.</strong><br>
+<br>
+	<form action="/Service&amp;Support/process_studentdload_request.jsp" method="post" name="download_request" id="download_request">
+	<select size="1" name="product_name">
+	<option>Select a Product</option>
+	<option>Cinergi - Multi-language Application Integration (ESB)</option>
+	<option>VOYAGER Edge - Mobile, Intelligent Application Development Platform</option>
+	<option>C++ Toolkits - Advanced Class Libraries</option>
+	<option>C# Toolkit</option>
+	<option>JGL Toolkit 5.0 for JDK 5.0</option>
+	<option>JGL Toolkit 4.1 for JDK 1.4 or earlier</option>
+	</select><br>
+	<br>
+	<input name="Operating_System" size="36" class="shadeform" maxlength="30">
+	Operating System<br><br>
+	
+	<input name="Last_Name" size="36" class="shadeform" maxlength="30">
+	Last Name
+	<br>
+	<br>
+	<input name="First_Name" size="36" class="shadeform" maxlength="30">
+	First Name<br>
+	<br>
+	
+	<input name="Email" size="36" class="shadeform" maxlength="50">
+	Your Universtiy E-Mail<br>
+	<br>
+	<input name="University_Name" size="36" class="shadeform" maxlength="30">
+	University Name<br>
+	<br>
+	<input name="Professor_Name" size="36" class="shadeform" maxlength="50">&nbsp;Professor Name<br><br>
+	<input name="Professor_Email" size="36" class="shadeform" maxlength="50">&nbsp;<strong class="orangedk20">*</strong>&nbsp;
+	Professor's Universtiy E-Mail<br>
+	<strong class="orangedk9">*We
+must be able to confirm your university or research affiliated email
+address. Web-based email clients, i.e. Yahoo, Hotmail or G-mail are not
+accepted.</strong><br><br>
+	<input name="Class_Name" size="36" class="shadeform" maxlength="30">&nbsp;Class name<br>
+	<br>
+	<select name="Through" class="dropdown">
+	<option selected="selected" value="None selected">How did you find us? ----&gt;</option>
+	<option>Referral from another user</option>
+	<option>Referral from research facility or university</option>
+	<option value="Google">Google</option>
+	<option value="yahoo">Yahoo</option>
+	<option value="AltaVista">AltaVista</option>
+	<option value="AOL">America Online</option>
+	<option value="Ask_Jeeves">Ask Jeeves</option>
+	<option value="Lycos">Lycos</option>
+	<option value="MSN">MSN</option>
+	<option value="Northern_Lights">Northern Lights</option>
+	<option value="Lycos">Other search engine</option>
+	<option value="Magazine Newspaper">News Article</option>
+	<option value="Banner-Ad">Banner Ad</option>
+	<option>Saw our ad in C/C++ Users Journal</option>
+	<option>Saw our ad in Dr. Dobbs</option>
+	<option>NYC Java Mug</option>
+	<option>Other Javamug or JUG</option>
+	<option value="other">Other</option>
+	</select> <span class="greydk11">(optional)</span><br>
+<br>
+<b>Trial License Agreement</b><br>
+
+<img src="voyager_files/pdficon.gif" align="texttop">&nbsp;<a target="_blank" href="http://www.recursionsw.com/Service&amp;Support/software_licenses/2005-01-26_recursion_software_evaluation_license_click_wrap.pdf" class="orange11">
+Printable
+Version</a><br>
+<br>
+<textarea rows="10" name="student_license_agreement" cols="50">EDUCATIONAL
+USE LICENSE AGREEMENT
+(Student) THIS LIMITED LICENSE AGREEMENT is entered into as this date
+(the "Effective Date") between Recursion Software, Inc., a Texas
+corporation ("Recursion") and the undersigned student ("Licensee"). In
+consideration of the mutual covenants and promises contained in this
+Agreement, the parties agree as follows regarding the ("Software"): 1.
+LICENSE GRANTS; RESTRICTIONS; EVALUATION.
+1.1 Subject to the terms of this Agreement, Recursion grants to
+Licensee a limited, non-exclusive, non-transferable license to use the
+object code, binary form of the Software, solely for educational
+purposes. Licensee acknowledges that this Agreement does not grant
+Licensee any rights to the source code for the Software.
+1.2 Licensee acknowledges that this Agreement does not include the
+right or license to, and Licensee may not: (a) rent, lease, sell,
+license, sublicense, or otherwise transfer any rights to the Software
+or related documentation (the "Documentation") to any other person or
+entity without the prior written consent of Recursion; (b) permit
+anyone other than Licensee, (c) modify, translate, reverse engineer,
+decompile, disassemble or create derivative works based upon the
+Software or Documentation; (d) copy the Software or Documentation; (e)
+remove any proprietary notices or labels on the Software or
+Documentation; (f) cause or allow discovery of, or attempt to derive
+the Software source code or its equivalent in any way, or (g) use the
+Software or Documentation for any commercial purpose. Notwithstanding
+the foregoing, Licensee may make one (1) copy of the Software and
+Documentation solely for archive or backup purposes.
+1.3 Licensee acknowledges that Recursion has, and will from time to
+time create, other computer software programs that may be based upon or
+related to the Software and that those other programs are not licensed
+to Licensee under this Agreement.
+1.4 Licensee further acknowledges that Recursion may, at its sole
+discretion, but without any obligation whatsoever, provide Licensee
+with product updates, upgrades and other enhancements for the Software.
+If requested by Licensee, Recursion may, at its sole discretion, but
+without any obligation whatsoever, provide Licensee with telephone
+support for the Software.
+1.5 From time to time as requested by Recursion, Licensee agrees to
+provide Recursion with a written evaluation of the performance and ease
+of use of the Software.
+2. WARRANTIES; DISCLAIMERS.
+2.1 THE SOFTWARE IS PROVIDED TO LICENSEE "AS IS" AND WITH ALL FAULTS.
+RECURSION MAKES NO, AND EXPRESSLY DISCLAIMS ANY, WARRANTIES WITH
+RESPECT TO THE SOFTWARE, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE, GOOD TITLE, OR SATISFACTORY QUALITY REGARDLESS OF WHETHER
+IMPOSED BY CONTRACT, STATUTE, COURSE OF DEALING, CUSTOM OR USAGE OR
+OTHERWISE.
+2.2 In the event Licensee discovers actual or potential bugs, errors or
+other deficiencies, Licensee shall promptly provide Recursion with a
+report of such discovery. To the extent that Licensee provides any such
+information to Recursion, Recursion shall be free to use any such
+information for any purpose whatsoever and without any accounting to
+Licensee. Recursion may, at its option and in its sole discretion,
+correct any Software errors or bugs confirmed by Recursion.
+3. LIMITATION OF LIABILITY
+IN NO EVENT WILL RECURSION BE LIABLE OR OBLIGATED UNDER THIS AGREEMENT
+OR UNDER CONTRACT, NEGLIGENCE, BREACH OF WARRANTY, STRICT LIABILITY OR
+OTHER LEGAL OR EQUITABLE THEORY (A) FOR ANY AMOUNTS IN EXCESS OF THE
+AGGREGATE OF THE LICENSE FEES PAID TO RECURSION UNDER THIS AGREEMENT,
+OR (B) FOR ANY SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES ARISING OUT
+OF THIS AGREEMENT OR IN CONNECTION WITH THE DELIVERY, USE OR
+PERFORMANCE OF THE SOFTWARE, EVEN IF RECURSION HAS BEEN ADVISED, OR
+SHOULD HAVE KNOWN OF THE POSSIBILITY OF SUCH DAMAGES, INCLUDING BUT NOT
+LIMITED TO, LOST PROFITS, LOST BUSINESS REVENUES, FAILURE TO REALIZE
+EXPECTED SAVINGS, OR OTHER COMMERCIAL OR ECONOMIC
+LOSS OF ANY KIND. THIS SECTION DOES NOT LIMIT LIABILITY FOR BODILY
+INJURY.
+4. TRADE SECRETS; PROPRIETARY INFORMATION.
+4.1 Licensee acknowledges that (a) Recursion is the owner of all
+rights, title and interest, including, but not limited to, all
+trademarks, copyrights, patent rights, and all other proprietary rights
+in the Software; (b) the Software is confidential in nature and not in
+the public domain; (c) Recursion claims all intellectual and industrial
+property rights granted by law therein; and (d) except as set forth in
+this Agreement, Recursion does not grant any rights to or ownership of
+the Software to Licensee. Licensee further acknowledges that Recursion
+retains all right, title and interest in the Software and in all
+improvements, enhancements, modifications and derivative works of the
+Software including all rights to patent, copyright, trade secret and
+trademark.
+4.2 Licensee agrees to take all reasonable steps to ensure that
+unauthorized persons will not have access to any of the Software or
+Documentation and that all authorized persons having access will
+refrain from any disclosure, duplication or reproduction of the
+Software and Documentation except to the extent permitted under this
+Agreement.
+4.3 Licensee agrees to accord the Software and the Documentation and
+all other confidential information relating to this Agreement the same
+degree and methods of protection as Licensee generally undertakes with
+respect to its similar confidential information, trade secrets and
+other proprietary data.
+4.4 Licensee agrees not to challenge, directly or indirectly, any right
+or interest of Recursion in the Software, nor the validity or
+enforceability of Recursion's rights under applicable law. Licensee
+agrees not to directly or indirectly register, apply for registration
+or attempt to acquire any legal protection for any of the Software or
+any proprietary rights in the Software or to take any other action
+which may adversely affect Recursion's rights or interest in the
+Software or Documentation in any jurisdiction. 4.5 Licensee agrees to
+notify Recursion immediately and in writing of all circumstances, of
+which Licensee is aware, surrounding the unauthorized possession or use
+of the Software and Documentation by any person or entity. Licensee
+agrees to cooperate fully with Recursion, at Recursion's expense, in
+any litigation relating to or arising from such unauthorized possession
+or use.
+4.6 Licensee acknowledges that, in the event of a breach by Licensee of
+its obligations under this Section 4, Recursion may (a) immediately
+terminate this Agreement, without liability to Licensee; (b) bring an
+appropriate legal action to enjoin any such breach of this Agreement;
+and (c) recover from Licensee reasonable attorneys' fees and costs in
+addition to other appropriate relief. 5. TERM; TERMINATION.
+5.1 This Agreement shall be for a term of __________________, beginning
+on the Effective Date. Notwithstanding the foregoing, this Agreement
+shall automatically terminate if Licensee is no longer enrolled as a
+student at an accredited school of secondary education or higher.
+5.2 The provisions of Sections 3 and 4 will survive the termination of
+this Agreement, as will the continuing obligations of the parties under
+Section 6. 6. GENERAL PROVISIONS.
+6.1 This Agreement does not create any relationship of association,
+partnership, joint venture or agency between the parties. Neither party
+will have any right or authority to assume, create or incur any
+liability or obligation of any kind against or in the name of the other
+party.
+6.2 This Agreement sets forth the entire agreement and understanding
+between the parties with respect to the subject matter in this
+Agreement. This Agreement merges all previous discussions and
+negotiations between the parties and supersedes and replaces any and
+every other agreement, which may have existed between Recursion and
+Licensee with respect to the contents of this Agreement. 6.3 Except to
+the extent and in the manner specified in this Agreement, any
+modification or amendment of any provision of this Agreement must be in
+writing and bear the signature of the duly authorized representative of
+each party. 6.4 The failure of either party to exercise any right
+granted under this Agreement, or to require the performance by the
+other party of any provision of this Agreement, or the waiver by either
+party of any breach of this Agreement, will not prevent a subsequent
+exercise or enforcement of such provisions or be deemed a waiver of any
+subsequent breach of the same or any other provision of this Agreement.
+6.5 Licensee may not sell, assign or transfer any of its rights, duties
+or obligations under this Agreement without the prior written consent
+of Recursion. Recursion reserves the right to assign or transfer this
+Agreement or any of its rights, duties and obligations to any direct or
+indirect subsidiary or affiliate of Recursion. 6.6 The parties agree
+that no person or entity who is not a party to this Agreement will be
+deemed to be a third-party beneficiary or entitled to any rights under
+this Agreement. 6.7 All notices, requests, reports, submissions and
+other communications permitted or required to be given under this
+Agreement will be deemed to have been duly given if such notice or
+communication is in writing and sent by personal delivery or by
+airmail, cable, telegram, telex, facsimile transmission, email or other
+commercial means of rapid delivery, postage or costs of transmission
+and delivery prepaid, to the parties at addresses specified below until
+such time as either party gives the other party not less than ten (10)
+days' prior written notice of a change of address in accordance with
+the provisions of this Agreement.
+6.8 If any provision of this Agreement is determined by a court of
+competent jurisdiction to be in violation of any applicable law or
+otherwise invalid or unenforceable, such provision will to such extent
+as it is determined to be illegal, invalid or unenforceable under such
+law be deemed null and void, but this Agreement will otherwise remain
+in full force and effect. Furthermore, it is the intention of the
+parties that in lieu of such illegal, invalid, or unenforceable
+provision, there automatically be added as a part of this Agreement a
+provision as similar in terms to such illegal, invalid, or
+unenforceable provision as may be possible and be legal, valid, and
+enforceable.
+6.9 Any disputes or proceedings related or arising out of this
+Agreement will be governed by and construed in accordance with the
+substantive laws of the State of Texas, without giving effect to its
+rules regarding conflicts of law. The International Convention for the
+Sale of Goods is expressly disclaimed. The sole and official language
+of this Agreement is English. The parties agree that the exclusive
+venue for any action arising under this Agreement will be in the state
+or federal courts located in Dallas, Texas, USA.
+6.10 This Agreement may be executed in two (2) or more counterparts,
+each of which will be considered an original, but all of which together
+will constitute one and the same instrument. The exchange of a fully
+executed Agreement (in counterparts or otherwise) by fax will be
+sufficient to bind the parties to the terms and conditions of this
+Agreement. The parties have caused this Agreement to be executed by
+their duly authorized representatives as of the day and year first
+above written. </textarea><br>
+<input name="Receive_Information" value="Yes" type="checkbox">&nbsp; I would
+like to be kept up to date on product information.<br><br>
+
+
+<input value="Accept" name="accept" type="submit">
+
+  <input value="Decline" name="decline" type="submit">
+
+  <br>
+&nbsp;
+<br>
+<input name="Subject" value="Student Registration" type="hidden">
+</form>
+</td>
+  </tr>
+</tbody></table>
+
+    </div>
+<div id="sc4" class="tabcontent">
+		     <table align="left" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+			  <tbody><tr>
+				<td valign="top"><strong class="orange14">Download Product Updates</strong></td>
+				<td class="greyicon" align="right"></td>
+			  </tr>
+			  <tr>
+			  	<td colspan="2" height="8">
+				</td>
+			  </tr>
+			  <tr>
+			  	<td colspan="2" class="orange14" valign="top">There
+are no new updates at this time. If you are a customer and wish to
+upgrade your product, contact your sales representative. </td>
+			  </tr>
+			</tbody></table>
+
+    </div>
+
+	</div></td>
+  </tr>
+</tbody></table>
+<!-- InstanceEndEditable --><!--3 MATRIX ROW:  2 END INDUSTRY BORDER COLOR TABLE -->						</td>
+<td class="grey11" align="right" valign="top" width="140"><!-- InstanceBeginEditable name="rightnav" --><!-- #BeginLibraryItem "/Library/annoucements_sm.lbi" -->
+<table>
+  <tbody><tr>
+    <td align="left" height="8" valign="top"><strong class="grey12">&nbsp;News &amp; Events </strong></td>
+  </tr>
+  <!-- #BeginLibraryItem "/Library/announcementcontent.lbi" -->
+  <tr>
+    <td class="grey11" align="left" valign="top"><img src="voyager_files/arrow_grey.gif" height="7" width="7">&nbsp;<a href="http://www.recursionsw.com/About_Us/news.html" target="_self">Announcing Cinergi 2.1 Web Services Integration Platform</a></td>
+  </tr>
+  <tr>
+    <td height="2"></td>
+  </tr>
+  <tr>
+    <td class="grey11" align="left" valign="top"><img src="voyager_files/arrow_grey.gif" height="7" width="7">&nbsp;<a href="http://www.recursionsw.com/About_Us/news.html" target="_self">VOYAGER EDGE 6.0.1 Community Edition: free download now available</a></td>
+  </tr>
+  <tr>
+    <td height="2"></td>
+  </tr>
+  <tr>
+    <td class="grey11" align="left" valign="top"><img src="voyager_files/arrow_grey.gif" height="7" width="7">&nbsp;<a href="http://www.recursionsw.com/About_Us/news.html?var1=sc4" target="_self">Recursion's Voyager Positioned in Enterprise Application Servers Magic Quadrant 2Q '06</a></td>
+  </tr>
+  <tr>
+    <td height="2"></td>
+  </tr>
+  <tr>
+    <td class="grey11" align="center" valign="top"><img src="voyager_files/arrow_grey.gif" height="7" width="7">&nbsp;<a href="http://www.recursionsw.com/About_Us/news.html" target="_self">Visit News Room</a></td>
+  </tr>
+  <!-- #EndLibraryItem -->
+</tbody></table>
+<!-- #EndLibraryItem --><!-- InstanceEndEditable --><br></td>
+				  </tr>
+	</tbody></table>
+<!--3 MATRIX ROW:  1 END MATRIX AND INDUSTRY TABLE-->	</td>
+		</tr>
+<!--3 END MATRIX ROW -->
+<!--4 FOOTER ROW -->
+		  <tr>
+			<td valign="bottom"><!-- #BeginLibraryItem "/Library/footertable.lbi" -->
+<table align="center" border="0">
+				<tbody><tr>
+					<td class="grey9" align="center" valign="bottom"><a href="http://www.recursionsw.com/index.html" target="_self">Home</a> | <a href="http://www.recursionsw.com/sitemap.html" target="_self">Sitemap</a> | <a href="mailto:marketing@recursionsw.com" target="_self">Feedback</a> | <a href="http://www.recursionsw.com/Footer/copyright.html" target="_self">Copyright/ IP Policy</a>  © 2006 Recursion Software, Inc.				</td>
+				</tr>
+</tbody></table><!-- #EndLibraryItem --><!--4 END FOOTER ROW -->			</td>
+		  </tr>
+	<!--END 4 FOOTER ROW -->
+    </tbody></table>	</td>
+<!--END CENTER CONTENT -->
+<!--RIGHT MARGIN COUMN -->
+    <td class="greyltbgR" align="left" valign="top" width="25%"></td>
+  </tr>
+</tbody></table>
+</td>
+  </tr>
+</tbody></table>
+<!-- InstanceEnd --></body></html>

@@ -1,0 +1,435 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR" content="Mozilla/4.79 [en] (X11; U; Linux 2.4.18-5smp i686) [Netscape]">
+  <link rel="SHORTCUT ICON" href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/logo.ico"><title>The JR Concurrent Programming Language</title></head><body alink="#ff0000" bgcolor="#ffffff" link="#0000ef" text="#000000" vlink="#51188e">
+<center>
+<h1><img src="The%20JR%20Concurrent%20Programming%20Language_files/logo.jpg" alt="JR logo" style="width: 238px; height: 208px;"></h1>
+<h1> The JR Concurrent Programming Language</h1>
+</center>
+<blockquote>
+  <hr width="100%">The JR programming language extends Java to provide
+a rich concurrency model, based on that of the&nbsp; <a href="http://www.cs.arizona.edu/sr/">SR concurrent programming language</a>.
+JR provides dynamic remote virtual machine creation, dynamic remote
+object creation, remote method invocation, asynchronous communication,
+rendezvous, and dynamic process creation.&nbsp; JR takes a novel
+object-oriented approach to synchronization, which leads to more
+flexible programming of concurrent applications like servers.&nbsp; JR
+can, depending on one's particular definitions, also be considered a
+distributed programming language or a parallel programming language.<br>
+  <p>JR programs are written in an extended Java and then translated
+into standard Java programs.&nbsp; The JR run-time support system is
+also written in standard Java. &nbsp;JR runs on UNIX-based systems
+(Linux, Solaris, Mac OS X) and Windows. </p>
+  <p>The <a href="#JR_implementation">JR_distribution</a> includes the
+JR translator; the JR virtual
+machine (JRVM); the JR verification tool and test suite (jrv, for
+checking proper functioning of the JR implementation); documentation;
+numerous JR example programs; and preprocessors that convert other
+concurrency notations (CCRs, monitors, and CSP) into JR.<br>
+  </p>
+  <p>For an overview of JR, see <a href="#Chapter_1">Chapter_1</a> of
+the <a href="#JR_book">JR_book</a>.<br>
+  </p>
+  <hr width="100%"><br>
+  <big><span style="text-decoration: underline;"><big>News</big></span><br style="text-decoration: underline;">
+  </big></blockquote>
+<ul>
+  <ul>
+    <li>2006-09-25:&nbsp; The new version of JR
+(<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/versions/2.00002/index.html">2.00002</a>)
+is now available.&nbsp; This version handles capabilities for generic
+operations (2.00001 handled all other generics) .&nbsp; This version
+also reduces considerably the number of files that JR creates during
+compilation, so compilation is faster and run time is, in most cases,
+about the same.&nbsp; This version also contains a few bug fixes, code
+improvements, etc.&nbsp; Many thanks to Andrew Gallagher and Appu
+Goundan for their work on this version.<br>
+    </li>
+    <li>2006-03-27:&nbsp; The new version of JR
+(<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/versions/2.00001/index.html">2.00001</a>)
+is now available.<br>
+    </li>
+    <li>2006-03-20: In anticipation of releasing the new version of JR
+(<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/versions/2.00001/index.html">2.00001</a>) in about a week,
+we've reorganized the web pages.&nbsp; Some previous pages
+(such as installation and execution instructions, and "code extracts")
+have been moved to pages for a particular <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/index.html#JR_implementation">version of JR</a>.&nbsp; Please
+let <a href="mailto:jr-project@cs.ucdavis.edu">us</a> know if you
+find something broken!<br>
+    </li>
+    <li>2006-03-10: <a href="mailto:francois.kilchoer@hefr.ch">Francois
+Kilchoer</a> of <a href="http://www.eif.ch/">L'Ecole
+d'ingénieurs et d'architectes de Fribourg/Hochschule für
+Technik und Architektur Freiburg</a> has developed a <a href="http://www.vim.org/">vim</a> syntax file for JR that provides
+keyword highlighting, etc.&nbsp; See "editing JR programs" on the
+"translating
+and executing JR
+programs" page for a particular <a href="#JR_implementation">version
+of JR</a>.<br>
+    </li>
+    <li>2005-12-04: we have been working on a new version of JR
+(2.00001).&nbsp; It is a modified implementation of JR using Java 1.5
+(aka Java 5.0) and extends JR with Java 1.5's new language
+features.&nbsp; We've been using this new implementation locally for a
+few months and it is nearly ready for public release.&nbsp; See <a href="#Chan_thesis_MS">Angela Chan's thesis</a> for details. </li>
+    <li>2005-07-11: the new release of JR (<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/versions/1.00061/index.html">1.00061</a>) is available!&nbsp;
+It contains the <a href="#coexcp">concurrent invocation statement</a>,
+timeout arm on inni
+(see vsuite/inni/timeout in JR's distribution for examples),
+better support for Cygwin,
+and some cleanup and performance
+improvements.&nbsp; (As you can see below, we were overly optimistic
+about when we would have this version ready.&nbsp; Sorry for any
+inconvenience.)&nbsp; Important note to current users: this version
+replaces jr.jar with jrt.jar and jrx.jar, so you'll&nbsp; need to
+change your CLASSPATH accordingly; for details see "translating
+and executing JR
+programs" page for a particular <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/#JR_implementation">version
+of JR</a>.</li>
+  </ul>
+</ul>
+<div style="margin-left: 80px;"><a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/news.html">older news</a><br>
+</div>
+<ul>
+  <big><br>
+  <big><span style="text-decoration: underline;"><a name="JR_implementation"></a>Downloading, Installing, and Running JR
+and JR book "code extract"</span></big></big>
+  <ul>
+    <li> <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/versions/1.00061/index.html">JR version 1.00061</a>
+(extends and requires Java 1.4)</li>
+    <li><a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/versions/2.00002/index.html">JR version 2.00002</a>
+(extends and requires Java
+1.5 (aka Java 5.0))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+    </li>
+  </ul>
+</ul>
+<ul>
+</ul>
+<div style="margin-left: 40px;"><a name="JR_book"></a><big style="text-decoration: underline;"><big>The JR Book<br>
+<br>
+</big></big>
+<div style="text-align: center;"><big style="text-decoration: underline;"><big><a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/cover.jpg"><img src="The%20JR%20Concurrent%20Programming%20Language_files/cover.jpg" alt="JR book cover" style="border: 2px solid ; width: 400px; height: 285px;"></a><br>
+</big></big><br>
+(Click on cover for larger image of cover.)<br>
+<br>
+&nbsp;Click <a href="http://www.springeronline.com/sgw/cda/frontpage/0,11855,4-40109-22-33842674-0,00.html">here</a>
+for the publisher's page, which includes ordering information. <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; (Due to the merger of Kluwer with Springer, as of
+2004-09-01,<big> </big>the publisher's page has moved from the Kluwer
+site (<a href="http://www.kap.nl/prod/b/1-4020-8085-9">old page)</a>
+to the Springer site.)<br>
+Click <a href="http://www.amazon.com/exec/obidos/tg/detail/-/1402080859/qid=1088782675/sr=1-1/ref=sr_1_1/103-3665232-5309452?v=glance&amp;s=books">here</a>
+to order from Amazon.com.<br>
+Note: the <a href="http://www.springeronline.com/sgw/cda/frontpage/0,11855,4-40109-22-33842674-0,00.html">publisher's
+page</a>&nbsp; offers a substantially "reduced price for course
+adoption when ordering six copies or more".<br>
+<br>
+The JR Programming Language:&nbsp; Concurrent Programming in an
+Extended Java<br>
+&nbsp; <a href="http://www.cs.ucdavis.edu/people/faculty/olsson.html">Ronald
+A. Olsson</a> and <a href="http://www.csc.calpoly.edu/%7Eakeen/">Aaron
+W. Keen</a><br>
+<a href="http://www.wkap.nl/">Kluwer Academic Publishers</a>, 2004<br>
+ISBN 1-4020-8085-9<br>
+</div>
+</div>
+<ul>
+  <ul>
+    <li>Here are some pieces of the book:<br>
+    </li>
+  </ul>
+</ul>
+<ul>
+  <ul>
+    <ul>
+      <li>the table of contents (<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/bookjr/2004-03-05/toc.ps">postscript</a>,
+        <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/bookjr/2004-03-05/toc.pdf">PDF</a>).<br>
+      </li>
+    </ul>
+  </ul>
+</ul>
+<ul>
+  <ul>
+    <ul>
+      <li><a name="Chapter_1"></a>Chapter 1, an overview of JR (<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/bookjr/2004-03-05/chap1.ps">postscript</a>,<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/bookjr/2004-03-05/chap1.pdf">PDF</a>).<br>
+      </li>
+    </ul>
+  </ul>
+</ul>
+<ul>
+  <ul>
+    <ul>
+      <li>color figure (the text is printed in black and white) (<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/bookjr/2004-03-05/bnb.ps">postscript</a>, <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/bookjr/2004-03-05/bnb.pdf">PDF</a>).&nbsp;</li>
+    </ul>
+  </ul>
+</ul>
+<ul>
+  <ul>
+    <ul>
+      <li><a name="codeextract"></a>all the code examples<span style="font-style: italic;">
+including the "given" parts of the exercises</span> (see "code extract"
+for a particular <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/index.html#JR_implementation">version of JR</a>).<br>
+      </li>
+    </ul>
+  </ul>
+</ul>
+<ul>
+  <ul>
+    <li><a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/bookjr/errata.html">Errata</a>.<br>
+    </li>
+  </ul>
+</ul>
+<ul>
+  <ul>
+    <li> Note that <a href="http://www.wkap.nl/">Kluwer Academic
+Publishers</a> is&nbsp;<a href="http://www.wkap.nl/prod/a/newsaboutkluwer#160903">merging</a>
+with BertelsmannSpringer, including the scientific publishing business
+Springer-Verlag.</li>
+  </ul>
+</ul>
+<ul>
+  <big><big><span style="text-decoration: underline;">Sample JR Programs<br>
+  </span></big></big>
+  <ul>
+    <li>To get a quick idea of what JR code looks like, here's a simple
+      <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/SampleCode/RW/RW.jr">Readers/Writers program. </a> </li>
+    <li>The <a href="#JR_book">JR_book</a>&nbsp; (see <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/index.html#Chapter_1">Chapter 1</a> and "code extract" for a
+particular <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/index.html#JR_implementation">version of JR</a>),
+and the <a href="#JR_implementation">JR_implementation</a> (see <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/examples.html">Example JR programs</a>) contain numerous
+programs.</li>
+    <li>Here are two really cool visualizations, using JR and Swing, of
+classic concurrent programming problems: <br>
+    </li>
+    <ul>
+      <li>&nbsp;<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/SampleCode/DPvis/DiningPhilosopher.zip">Dining
+Philosophers
+Problem</a>, developed by Yi Lin William
+Au Yeung.</li>
+      <li><a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/SampleCode/RWvis/ReadersWriters.zip">Readers/Writers
+Problem</a>, developed by Andrew Gallagher, and Appu Goundan.</li>
+    </ul>
+  </ul>
+</ul>
+<ul>
+  <big><big><span style="text-decoration: underline;">Papers</span></big></big>
+  <ul>
+    <li> &nbsp;Aaron W. Keen, &nbsp;Tingjian Ge, Justin T. Maris, and
+Ronald A. Olsson. &nbsp;JR: Flexible Distributed Programming in an
+Extended Java.&nbsp; <a href="http://www.acm.org/toplas">ACM
+Transactions on Programming Languages and Systems (TOPLAS)</a>,
+Volume 26, Number 3,
+May 2004, pages 578-608. &nbsp;draft (<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/extended.ps">postscript</a>
+,&nbsp; <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/extended.pdf">PDF</a> ). A preliminary version
+of this paper (<a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/icdcs.ps">postscript</a>
+, <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/icdcs.pdf">PDF</a>
+) appeared in Proceedings of the 21st IEEE International Conference on
+Distributed Computing Systems&nbsp; (<a href="http://cactus.eas.asu.edu/ICDCS2001">ICDCS 2001</a>), April
+2001, pages 575-584.</li>
+    <li>Aaron W. Keen and Ronald A. Olsson. <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/except.ps">Exception
+Handling during Asynchronous Method Invocation. </a>in Euro-Par 2002
+Parallel Processing (August), Lecture Notes in Computer Science series,
+number 2400, Springer-Verlag, B. Monien and R. Feldmann, Editors.
+656-660.</li>
+    <li>Ronald A. Olsson, Gregory D. Benson, Tingjian Ge, and Aaron W.
+Keen. <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/cl_fairness.ps">Fairness in Shared Invocation
+Servicing</a>. &nbsp;<a href="http://www.elsevier.com/locate/inca/638299">Computer Languages,
+Systems and Structures</a>,Volume 28, Number 4 (December 2002), pages
+327-351.</li>
+    <li>Aaron W. Keen and Ronald A. Olsson. <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/interentry.ps">An Inter-entry Invocation Selection
+Mechanism for Concurrent Programming Languages. </a>&nbsp;in Euro-Par
+2003 Parallel Processing (August), Lecture Notes in Computer Science
+series, number 2790, Springer-Verlag,&nbsp; H. Kosch, L. Boszormeny,
+and
+H. Hellwagner, Editors. 770-780.</li>
+    <li><a name="coexcp"></a>Hiu Ning (Angela) Chan, Esteban Pauli,
+Billy Yan-Kit Man, Aaron
+W. Keen, and Ronald A. Olsson. <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/coexcepts.ps">An Exception
+Handling Mechanism for the
+Concurrent Invocation Statement.</a>&nbsp; in
+Euro-Par
+2005 Parallel Processing (August), Lecture Notes in Computer Science
+series, number 3648, Springer--Verlag, Jose C. Cunha and Pedro D.
+Medeiros, Editors. 699-709.</li>
+    <li>Billy Yan-Kit Man, Hiu Ning (Angela) Chan, Andrew J. Gallagher,
+Appu S. Goundan, Aaron
+W. Keen, and Ronald A. Olsson. <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/pq.ps">Toward a
+Definition of and Linguistic Support for Partial Quiescence.</a>&nbsp;
+(draft) in
+Euro-Par
+2006 Parallel Processing (August), Lecture Notes in Computer Science,
+.number 4128, Springer--Verlag, Wolfgang E. Nagel, Wolfgang V. Walter,
+and Wolfgang Lehner, Editors. 655-665. </li>
+  </ul>
+</ul>
+<ul>
+  <big><big><span style="text-decoration: underline;">Theses and Other
+Documentation</span></big></big>
+  <ul>
+    <li><a name="Keen_thesis"></a>Aaron W. Keen.&nbsp; <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/keen.ps">Integrating Concurrency Constructs
+with Object-Oriented Programming Languages: A Case Study</a>.
+Ph.D. Dissertation, University of California, Davis, Department of
+Computer
+Science, May 2002.</li>
+    <li><a name="Chan_thesis"></a>Hiu Ning (Angela) Chan.&nbsp; <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/chan_angela.pdf">Adding Support for Parameterized Virtual
+Machines to the JR Concurrent Programming Language</a>. Undergraduate
+Honors Thesis, University of California, Davis, Department of Computer
+Science, March 2004.</li>
+    <li><a name="Pauli_thesis"></a>Esteban Pauli.&nbsp; <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/pauli.ps">Adding Support for a Concurrent Invocation
+Statement in JR</a>. Undergraduate Honors Thesis, University of
+California, Davis, Department of Computer Science, March 2004.</li>
+    <li><a name="Chan_thesis_MS"></a>Hiu Nang (Angela) Chan.&nbsp; <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/ChanAngela.ps">
+Enhancing the JR Concurrent Programming Language
+with New Java 5.0 Features</a>. M.S. thesis, December 2005.</li>
+    <li>Billy
+Yan-Kit&nbsp; Man.&nbsp; <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/papers/ManBilly.ps">The Design and
+Implementation of Partial Quiescence in a Concurrent Programming
+Language</a>. M.S. thesis, March 2006.</li>
+    <li><a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/features.html">Feature comparison: SR vs. JR</a></li>
+  </ul>
+</ul>
+<ul>
+  <p><big style="text-decoration: underline;"><big>Personnel</big></big>
+  </p>
+  <ul>
+    <li> lead contributors</li>
+    <ul>
+      <li> <a href="http://www.csc.calpoly.edu/%7Eakeen/">&nbsp;Prof.
+Aaron Keen</a></li>
+      <li> &nbsp;<a href="http://www.cs.ucdavis.edu/people/faculty/olsson.html">Prof.
+Ronald A. Olsson</a></li>
+    </ul>
+    <li> previous and present contributors</li>
+    <ul>
+      <li> Tingjiang Ge (initial&nbsp; prototype of parts of JR ideas)</li>
+      <li> Justin Maris (SR to JR translator)</li>
+      <li>Greg Benson (some ideas on invocation servicing)<br>
+      </li>
+      <li> undergraduate students Winter and Spring 2000 who in
+independent study work bravely used an early JR prototype:<br>
+      </li>
+Andrew Arcilla, Ezequiel Cervante, Alan Ngai, Cindy Truong
+      <li>undergraduate students at UC Davis, Fall 2000,&nbsp; in ECS
+140B
+(Programming Languages) who bravely used an early version of JR
+(successfully!) as part of an assignment. &nbsp;And undergraduate and
+graduate students in 140B and ECS 244 (Concurrent Programming) who have
+used JR since then.</li>
+      <li> Brett Groel and Mike Weaver (Winter and Spring 2002) worked
+toward a Windows port of JR. &nbsp;Ben Ahlborn and Dan Simon (Winter
+and
+Spring 2003) continued this work. &nbsp;Hiu Ning (Angela) Chan, Esteban
+Pauli, Nija Shi, and Erik Staab applied the finishing touches (Summer
+2003). </li>
+      <li>Steven Chau, Andre Nash, and Esteban Pauli (Winter and Spring
+2003)&nbsp;did the initial work on adding the concurrent invocation
+statement.&nbsp; Esteban Pauli, as part of his <a href="#Pauli_thesis">undergraduate
+honors thesis</a> work, and Hiu Ning (Angela) Chan
+continued that work and completed a working prototype (Summer 2004).
+Hiu Ning (Angela) Chan (Fall 2004) extended that version to contain
+quantifiers
+and exception handling, which are now included in JR 1.00061.<br>
+      </li>
+      <li>Hiu Ning (Angela) Chan and Erik Staab (Spring and Summer
+2003) &nbsp;added quantifiers to the input statement.</li>
+      <li>Hiu Ning (Angela) Chan added parameterized virtual machines
+(Fall 2003) as part of her <a href="#Chan_thesis">undergraduate honors
+thesis</a> work.</li>
+      <li>Erik Staab and Edson Wong (Spring and Summer 2004) looked
+into ways to improve
+JR's performance
+(both compile time and run-time) and at porting JR to use Java
+1.5.&nbsp; Erik's idea of splitting the jr.jar file makes a noticeable
+difference in performance, which is now included in JR 1.00061.<br>
+      </li>
+      <li>Zhi-Wen Ouyang, Alex Wen, and Ingwar Wirjawan (Spring and
+Summer 2004) added a
+timeout arm to the
+input statement, which is now included in JR 1.00061.</li>
+      <li>Hiu Ning (Angela) Chan (with help from Yi Lin William Au
+Yeung) extended the JR language and JR implementation to be up-to-date
+with Java 1.5 (finishing Fall 2005) as part of her <a href="#Chan_thesis_MS">Master's thesis</a> work. </li>
+      <li>Here is a <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/photos/2004-06-17c.jpg">picture</a> of
+the Spring
+2004 JR group at UC Davis.&nbsp; Left to right: Ingwar Wirjawan (oops,
+most of him ;-), Erik Staab,&nbsp; Zhi-Wen Ouyang, Yi Lin (William) Au
+Yeung, Ron Olsson, Esteban
+Pauli, Edson Wong, and Hiu Ning (Angela) Chan. (Missing from picture is
+Billy Yan-Kit&nbsp; Man.)</li>
+      <li>Here is a <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/photos/2005-07-13d.jpg">picture</a> of
+the Summer
+2005 JR group at UC Davis.&nbsp; Left to right: Yi Lin (William) Au
+Yeung, Hiu Ning (Angela) Chan, Ron Olsson,&nbsp; and Billy
+Yan-Kit&nbsp; Man. (Missing from picture are Ingwar Wirjawan and
+Radmilo Racic.)</li>
+      <li>Here is a <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/photos/2005-12-07a.jpg">picture</a> of
+the Fall
+2005 JR group at UC Davis
+celebrating Angela Chan completing her MS Thesis.&nbsp; Left to right:
+Billy Yan-Kit&nbsp; Man,
+Ron Olsson,&nbsp;
+Nija Shi,
+Hiu Ning (Angela) Chan,
+Matt Roper,
+Andrew Gallagher, and Appu Goundan.
+(Nija Shi and Matt Roper aren't part of the JR group;
+they work with Olsson on other projects.)</li>
+      <li>Here is a <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/photos/2006-03-22a.jpg">picture</a> of
+the Winter
+2006 JR group at UC Davis
+celebrating Billy Yan-Kit Man completing his MS Thesis.&nbsp; Right to
+left:
+Matt Roper,
+Billy Yan-Kit&nbsp; Man,
+Nija Shi,
+Todd Williamson,
+and
+Ron Olsson.
+(Missing from picture are
+Andrew Gallagher and Appu Goundan.
+Nija Shi, Todd Williamson, and Matt Roper aren't part of the JR group;
+they work with Olsson on other projects.)</li>
+      <li>Here is a <a href="http://www.cs.ucdavis.edu/%7Eolsson/research/jr/photos/2006-06-14c.jpg">picture</a> of
+the Spring
+2006 JR group at UC Davis
+celebrating the end of the academic year.&nbsp;
+Left to right:
+Nija Shi,
+Jeff Yuen,
+Todd Williamson,
+Hiu Ning (Angela) Chan,
+Eric Farraro,
+Ron Olsson,
+Matt Roper,
+and
+Andrew Gallagher.
+(Missing from picture are
+Billy Yan-Kit&nbsp; Man
+and
+Appu Goundan.
+Nija Shi, Todd Williamson, Matt Roper, Eric Farraro, and Jeff Yuen
+aren't part of the JR group;
+they work with Olsson on other projects.)</li>
+    </ul>
+    <ul>
+&nbsp;
+    </ul>
+  </ul>
+For help, contact&nbsp; <a href="mailto:jr-project@cs.ucdavis.edu">jr-project@cs.ucdavis.edu</a>.
+  <p> </p>
+  <hr width="100%"> <br>
+This research was initially supported in part by the National Science
+Foundation
+grant CCR-9527295. &nbsp; NSF also partially supported the
+computing equipment used in our work through grant EIA-0224469.<br>
+&nbsp;
+</ul>
+
+</body></html>

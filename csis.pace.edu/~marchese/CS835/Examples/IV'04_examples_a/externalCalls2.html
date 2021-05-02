@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title> Controlling SVG from HTML </title>
+</head>
+
+<body background="PaperTexture.jpg">
+<table border "0">
+<tr>
+<td>
+<embed src="externalCalls2.svg" width="250" height="200"
+ wmode="transparent" id="lights"/>
+</td>
+
+<td>
+<h1>Controlling SVG from HTML</h1>
+<p>Click on the appropriate word to set the right light.
+<h3 onclick="lights.window.setLight('stop')">[Stop]</h3>
+<h3 onclick="lights.window.setLight('caution')">[Caution]</h3>
+<h3 onclick="lights.window.setLight('go')">[Go]</h3>
+
+</td>
+</tr>
+</table>
+</body> 
+<html>

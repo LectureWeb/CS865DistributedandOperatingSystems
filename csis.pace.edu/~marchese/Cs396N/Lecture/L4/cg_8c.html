@@ -1,0 +1,1943 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./cg_8c_files/filelist.xml">
+<link rel=Edit-Time-Data href="./cg_8c_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Events</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:297759116;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-885774226 -1910600326 80802466 -152522914 649495954 -1134000240 270286134 -888929642 2127054184 -168774140;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:629238827;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-34957830 1141019436 -1967637696 -2096223596 -1104492828 -926644628 1702908652 -1831806062 578963306 28374872;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:702749398;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2071935406 -314703180 812149830 1544569720 -1282400516 849232964 1492928242 559456002 -1951076826 -623358424;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:757557010;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-723119676 -588999308 -325799158 -115819242 -1840893444 32781422 -545738690 -1213016686 -621277448 -1712793758;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:864486588;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1667993954 808600630 381698154 -1333349568 1233676680 -261827538 -1887244790 1984984180 508490096 -67722156;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:1277634729;
+	mso-list-type:hybrid;
+	mso-list-template-ids:725113420 2085117820 -2047336260 1478114254 -1388312934 -2108006558 -1319095246 -1071338552 -1774696072 415674358;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:1441562342;
+	mso-list-type:hybrid;
+	mso-list-template-ids:297670250 1060290908 2081185562 -439290544 -1502943950 915824728 2080655836 328728610 -1905212128 -226055680;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:1771659450;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-263827904 1676163446 -306303634 489607618 -1470568680 456011566 1668297396 -1331893288 1902793252 -1433877678;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:1820994969;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-139178716 -505107546 2117880338 -147573622 446443828 201851812 536478676 1141786060 -100789760 -251256760;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name="Base Target" content="_blank">
+</head>
+
+<body bgcolor="#cacaca" lang=EN-US link=blue vlink=purple style='tab-interval:
+.5in' alink="#FF0000">
+
+<div class=Section1>
+
+<p class=MsoNormal>&nbsp; </p>
+
+<table border=0 cellspacing=3 cellpadding=0 width="87%" bgcolor="#ffcccc"
+ style='width:87.0%;mso-cellspacing:1.8pt;background:#FFCCCC;mso-padding-alt:
+ 1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td style='padding:1.8pt 1.8pt 1.8pt 1.8pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Computer Graphics</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:#FFCC33;padding:1.8pt 1.8pt 1.8pt 1.8pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Lecture 8c - Mouse and
+  Keyboard Events</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>What are Events?</span></b>
+</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>Java applets are mainly event
+     driven programs.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>User activities related to
+     keyboard and mouse&nbsp; are called events.</li>
+</ul>
+
+<p><br>
+<b><span style='font-size:13.5pt;font-family:Arial'>Interfaces</span></b> </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo6;tab-stops:list .5in'><b><i>abstract</i></b> <b><i>class</i></b>
+     is a class, defined using the keyword <b>abstract</b></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo6;tab-stops:list .5in'><b><i>abstract</i></b> <b><i>class
+     </i></b>signatures of the methods but no body</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo6;tab-stops:list .5in'><b><i>abstract</i></b> <b><i>class</i></b>
+     may contain some abstractmethods and some non-abstract methods.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo6;tab-stops:list .5in'>&nbsp;to use these
+     classes&nbsp; the body of the <b><i>abstractmethods </i></b>must be
+     completed.</li>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo9;tab-stops:list .5in'><b>Interface</b> is similar
+     to an abstract class with two major differences:</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in'><br>
+(a) in defining an interface the key word <b>interface</b> is used instead of
+the keyword <b>abstract</b> <br>
+(b) <u>none</u> of the methods in an interface are defined, only signatures are
+included. </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo9;tab-stops:list .5in'>Extend a superclass using the
+     keyword <b>extends</b></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo9;tab-stops:list .5in'>Incorporate an <b>interface</b>
+     into a class using the keyword <b>implements</b>.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo9;tab-stops:list .5in'><b>Syntax</b>:</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in'><b>public class <i>sample</i>
+extends <i>example</i> implements <i>interface1</i>{</b> </p>
+
+<p style='margin-left:.5in'>} <br>
+&nbsp; </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo13;tab-stops:list .5in'>An interface implementation
+     must include definitions for <u>all</u> methods in the interface.</li>
+</ul>
+
+<p class=MsoNormal><b><span style='font-size:13.5pt;font-family:Arial'>Event
+Listener Interfaces</span></b> </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo16;tab-stops:list .5in'><b><i>java.awt.Event</i></b>
+     package : Listener interfaces to handle events.</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in'><br>
+All the interfaces and the methods in them. <br>
+&nbsp; </p>
+
+<table border=0 cellspacing=3 cellpadding=0 width=765 bgcolor="#ffcc99"
+ style='width:458.7pt;mso-cellspacing:1.5pt;margin-left:.5in;background:#FFCC99;
+ mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Event</b></p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Generated by</b></p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Listener Interface</b></p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Methods in them</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Action event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Pressing a button</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>ActionListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>actionPerformed()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Adjustment event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Scroll bar is manipulated</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>AdjustmentListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>adjustmentValueChanged()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Component event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A component is hidden, moved, resized, or shown</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>ComponentListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>componentHidden()&nbsp; <br>
+  componentMoved()&nbsp; componentResized()&nbsp; <br>
+  componentShown()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Container event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A component is added or removed from a container</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>ContainerListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>componentAdded()&nbsp; <br>
+  componentRemoved()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Focus event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A component gains or loses focus</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>FocusListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>focusGained()&nbsp; <br>
+  focusLost()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Item event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>An item is selected or deselected</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>ItemListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>itemStateChanged()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Key event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A key is pressed, released or typed</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>KeyListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>keyPressed()&nbsp; <br>
+  keyReleased()&nbsp; <br>
+  keyTyped()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Mouse event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Mouse button is clicked, pressed or released.&nbsp; Mouse
+  pointer enters leaves a component</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>MouseListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>mouseClicked()&nbsp; <br>
+  mouseEntered()&nbsp; <br>
+  mouseExited()&nbsp; <br>
+  mousePressed()&nbsp; <br>
+  mouseReleased()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Mouse event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Mouse pointer is dragged or moved</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>MouseMotionListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>mouseDragged()&nbsp; <br>
+  mouseMoved()</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Text event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Text value is changed</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>TextListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>textValueChanged()</p>
+  </td>
+ </tr>
+ <tr style='height:1.3in'>
+  <td width="12%" valign=top style='width:12.3%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt;height:1.3in'>
+  <p class=MsoNormal>Window event</p>
+  </td>
+  <td width="28%" valign=top style='width:28.02%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt;height:1.3in'>
+  <p class=MsoNormal>A window is activated, closed, deactivated, deiconfied,
+  opened, or quit</p>
+  </td>
+  <td width="27%" valign=top style='width:27.14%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt;height:1.3in'>
+  <p class=MsoNormal>WindowListener</p>
+  </td>
+  <td width="30%" valign=top style='width:30.9%;background:#FFFF99;padding:
+  .75pt .75pt .75pt .75pt;height:1.3in'>
+  <p class=MsoNormal>windowActivated()&nbsp; <br>
+  windowClosed()&nbsp; <br>
+  windowClosing()&nbsp; <br>
+  windowDeactivated()&nbsp; <br>
+  windowDeiconified()&nbsp; <br>
+  windowIconified()&nbsp; <br>
+  windowOpened()</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span style='font-size:13.5pt;font-family:Arial'>Getting
+ready to handle events</span></b> </p>
+
+<p class=MsoNormal style='margin-left:.5in'><b>Step 1:</b> Import classes from
+the package: <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><tt><b><span style='font-size:
+10.0pt;font-family:"Courier New"'>import java.awt.event.*;</span></b></tt></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b>Step 2: </b>Implement the appropriate
+listener interfaces. <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:
+12.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public class sample
+extends Applet implements listenerinterface1{</span></b></tt> </p>
+
+<p style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:12.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New"'>} //</span></b></tt><tt><b><span
+style='font-size:10.0pt;font-family:"Courier New"'>Several listener interfaces
+can be listed, separated by commas</span></b></tt><b>.</b> <br>
+&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.5in'><b>Step 3: R</b>egister the
+listener object with the appropriate event source. <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><tt><b><span style='font-size:
+10.0pt;font-family:"Courier New"'>event_source_object.addevent_listenername(event_listener_object);</span></b></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//Normally, you
+use the keyword this for event_listener_object.</span></b></tt></p>
+
+<p style='margin-left:.5in'><br>
+<b>Step 4: </b>Define <i>all</i> the methods of the implemented listener
+interfaces. I</p>
+
+<h2>Mouse Events</h2>
+
+<p class=MsoNormal style='margin-left:.5in'>&nbsp; </p>
+
+<table border=0 cellspacing=3 cellpadding=0 width=603 bgcolor="#99ff99"
+ style='width:361.8pt;mso-cellspacing:1.5pt;margin-left:60.75pt;background:
+ #99FF99;mso-padding-alt:4.2pt 4.2pt 4.2pt 4.2pt'>
+ <tr>
+  <td width="27%" valign=top style='width:27.66%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Event Class</b></p>
+  </td>
+  <td width="71%" valign=top style='width:71.1%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>MouseEvent</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.66%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Listener Interface</b></p>
+  </td>
+  <td width="71%" valign=top style='width:71.1%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>MouseListener</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.66%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Listener Methods</b></p>
+  </td>
+  <td width="71%" valign=top style='width:71.1%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>public void mouseEntered(MouseEvent event)&nbsp;</b> <br>
+  <b>public void mouseExited(MouseEvent event)&nbsp;</b> <br>
+  <b>public void mouseClicked(MouseEvent event)&nbsp;</b> <br>
+  <b>public void mousePressed(MouseEvent event)&nbsp;</b> <br>
+  <b>public void mouseReleased(MouseEvent event)&nbsp;</b> </p>
+  <p><b>By looking at the name of the methods, it is clear which activity
+  invokes which method.&nbsp;</b> </p>
+  <p><b>event.getX() returns (int) the x coordinate of mouse position.&nbsp;</b>
+  <br>
+  <b>event.getY() returns (int) the y coordinate of mouse position.&nbsp;</b> <br>
+  <b>event.getClickCount() returns (int) the number of mouse clicks.</b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin-left:.5in'><b><span style='font-family:Arial'>Four steps:</span></b>
+</p>
+
+<p style='margin-left:.5in'><b>Step 1: </b>Include the following import
+statement<b>:</b> <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:
+12.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>import
+java.awt.event.*;</span></b></tt></p>
+
+<p style='margin-left:.5in'><br>
+<b>Step 2</b>: Include <b><i>Implements</i></b> <b><i>MouseListener</i></b> : <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><i>public class w2 extends Applet
+implements MouseListener {</i></b> </p>
+
+<p style='margin-left:1.0in'><i>}</i> <br>
+&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.5in'><b>Step 3</b>: Register <b><i>addMouseListener</i></b>
+method in the applet. <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:
+12.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>this.addMouseListener
+(this);</span></b></tt></p>
+
+<p style='margin-left:.5in'><br>
+<b>Step 4: Define the five <i>MouseListener</i> methods:</b> <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:
+12.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public void
+mouseClicked(MouseEvent event){</span></b></tt> <br>
+<tt><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>}</span></tt> </p>
+
+<p style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:12.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public void mouseEntered(MouseEvent
+event){</span></b></tt> <br>
+<tt><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>}</span></tt> </p>
+
+<p style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:12.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public void
+mouseexited(MouseEvent event){</span></b></tt> <br>
+<tt><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>}</span></tt> </p>
+
+<p style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:12.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public void
+mousePressed(MouseEvent event){</span></b></tt> <br>
+<tt><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>}</span></tt> </p>
+
+<p style='margin-left:1.0in'><tt><b><span style='mso-ansi-font-size:12.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public void
+mouseReleased(MouseEvent event){</span></b></tt> <br>
+<tt><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>}</span></tt></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>&nbsp;Example</span></b> </p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>The
+following program changes the applet background color, whenever the mouse event
+occurs.</span> <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>import
+java.awt.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.applet.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.awt.event.*;</span></b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+class MouseEvent1 extends Applet implements MouseListener{</span></b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void init() {</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>this.addMouseListener(this);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseClicked(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.blue);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseEntered(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.cyan);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseExited(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.green);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mousePressed(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.magenta);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseReleased(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.yellow);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b>}</b></p>
+
+<p class=MsoNormal>
+
+<applet code="MouseEvent1" width="300" height="300">
+</applet>
+
+</p>
+
+<p><b><span style='font-size:13.5pt;font-family:Arial'>Mouse Motion Activities</span></b>
+</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l5 level1 lfo19;tab-stops:list .5in'>Moving and dragging the
+     mouse generates&nbsp; an object of the <i>MouseEvent</i> class.</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in'>&nbsp; </p>
+
+<table border=0 cellspacing=3 cellpadding=0 width=603 bgcolor="#99ff99"
+ style='width:361.95pt;mso-cellspacing:1.5pt;margin-left:51.75pt;background:
+ #99FF99;mso-padding-alt:4.2pt 4.2pt 4.2pt 4.2pt'>
+ <tr>
+  <td width="30%" valign=top style='width:30.04%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Event Class</b></p>
+  </td>
+  <td width="68%" valign=top style='width:68.72%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>MouseEvent</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="30%" valign=top style='width:30.04%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Listener Interface</b></p>
+  </td>
+  <td width="68%" valign=top style='width:68.72%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>MouseMotionListener</b></p>
+  </td>
+ </tr>
+ <tr style='height:189.6pt'>
+  <td width="30%" valign=top style='width:30.04%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt;height:189.6pt'>
+  <p class=MsoNormal><b>Listener Methods</b></p>
+  </td>
+  <td width="68%" valign=top style='width:68.72%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt;height:189.6pt'>
+  <p class=MsoNormal><b><i>public void mouseMoved(MouseEvent event)&nbsp;</i></b>
+  </p>
+  <p><b>Invoked when the mouse button has been moved on a component (with no
+  buttons down).</b> </p>
+  <p><b><i>public void mouseDragged(MouseEvent event)</i></b> </p>
+  <p><b>Invoked when a mouse button is pressed on a component and then dragged.</b>
+  </p>
+  <p><b><i>event.getX()</i> returns (int) the x coordinate of mouse
+  position.&nbsp;</b> </p>
+  <p><b><i>event.getY()</i> returns (int) the y coordinate of mouse
+  position.&nbsp;</b> </p>
+  <p><b><i>event.getClickCount()</i> returns (int) the number of mouse clicks.</b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>&nbsp;Example</span></b> </p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>The
+following program changes an applet&#8217;s background color when any mouse activity
+take place.</span> <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>import
+java.awt.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.applet.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.awt.event.*;</span></b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+class MouseEvent2 extends Applet implements</span></b> <br>
+<b><span style='font-family:"Courier New"'>MouseMotionListener,MouseListener{</span></b>
+</p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void init() {</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>this.addMouseListener(this);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>this.addMouseMotionListener(this);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseMoved(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.white);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseDragged(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.black);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseClicked(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.blue);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseEntered(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.cyan);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseExited(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.green);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mousePressed(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.magenta);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public void
+mouseReleased(MouseEvent e){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.yellow);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b>}</b> <br>
+&nbsp;</p>
+
+<p class=MsoNormal>
+
+<applet code="MouseEvent2" width="300" height="300">
+</applet>
+
+<br>
+&nbsp; </p>
+
+<h3><span style='font-family:Arial'>Example</span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>The
+following program displays the coordinates of the mouse.</span> <br>
+&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>import
+java.awt.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.applet.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.awt.event.*;</span></b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public class
+MouseEvent3 extends Applet implements</span></b> <br>
+<b><span style='font-family:"Courier New"'>MouseMotionListener,MouseListener{</span></b>
+</p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void init() {</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>this.addMouseListener(this);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>this.addMouseMotionListener(this);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseMoved(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.white);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int x = event.getX();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int y = event.getY();</span></b> <br>
+<b><span style='font-family:"Courier New"'>print(x,y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseDragged(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.black);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int x = event.getX();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int y = event.getY();</span></b> <br>
+<b><span style='font-family:"Courier New"'>print(x,y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseClicked(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.blue);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int x = event.getX();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int y = event.getY();</span></b> <br>
+<b><span style='font-family:"Courier New"'>print(x,y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseEntered(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.cyan);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int x = event.getX();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int y = event.getY();</span></b> <br>
+<b><span style='font-family:"Courier New"'>print(x,y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseExited(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.green);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int x = event.getX();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int y = event.getY();</span></b> <br>
+<b><span style='font-family:"Courier New"'>print(x,y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mousePressed(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.magenta);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int x = event.getX();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int y = event.getY();</span></b> <br>
+<b><span style='font-family:"Courier New"'>print(x,y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void mouseReleased(MouseEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>setBackground(Color.yellow);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int x = event.getX();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int y = event.getY();</span></b> <br>
+<b><span style='font-family:"Courier New"'>print(x,y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void print(int x, int y){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>showStatus(&quot;x
+coordinate is = &quot;+x+&quot; y coordinate is = &quot;+y);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='font-size:10.0pt'>}</span></b></p>
+
+<p class=MsoNormal>
+
+<applet code="MouseEvent3" width="300" height="300">
+</applet>
+
+</p>
+
+<h2><span style='font-family:Arial'>Example</span></h2>
+
+<p class=MsoNormal><span style='font-family:Arial'>The following program uses
+the coordinates of the mouse to draw circles.</span> </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>import
+java.applet.Applet;</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>import
+java.awt.*;</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>import
+java.awt.event.*;</span></b></tt> <br>
+&nbsp; </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>public class
+CircleDrawer2 extends Applet</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+implements MouseListener {</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; private
+int radius = 25;</span></b></tt> </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;
+public void init() {</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+setForeground(Color.blue);</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+addMouseListener(this);</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; }</span></b></tt>
+</p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; //
+Remaining methods are from the MouseListener interface.</span></b></tt> </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;
+public void mouseEntered(MouseEvent event) {}</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; public
+void mouseExited(MouseEvent event) {}</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; public
+void mouseReleased(MouseEvent event) {}</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; public
+void mouseClicked(MouseEvent event) {}</span></b></tt> </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;
+public void mousePressed(MouseEvent event) {</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+Graphics g = getGraphics();</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+g.fillOval(event.getX()-radius,</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+event.getY()-radius,</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2*radius,</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2*radius);</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; }</span></b></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></b></tt>
+<br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; </p>
+
+<p>
+
+<applet code="CircleDrawer2" width="300" height="300">
+</applet>
+
+<br>
+&nbsp; </p>
+
+<h3><span style='font-family:Arial'>Example</span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Simple WhiteBoard</span> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>import java.applet.Applet;</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>import java.awt.*;</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>import java.awt.event.*;</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>// An applet that lets you perform freehand drawing.</span></b></tt>
+<br>
+&nbsp; </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>public class SimpleWhiteboard extends Applet {</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; protected int lastX=0, lastY=0;</span></b></tt>
+</p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; public void init() {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; setBackground(Color.white);</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; setForeground(Color.blue);</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; addMouseListener(new
+PositionRecorder());</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; addMouseMotionListener(new
+LineDrawer());</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; }</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; protected void record(int x, int y) {</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; lastX = x;</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; lastY = y;</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; }</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; // Record position that mouse entered window
+or</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; // where user pressed mouse button.</span></b></tt>
+</p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; private class PositionRecorder extends
+MouseAdapter {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; public void
+mouseEntered(MouseEvent event) {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; requestFocus(); // Plan
+ahead for typing</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record(event.getX(),
+event.getY());</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; }</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; public void
+mousePressed(MouseEvent event) {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record(event.getX(),
+event.getY());</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; }</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; }</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; // As user drags mouse, connect subsequent
+positions</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; // with short line segments.</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; private class LineDrawer extends
+MouseMotionAdapter {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; public void
+mouseDragged(MouseEvent event) {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int x = event.getX();</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int y = event.getY();</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Graphics g =
+getGraphics();</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawLine(lastX, lastY,
+x, y);</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record(x, y);</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; }</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; }</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>}</span></b></tt> <br>
+&nbsp; <br>
+&nbsp; </p>
+
+<p>
+
+<applet code="SimpleWhiteboard.class" codebase="../L4" width="300" height="300">
+</applet>
+
+<br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; </p>
+
+<h1>Keyboard Events</h1>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><span style='mso-hansi-font-family:Symbol'>·</span><span
+style="mso-spacerun: yes">&nbsp; </span><span style='font-family:Arial'>Whenever
+a key is pressed, an object of the KeyEvent class is generated.</span> </p>
+
+<table border=0 cellspacing=3 cellpadding=0 width=750 bgcolor="#99ff99"
+ style='width:449.7pt;mso-cellspacing:1.5pt;background:#99FF99;mso-padding-alt:
+ 4.2pt 4.2pt 4.2pt 4.2pt'>
+ <tr>
+  <td width="29%" valign=top style='width:29.04%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Event Class</b></p>
+  </td>
+  <td width="69%" valign=top style='width:69.96%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>KeyEvent</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="29%" valign=top style='width:29.04%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Listener Interface</b></p>
+  </td>
+  <td width="69%" valign=top style='width:69.96%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>KeyListener</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="29%" valign=top style='width:29.04%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Listener Methods</b></p>
+  </td>
+  <td width="69%" valign=top style='width:69.96%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b><i>public void keyPressed(KeyEvent event)&nbsp;</i></b>
+  </p>
+  <p><b>Invoked when a key is pressed.&nbsp;</b> </p>
+  <p><b><i>public void keyReleased(KeyEvent event)&nbsp;</i></b> </p>
+  <p><b>Invoked when a key is released.&nbsp;</b> </p>
+  <p><b><i>public void keyTyped(KeyEvent event)&nbsp;</i></b> </p>
+  <p><b>Invoked when a key is typed (pressed and released).</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="29%" valign=top style='width:29.04%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>KeyEvent class</b></p>
+  </td>
+  <td width="69%" valign=top style='width:69.96%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>For a list of Class variables (virtual key codes),
+  which are defined as static and final, see Virtual Key Codes table
+  below.&nbsp;</b> </p>
+  <p><b><i>event.getKeyChar()</i> returns (char) the character pressed.&nbsp;</b>
+  </p>
+  <p><b><i>event.getKeyCode()</i> returns (int) the &quot;virtual key
+  code&quot;, see table below.&nbsp;</b> </p>
+  <p><b><i>event.getModifiers().</i></b> </p>
+  <p><b>event.isShiftDown() returns (boolean) true if shift key is down.&nbsp;</b>
+  </p>
+  <p><b><i>event.isControlDown()</i> returns (boolean) true if control key is
+  down.&nbsp;</b> </p>
+  <p><b><i>event.isAltDown()</i> returns (boolean) true if alt key is
+  down&nbsp;</b> </p>
+  <p><b><i>KeyEvent.getKeyModifiersText(int modifiers</i>) returns (String).</b>
+  </p>
+  <p><b><i>KeyEvent.getKeyText(int keycode)</i> returns (String).</b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><br>
+&nbsp; </p>
+
+<p><b><span style='font-family:Arial'>Virtual Key Codes</span></b> </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo22;tab-stops:list .5in'><b><span style='font-family:
+     Arial'>Refer to the key on the keyboard returned by <i>event.getKeyCode()</i></span></b></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo22;tab-stops:list .5in'><b><span style='font-family:
+     Arial'>Usedas class variables.</span></b></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo22;tab-stops:list .5in'><b><span style='font-family:
+     Arial'>Produce a numeric value - but - use the symbol in the program. Nno
+     guarantee that the numeric value produced is the same on all platforms.</span></b></li>
+</ul>
+
+<table border=0 cellspacing=3 cellpadding=0 width=468 bgcolor="#99ff99"
+ style='width:3.9in;mso-cellspacing:1.5pt;background:#99FF99;mso-padding-alt:
+ 4.2pt 4.2pt 4.2pt 4.2pt'>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Alpha keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_A through VK_Z</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Numeric keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_0 through VK_9</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Function keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_F1 through VK_F12&nbsp;</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Action keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_BACK_SPACE&nbsp;</b> </p>
+  <p><b>VK_ESCAPE, VK_PRINTSCREEN, VK_SCROLL_LOCK, VK_PAUSE&nbsp;</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Num pad number keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_NUMPAD0 through VK_NUMPAD9</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Other Num pad keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_NUM_LOCK, VK_SLASH, VK_MULTIPLY, VK_SUBTRACT,
+  VK_ADD, VK_HOME, VK_UP, VK_PAGE_UP, VK_LEFT, VK_RIGHT, VK_END, VK_DOWN,
+  VK_PAGE_DOWN, VK_INSERT, VK_DELETE, VK_ENTER</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Modifier keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_ALT, VK_CAPS_LOCK, VK_CONTROL, VK_META, VK_SHIFT</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Punctuation keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_SPACE, VK_ENTER, VK_TAB, VK_BACK_QUOTE, VK_SLASH, VK_BACK_SLASH,
+  VK_OPEN_BRACKET, VK_CLOSE_BRACKET, VK_PERIOD, VK_QUOTE, VK_SEMICOLON,
+  VK_SEPARATOR, VK_COMMA, VK_DECIMAL, VK_EQUALS,&nbsp;</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="43%" valign=top style='width:43.28%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>Other keys</b></p>
+  </td>
+  <td width="55%" valign=top style='width:55.12%;background:#FFFF99;padding:
+  4.2pt 4.2pt 4.2pt 4.2pt'>
+  <p class=MsoNormal><b>VK_ACCEPT, VK_CANCEL, VK_CLEAR, VK_CONVERT, VK_FINAL, VK_HELP,
+  VK_KANA, VK_KANJI, VK_MODECHANGE, VK_NONCONVERT, VK_UNDEFINED,&nbsp;</b></p>
+  </td>
+ </tr>
+</table>
+
+<p><b><span style='font-family:Arial'>Note</span></b> </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo25;tab-stops:list .5in'>To check for an upper case
+     letter use:</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in'><tt><b><span style='mso-ansi-font-size:
+12.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>if (
+event.getKeyCode() == VK_A &amp;&amp; KeyEvent.isShiftDown())</span></b></tt> <br>
+&nbsp; </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo28;tab-stops:list .5in'>Similarly use <tt><b><span
+     style='font-size:10.0pt;font-family:"Courier New"'>event.isControlDown()</span></b></tt>and
+     <b>event.isAltDown()</b><i>.</i></li>
+</ul>
+
+<p><br>
+<b><span style='font-family:Arial'>Example</span></b> </p>
+
+<p><span style='font-family:Arial'>The following program displays several text
+boxes.&nbsp; Type any key in top box. The other boxes in the applet show
+information about the key pressed.</span> </p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>import
+java.applet.Applet;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.awt.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.awt.event.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>public class Keys1 extends Applet
+implements KeyListener{</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>TextField
+input;</span></b> <br>
+<b><span style='font-family:"Courier New"'>TextField output1, output2, output3,
+output4, output5;</span></b> <br>
+<b><span style='font-family:"Courier New"'>TextField output6, output7, output8;</span></b>
+</p>
+
+<p style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>public
+void init(){</span></b> </p>
+
+<p style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>input =
+new TextField(30);</span></b> <br>
+<b><span style='font-family:"Courier New"'>input.addKeyListener(this);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output1 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output2 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output3 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output4 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output5 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output6 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output7 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output8 = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>add(input);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output1);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output2);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output3);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output4);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output5);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output6);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output7);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output8);</span></b> </p>
+
+<p style='margin-left:1.5in'><b>}</b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void keyTyped(KeyEvent event){</span></b> </p>
+
+<p style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void keyPressed(KeyEvent event){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>char
+char1 = event.getKeyChar();</span></b> <br>
+<b><span style='font-family:"Courier New"'>int n = event.getKeyCode();</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>int modifiers = event.getModifiers();</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output1.setText(&quot;You pressed
+&quot;+char1);</span></b> </p>
+
+<p style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>output2.setText(&quot;Virtual
+key code value = &quot;+n);</span></b> <br>
+<b><span style='font-family:"Courier New"'>output3.setText(&quot;Name of key
+pressed = &quot;+KeyEvent.getKeyText(n));</span></b> <br>
+<b><span style='font-family:"Courier New"'>output4.setText(&quot;Shift was
+pressed = &quot;+event.isShiftDown());</span></b> <br>
+<b><span style='font-family:"Courier New"'>output5.setText(&quot;Control key
+down = &quot;+event.isControlDown());</span></b> <br>
+<b><span style='font-family:"Courier New"'>output6.setText(&quot;Alt key was
+pressed = &quot;+event.isAltDown());</span></b> <br>
+<b><span style='font-family:"Courier New"'>output7.setText(&quot;Modifiers
+value = &quot;+event.getModifiers());</span></b> <br>
+<b><span style='font-family:"Courier New"'>output8.setText(&quot;Modifier text</span></b>
+</p>
+
+<p style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>=&quot;+KeyEvent.getKeyModifiersText(modifiers));</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void keyReleased(KeyEvent event) {</span></b> </p>
+
+<p style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b>}</b></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Output</span></b> </p>
+
+<p>
+
+<applet code="Keys1" width="300" height="300">
+</applet>
+
+<br>
+&nbsp; </p>
+
+<p><b><span style='font-family:Arial'>Example</span></b> </p>
+
+<p><span style='font-family:Arial'>The following program displays two boxes.
+Type each keyboard key in the first box and see result in the second box.</span>
+</p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>import
+java.applet.Applet;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.awt.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>import java.awt.event.*;</span></b> <br>
+<b><span style='font-family:"Courier New"'>public class Keys2 extends Applet
+implements KeyListener{</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>TextField
+input;</span></b> <br>
+<b><span style='font-family:"Courier New"'>TextField output;</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void init(){</span></b> </p>
+
+<p class=MsoNormal style='margin-left:1.5in'><b><span style='font-family:"Courier New"'>input
+= new TextField(30);</span></b> <br>
+<b><span style='font-family:"Courier New"'>input.addKeyListener(this);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>output = new TextField(30);</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>add(input);</span></b> <br>
+<b><span style='font-family:"Courier New"'>add(output);</span></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void keyTyped(KeyEvent event){</span></b> </p>
+
+<p style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void keyPressed(KeyEvent event){</span></b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>String
+string = &quot; &quot;;</span></b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>switch(event.getKeyCode()){</span></b>
+</p>
+
+<p class=MsoNormal style='margin-left:2.0in'><b><span style='font-family:"Courier New"'>case
+KeyEvent.VK_ACCEPT: string = &quot;You pressed VK_ACCEPT&quot;; break;</span></b>
+<br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_ADD: string =
+&quot;You pressed VK_ADD&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_ALT: string =
+&quot;You pressed VK_ALT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_BACK_QUOTE: string
+= &quot;You pressed VK_BACK_QUOTE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_BACK_SLASH: string
+= &quot;You pressed VK_BACK_SLASH&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_BACK_SPACE: string
+= &quot;You pressed VK_BACK_SPACE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_CANCEL: string =
+&quot;You pressed VK_CANCEL&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_CAPS_LOCK: string =
+&quot;You pressed VK_CAPS_LOCK&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_CLEAR: string =
+&quot;You pressed VK_CLEAR&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_CLOSE_BRACKET:
+string = &quot;You pressed VK_CLOSE_BRACKET&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_COMMA: string =
+&quot;You pressed VK_COMMA&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_CONTROL: string =
+&quot;You pressed VK_CONTROL&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_CONVERT: string =
+&quot;You pressed VK_CONVERT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_DECIMAL: string =
+&quot;You pressed VK_DECIMAL&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_DELETE: string =
+&quot;You pressed VK_DELETE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_DIVIDE: string =
+&quot;You pressed VK_DIVIDE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_DOWN: string =
+&quot;You pressed VK_DOWN&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_END: string =
+&quot;You pressed VK_END&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_ENTER: string =
+&quot;You pressed VK_ENTER&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_EQUALS: string =
+&quot;You pressed VK_EQUALS&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_ESCAPE: string =
+&quot;You pressed VK_ESCAPE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F1: string =
+&quot;You pressed VK_F1&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F10: string =
+&quot;You pressed VK_F10&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F11: string =
+&quot;You pressed VK_F11&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F12: string =
+&quot;You pressed VK_F12&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F2: string =
+&quot;You pressed VK_F2&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F3: string =
+&quot;You pressed VK_F3&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F4: string =
+&quot;You pressed VK_F4&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F5: string =
+&quot;You pressed VK_F5&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F6: string =
+&quot;You pressed VK_F6&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F7: string =
+&quot;You pressed VK_F7&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F8: string =
+&quot;You pressed VK_F8&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F9: string =
+&quot;You pressed VK_F9&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_FINAL: string =
+&quot;You pressed VK_FINAL&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_HELP: string =
+&quot;You pressed VK_HELP&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_HOME: string =
+&quot;You pressed VK_HOME&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_INSERT: string =
+&quot;You pressed VK_INSERT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_KANA: string =
+&quot;You pressed VK_KANA&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_KANJI: string =
+&quot;You pressed VK_KANJI&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_LEFT: string =
+&quot;You pressed VK_LEFT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_META: string =
+&quot;You pressed VK_META&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_MODECHANGE: string
+= &quot;You pressed VK_MODECHANGE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_MULTIPLY: string =
+&quot;You pressed VK_MULTIPLY&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NONCONVERT: string
+= &quot;You pressed VK_NONCONVERT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUM_LOCK: string =
+&quot;You pressed VK_NUM_LOCK&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_OPEN_BRACKET:
+string = &quot;You pressed VK_OPEN_BRACKET&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_PAGE_DOWN: string =
+&quot;You pressed VK_PAGE_DOWN&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_PAGE_UP: string =
+&quot;You pressed VK_PAGE_UP&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_PAUSE: string =
+&quot;You pressed VK_PAUSE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_PERIOD: string =
+&quot;You pressed VK_PERIOD&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_PRINTSCREEN: string
+= &quot;You pressed VK_PRINTSCREEN&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_QUOTE: string =
+&quot;You pressed VK_QUOTE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_RIGHT: string =
+&quot;You pressed VK_RIGHT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_SCROLL_LOCK: string
+= &quot;You pressed VK_SCROLL_LOCK&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_SEMICOLON: string =
+&quot;You pressed VK_SEMICOLON&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_SEPARATER: string =
+&quot;You pressed VK_SEPARATER&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_SHIFT: string =
+&quot;You pressed VK_SHIFT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_SLASH: string =
+&quot;You pressed VK_SLASH&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_SPACE: string =
+&quot;You pressed VK_SPACE&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_SUBTRACT: string =
+&quot;You pressed VK_SUBTRACT&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_TAB: string =
+&quot;You pressed VK_TAB&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_UNDEFINED: string =
+&quot;You pressed VK_UNDEFINED&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_UP: string =
+&quot;Y0u pressed VK_UP&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_A: string =
+&quot;You pressed VK_A&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_B: string =
+&quot;You pressed VK_B&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_C: string =
+&quot;You pressed VK_C&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_D: string =
+&quot;You pressed VK_D&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_E: string =
+&quot;You pressed VK_E&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_F: string =
+&quot;You pressed VK_F&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_G: string =
+&quot;You pressed VK_G&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_H: string =
+&quot;You pressed VK_H&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_I: string =
+&quot;You pressed VK_I&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_J: string =
+&quot;You pressed VK_J&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_K: string =
+&quot;You pressed VK_K&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_L: string =
+&quot;You pressed VK_L&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_M: string =
+&quot;You pressed VK_M&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_N: string =
+&quot;You pressed VK_N&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_O: string =
+&quot;You pressed VK_O&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_P: string =
+&quot;You pressed VK_P&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_Q: string =
+&quot;You pressed VK_Q&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_R: string =
+&quot;You pressed VK_R&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_S: string =
+&quot;You pressed VK_S&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_T: string =
+&quot;You pressed VK_T&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_U: string =
+&quot;You pressed VK_U&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_V: string =
+&quot;You pressed VK_V&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_W: string =
+&quot;You pressed VK_W&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_X: string =
+&quot;You pressed VK_X&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_Y: string =
+&quot;You pressed VK_Y&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_Z: string =
+&quot;You pressed VK_Z&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_0: string =
+&quot;You pressed VK_0&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_1: string =
+&quot;You pressed VK_1&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_2: string =
+&quot;You pressed VK_2&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_3: string =
+&quot;You pressed VK_3&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_4: string =
+&quot;You pressed VK_4&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_5: string =
+&quot;You pressed VK_5&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_6: string =
+&quot;You pressed VK_6&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_7: string =
+&quot;You pressed VK_7&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_8: string =
+&quot;You pressed VK_8&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_9: string =
+&quot;You pressed VK_9&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD0: string =
+&quot;You pressed VK_NUMPAD0&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD1: string =
+&quot;You pressed VK_NUMPAD1&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD2: string =
+&quot;You pressed VK_NUMPAD2&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD3: string =
+&quot;You pressed VK_NUMPAD3&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD4: string =
+&quot;You pressed VK_NUMPAD4&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD5: string =
+&quot;You pressed VK_NUMPAD5&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD6: string =
+&quot;You pressed VK_NUMPAD6&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD7: string =
+&quot;You pressed VK_NUMPAD7&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD8: string =
+&quot;You pressed VK_NUMPAD8&quot;; break;</span></b> <br>
+<b><span style='font-family:"Courier New"'>case KeyEvent.VK_NUMPAD9: string =
+&quot;You pressed VK_NUMPAD9&quot;; break;</span></b> <br>
+<b>}</b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>output.setText(string);</span></b>
+</p>
+
+<p style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b><span style='font-family:"Courier New"'>public
+void keyReleased(KeyEvent event) {</span></b> </p>
+
+<p style='margin-left:1.0in'><b>}</b> </p>
+
+<p style='margin-left:1.0in'><b>}</b></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Output</span></b> </p>
+
+<p>
+
+<applet code="Keys2" width="300" height="300">
+</applet>
+
+<br>
+&nbsp; <br>
+&nbsp; </p>
+
+<h2><span style='font-family:Arial'>Example</span></h2>
+
+<p class=MsoNormal><b>A better whiteboard that lets you enter text in addition
+to freehand drawing</b> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>import java.applet.Applet;</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>import java.awt.*;</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>import java.awt.event.*;</span></b></tt> <br>
+&nbsp; </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>public class Whiteboard extends SimpleWhiteboard {</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; protected FontMetrics fm;</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; public void init() {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; super.init();</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; Font font = new
+Font(&quot;Serif&quot;, Font.BOLD, 20);</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; setFont(font);</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; fm = getFontMetrics(font);</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; addKeyListener(new CharDrawer());</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; }</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; private class CharDrawer extends KeyAdapter {</span></b></tt>
+<br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; // When user types a printable
+character,</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; // draw it and shift position
+rightwards.</span></b></tt> </p>
+
+<p><tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; public void keyTyped(KeyEvent
+event) {</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String s =
+String.valueOf(event.getKeyChar());</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+getGraphics().drawString(s, lastX, lastY);</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record(lastX +
+fm.stringWidth(s), lastY);</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; }</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>&nbsp; }</span></b></tt> <br>
+<tt><b><span style='mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>}</span></b></tt> <br>
+&nbsp; </p>
+
+<h3><span style='font-family:Arial'>Output</span></h3>
+
+<p class=MsoNormal>
+
+<applet code="Whiteboard.class" codebase="../L4" width="300" height="300">
+</applet>
+
+<br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; </p>
+
+</div>
+
+</body>
+
+</html>

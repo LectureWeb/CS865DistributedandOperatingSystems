@@ -1,0 +1,364 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Francis T. Marchese">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>l2</title>
+</head>
+<body>
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#CCCCCC" >
+<tr>
+<td><font face="Arial,Helvetica">CS396N - Web Programming</font></td>
+</tr>
+
+<tr BGCOLOR="#FFCCCC">
+<td><font face="Arial,Helvetica">Spring 2002</font></td>
+</tr>
+</table>
+
+<h2>
+<font face="Arial,Helvetica">Chapter 4 - Frames</font></h2>
+
+<h3>
+<font face="Arial,Helvetica">Basic Frame Template</font></h3>
+<b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Document Title&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET ...></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;!-- FRAME and Nested
+FRAMESET Entries --></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- Stuff for nonframes browsers --></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Rows</font></b></h2>
+<img SRC="fg0.jpg" height=398 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Frameset ROWS
+Attribute&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET ROWS="50,10%,*,2*">
+<font color="#000099">50 pixels, 10% total area, remaining,2 times,</font></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&nbsp; &lt;NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Your browser does not support frames. Please see</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;A HREF="Frame-Cell.html">nonframes version&lt;/A>.</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Frames with Borders</font></b></h2>
+<img SRC="fg1.jpg" height=322 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Frames with Borders&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET ROWS="40%,60%"> </font><font color="#000099">Browser
+window 40/60 % split of total height</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAMESET COLS="*,*">&nbsp;
+</font><font color="#000099">Split in two according to remaining space</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&nbsp; &lt;NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Your browser does not support frames. Please see</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;A HREF="Frame-Cell.html">nonframes version&lt;/A>.</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Frames without&nbsp; Borders</font></b></h2>
+<img SRC="fg2.jpg" height=322 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Borderless Frames&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET ROWS="40%,60%" FRAMEBORDER=0</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BORDER=0 FRAMESPACING=0> <font color="#000099">thickness of frame</font></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAMESET COLS="*,*"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&nbsp; &lt;NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Your browser does not support frames. Please see</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;A HREF="Frame-Cell.html">nonframes version&lt;/A>.</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Frame Content</font></b></h2>
+<b><font face="Arial,Helvetica">Example 1</font></b>
+<br><img SRC="fg3.jpg" height=423 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Frame Example
+1&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET ROWS="55%,45%"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAMESET COLS="*,*,*"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&nbsp; &lt;FRAMESET COLS="*,*"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&nbsp; &lt;NOFRAMES> <font color="#000099">for
+browsers that don't handle frames</font></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Your browser does not support frames. Please see</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;A HREF="Frame-Cell.html">nonframes version&lt;/A>.</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;/HTML></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Arial,Helvetica">Example 2</font></b>
+<br><img SRC="fg4.jpg" height=423 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Frame Example
+2&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET COLS="55%,45%"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAMESET ROWS="*,*,*"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&nbsp; &lt;FRAMESET ROWS="*,*"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="Frame-Cell.html"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&nbsp; &lt;NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Your browser does not support frames. Please see</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;A HREF="Frame-Cell.html">nonframes version&lt;/A>.</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica">Targeting Frame Cells</font></b></h2>
+<img SRC="fg5.jpg" height=337 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Investing in Cold
+Fusion&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET ROWS="75,*"> <font color="#000099">75
+pixels high first frame</font></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="TOC.html"
+NAME="TOC"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="Introduction.html"
+NAME="Main"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+This page requires Frames. For a non-Frames version,</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;A HREF="Introduction.html">the introduction&lt;/A>.</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/NOFRAMES></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica"><font color="#000099">TOC Sets Up Targets
+for Main Frame</font></font></b></h2>
+<b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Transitional//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Table of Contents&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&lt;TABLE WIDTH="100%"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TR>&lt;TH>&lt;A HREF="Introduction.html"
+TARGET="Main"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Introduction&lt;/A>&lt;/TH></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;TH>&lt;A HREF="Potential.html" TARGET="Main"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Potential&lt;/A>&lt;/TH></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;TH>&lt;A HREF="Investing.html" TARGET="Main"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Investing&lt;/A>&lt;/TH></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;TH>&lt;A HREF="References.html" TARGET="Main"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+References&lt;/A>&lt;/TH>&lt;/TR></font></b>
+<br><b><font face="Courier New,Courier">&lt;/TABLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/BODY></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h2>
+<font face="Arial,Helvetica">Updating Multiple Frames</font></h2>
+
+<h3>
+<font face="Arial,Helvetica">Use Javascript</font></h3>
+<img SRC="fg6.jpg" height=314 width=500>
+<br><img SRC="fg7.jpg" height=314 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0 Frameset//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Updating Multiple
+Frames Simultaneously&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;FRAMESET ROWS="75,*"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAME SRC="<font color="#000099">Top-Frame.html</font>"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;FRAMESET COLS="*,*,*"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="<font color="#3333FF">Bottom1</font>.html"
+NAME="Bottom1"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="<font color="#3333FF">Bottom2</font>.html"
+NAME="Bottom2"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; &lt;FRAME SRC="<font color="#3333FF">Bottom3</font>.html"
+NAME="Bottom3"></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;/FRAMESET></font></b>
+<br><b><font face="Courier New,Courier">&lt;/FRAMESET></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica"><font color="#000099">Top-Frame.html</font></font></b></h3>
+<b><font face="Courier New,Courier"><font color="#000000">&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></b><b><font face="Courier New,Courier"><font color="#000000"></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000">&lt;HTML></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;HEAD></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&nbsp; &lt;TITLE>Table
+of Contents&lt;/TITLE></font></font></b><b><font face="Courier New,Courier"><font color="#000000"></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000">&lt;SCRIPT
+TYPE="text/javascript"></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;!--</font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">function
+updateCells() {</font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&nbsp; top.</font><font color="#3333FF">Bottom1</font><font color="#000000">.location
+= "</font><font color="#3333FF">Result1.html</font><font color="#000000">";</font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&nbsp; top.</font><font color="#3333FF">Bottom3</font><font color="#000000">.location
+= "Result3.html";</font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">}</font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">// --></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;/SCRIPT></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;/HEAD></font></font></b><b><font face="Courier New,Courier"><font color="#000000"></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000">&lt;BODY BGCOLOR="WHITE"
+TEXT="BLACK"></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">When selected
+on JavaScript-capable browsers,</font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;A HREF="Result1.html"
+TARGET="Bottom1" OnClick="updateCells()"></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">this link&lt;/A>
+will update cell one and three below.</font></font></b><b><font face="Courier New,Courier"><font color="#000000"></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000">&lt;/BODY></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;/HTML></font></font></b>
+<h3>
+<font face="Arial,Helvetica"><font color="#000099">Result1.html</font></font></h3>
+<b><font face="Courier New,Courier"><font color="#000000">&lt;!DOCTYPE
+HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"></font></font></b><b><font face="Courier New,Courier"><font color="#000000"></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000">&lt;HTML></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;HEAD></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&nbsp; &lt;TITLE>Result
+Cell 1&lt;/TITLE></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;/HEAD></font></font></b><b><font face="Courier New,Courier"><font color="#000000"></font></font></b>
+<p><b><font face="Courier New,Courier"><font color="#000000">&lt;BODY BGCOLOR="BLACK"
+TEXT="WHITE"></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;H1 ALIGN="CENTER">Result
+Cell 1&lt;/H1></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;/BODY></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;/HTML></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000"></font></font></b>&nbsp;
+<h2>
+<b><font face="Arial,Helvetica"><font color="#000000">Inline Frames</font></font></b></h2>
+<i><font face="Arial,Helvetica"><font color="#000000">Occupies a fixed
+position in HTML Documet</font></font></i>
+<br><img SRC="fg8.jpg" height=259 width=500>
+<p><b><font face="Courier New,Courier">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD
+HTML 4.0//EN"></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;HTML></font></b>
+<br><b><font face="Courier New,Courier">&lt;HEAD></font></b>
+<br><b><font face="Courier New,Courier">&nbsp; &lt;TITLE>Design and Analysis
+of Algorithms&lt;/TITLE></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HEAD></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">&lt;BODY></font></b>
+<br><b><font face="Courier New,Courier">&lt;H1>Design and Analysis of Algorithms&lt;/H1></font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">This course covers the techniques
+required to design and</font></b>
+<br><b><font face="Courier New,Courier">analyze computer algorithms. The
+textbook is &lt;I>Introduction</font></b>
+<br><b><font face="Courier New,Courier">to Algorithms&lt;/I> by Cormen,
+Leiserson, and Rivest</font></b>
+<br><b><font face="Courier New,Courier">(McGraw Hill, 1990, ISBN 0-07-013143-0).</font></b>
+<br><b><font face="Courier New,Courier">&lt;P></font></b>
+<br><b><font face="Courier New,Courier">Blah, blah, blah, algorithms. Yada,
+yada, yada, time. Blah,</font></b>
+<br><b><font face="Courier New,Courier">blah, blah, space. Yada, yada,
+yada, iterative. Blah, blah,</font></b>
+<br><b><font face="Courier New,Courier">blah, recurrences. Yada, yada,
+yard, data structures. Blah,</font></b>
+<br><b><font face="Courier New,Courier">blah, blah, sorting. Yada, yada,
+yada, dynamic programming.</font></b>
+<br><b><font face="Courier New,Courier">Blah, blah, blah, graph algorithms.
+Yada, yada, yada,</font></b>
+<br><b><font face="Courier New,Courier">NP-Completeness.</font></b>
+<br><b><font face="Courier New,Courier">&lt;P></font></b>
+<br><b><font face="Courier New,Courier"><font color="#3333FF">&lt;IFRAME
+SRC="Contact-Info.html" FRAMEBORDER=0>&lt;/IFRAME></font></font></b>
+<br><b><font face="Courier New,Courier"><font color="#000000">&lt;/BODY>
+</font><font color="#3333FF">loads html page at bottom ONLY works in IE
+or NS6.0</font></font></b>
+<br><b><font face="Courier New,Courier">&lt;/HTML></font></b>
+</body>
+</html>

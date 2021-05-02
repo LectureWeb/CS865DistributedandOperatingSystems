@@ -1,0 +1,658 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./distrib_papers_files/filelist.xml">
+<title>Limits in Modelling Evolving Computer-based Systems </title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Francis Marchese</o:Author>
+  <o:LastAuthor>Francis Marchese</o:LastAuthor>
+  <o:Revision>41</o:Revision>
+  <o:TotalTime>366</o:TotalTime>
+  <o:Created>2006-12-27T16:15:00Z</o:Created>
+  <o:LastSaved>2006-12-27T22:32:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1261</o:Words>
+  <o:Characters>7191</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>59</o:Lines>
+  <o:Paragraphs>14</o:Paragraphs>
+  <o:CharactersWithSpaces>8831</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"TimesNewRoman\,Bold";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Times-Bold;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:CMBX12;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:URWPalladioL-Bold;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:14.5pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;}
+h2
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:14.5pt;
+	font-family:CMBX12;
+	font-weight:normal;}
+h3
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:14.0pt;
+	mso-bidi-font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-parent:Default;
+	mso-style-next:Default;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:23.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:14.0pt;
+	mso-bidi-font-size:30.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:#797979;
+	font-weight:bold;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.Default, li.Default, div.Default
+	{mso-style-name:Default;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:14.5pt;font-family:Arial'>UML<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="content1.pdf">UML specification
+of distributed system environments</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="uml_for_des&amp;dev.pdf">A
+Method for the Design and Development of Distributed Applications using UML</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.5pt'><a
+href="Jezequel98e.pdf">Validating Distributed Software Modeled with UML</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="sci05-umlvm.pdf">Matilda:
+A Distributed UML Virtual Machine for Model-Driven Software Development</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="uml99-wmb-2.pdf">Modeling Dynamic Software Components in UML</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Middleware
+and CORBA<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="21470188.pdf">A Formal Approach for Designing CORBA based Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="middleware-chapter.pdf">Middleware for Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="p69-hauck.pdf">A Flexible and Extensible Object Middleware: CORBA and
+Beyond</a><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:22.0pt'><a
+href="keienburg_ausarbeitung.pdf">Model Evolution for a Distributed UML Software
+Engineering Workbench based on CORBA and Java</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt'><a
+href="l1058.pdf">Refactoring Middleware with Aspects</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Distributed
+Java<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:17.5pt'><a
+href="p213-czenko.pdf">Jestelle: Novel approach to the distributed Java systems
+specification and development</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="p578-w_keen.pdf">JR: Flexible Distributed Programming in an Extended Java</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:25.0pt'><a
+href="TUM-I9735.pdf">Using UML for Modeling a Distributed Java Application</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="J-Orchestra.pdf">J-Orchestra:
+Automatic Java Application Partitioning</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="evolutionjava-cocd02-short.pdf">Evolution of Distributed Java Programs</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:14.5pt;font-family:Arial'>Distributed
+Objects<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="dist_obj_mod_java.pdf">A Distributed Object Model for the Java System</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="opsis.pdf">Opsis: A Distributed Object Architecture Based on Bracket
+Capabilities</a></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="arch_pattern_dp2-plasil98.pdf">An Architectural View of Distributed Objects
+and Components in CORBA, Java RMI, and COM/DCOM</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="valida_dist_obj.pdf">Validating Distributed Object and Component Designs</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Patterns<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="brownfinal.pdf">A small pattern language for Distributed Component Design</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:20.5pt'><a
+href="DistributedAdaptersPatternPLOP2001.pdf">Distributed Adapters Pattern: A
+Design Pattern for Object-Oriented Distributed Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:17.0pt'><a
+href="patterndriven.pdf">Pattern-driven Partitioning in Designing Distributed
+Object Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:17.0pt'><a
+href="patterndriven.pdf">Pattern-driven Partitioning in Designing Distributed
+Object Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Distributed
+Software Engineering<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:10.5pt'><a
+href="p253-kramer.pdf">Distributed Software Engineering: Invited
+State-of-the-Art Report</a></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="27180007.pdf">Distributed
+Software Engineering: a Rigorous Architectural Approach</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="mar06ref.pdf">Engineering Distributed Software: a Structural Discipline</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a
+href="rakotonirainy97describing.pdf">Describing Open Distributed Systems: A
+Foundation</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:34.0pt'><a
+href="design_strategies.pdf">Design strategies for real-time data in
+distributed systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt'><a
+href="ds950204.pdf">Disciplined approach towards the design of distributed
+systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="vissersstylepaper.pdf">Specification Styles in Distributed Systems Design
+and Verification</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="UML04W56_UseCases_bencomo.pdf">Traceability Management through Use Cases
+when Developing Distributed Object Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="p291-briot.pdf">Concurrency and Distribution in Object-Oriented
+Programming</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="p261-cugola.pdf">Exploiting an event-based infrastructure to develop
+complex distributed systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="tesanovicIADIS04.pdf">STRUCTURING CRITERIA FOR THE DESIGN OF
+COMPONENT-BASED REAL-TIME SYSTEMS</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Agents<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="ESAW13.pdf">Exploiting
+UML in the Design of Multi-Agent Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="aglet.pdf">Mobile Agents with Java: The Aglet API</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:14.5pt;font-family:Arial'>Enterprise
+Systems<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="DelftFinal.pdf">DESIGNING PROCEDURES WITHIN AN OBJECT-ORIENTED ENTERPRISE
+MODEL</a><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="kutvonen02automated.pdf">Automated management of inter-organisational
+applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:15.0pt'><a
+href="Stojanovic_ICEIS2001.pdf">AN INTEGRATED COMPONENT-BASED APPROACH TO
+ENTERPRISE SYSTEM SPECIFICATION AND DEVELOPMENT</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="three-integrated-tools-for.pdf">Three Integrated Tools for Designing and
+Prototyping Object-Oriented Enterprise Models</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="arch_formodsim_of_dist.pdf">Architecture for Modeling and Simulation of
+Global Distributed Enterprises</a><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:14.5pt;font-family:Arial'>Open
+Distributed Systems<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="A_UML_Approach_toThe_Design_of_ODS.pdf">A UML Approach to the Design of
+Open Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="edoc99.pdf">Specifying
+distributed object applications Using the Reference Model for Open Distributed
+Processing And the Unified Modeling Language</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="kutvonen98architecture.pdf">Architectures for Distributed Systems: Open Distributed
+Processing Reference Model</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="RM-ODP2.pdf">The ISO
+Reference Model for Open Distributed Processing - An Introduction</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:15.5pt;
+font-family:URWPalladioL-Bold'><a href="kutvonen98trading.pdf">Trading services
+in open distributed environments</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="johnsen02ifm.pdf">Combining Graphical and Formal Development of Open
+Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a
+href="ODP_Tutorial-icodp95.pdf">Reference Model of Open Distributed Processing
+(RM-ODP): Introduction</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:1.0pt'><a
+href="tichelaar97coordination.pdf">A Coordination Component Framework for Open
+Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt'><a
+href="johnathan_odp_ds9101.pdf">Jonathan: an open distributed processing
+environment in Java</a></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a href="johnsen04ojd.pdf">Object-Oriented
+Specification and Open Distributed Systems</a></span><span style='font-size:
+14.0pt;mso-bidi-font-size:18.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:14.0pt;mso-bidi-font-size:18.0pt;color:blue'><a href="6.pdf">Limits
+in Modelling Evolving Computer-based Systems</a> </span><span style='font-size:
+14.0pt;mso-bidi-font-size:10.0pt;color:blue'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt;
+color:blue'><a href="140.pdf">Exploring the Design Space of Distributed and
+Peer-to-Peer Systems: Comparing the Web, TRIAD, and Chord/CFS</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt;
+color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:blue'><a href="1196.pdf">A
+Design-for-Change Approach: Developing Distributed Applications from Enterprise
+Models</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span style='color:blue;font-weight:normal;font-style:
+normal'><a href="2001q1_p044.pdf">Designing Real-Time and Embedded Systems with
+the COMET/UML method</a></span><span style='mso-bidi-font-size:10.0pt;
+color:blue;font-weight:normal;font-style:normal'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:blue'><a
+href="02070033.pdf">A Unified Process for the Integration of Large-scale,
+Distributed, Object-Oriented, Real-time Systems in Layered Architectures</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:blue'><a
+href="10890103.pdf">On Applying Coordinated Atomic Actions and Dependable
+Software Architectures for Developing Complex Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="18001023.pdf">Automatic
+Implementation of Distributed Systems Formal Specifications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="19630071.pdf">Using
+UML to Design Distributed Collaborative Workflows: from UML to XPDL</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="30120059.pdf">Business-to-business interactions: issues and enabling
+technologies</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="Act-Obj.pdf">Active Object</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a
+href="an-integrated-environment-for.pdf">An Integrated Environment for
+Designing Object-Oriented Enterprise Models</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="an-outlook-on-software.pdf">An Outlook on Software Engineering for Modern
+Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:21.5pt'><a
+href="CCA-01paper.pdf">Using UML for the Development of Distributed Industrial
+Process Measurement and Control Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="HPL-2003-40.pdf">Three Design Patterns for Secure Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:17.0pt'><a
+href="info2001.pdf">Testing Distributed Component Based Systems Using UML/OCL</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:17.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="isn98final.pdf">Applying
+UML to Design an Inter-Domain Service Management Application</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="JNM-WOSS-final.pdf">Self-Organising Software Architectures for
+Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt;
+font-family:Times-Bold'><a href="mapreduce-osdi04.pdf">MapReduce: Simplied Data
+Processing on Large Clusters</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt;
+font-family:Times-Bold'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="mapreducepaper.pdf">Google’s MapReduce Programming Model—Revisited</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="p1-venugopal.pdf">A Taxonomy of Data Grids for Distributed Data Sharing,
+Management, and Processing</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="p25-perrone.pdf">A Stakeholders Centered Approach for Conceptual Modeling
+of Communication-Intensive Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="p38-giese.pdf">Towards the Compositional Verification of Real-Time UML
+Designs</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="p62-krueger.pdf">Efficient Exploration of Service-Oriented Architectures
+using Aspects</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="p422-kossmann.pdf">The State of the Art in Distributed Query Processing</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt'><a
+href="p497-pllana.pdf">UML BASED MODELING OF PERFORMANCE ORIENTED PARALLEL AND
+DISTRIBUTED APPLICATIONS</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;font-family:"TimesNewRoman\,Bold"'><a
+href="Pickin02a.pdf">System Test Synthesis from UML Models of Distributed
+Software</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:15.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:24.0pt'><a
+href="tse91.pdf">The Influence of Scale on Distributed File System Design</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:25.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="distsys_upgrade.pdf">Scheduling and Simulation: How to Upgrade
+Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="essay2001-calle.pdf">DIF8901 Object-Oriented Systems A Comparison of
+Distributed Object Technologies</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="MethodForDistributedApplicationsSBES2001.pdf">An Implementation Method for
+Distributed Object-Oriented Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><a href="NetLogger.pdf">NetLogger:
+A Toolkit for Distributed System Performance Tuning and Debugging</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:17.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a
+href="simulation_testing.pdf">Simulation-Based Testing of Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="upgrade_software.pdf">Modular Software Upgrades for Distributed Systems</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:17.0pt'><a
+href="review_dist_upgrade.pdf">A Review of Software Upgrade Techniques for
+Distributed Systems</a></span><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="WOSP2004.pdf">Early Performance Testing of Distributed Software
+Applications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><a
+href="components.pdf">Distributed Component Technologies and their Software
+Engineering Implications</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt;
+font-family:Times-Bold'><a href="braun2002ibistro.pdf">iBistro: A Learning
+Environment for Knowledge Construction in Distributed Software Engineering
+Courses</a></span><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><a
+href="Preston_CDSE.pdf">Collaborative, Distributed Software Engineering</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><a
+href="Bue00b.pdf">Towards Designing Distributed Systems With ConDIL</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:14.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:16.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

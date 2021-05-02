@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?xml-stylesheet type="text/css" href="xlink1ss.css"?>
+
+<insurance>
+         <title>
+             Supporting XLinks
+         </title>
+         Looking for 
+         <link xmlns:xlink = "http://www.w3.org/1999/xlink"
+             xlink:type = "simple"
+             xlink:show = "new"
+             xlink:href = "http://www.w3c.org"
+             onClick="location.href='http://www.w3c.org'">
+             health insurance
+         </link>?
+</insurance>

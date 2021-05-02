@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico">
+<meta name="Description" content="A set of tools and technologies for developing simple, distributed, parallel applications using the Java programming language.">
+<meta name="IBM.Country" content="US">
+<meta name="DC.Date" scheme="iso8601" content="2005-01-12">
+<meta name="Source" content="v14 Template Generator, Template 14.7">
+<meta name="Abstract" content="A set of tools and technologies for developing simple, distributed, parallel applications using the Java programming language.">
+<meta name="Keywords" content="high-performance computing (HPC),load balancing,resource management,Anbazhagan Mani,Grid Computing,Application Development,Utilities, alphaWorks">
+<meta name="DC.Language" scheme="rfc1766" content="en-US">
+<meta name="Security" content="Public">
+<meta name="Robots" content="index,follow">
+<meta name="IBM.Effective" scheme="W3CDTF" content="Now">
+
+<meta name="Owner" content="David Parker/Cupertino/Contr/IBM@IBMUS">
+<meta name="DC.Rights" content="Copyright (c) 2005 by IBM Corporation"><title>alphaWorks : Distributed Parallel Programming Environment for Java : Overview</title>
+
+
+
+<link rel="stylesheet" type="text/css" href="dppej_files/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="dppej_files/screen.css">
+<link rel="stylesheet" type="text/css" media="print" href="dppej_files/print.css">
+<link rel="stylesheet" type="text/css" media="screen,print" href="dppej_files/table.css"> 
+<script src="dppej_files/detection.js" language="JavaScript" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico"></head><body>
+
+<!-- MASTHEAD BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="bbg" width="110"><a href="http://www.ibm.com/us/"><img src="dppej_files/ibm-logo.gif" alt="IBM®" border="0" height="52" width="110"></a></td>
+<td class="mbbg" align="right" width="100%">
+<table align="right" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr class="cty-tou">
+<td class="upper-masthead-corner" rowspan="2" width="17"><a href="#main"><img alt="Skip to main content" src="dppej_files/c.gif" border="0" height="1" width="1"></a></td>
+<td align="left">
+<table align="left" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><b class="country">United States</b><span class="spacer">&nbsp;</span><a href="http://www.ibm.com/planetwide/select/selector.html" class="ur-link">change</a><span class="spacer"></span></td>
+<td class="upper-masthead-divider" width="29">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="left"><a href="http://www.ibm.com/legal/us/" class="ur-link">Terms of use</a></td>
+</tr>
+</tbody></table>
+</td>
+<td width="40">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="cty-tou-border" height="1"><img alt=" " src="dppej_files/c.gif" height="1" width="1"></td>
+</tr>
+<tr>
+<td colspan="3"><img src="dppej_files/c.gif" alt=" " height="8" width="1"></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="2" align="center">
+<!-- MASTHEAD SEARCH FORM BEGINS -->
+<form title="Search form" name="search-form" method="get" action="/aws.nsf/search">
+<input name="CreateDocument" value="1" type="hidden">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="1"><label for="q"><img src="dppej_files/c_002.gif" alt="Select a scope:" height="1" width="1"></label></td>
+<td align="right">
+<label for="sq">
+<select name="SelectScope" style="background: rgb(238, 238, 238) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 150px; font-family: verdana,arial,sans-serif; font-size: 10px;" id="sq">
+<option value="aw">All of aW</option>
+<option value="aw">.................</option>
+<option value="autonomic">&nbsp;Autonomic</option>
+<option value="autonomic">&nbsp;&nbsp;&nbsp;Computing</option>
+<option value="collaboration">&nbsp;Collaboration</option>
+<option value="data">&nbsp;Data&nbsp;Management</option>
+<option value="data">&nbsp;&nbsp;&nbsp;Management</option>
+<option value="eclipse">&nbsp;Eclipse&nbsp;technology</option>
+<option value="grid">&nbsp;Grid Computing</option>
+<option value="java">&nbsp;Java&#8482; technology</option>
+<option value="security">&nbsp;Privacy &amp; Security</option>
+<option value="webservices">&nbsp;SOA&nbsp;&amp;&nbsp;Web services</option>
+<option value="systemsmgmt">&nbsp;Systems</option>
+<option value="systemsmgmt">&nbsp;&nbsp;&nbsp;Management</option>
+<option value="wireless">&nbsp;Wireless&nbsp;technology</option>
+<option value="xml">&nbsp;XML</option>
+<option value="aw">.................</option>
+<option value="dw">&nbsp;developerWorks</option>
+<option value="aw">.................</option>
+<option value="all">All of IBM</option>
+</select>
+</label>
+</td>
+<td align="right" width="1"><label for="q"><img src="dppej_files/c_002.gif" alt="Search for:" height="1" width="1"></label>&nbsp;&nbsp;</td>
+
+<td width="1"><label for="q"><img alt="Search for:" src="dppej_files/c.gif" height="1" width="1"></label></td>
+<td align="right"><input value="" size="15" maxlength="100" name="query" id="q" class="input" type="text"></td>
+<td width="7">&nbsp;<input name="v" value="14" type="hidden"><input name="lang" value="en" type="hidden"><input name="cc" value="us" type="hidden"><input value="utf" name="en" type="hidden"></td>
+<td><input value="Search" src="dppej_files/search.gif" name="Search" alt="Search" type="image"></td>
+<td width="20">&nbsp;</td>
+</tr>
+</tbody></table>
+</form>
+<!-- MASTHEAD SEARCH FORM ENDS -->
+
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="blbg">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+<td><a href="http://www.ibm.com/us/" class="masthead-mainlink">Home</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="http://www.ibm.com/products/us/" class="masthead-mainlink">Products</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="http://www.ibm.com/servicessolutions/us/" class="masthead-mainlink">Services &amp; industry solutions</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="http://www.ibm.com/support/us/" class="masthead-mainlink">Support &amp; downloads</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="http://www.ibm.com/account/us/" class="masthead-mainlink">My account</a></td>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript" language="JavaScript" src="dppej_files/pmh.js">
+</script><img src="dppej_files/print-header.gif" alt="" id="print-masthead" height="32" width="510">
+<!-- MASTHEAD ENDS -->
+
+
+<!-- BODY TABLE BEGINS -->
+<table id="v14-body-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td id="navigation" width="150">
+
+<!-- NAVIGATION BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr>
+<td class="left-nav-spacer">&nbsp;</td>
+<!--<td class="left-nav-highlight"><a href="//www.ibm.com/developer" class="left-nav">developerWorks</a></td>-->
+</tr>
+</tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr>
+<td class="left-nav-overview" colspan="2"><a class="left-nav-overview" href="http://www.alphaworks.ibm.com/">alphaWorks</a></td>
+
+</tr>
+<tr><td class="left-nav" colspan="2"><a class="left-nav" href="http://services.alphaworks.ibm.com/">alphaWorks Services</a></td>
+<!-- SEPARATOR -->
+</tr><tr>
+<td bgcolor="#98b1c4" width="14"><img src="dppej_files/c_002.gif" alt="" height="6" width="14"></td>
+<td bgcolor="#98b1c4" width="136"><img src="dppej_files/c_002.gif" alt="" height="6" width="136"></td>
+</tr>
+<!-- SEPARATOR -->
+</tbody></table>
+<!-- CORE NAVIGATION BEGINS -->	
+
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<!-- TOP LEVEL BEGINS -->
+<tbody><tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/autonomic">Autonomic computing</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/collaboration">Collaboration</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/datamgmt">Data management</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/eclipse">Eclipse technology</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/grid">Grid computing</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- SECOND LEVEL BEGINS -->
+<tr class="left-nav-child"><td><img src="dppej_files/cl-bullet.gif" alt="" height="8" width="2"></td>
+ <td><a class="left-nav-child" href="http://www.alphaworks.ibm.com/grid/newto">New to Grid computing</a></td></tr>
+<!-- SECOND LEVEL ENDS --><!-- SECOND LEVEL BEGINS -->
+<tr class="left-nav-child-highlight"><td><img src="dppej_files/cl-bullet.gif" alt="" height="8" width="2"></td>
+ <td><a class="left-nav-child" href="http://www.alphaworks.ibm.com/grid/all">Downloads and demos</a></td></tr>
+<!-- SECOND LEVEL ENDS --><!-- SECOND LEVEL BEGINS -->
+<tr class="left-nav-child"><td><img src="dppej_files/cl-bullet.gif" alt="" height="8" width="2"></td>
+ <td><a class="left-nav-child" href="http://www.alphaworks.ibm.com/grid/forums">Forums</a></td></tr>
+<!-- SECOND LEVEL ENDS --><!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/java">Java&#8482; technology</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/security">Privacy and security</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/webservices">SOA and Web services</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/sysmgmt">Systems management</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/wireless">Wireless technology</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/xml">XML</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+
+<!-- SEPARATOR -->
+<tr>
+<td bgcolor="#98b1c4" width="14"><img src="dppej_files/c_002.gif" alt="" height="6" width="14"></td>
+<td bgcolor="#98b1c4" width="136"><img src="dppej_files/c_002.gif" alt="" height="6" width="136"></td>
+</tr>
+<!-- SEPARATOR -->
+<!-- TOP LEVEL BEGINS -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/topics">Research topics</a></td></tr>
+ <!-- TOP LEVEL ENDS -->
+
+<!-- SEPARATOR -->
+<tr>
+<td bgcolor="#98b1c4" width="14"><img src="dppej_files/c_002.gif" alt="" height="6" width="14"></td>
+<td bgcolor="#98b1c4" width="136"><img src="dppej_files/c_002.gif" alt="" height="6" width="136"></td>
+</tr>
+<!-- SEPARATOR -->
+<!-- FEEDBACK LINK -->
+<tr><td class="left-nav" colspan="2">
+<a class="left-nav" href="http://www.alphaworks.ibm.com/feedback">Feedback</a></td></tr>
+<tr class="left-nav-last">
+
+<td width="14"><img src="dppej_files/c.gif" alt="" class="display-img" height="1" width="14"></td>
+<td width="136"><img src="dppej_files/left-nav-corner.gif" alt="" class="display-img" height="19" width="136"></td>
+</tr>
+</tbody></table>
+
+<br>
+
+<!-- CORE NAVIGATION ENDS -->
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr>
+<td class="related" colspan="2"><b class="related">Related links</b></td>
+</tr>
+
+<tr class="rlinks">
+<td><img src="dppej_files/rl-bullet.gif" alt="" height="8" width="2"></td>
+<td><a class="rlinks" href="http://www.ibm.com/developerworks">developerWorks</a></td>
+</tr>	
+
+<tr class="rlinks">
+<td><img src="dppej_files/rl-bullet.gif" alt="" height="8" width="2"></td>
+<td><a class="rlinks" href="http://www.research.ibm.com/">IBM Research</a></td>
+</tr>	
+<tr class="rlinks">
+<td><img src="dppej_files/rl-bullet.gif" alt="" height="8" width="2"></td>
+<td><a class="rlinks" href="http://www.developer.ibm.com/university/scholars/">Academic program</a></td>
+</tr>
+
+<tr class="rlinks">
+<td><img src="dppej_files/rl-bullet.gif" alt="" height="8" width="2"></td>
+<td><a class="rlinks" href="http://www.developer.ibm.com/">ISV resources</a></td>
+</tr>
+<tr class="rlinks">
+<td><img src="dppej_files/rl-bullet.gif" alt="" height="8" width="2"></td>
+<td><a class="rlinks" href="http://www.ibm.com/research/innovation">Innovation at IBM</a></td>
+</tr>
+
+<tr>
+<td width="14"><img src="dppej_files/c.gif" alt="" class="display-img" height="1" width="14"></td>
+<td width="136"><img src="dppej_files/c.gif" alt="" class="display-img" height="19" width="136"></td>
+</tr>
+</tbody></table>
+<!-- NAVIGATION ENDS -->
+</td><td width="10"><img src="dppej_files/c_002.gif" alt="" height="1" width="10"></td>
+<td width="100%"><a name="main"><!-- MAIN CONTENT BEGINS --></a>
+
+<!-- BREADCRUMB AND LID BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr><td height="1" width="100%"><img src="dppej_files/c_002.gif" alt=" " border="0" height="1" width="1"></td></tr>
+</tbody></table>
+</td></tr>
+<tr>
+<td>
+<a class="bctl" href="http://www.alphaworks.ibm.com/">alphaWorks</a><span class="bct">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</span><a class="bctl" href="http://www.alphaworks.ibm.com/grid">Grid computing</a><span class="bct">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</span>
+</td>
+<td align="right" valign="top">
+<img src="dppej_files/aw.gif" alt=" " height="18" width="192">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- BREADCRUMB AND LID ENDS -->
+
+<!-- CONTENT AREA BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td align="left" valign="top">
+<h1 class="smalltitle">Distributed Parallel Programming Environment for Java</h1>
+<p>A set of tools and technologies for developing simple, distributed, parallel applications using the Java programming language.</p><br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr><td>
+<small>Date Posted: August 5, 2004</small><br>
+</td>
+<td align="right">
+
+</td>
+<td width="7"><img src="dppej_files/c_002.gif" alt=" " height="7" width="1"></td>
+</tr>
+</tbody></table>
+<!-- TECHNOLOGY CORE CONTENT BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr><td><img src="dppej_files/c_002.gif" alt=" " height="10" width="1"></td></tr>
+<tr><td>
+
+<table summary="" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+<td class="v14-graphic-tab-selected"><img class="display-img" alt="" src="dppej_files/c_002.gif" height="19" width="9"></td><td class="v14-graphic-tab-selected"><a class="v14-tab-link-selected" href="http://www.alphaworks.ibm.com/tech/dppej">Overview</a></td><td class="v14-tab-hlrt"><img alt="" src="dppej_files/c_002.gif" height="1" width="30"></td><td class="v14-graphic-tab-unselected"><a class="v14-tab-link-unselected" href="http://www.alphaworks.ibm.com/tech/dppej/requirements">Requirements</a></td><td class="v14-tab-dmrt"> <img alt="" src="dppej_files/c_002.gif" height="1" width="30"> </td><td class="v14-graphic-tab-unselected"><a class="v14-tab-link-unselected" href="http://www.alphaworks.ibm.com/tech/dppej/download">Download</a></td><td class="v14-tab-dmrt"> <img alt="" src="dppej_files/c_002.gif" height="1" width="30"> </td><td class="v14-graphic-tab-unselected"><a class="v14-tab-link-unselected" href="http://www.alphaworks.ibm.com/tech/dppej/faq">FAQs</a></td><td class="v14-tab-dmrt"> <img alt="" src="dppej_files/c_002.gif" height="1" width="30"> </td><td class="v14-graphic-tab-unselected"><a class="v14-tab-link-unselected" href="http://www.alphaworks.ibm.com/tech/dppej/forum">Forum</a></td><td class="v14-tab-dmrt"> <img alt="" src="dppej_files/c_002.gif" height="1" width="30"> </td><td class="v14-graphic-tab-unselected"><a class="v14-tab-link-unselected" href="http://www.alphaworks.ibm.com/tech/dppej/evaluation">Reviews</a></td><td class="v14-tab-dmrt-end"><img alt="" src="dppej_files/c_002.gif" height="1" width="30"></td>
+	</tr>
+</tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td class="v14-graphic-tab-lblue-table"><img class="display-img" alt=" " src="dppej_files/c.gif" height="4" width="1"></td>
+	</tr>
+	<tr>
+		<td class="v14-graphic-tab-dblue-table"><img class="display-img" alt=" " src="dppej_files/c.gif" height="1" width="1"></td>
+	</tr>
+</tbody></table>
+<!-- TABSET ENDS -->
+
+<p><b>What is Distributed Parallel Programming Environment for Java?</b>
+</p><p>
+Distributed Parallel Programming Environment for Java<sup><small>TM</small></sup>
+(DPPEJ) is a set of tools and technologies for developing simple,
+distributed, parallel applications using the Java programming language.
+This project is being developed by the IBM India Software Lab.
+</p><p>DPPEJ includes an easy and intuitive programming model based on
+distributed threads; object-based, message-passing APIs; and
+distributable data collection. DPEEJ takes a class library-based
+approach to providing a distributed parallel programming environment.
+New classes and interfaces supporting distributed threads, message
+passing, and distributable data collections are included in this
+package.
+</p><p>
+DPPEJ consists of three major technologies:
+</p><p>
+DThread
+</p><ul>
+	<li>A group of distributed threads work in parallel on multiple distributed JVMs.</li>
+	<li>Remote
+Method Invocation (RMI) is used as the underlying mechanism for
+distributed execution and control. Single Program Multiple Data (SPMD)
+distribution is currently supported. Class file migration is possible
+via RMI network class loading mechanism.</li>
+	<li>New interfaces and classes for DThread are included.</li>
+Object-based message passing
+<ul>
+	<li>RMI-based, MPI-like messaging-passing operations</li>
+	<li>Get, Put, Broadcast, Barrier, Multicast, Send, Receive, etc.</li>
+</ul>
+<p>
+Distributable data collections
+</p><ul>
+	<li>Distributable data collection for int, long, float and double</li>
+	<li>Support for familiar data-partitioning techniques.</li>
+</ul>
+
+DPPEJ can work over Globus Grid by using <a href="http://www.alphaworks.ibm.com/tech/gaf4j">Grid Application Framework for Java (GAF4J)</a>, another alphaWorks technology. 
+
+
+<p><b>How does it work?</b></p>All the nodes in the DPPEJ run one or more daemons called <i>DistributedExecutionDaemon,</i> which are responsible for execution and management of DThreads.
+<p>
+<i>DaemonRegistry</i> runs on one of the nodes in the DPPEJ system and all the <i>DistributedExecutionDaemon</i> daemons register themselves with the <i>DaemonRegistry.</i> <i>DaemonRegistry</i> is responsible for allocating daemons that request distributed parallel application.
+</p><p>
+Applications are developed as follows:
+</p><ol>
+	<li>Create a distributed thread by either extending the DThread class or implementing the DRunnable class.</li>
+	<li>Write the parallel computation code inside the <i>run()</i>
+method of the distributed thread. Master worker programming style
+(conceptually similar to that of MPI applications) can be adopted
+inside the <i>run()</i> method by using the DThread identity.</li>
+	<li>Create an instance of an available <i>DistributionManager</i> and submit the DThread instance to the DistributionManager instance. Currently, only SPMD distribution is available.</li>
+	<li>
+DistributionManager will get daemons by requesting them from the
+DaemonRegistry, which clones the DThread and dispatches it to daemons.
+DThread runs in each of the daemons and uses object-based message
+passing and distributable data collections.</li>
+</ol>
+
+DPPEJ can also be used from within <a href="http://www.alphaworks.ibm.com/tech/gaf4j">Grid Application Framework for Java (GAF4J)</a> for distributing threads over a grid set up on Globus Toolkit 2.4.
+
+
+</ul></td>
+<td rowspan="2" width="7">
+<img src="dppej_files/c_002.gif" alt=" " border="0" height="1" width="7">
+</td>
+</tr>
+<tr><td><img src="dppej_files/c_002.gif" alt=" " height="10" width="1"></td></tr>
+<tr> <td class="lgray"><img src="dppej_files/c_002.gif" alt="" height="1" width="1"><br></td> </tr><tr><td> <!-- BIO BEGINS --> <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="dppej_files/c_002.gif" alt="" height="10" width="1"></td></tr> <tr><td><p><b>About the technology author(s):</b><br>Ignesius
+E Thambyraj is a senior program manager at the IBM India Software Lab,
+Bangalore. He is responsible for managing large projects in the area of
+operating systems, networking, and middleware. In this role, Mr.
+Thambyraj also drives the development of technologies in the emerging
+areas of Web services, virtualization, and grid.
+</p><p>Anbazhagan Mani is a staff software engineer at the IBM
+Software Lab in India. He is currently working on developing
+technologies related to grid computing and Web services.
+</p></td></tr> </tbody></table> <!-- BIO ENDS --> </td></tr>
+</tbody></table>
+<!-- TECHNOLOGY CORE CONTENT ENDS -->
+</td>
+<td align="left" valign="top" width="150">
+
+<!-- BLANK SPACE BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="150"> 
+<tbody><tr> <td>
+<img src="dppej_files/c_002.gif" alt=" " height="20">
+</td></tr>
+</tbody></table>
+<!-- BLANK SPACE ENDS -->
+<!-- SCREENSHOT THUMBNAIL BEGINS -->
+<script language="JavaScript" type="text/javascript">
+<!-- 
+var win;
+function closeWindow() {
+	if(win!=null&&!win.closed)
+		win.close();
+}
+function screenWin(url) {
+      windowName = "screenWin";
+      params  = "";
+      params += "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,width=890,height=800";
+ 
+     closeWindow();
+      win = window.open(url, windowName , params);
+      agent = navigator.userAgent;
+      if (agent.indexOf("Mozilla/2") != -1 && agent.indexOf("Win") == -1) {
+       closeWindow();
+	  win = window.open(url, windowName , params);
+      }
+      if (!win.opener) {
+	  win.opener = window;
+     }
+}
+// -->
+</script>
+<!-- SCREENSHOT THUMBNAIL ENDS -->
+<!-- DOWNLOAD BUTTON TABLE BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr><td>
+<img src="dppej_files/download_now_rd.gif" alt="Download now" align="middle" border="0" height="21" width="21">&nbsp;<b><a class="fbox" href="http://www.alphaworks.ibm.com/tech/dppej/download">Download now</a></b><br>
+<img src="dppej_files/arrow_rd.gif" bborder="0" alt="Request license" align="middle" height="21" vspace="2" width="21">&nbsp;<b><a class="fbox" href="https://secure.alphaworks.ibm.com/reg/awsurvey.nsf/surveylicense?openform&amp;tech=dppej">Request commercial license</a><br>
+
+</b></td></tr>
+</tbody></table><br>
+<!-- DOWNLOAD BUTTON TABLE ENDS-->
+<!-- RELATED TECHNOLOGIES TABLE BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="150"> 
+<tbody><tr> <td class="v14-header-1-small">Related technologies </td> </tr> 
+<tr> <td> 
+<table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0"> 
+<tbody><tr> 
+<td width="150"><p class="small"><b>For platform(s):</b><br>
+<a href="http://www.alphaworks.ibm.com/platforms/Java">Java</a>
+</p>
+</td> 
+</tr> 
+<tr> <td class="lgray"><img src="dppej_files/c.gif" alt=" " height="1" width="1"></td> </tr> 
+<tr> 
+<td><p class="small"><b>For topics:</b><br>
+<a href="http://www.alphaworks.ibm.com/keywords/high-performance%20computing">high-performance computing (HPC)</a>,  <a href="http://www.alphaworks.ibm.com/keywords/load%20balancing">load balancing</a>,  <a href="http://www.alphaworks.ibm.com/keywords/resource%20management">resource management</a>
+</p>
+</td> 
+</tr> 
+</tbody></table> 
+</td> </tr> 
+</tbody></table><br>
+<!-- RELATED TECHNOLOGIES TABLE ENDS-->
+<table border="0" cellpadding="0" cellspacing="0" width="150">  <tbody><tr>  <td class="v14-header-2-small">Related resources</td>  </tr>  <tr>  <td>  <table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0" width="150">  <tbody><tr><td class="no-padding" width="150"> <table border="0" cellpadding="0" cellspacing="0" width="143">  <tbody><tr valign="top">  <td class="ipt" align="left" width="18"> <img src="dppej_files/fw.gif" alt="" border="0" height="16" width="16"> </td> <td class="npl" width="125"><p><a class="smallplainlink" href="http://www.alphaworks.ibm.com/awap.nsf/alltype?Searchview&amp;query=PdppejP">Press Articles</a></p></td></tr></tbody></table></td></tr>  </tbody></table>  </td> </tr>  </tbody></table> 
+</td><td width="5">&nbsp;</td>
+</tr>
+</tbody></table>
+<!-- CONTENT AREA ENDS -->
+
+
+</td>
+</tr>
+</tbody></table>
+<!-- BODY TABLE ENDS -->
+
+<br>
+<!-- FOOTER BEGINS -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="bbg" height="19">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="http://www.ibm.com/ibm/us/" class="mainlink">About IBM</a></td>
+<td class="footer-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="http://www.ibm.com/privacy/us/" class="mainlink">Privacy</a></td>
+<td class="footer-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="http://www.ibm.com/contact/us/" class="mainlink">Contact</a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<!-- FOOTER ENDS -->
+
+<script type="text/javascript" language="JavaScript1.2" src="dppej_files/stats.js"></script>
+<noscript><img src="//stats.www.ibm.com/rc/images/uc.GIF?R=noscript" width="1" height="1" alt=" " border="0"/></noscript>
+</body></html>

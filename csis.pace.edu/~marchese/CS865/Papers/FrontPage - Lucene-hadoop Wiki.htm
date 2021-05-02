@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,follow"><title>FrontPage - Lucene-hadoop Wiki</title>
+
+
+
+
+<script type="text/javascript">
+<!--// common functions
+
+// We keep here the state of the search box
+searchIsDisabled = false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value = e.value.replace(/\s+/, '');
+    if (value == '' || searchIsDisabled) { 
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled = flag;
+    document.getElementById('titlesearch').disabled = flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value == 'Search') {
+        e.value = '';
+        e.style.color = 'black';
+        searchIsDisabled = false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value == '') {
+        e.value = 'Search';
+        e.style.color = 'gray';
+        searchIsDisabled = true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initiliaze action menu
+    for (i = 0; i < document.forms.length; i++) {
+        var form = document.forms[i];
+        if (form.className == 'actionsmenu') {
+            // Check if this form needs update
+            var div = form.getElementsByTagName('div')[0];
+            var label = div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton = div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select = div.getElementsByTagName('select')[0];
+                var item = document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value = 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex = 0;
+            }
+        }
+    }
+}
+//-->
+</script>
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="FrontPage%20-%20Lucene-hadoop%20Wiki_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="FrontPage%20-%20Lucene-hadoop%20Wiki_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="FrontPage%20-%20Lucene-hadoop%20Wiki_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="FrontPage%20-%20Lucene-hadoop%20Wiki_files/projection.css">
+
+<link rel="Start" href="http://wiki.apache.org/lucene-hadoop/FrontPage">
+<link rel="Alternate" title="Wiki Markup" href="http://wiki.apache.org/lucene-hadoop/FrontPage?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="http://wiki.apache.org/lucene-hadoop/FrontPage?action=print">
+<link rel="Search" href="http://wiki.apache.org/lucene-hadoop/FindPage">
+<link rel="Index" href="http://wiki.apache.org/lucene-hadoop/TitleIndex">
+<link rel="Glossary" href="http://wiki.apache.org/lucene-hadoop/WordIndex">
+<link rel="Help" href="http://wiki.apache.org/lucene-hadoop/HelpOnFormatting"></head><body dir="ltr" lang="en">
+
+<div id="header">
+<div id="logo"><a href="http://wiki.apache.org/lucene-hadoop/FrontPage">Lucene-hadoop Wiki</a></div>
+
+<form id="searchform" method="get" action="">
+<div>
+<input name="action" value="fullsearch" type="hidden">
+<input name="context" value="180" type="hidden">
+<label style="display: none;" for="searchinput">Search:</label>
+<input style="color: gray;" id="searchinput" name="value" value="" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" type="text">
+<input disabled="disabled" id="titlesearch" name="titlesearch" value="Titles" alt="Search Titles" type="submit">
+<input disabled="disabled" id="fullsearch" name="fullsearch" value="Text" alt="Search Full Text" type="submit">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<ul id="username"><li><a href="http://wiki.apache.org/lucene-hadoop/UserPreferences">Login</a></li></ul>
+
+
+<ul id="navibar">
+<li class="wikilink current"><a href="http://wiki.apache.org/lucene-hadoop/FrontPage">FrontPage</a></li>
+<li class="wikilink"><a href="http://wiki.apache.org/lucene-hadoop/RecentChanges">RecentChanges</a></li>
+<li class="wikilink"><a href="http://wiki.apache.org/lucene-hadoop/FindPage">FindPage</a></li>
+<li class="wikilink"><a href="http://wiki.apache.org/lucene-hadoop/HelpContents">HelpContents</a></li>
+</ul>
+
+<div id="pageline"><hr style="display: none;"></div>
+
+<ul class="editbar">
+<li>Immutable Page</li>
+<li><a href="http://wiki.apache.org/lucene-hadoop/FrontPage?action=diff">Show Changes</a></li>
+<li><a href="http://wiki.apache.org/lucene-hadoop/FrontPage?action=info">Get Info</a></li>
+<li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">More Actions:</option><option value="raw">Show Raw Text</option>
+<option value="print">Show Print View</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled="disabled" class="disabled">--------</option>
+<option value="AttachFile">Attachments</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Show Like Pages</option>
+<option value="LocalSiteMap">Show Local Site Map</option>
+<option value="show" disabled="disabled" class="disabled">--------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Rename Page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Delete Page</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li>
+</ul>
+
+</div>
+
+<div id="page" dir="ltr" lang="en"><!-- start page -->
+
+
+<h1 id="title"><a title="Click to do a full-text search for this title" href="http://wiki.apache.org/lucene-hadoop/FrontPage?action=fullsearch&amp;value=linkto%3A%22FrontPage%22&amp;context=180">FrontPage</a></h1>
+<div id="content" dir="ltr" lang="en">
+<a id="top"></a>
+
+<h2 id="head-b0947ab80ed71941dff7a24fafe1630a42a89b26">Introduction</h2>
+
+<p><a class="external" rel="nofollow" href="http://lucene.apache.org/hadoop/"><img src="FrontPage%20-%20Lucene-hadoop%20Wiki_files/moin-www.png" alt="[WWW]" height="11" width="11"> Hadoop</a>
+is a framework for running applications on large clusters built of
+commodity hardware. The Hadoop framework transparently provides
+applications both reliability and data motion. Hadoop implements a
+computational paradigm named <a href="http://wiki.apache.org/lucene-hadoop/HadoopMapReduce"> Map/Reduce</a>,
+where the application is divided into many small fragments of work,
+each of which may be executed or reexecuted on any node in the cluster.
+In addition, it provides a distributed file system that stores data on
+the compute nodes, providing very high aggregate bandwidth across the
+cluster. Both Map/Reduce and the distributed file system are designed
+so that node failures are automatically handled by the framework. </p>
+<p>The intent is to scale Hadoop up to handling thousand of computers. The current high water marks that have been reported are: </p>
+<ul>
+<li><p> Nodes in a single file system cluster (DataNodes): 902 </p>
+</li>
+<li><p> Nodes in a single map/reduce cluster (TaskTrackers): 902 </p>
+</li>
+</ul>
+<p>Hadoop was originally built as infrastructure for the <a class="external" rel="nofollow" href="http://lucene.apache.org/nutch/"><img src="FrontPage%20-%20Lucene-hadoop%20Wiki_files/moin-www.png" alt="[WWW]" height="11" width="11"> Nutch</a> project, which crawls the web and builds a search engine index for the crawled pages. Both Hadoop and Nutch are part of the <a class="external" rel="nofollow" href="http://lucene.apache.org/java/docs/index.html"><img src="FrontPage%20-%20Lucene-hadoop%20Wiki_files/moin-www.png" alt="[WWW]" height="11" width="11"> Lucene</a> <a class="external" rel="nofollow" href="http://www.apache.org/"><img src="FrontPage%20-%20Lucene-hadoop%20Wiki_files/moin-www.png" alt="[WWW]" height="11" width="11"> Apache</a> project. </p>
+
+<h3 id="head-cd7a932f26a4e6d54d5ccdb291d6e485f134271c">Hadoop Map/Reduce</h3>
+
+
+<h4 id="head-32cd8f718d5c6651c4a7cb40b31ada0756754885">Programming model and execution framework</h4>
+
+<p>Map/Reduce is a programming paradigm that expresses a large
+distributed computation as a sequence of distributed operations on data
+sets of key/value pairs. The Hadoop Map/Reduce framework harnesses a
+cluster of machines and executes user defined Map/Reduce jobs across
+the nodes in the cluster. A Map/Reduce computation has two phases, a <em>map</em> phase and a <em>reduce</em> phase. The input to the computation is a data set of key/value pairs. </p>
+<p>In the map phase, the framework splits the input data set into a large number of fragments and assigns each fragment to a <em>map task</em>.
+The framework also distributes the many map tasks across the cluster of
+nodes on which it operates. Each map task consumes key/value pairs from
+its assigned fragment and produces a set of intermediate key/value
+pairs. For each input key/value pair <em>(K,V)</em>, the map task invokes a user defined <em>map function</em> that transmutes the input into a different key/value pair <em>(K',V')</em>. </p>
+<p>Following the map phase the framework sorts the intermediate data set by key and produces a set of <em>(K',V'*)</em>
+tuples so that all the values associated with a particular key appear
+together. It also partitions the set of tuples into a number of
+fragments equal to the number of reduce tasks. </p>
+<p>In the reduce phase, each <em>reduce task</em> consumes the fragment of <em>(K',V'*)</em> tuples assigned to it. For each such tuple it invokes a user-defined <em>reduce function</em> that transmutes the tuple into an output key/value pair <em>(K,V)</em>.
+Once again, the framework distributes the many reduce tasks across the
+cluster of nodes and deals with shipping the appropriate fragment of
+intermediate data to each reduce task. </p>
+<p>Tasks in each phase are executed in a fault-tolerant manner, if
+node(s) fail in the middle of a computation the tasks assigned to them
+are re-distributed among the remaining nodes. Having many map and
+reduce tasks enables good load balancing and allows failed tasks to be
+re-run with small runtime overhead. </p>
+
+<h4 id="head-d3e21c91397cbc213638ca5d04ec122a14c44aea">Architecture</h4>
+
+<p>The Hadoop Map/Reduce framework has a master/slave architecture. It has a single master server or <em>jobtracker</em> and several slave servers or <em>tasktrackers</em>, one per node in the cluster. The <em>jobtracker</em> is the point of interaction between users and the framework. Users submit map/reduce jobs to the <em>jobtracker</em>, which puts them in a queue of pending jobs and executes them on a first-come/first-served basis. The <em>jobtracker</em> manages the assignment of map and reduce tasks to the <em>tasktrackers</em>. The <em>tasktrackers</em> execute tasks upon instruction from the jobtracker and also handle data motion between the map and reduce phases. </p>
+
+<h3 id="head-2ce412ab47199e6f32b681d6a423f3449040c86b">Hadoop DFS</h3>
+
+<p>Hadoop's Distributed File System is designed to reliably store very
+large files across machines in a large cluster. It is inspired by the <a class="external" rel="nofollow" href="http://labs.google.com/papers/gfs.html"><img src="FrontPage%20-%20Lucene-hadoop%20Wiki_files/moin-www.png" alt="[WWW]" height="11" width="11"> Google File System</a>.
+Hadoop DFS stores each file as a sequence of blocks, all blocks in a
+file except the last block are the same size. Blocks belonging to a
+file are replicated for fault tolerance. The block size and replication
+factor are configurable per file. Files in HDFS are "write once" and
+have strictly one writer at any time. </p>
+
+<h4 id="head-d3e21c91397cbc213638ca5d04ec122a14c44aea-2">Architecture</h4>
+
+<p>Like Hadoop Map/Reduce, HDFS follows a master/slave architecture. An HDFS installation consists of a single <em>Namenode</em>,
+a master server that manages the filesystem namespace and regulates
+access to files by clients. In addition, there are a number of <em>Datanodes</em>, one per node in the cluster, which manage storage attached to the nodes that they run on. The <em>Namenode</em>
+makes filesystem namespace operations like opening, closing, renaming
+etc. of files and directories available via an RPC interface. It also
+determines the mapping of blocks to <em>Datanodes</em>. The <em>Datanodes</em>
+are responsible for serving read and write requests from filesystem
+clients, they also perform block creation, deletion, and replication
+upon instruction from the <em>Namenode</em>. </p>
+
+<h3 id="head-20c4162338626602797f421b569b2e13a88c7ce5">General Information</h3>
+
+<ul>
+<li><p> <a class="external" rel="nofollow" href="http://lucene.apache.org/hadoop/"><img src="FrontPage%20-%20Lucene-hadoop%20Wiki_files/moin-www.png" alt="[WWW]" height="11" width="11"> Hadoop Website </a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HadoopOverview"> Hadoop Code Overview</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/FAQ">FAQ</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HadoopMapReduce">HadoopMapReduce</a> </p>
+</li>
+</ul>
+
+<h3 id="head-cbc49fd9c61eab062b71657b6db2743ebbe21327">Hadoop Administration</h3>
+
+<ul>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/DevelopmentCommandLineOptions">DevelopmentCommandLineOptions</a> for upcoming version 0.1 hadoop shell script. </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/GettingStartedWithHadoop">GettingStartedWithHadoop</a> </p>
+</li>
+<li><p> <a class="external" rel="nofollow" href="http://wiki.apache.org/nutch/NutchHadoopTutorial"><img src="FrontPage%20-%20Lucene-hadoop%20Wiki_files/moin-www.png" alt="[WWW]" height="11" width="11"> Nutch Hadoop Tutorial</a> (Useful for understanding Hadoop in an application context) </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HowToConfigure">HowToConfigure</a> </p>
+</li>
+<li><p> Running Hadoop on <a href="http://wiki.apache.org/lucene-hadoop/AmazonEC2">AmazonEC2</a> </p>
+</li>
+</ul>
+
+<h3 id="head-65f18876f3b0d859cf2f904d512afd725eb9f61f">Hadoop Development</h3>
+
+<ul>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/Roadmap">Roadmap</a>, listing release plans. </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HowToContribute">HowToContribute</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HowToRelease">HowToRelease</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HowManyMapsAndReduces">HowManyMapsAndReduces</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/TaskExecutionEnvironment">TaskExecutionEnvironment</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HowToDebugMapReducePrograms">HowToDebugMapReducePrograms</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/HadoopMapRedClasses">HadoopMapRedClasses</a> </p>
+</li>
+</ul>
+
+<h3 id="head-bb33ed6b8d38bdc10f7f65f2d978a381a2525e57">Examples</h3>
+
+<ul>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/WordCount">WordCount</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/PythonWordCount"> Python Word Count</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/Grep">Grep</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/Sort">Sort</a> </p>
+</li>
+<li><p> <a href="http://wiki.apache.org/lucene-hadoop/RandomWriter">RandomWriter</a> </p>
+</li>
+</ul>
+
+<h3 id="head-4bfbb1f993dcb60f601d2c89e7350b6c33419637">Other Resources</h3>
+
+<a id="bottom"></a>
+
+</div>
+<p id="pageinfo" class="info" dir="ltr" lang="en">last edited 2006-10-27 22:42:46 by <span title="c-71-202-24-246.hsd1.ca.comcast.net">DougCutting</span></p>
+
+</div> <!-- end page -->
+
+
+<div id="footer">
+<ul class="editbar">
+<li>Immutable Page</li>
+<li><a href="http://wiki.apache.org/lucene-hadoop/FrontPage?action=diff">Show Changes</a></li>
+<li><a href="http://wiki.apache.org/lucene-hadoop/FrontPage?action=info">Get Info</a></li>
+<li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">More Actions:</option><option value="raw">Show Raw Text</option>
+<option value="print">Show Print View</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled="disabled" class="disabled">--------</option>
+<option value="AttachFile">Attachments</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Show Like Pages</option>
+<option value="LocalSiteMap">Show Local Site Map</option>
+<option value="show" disabled="disabled" class="disabled">--------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Rename Page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Delete Page</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li>
+</ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li>
+<li><a href="http://www.python.org/">Python Powered</a></li>
+<li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+</body></html>

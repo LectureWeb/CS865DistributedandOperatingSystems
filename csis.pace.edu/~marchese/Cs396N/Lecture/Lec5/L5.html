@@ -1,0 +1,1262 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>L5</title>
+</head>
+<body text="#000000" bgcolor="#E4E4E4" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr>
+<td><b><font face="Arial,Helvetica">CS396N - Web Programming</font></b></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica">Spring 2002</font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica">Chapter 12 - Layout
+Managers</font></b></td>
+</tr>
+</table>
+
+<h2>
+<font face="Arial,Helvetica">Layout Managers</font></h2>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Layout managers are used to place components
+in a container in an orderly manner.</font></li>
+
+<li>
+<font face="Arial,Helvetica">The AWT package provides five classes, which
+are used to create layout managers.</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">FlowLayout</font></li>
+
+<li>
+<font face="Arial,Helvetica">GridLayout</font></li>
+
+<li>
+<font face="Arial,Helvetica">BorderLayout</font></li>
+
+<li>
+<font face="Arial,Helvetica">CardLayout</font></li>
+
+<li>
+<font face="Arial,Helvetica">GridBagLayout</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">The following steps are taken to create a
+layout manager:</font></li>
+
+<br><font face="Arial,Helvetica"><i>Step 1: </i>First declare an object
+(layout_manager object) of one of the classes listed above.</font>
+<br><font face="Arial,Helvetica"><i>Step 2:</i> Initialize the layout_manager
+object using new.</font>
+<br><font face="Arial,Helvetica"><i>Step 3:</i> Install the layout_manager
+object, using the setLayout() method of the Container</font>
+<br><font face="Arial,Helvetica">&nbsp; class:</font>
+<ul><font face="Courier New,Courier">setLayout(layout_manager object);</font></ul>
+
+<li>
+<font face="Arial,Helvetica">Any components added subsequently will be
+arranged according to the description of the layout_manager object.</font></li>
+</ul>
+
+<p><br><b><font face="Arial"><font size=+1>The FlowLayout class</font></font></b>
+<ul>
+<li>
+<font face="Arial,Helvetica">A <b><i>FlowLayout</i></b> manager arranges
+components in a left-to-right flow.</font></li>
+
+<li>
+<b><font face="Arial,Helvetica">Fields</font></b></li>
+</ul>
+
+<table WIDTH="588" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=CENTER WIDTH="27%">
+<center><b>Field</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="25%">
+<center><b>Type</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="48%">
+<center><b>Description</b></center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="27%">
+<center><b><i>CENTER (1)</i></b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="25%">
+<center><b>public final static int</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="48%">Centers each row of components.&nbsp;</td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="27%">
+<center><b><i>LEFT (0)</i></b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="25%">
+<center><b>public final static int</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="48%">Left justifies each row of components.</td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="27%">
+<center><b><i>RIGHT (2)</i></b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="25%">
+<center><b>public final static int</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="48%">Right justifies each row of components.</td>
+</tr>
+</table>
+
+<ul>
+<li>
+<font face="Arial"><b>Steps </b>in defining a <b><i>FlowLayout</i> </b>manager</font></li>
+
+<br><b><font face="Arial">Step 1:&nbsp;</font></b> Declare a <i>FlowLayoutmanager</i>
+object:
+<p><b><font face="Courier New,Courier">FlowLayoutmanager&nbsp; flowlayout_object;</font></b>
+<p><b><font face="Arial">Step 2:</font></b>&nbsp; Initialize the<i> flowlayout_object
+</i>using
+<b>new</b>
+and a constructor:</ul>
+
+<table WIDTH="581" BGCOLOR="#99FF99" >
+<tr>
+<td ALIGN=LEFT WIDTH="43%">
+<center><b>Constructor</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="23%">
+<center><b>Arguments</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="35%">
+<center><b>Description</b></center>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="43%">
+<center><b><i>FlowLayout()&nbsp;</i></b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="23%">
+<center>None</center>
+</td>
+
+<td VALIGN=CENTER WIDTH="35%">Creates a new flow layout manager with centered
+alignment and a default 5-pixel horizontal and vertical gap.</td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="43%">
+<center><b>FlowLayout(<i>align</i>)</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="23%">
+<center>align - <b>int</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="35%">Creates a new flow layout manager with indicated
+alignment and a default 5-pixel horizontal and vertical gap.</td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="43%">
+<center><b><i>FlowLayout(align,hgap,vgap)</i></b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="23%">
+<center>align - <b>int</b>
+<p>hgap - <b>int</b>
+<p>vgap - <b>int</b></center>
+</td>
+
+<td VALIGN=CENTER WIDTH="35%">Creates a flow layout manager with the indicated
+alignment and the indicated horizontal and vertical gaps (in pixels).</td>
+</tr>
+</table>
+
+<blockquote><font face="Arial,Helvetica"><b>Step 3</b>:&nbsp; Install the
+<i>flowlayout</i>_<i>object</i>
+using the <b><i>add</i></b>() method:</font></blockquote>
+
+<ul><font face="Courier New,Courier"><b>setLayout</b>(flowlayout_object);</font></ul>
+<b><font face="Arial,Helvetica">Note</font></b>
+<br><font face="Arial,Helvetica">1. For applets <b><i>FlowLayout</i></b>
+is the default layout manager (centered).</font>
+<br><font face="Arial,Helvetica">2. The <b><i>FlowLayout</i></b> manager
+keeps buttons in their natural size.</font>
+<br><font face="Arial,Helvetica">3. In specifying the alignment, you can
+either use the actual number (0,1 or 2) or the name of the static fields.</font>
+<p><b><font face="Arial,Helvetica">Example</font></b>
+<p><applet CODE=FlowTest WIDTH=300 HEIGHT=100>
+<br></applet>
+<p>i<b><font face="Courier New,Courier">mport java.applet.Applet;</font></b>
+<br><b><font face="Courier New,Courier">import java.awt.*;</font></b>
+<p><b><font face="Courier New,Courier">public class FlowTest extends Applet
+{</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; public void init() {</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; for(int i=1;
+i&lt;6; i++) {</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(new Button("Button " + i));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; }</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; }</font></b>
+<br><b><font face="Courier New,Courier">}</font></b>
+<br>&nbsp;
+<p><b><font face="Arial"><font size=+1>GridLayout manager</font></font></b>
+<blockquote>
+<li>
+<font face="Arial,Helvetica">Commonly used layout manager</font></li>
+
+<li>
+<font face="Arial,Helvetica">Causes the container components to be laid
+out in a rectangular grid (along rows and columns)</font></li>
+
+<li>
+<font face="Arial,Helvetica">The container is divided into equal sized
+cells: one component into each cell.</font></li>
+
+<li>
+<font face="Arial,Helvetica"><b>Steps </b>in defining a <b><i>GridLayout</i></b>
+manager:</font></li>
+
+<br><font face="Arial,Helvetica"><b>Step 1</b>:&nbsp; Declare a <b><i>GridLayout</i></b>
+object:</font>
+<br><font face="Courier New,Courier"><b>GridLayout</b>&nbsp; gridlayout_object;</font>
+<br><font face="Arial,Helvetica"><b>Step 2</b>:&nbsp; Initialize <i>gridlayout_object
+</i>using
+<b>new</b>
+and a constructor:</font></blockquote>
+
+<center><table CELLPADDING=7 WIDTH="597" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=TOP BGCOLOR="#99FF99"><b><font face="Arial">Constructor</font></b></td>
+
+<td VALIGN=TOP WIDTH="24%"><b><font face="Arial">Arguments</font></b></td>
+
+<td VALIGN=TOP WIDTH="34%"><b><font face="Arial">Description</font></b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="42%"><b>GridLayout(<i>rows,cols</i>)</b></td>
+
+<td VALIGN=TOP WIDTH="24%"><i>rows - </i><b>int</b>
+<br><i>cols - </i><b>int</b></td>
+
+<td VALIGN=TOP WIDTH="34%">Creates a grid layout with the specified number
+of rows and columns.&nbsp;</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="42%"><b>GridLayout(<i>rows,cols,hgap,vgap)</i></b></td>
+
+<td VALIGN=TOP WIDTH="24%"><i>rows - </i><b>int</b>
+<br><i>cols - </i><b>int</b>
+<br><i>hgap -</i><b> int</b>
+<br><i>vgap -</i><b> int</b></td>
+
+<td VALIGN=TOP WIDTH="34%">Creates a grid layout with specified number
+of rows and columns, and with specified gaps (in pixels).</td>
+</tr>
+</table></center>
+
+<dir><font face="Arial,Helvetica"><b>Step 3</b>:&nbsp; Install the <i>gridlayout</i>_<i>object</i>
+using the <b><i>add</i></b>() method:</font>
+<dir>
+<dir><font face="Courier New,Courier"><b>setLayout</b>(flowlayout_object);</font></dir>
+</dir>
+<b><font face="Arial,Helvetica">Note</font></b></dir>
+
+<ul>
+<ol>
+<li>
+<font face="Arial,Helvetica">If there are more components than the number
+of grids defined, the GridLayout manager</font></li>
+
+<br><font face="Arial,Helvetica">keeps the specified number of rows, but
+increases the number of columns to accommodate all components.</font>
+<li>
+<font face="Arial,Helvetica">If there are more grids than the number of
+components, the GridLayout manager keeps the specified number of rows,
+but reduces the number of columns to accommodate the specified number of
+components</font></li>
+</ol>
+</ul>
+<b><font face="Arial,Helvetica">Example</font></b>
+<br><applet CODE=GridTest WIDTH=300 HEIGHT=100></applet>
+<p><b><font face="Courier New,Courier">import java.applet.Applet;</font></b>
+<br><b><font face="Courier New,Courier">import java.awt.*;</font></b>
+<p><b><font face="Courier New,Courier">public class GridTest extends Applet
+{</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; public void init() {</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; setLayout(new
+GridLayout(2,3)); // 2 rows, 3 cols</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+One"));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+Two"));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+Three"));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+Four"));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+Five"));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+Six"));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; }</font></b>
+<br><b><font face="Courier New,Courier">}</font></b>
+<br>&nbsp;
+<p><b><font face="Arial"><font size=+1>The BorderLayout Class</font></font></b>
+<ul>
+<li>
+<font face="Arial,Helvetica">The <b><i>BorderLayout</i></b> manager divides
+the container into five partitions<b><i>: North, South, East, West and
+Center</i></b>.</font></li>
+</ul>
+
+<center><table CELLPADDING=7 WIDTH="535" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=TOP WIDTH="30%">
+<dir><b>Field name</b></dir>
+</td>
+
+<td VALIGN=TOP WIDTH="33%">
+<dir><b>Type</b></dir>
+</td>
+
+<td VALIGN=TOP WIDTH="37%">
+<dir><b>Description</b></dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="30%">
+<blockquote><b><i>North</i></b></blockquote>
+</td>
+
+<td VALIGN=TOP WIDTH="33%"><b>public static final String</b></td>
+
+<td VALIGN=TOP WIDTH="37%">
+<dir>North partition</dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="30%">
+<dir><b><i>South</i></b></dir>
+</td>
+
+<td VALIGN=TOP WIDTH="33%"><b>public static final String</b></td>
+
+<td VALIGN=TOP WIDTH="37%">
+<dir>South partition</dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="30%">
+<dir><b><i>East</i></b></dir>
+</td>
+
+<td VALIGN=TOP WIDTH="33%"><b>public static final String</b></td>
+
+<td VALIGN=TOP WIDTH="37%">
+<dir>East partition</dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="30%">
+<dir><b><i>West</i></b></dir>
+</td>
+
+<td VALIGN=TOP WIDTH="33%"><b>public static final String</b></td>
+
+<td VALIGN=TOP WIDTH="37%">
+<dir>West partition</dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="30%">
+<dir><b><i>Center</i></b></dir>
+</td>
+
+<td VALIGN=TOP WIDTH="33%"><b>public static final String</b></td>
+
+<td VALIGN=TOP WIDTH="37%">
+<dir>Center partition</dir>
+</td>
+</tr>
+</table></center>
+
+<ul>
+<li>
+<b><font face="Arial">Steps in defining a <i>BorderLayout</i> manager:</font></b></li>
+
+<br><font face="Arial,Helvetica"><b>Step 1</b>:&nbsp; Declare a <b><i>BorderLayout</i></b>
+object:</font>
+<ul><font face="Courier New,Courier"><b>BorderLayout</b> borderlayout_object;</font></ul>
+<font face="Arial,Helvetica"><b>Step 2</b>:&nbsp; Initialize the<i> borderlayout_object
+</i>using
+<b>new</b>
+and a constructor:</font></ul>
+
+<center><table CELLPADDING=7 WIDTH="582" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=TOP WIDTH="40%"><b>Constructor</b></td>
+
+<td VALIGN=TOP WIDTH="27%"><b>Arguments</b></td>
+
+<td VALIGN=TOP WIDTH="33%"><b>Description</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="40%"><b><i>BorderLayout()</i></b></td>
+
+<td VALIGN=TOP WIDTH="27%">None</td>
+
+<td VALIGN=TOP WIDTH="33%">Creates a border layout&nbsp;</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="40%"><b><i>BorderLayout(hgap,vgap)</i></b></td>
+
+<td VALIGN=TOP WIDTH="27%"><i>hgap - <b>int</b></i>
+<p><i>vgap - <b>int</b></i></td>
+
+<td VALIGN=TOP WIDTH="33%">Creates a border layout with specified horizontal
+and vertical gaps (in pixels).</td>
+</tr>
+</table></center>
+
+<blockquote><font face="Arial,Helvetica"><b>Step 3</b>:&nbsp; Install the
+<i>gridlayout</i>_<i>object</i>
+using the <b><i>add</i></b>() method:</font>
+<ul><font face="Courier New,Courier"><b>setLayout</b>(flowlayout_object);</font></ul>
+
+<li>
+<b><font face="Arial,Helvetica">Syntax for adding a component:</font></b></li>
+
+<ul><font face="Courier New,Courier"><b>add</b>("partition",component_object);</font>
+<li>
+<font face="Arial,Helvetica">Where partition is one of <b><i>North, South,
+East, West</i></b>, or <b><i>Center</i></b>.</font></li>
+
+<li>
+<font face="Arial,Helvetica"><i>component_object</i> is the component being
+added.</font></li>
+</ul>
+</blockquote>
+<b><font face="Arial,Helvetica">Example</font></b>
+<br><applet CODE=BorderTest WIDTH=300 HEIGHT=200></applet>
+<p><b><font face="Courier New,Courier">import java.applet.Applet;</font></b>
+<br><b><font face="Courier New,Courier">import java.awt.*;</font></b>
+<p><b><font face="Courier New,Courier">public class BorderTest extends
+Applet {</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; public void init() {</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; setLayout(new
+BorderLayout());</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+1"), BorderLayout.NORTH);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+2"), BorderLayout.SOUTH);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+3"), BorderLayout.EAST);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+4"), BorderLayout.WEST);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(new Button("Button
+5"), BorderLayout.CENTER);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; }</font></b>
+<br><b><font face="Courier New,Courier">}</font></b>
+<br>&nbsp;
+<p><b><font face="Arial"><font size=+1>The CardLayout Class</font></font></b>
+<ul>
+<li>
+A cardLayout manager arranges components on several cards.</li>
+
+<li>
+Points to note:</li>
+
+<ul>
+<li>
+Each card holds only one component.</li>
+
+<li>
+Only one card is visible at a time.</li>
+
+<li>
+Each card will have a name associated with it.</li>
+
+<li>
+You can see any card you want – using the name of the card.</li>
+
+<li>
+You can flip through the cards in a specific order.</li>
+</ul>
+</ul>
+
+<center><table WIDTH="79%" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=CENTER WIDTH="39%"><b>Constructor</b></td>
+
+<td VALIGN=CENTER WIDTH="26%"><b>Arguments</b></td>
+
+<td VALIGN=CENTER WIDTH="35%"><b>Description</b></td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="39%"><b><i>CardLayout()</i></b></td>
+
+<td VALIGN=CENTER WIDTH="26%">None</td>
+
+<td VALIGN=CENTER WIDTH="35%">Creates a new card layout</td>
+</tr>
+
+<tr>
+<td VALIGN=CENTER WIDTH="39%"><b><i>CardLayout(hgap,vgap)</i></b></td>
+
+<td VALIGN=CENTER WIDTH="26%"><i>hgap – <b>int</b></i>
+<br><i>vgap – <b>int</b></i></td>
+
+<td VALIGN=CENTER WIDTH="35%">Creates a new card layout with the specified
+horizontal and vertical gaps (in pixels).</td>
+</tr>
+</table></center>
+
+<ul>
+<li>
+<b><font face="Arial">Syntax for adding a component:</font></b></li>
+
+<ul><font face="Courier New,Courier"><b>add</b>("name", component_object)</font>
+<li>
+Where, <i>name</i> (<b><i>String</i></b>) is the "name of card" being added.</li>
+
+<li>
+<i>component_object is the component object being added.</i></li>
+</ul>
+</ul>
+
+<center><table CELLPADDING=7 WIDTH="511" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=TOP WIDTH="37%"><b>Method</b></td>
+
+<td VALIGN=TOP WIDTH="36%"><b>Arguments</b></td>
+
+<td VALIGN=TOP WIDTH="28%"><b>Description</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="37%"><b><i>first(parent)</i></b></td>
+
+<td VALIGN=TOP WIDTH="36%"><i>parent - container&nbsp;</i>
+<br>use <b>this</b> if applet is the container</td>
+
+<td VALIGN=TOP WIDTH="28%">Shows the first card</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="37%"><b><i>last(parent)</i></b></td>
+
+<td VALIGN=TOP WIDTH="36%"><i>parent - container&nbsp;</i>
+<br>use <b>this</b> if applet is the container</td>
+
+<td VALIGN=TOP WIDTH="28%">Shows the last card</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="37%"><b><i>next(parent)</i></b></td>
+
+<td VALIGN=TOP WIDTH="36%"><i>parent - container&nbsp;</i>
+<br>use <b>this</b> if applet is the container</td>
+
+<td VALIGN=TOP WIDTH="28%">Shows the next card</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="37%"><b><i>previous(parent)</i></b></td>
+
+<td VALIGN=TOP WIDTH="36%"><i>parent - container&nbsp;</i>
+<br>use <b>this</b> if applet is the container</td>
+
+<td VALIGN=TOP WIDTH="28%">Shows the previous card</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="37%"><b><i>show(parent,name)</i></b></td>
+
+<td VALIGN=TOP WIDTH="36%"><i>name (<b>String</b>) - name of the card.</i>
+<br>parent - container&nbsp;
+<br>use <b>this</b> if applet is the container</td>
+
+<td VALIGN=TOP WIDTH="28%">Shows the card with specified name.</td>
+</tr>
+</table></center>
+
+<p><b><font face="Arial,Helvetica">Example 1</font></b>
+<br><applet CODE=Layout5 WIDTH=200 HEIGHT=200></applet>
+<p><b><font face="Courier New,Courier">//The following program creates
+10 buttons and arranges them using</font></b>
+<br><b><font face="Courier New,Courier">//CardLayout manager. Each time
+you click, the next card will be</font></b>
+<br><b><font face="Courier New,Courier">//displayed.</font></b>
+<p><b><font face="Courier New,Courier">import java.awt.*;</font></b>
+<br><b><font face="Courier New,Courier">import java.applet.*;</font></b>
+<br><b><font face="Courier New,Courier">import java.awt.event.*;</font></b>
+<br><b><font face="Courier New,Courier">public class Layout5 extends Applet
+implements ActionListener{</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; CardLayout clom;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; public void init(){</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b1 = new Button("What
+is CGI?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b2 = new Button("Common
+Gateway Interface");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b3 = new Button("What
+is FTP?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b4 = new Button("File
+Transfer Protocol");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b5 = new Button("What
+is HTML?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b6 = new Button("HyperText
+mark-up Language");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b7 = new Button("What
+is URL?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b8 = new Button("Uniform
+Resource Locator");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b9 = new Button("What
+is VRML?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b10 = new Button("Virtual
+Reality Modeling Language");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b1.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b2.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b3.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b4.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b5.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b6.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b7.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b8.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b9.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; b10.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; clom = new CardLayout();</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; setLayout(clom);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("1",b1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("2",b2);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("3",b3);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("4",b4);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("5",b5);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("6",b6);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("7",b7);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("8",b8);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("9",b9);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; add("10",b10);</font></b>
+<br><b><font face="Courier New,Courier">}</font></b>
+<p><b><font face="Courier New,Courier">public void actionPerformed(ActionEvent
+event){</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; clom.next(this);</font></b>
+<br><b><font face="Courier New,Courier">}</font></b>
+<p><b><font face="Courier New,Courier">}</font></b>
+<p><b><font face="Arial,Helvetica">Example 2</font></b>
+<br><applet CODE=Layout6  WIDTH=400 HEIGHT=100></applet>
+<p><b><font face="Courier New,Courier">import java.awt.*;</font></b>
+<br><b><font face="Courier New,Courier">import java.applet.*;</font></b>
+<br><b><font face="Courier New,Courier">import java.awt.event.*;</font></b>
+<p><b><font face="Courier New,Courier">public class Layout6 extends Applet
+implements ActionListener{</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button first,last,next,previous;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CardLayout cards;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Panel panel1,panel2;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public void init(){</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+first = new Button("first");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+last = new Button("last");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+next = new Button("next");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+previous = new Button("previous");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b1 = new Button("What is CGI?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b2 = new Button("Common Gateway Interface");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b3 = new Button("What is FTP?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b4 = new Button("File Transfer Protocol");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b5 = new Button("What is HTML?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b6 = new Button("HyperText mark-up Language");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b7 = new Button("What is URL?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b8 = new Button("Uniform Resource Locator");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b9 = new Button("What is VRML?");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b10 = new Button("Virtual Reality Modeling Language");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+first.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+last.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+next.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+previous.addActionListener(this);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1 = new Panel();</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel2 = new Panel();</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cards = new CardLayout();</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.setLayout(cards);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel2.setLayout(new GridLayout(1,4,20,20));</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("1",b1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("2",b2);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("3",b3);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("4",b4);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("5",b5);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("6",b6);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("7",b7);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("8",b8);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("9",b9);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel1.add("10",b10);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel2.add(first);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel2.add(last);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel2.add(next);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+panel2.add(previous);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(panel1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(panel2);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp; }</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp; public
+void actionPerformed(ActionEvent event){</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if event.getActionCommand().equals("first"))</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cards.first(panel1);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (event.getActionCommand().equals("last"))</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cards.last(panel1);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (event.getActionCommand().equals("next"))</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cards.next(panel1);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (event.getActionCommand().equals("previous"))</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cards.previous(panel1);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; }</font></b>
+<br><b><font face="Courier New,Courier">}</font></b>
+<br>&nbsp;
+<h3>
+<b><font face="Arial"><font size=+1>The GridBagLayout</font></font></b></h3>
+
+<ul>
+<li>
+<font face="Arial,Helvetica"><b><i>GridbagLayout</i></b> manager is a flexible
+layout manager that aligns components in a rectangular grid</font></li>
+
+<li>
+<font face="Arial,Helvetica"><b><i>GridBagLayout</i></b>&nbsp; associates&nbsp;
+components with special characteristics (such as the size, horizontal and
+vertical gaps etc.).</font></li>
+
+<li>
+<font face="Arial,Helvetica"><b><i>GridBagConstraints</i></b> class associates
+special characteristics to a component.</font></li>
+</ul>
+<i><font face="Arial"><font size=+1>The GridBagConstraints class</font></font></i>
+<ul>
+<li>
+<font face="Arial,Helvetica"><b><i>GridBagConstraints</i></b> class specifies
+constraints for components that are laid out using the <b><i>GridBagLayout</i></b>
+class.</font></li>
+
+<li>
+<font face="Arial,Helvetica"><b><i>GridBagLayout</i></b> manager arranges
+components in a rectangular area made up of rectangular cells.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Cells are associated with coordinates.</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Coordinates of a cell at row I, and column
+J are (I,J).</font></li>
+
+<li>
+<font face="Arial,Helvetica">Top left corner cell has coordinates (0,0).</font></li>
+</ul>
+</ul>
+
+<table CELLPADDING=7 WIDTH="684" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=TOP WIDTH="32%"><b><font face="Arial">Field name</font></b></td>
+
+<td VALIGN=TOP WIDTH="19%"><b><font face="Arial">Type</font></b></td>
+
+<td VALIGN=TOP WIDTH="49%"><b><font face="Arial">Description</font></b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="32%"><b><i>anchor</i></b></td>
+
+<td VALIGN=TOP WIDTH="19%"><b>int</b></td>
+
+<td VALIGN=TOP WIDTH="49%"><b>Appropriate value is assigned to this field
+to specify the component's alignment in the display area.&nbsp;</b>
+<p><b>Valid values are:&nbsp;</b>
+<p><b><i>GridBagConstraints.CENTER (10)</i></b>
+<p><b><i>GridBagConstraints.NORTH (11)</i></b>
+<p><b><i>GridBagConstraints.NORTHEAST(12)</i></b>
+<p><b><i>GridBagConstraints.EAST(13)</i></b>
+<p><b><i>GridBagConstraints.SOUTHEAST(14)</i></b>
+<p><b><i>GridBagConstraints.SOUTH(15)</i></b>
+<p><b><i>GridBagConstraints.SOUTHWEST(16)</i></b>
+<p><b><i>GridBagConstraints.WEST(17)</i></b>
+<p><b><i>GridBagConstraints.NORTHWEST(18)</i></b>
+<p><b><font face="Arial">Note&nbsp;</font></b>
+<br><b>Use the symbolic names or the number.&nbsp;</b>
+<p><b>Default is <i>GridBagConstraints.CENTER</i>.</b>
+<br>&nbsp;</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="32%"><b><i>fill</i></b></td>
+
+<td VALIGN=TOP WIDTH="19%"><b>int</b></td>
+
+<td VALIGN=TOP WIDTH="49%"><b>Specifies if the component has to be padded
+in horizontal or vertical directions to fit the space.&nbsp;</b>
+<p><b><i>GridBagConstraints.NONE</i></b>
+<p><b><i>GridBagContraints.BOTH</i></b>
+<p><b><i>GridBagConstraints.HORIZONTAL</i></b>
+<p><b><i>GridbagConstraints.VERTICAL</i></b>
+<p><b>Default is <i>GridBagConstraints.NONE.</i></b></td>
+</tr>
+</table>
+
+<table CELLPADDING=7 WIDTH="684" BGCOLOR="#99FF99" BORDERCOLOR="#000000" >
+<tr>
+<td VALIGN=TOP WIDTH="28%" HEIGHT="402"><b>Gridheightgridwidth</b></td>
+
+<td VALIGN=TOP WIDTH="19%" HEIGHT="402"><b>int</b></td>
+
+<td VALIGN=TOP WIDTH="49%" HEIGHT="402"><b>This field specifies the number
+of columns the component should occupy.&nbsp;</b>
+<p><b><font face="Arial">Note</font></b>
+<p><b>The value GridBagConstraints.REMAINDER indicates that the component
+being added is the last component in that row. This has two consequences:
+(a) the component occupies the rest of the area in that row and (b) the
+next component goes in the next row.&nbsp;</b>
+<p><b>The value GridConstraints.RELATIVE indicates that the component being
+added is the last but one component in that row.&nbsp;</b>
+<p><b>The default is 1 – meaning one grid.&nbsp;</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="32%" HEIGHT="236"><b>gridx</b></td>
+
+<td VALIGN=TOP WIDTH="19%" HEIGHT="236"><b>int</b></td>
+
+<td VALIGN=TOP WIDTH="49%" HEIGHT="236"><b>Specifies the x coordinate (column
+number) of the cell the component is to occupy.&nbsp;</b>
+<p><b><font face="Arial">Note</font></b>
+<p><b>The value GridConstraints.RELATIVE implies that the component is
+to be added to the right of the component added previously to that container.
+This is the default value.</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="32%" HEIGHT="248"><b>gridy</b></td>
+
+<td VALIGN=TOP WIDTH="19%" HEIGHT="248"><b>int</b></td>
+
+<td VALIGN=TOP WIDTH="49%" HEIGHT="248"><b>Specifies the y coordinate (row
+number) of the cell the component is to occupy.&nbsp;</b>
+<p><b><font face="Arial">Note</font>:&nbsp;</b>
+<p><b>The value GridConstraints.RELATIVE implies that the component is
+to be added below the component previously added to that container. This
+is the default value.</b></td>
+</tr>
+</table>
+
+<br>&nbsp;
+<ol><b><font face="Arial,Helvetica">Example:six buttons and two text fields</font></b>
+<br>&nbsp;
+<table BORDER CELLSPACING=0 CELLPADDING=7 WIDTH="399" >
+<tr>
+<td VALIGN=TOP WIDTH="33%">Button 1</td>
+
+<td VALIGN=TOP COLSPAN="2" WIDTH="36%">
+<dir>Button 2</dir>
+</td>
+
+<td VALIGN=TOP WIDTH="30%">
+<dir>Button 3</dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP COLSPAN="3" WIDTH="70%">
+<dir>First text field</dir>
+</td>
+
+<td VALIGN=TOP WIDTH="30%">
+<dir>Button 4</dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP COLSPAN="2" WIDTH="35%">
+<dir>Button 5</dir>
+</td>
+
+<td VALIGN=TOP COLSPAN="2" WIDTH="65%">
+<dir>Button 6</dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP COLSPAN="4">
+<dir>Second text field</dir>
+</td>
+</tr>
+</table>
+
+<li>
+<font face="Arial,Helvetica">Define the cell coordinates for each component.</font></li>
+
+<ol><font face="Arial,Helvetica">Button1 is in (0,0), Button2 is in (1,0),
+…., First text field is in (0,1), ….</font></ol>
+
+<li>
+<font face="Arial,Helvetica">Create an object <i>gridbag1</i> of the GridBagLayout
+class:</font></li>
+
+<ol><b><font face="Courier New,Courier">GridBagLayout gridbag1 = new GridBagLayout();</font></b></ol>
+
+<li>
+<font face="Arial,Helvetica">Install the GridBagLayout:</font></li>
+
+<ol><b><font face="Courier New,Courier">setLayout(gridbag1);</font></b></ol>
+
+<li>
+<font face="Arial,Helvetica">Create an object <i>gbc1</i> of the <b><i>GridbagConstraints</i></b>
+class:</font></li>
+
+<ol><b><font face="Courier New,Courier">GridBagConstraints gbc1 = new GridBagConstraints();</font></b></ol>
+
+<li>
+<font face="Arial,Helvetica">Define desired values for the fields of the
+object created.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Associate the <b><i>GridBagConstraints</i></b>
+object with the component <i>component1 </i>which is to have the characteristics
+defined in the <b><i>GridBagConstraints </i></b>object:</font></li>
+
+<ol><b><font face="Courier New,Courier">Grridbag1.setConstraints(component1,gbc1);</font></b></ol>
+
+<li>
+<font face="Arial,Helvetica">Finally add the component:</font></li>
+
+<ol><b><font face="Courier New,Courier">add(component1);</font></b>
+<dir>
+<dir>&nbsp;</dir>
+</dir>
+</ol>
+</ol>
+<b><font face="Arial">Example</font></b>
+<ul>
+<li>
+<font face="Arial,Helvetica">Program creates six buttons, and two text
+boxes.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Constraints are defined for the eight buttons:</font></li>
+</ul>
+
+<center><table CELLPADDING=7 WIDTH="624" BGCOLOR="#99FF99" >
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b><font face="Arial">Component</font></b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b><font face="Arial">Constraints</font></b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b><font face="Arial">Meaning</font></b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>Button b1</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>fill = BOTH</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>Button b2</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>fill = BOTH</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>Button b3</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>fill = BOTH&nbsp;</b>
+<br>&nbsp;
+<p><b>gridwidth = 2</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically&nbsp;</b>
+<p><b>Last component in the row</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>TextField t1</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>fill = BOTH&nbsp;</b>
+<br>&nbsp;
+<p><b>gridwidth = REMAINDER</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically&nbsp;</b>
+<p><b>Occupies two horizontal cells</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>Button b4</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>fill = BOTH&nbsp;</b>
+<br>&nbsp;
+<p><b>gridwidth = 1</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically</b>
+<p><b>Last component in the row</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>Button b5</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>fill = BOTH&nbsp;</b>
+<br>&nbsp;
+<p><b>gridwidth = REMAINDER</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically&nbsp;</b>
+<p><b>Occupies one cell</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>Button b6</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>fill = BOTH</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically&nbsp;</b>
+<p><b>Last component in the row</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="26%"><b>Textfield t2</b></td>
+
+<td VALIGN=TOP WIDTH="32%"><b>&nbsp;</b></td>
+
+<td VALIGN=TOP WIDTH="42%"><b>Pads areas both horizontally and vertically</b></td>
+</tr>
+</table></center>
+
+<p><applet CODE=Layout7  WIDTH=200 HEIGHT=200></applet>
+<br>&nbsp;
+<p><b><font face="Courier New,Courier">import java.awt.*;</font></b>
+<br><b><font face="Courier New,Courier">import java.applet.*;</font></b>
+<p><b><font face="Courier New,Courier">public class Layout7 extends Applet{</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GridBagLayout gridbag1 = new GridBagLayout();</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GridBagConstraints gbc1 = new GridBagConstraints();</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button b1 = new Button("one");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button b2 = new Button("two");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button b3 = new Button("three");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button b4 = new Button("four");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button b5 = new Button("five");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Button b6 = new Button("six");</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TextField t1 = new TextField("New York");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TextField t2 = new TextField("Westchester");</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+public void init(){</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+setLayout(gridbag1);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.fill = GridBagConstraints.BOTH;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gridbag1.setConstraints(b1,gbc1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(b1);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.fill = GridBagConstraints.BOTH;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gridbag1.setConstraints(b2,gbc1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(b2);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.gridwidth = GridBagConstraints.REMAINDER;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.fill = GridBagConstraints.BOTH;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gridbag1.setConstraints(b3,gbc1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(b3);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.gridwidth = GridBagConstraints.REMAINDER;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.fill = GridBagConstraints.BOTH;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gridbag1.setConstraints(t1,gbc1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(t1);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.gridwidth = GridBagConstraints.REMAINDER;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.fill = GridBagConstraints.BOTH;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gridbag1.setConstraints(b4,gbc1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(b4);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.gridwidth = GridBagConstraints.REMAINDER;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.fill = GridBagConstraints.BOTH;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gridbag1.setConstraints(b5,gbc1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(b5);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.gridwidth = GridBagConstraints.REMAINDER;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gbc1.fill = GridBagConstraints.BOTH;</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+gridbag1.setConstraints(b6,gbc1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(b6);</font></b>
+<p><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+add(t2);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp; }</font></b>
+<br>&nbsp;
+<h3>
+<b><font face="Arial,Helvetica">Turning Off the Layout Manager</font></b></h3>
+<b><font face="Courier New,Courier">import java.applet.Applet;</font></b>
+<br><b><font face="Courier New,Courier">import java.awt.*;</font></b><b><font face="Courier New,Courier"></font></b>
+<p><b><font face="Courier New,Courier">public class NullTest extends Applet
+{</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; public void init() {</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; setLayout(null);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; Button b1 =
+new Button("Button 1");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; Button b2 =
+new Button("Button 2");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; Button b3 =
+new Button("Button 3");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; Button b4 =
+new Button("Button 4");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; Button b5 =
+new Button("Button 5");</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; b1.setBounds(0,
+0, 150, 50);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; b2.setBounds(150,
+0, 75, 50);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; b3.setBounds(225,
+0, 75, 50);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; b4.setBounds(25,
+60, 100, 40);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; b5.setBounds(175,
+60, 100, 40);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(b1);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(b2);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(b3);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(b4);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp;&nbsp;&nbsp; add(b5);</font></b>
+<br><b><font face="Courier New,Courier">&nbsp; }</font></b>
+<br><b><font face="Courier New,Courier">}</font></b>
+<br><b><font face="Courier New,Courier"></font></b>&nbsp;
+<p><applet CODE=NullTest  WIDTH=300 HEIGHT=150></applet>
+<br>&nbsp;
+<h3>
+<font face="Arial,Helvetica">Effective Use of Layout Managers</font></h3>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">Use Nested Containers</font></li>
+
+<li>
+<font face="Arial,Helvetica">Turn off the layout manager for some containers</font></li>
+
+<li>
+<font face="Arial,Helvetica">Use a custom layout manager</font></li>
+
+<li>
+<font face="Arial,Helvetica">Adjust the empty space around components</font></li>
+</ul>
+<b><font face="Arial,Helvetica"></font></b>
+<br><b><font face="Arial,Helvetica"></font></b>&nbsp;
+<br><b><font face="Arial,Helvetica"></font></b>&nbsp;
+</body>
+</html>

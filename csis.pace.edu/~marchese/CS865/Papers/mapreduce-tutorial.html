@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"><title>MapReduce Tutorial - Code for Educators</title><!-- Load AJAX Search -->
+  
+
+  
+  <script src="mapreduce-tutorial_files/api" type="text/javascript"></script><script src="mapreduce-tutorial_files/uistrings.js" type="text/javascript"></script><script src="mapreduce-tutorial_files/uds_compiled.js" type="text/javascript"></script>
+  <link href="mapreduce-tutorial_files/gsearch.css" rel="stylesheet" type="text/css">
+  <link href="mapreduce-tutorial_files/gsearch_darkgrey.css" rel="stylesheet" type="text/css"><!-- base line style sheet. Note: this is a relative reference! -->
+
+  
+  <link href="mapreduce-tutorial_files/base.css" rel="stylesheet" type="text/css"><!-- Search Loader -->
+
+  
+  <script src="mapreduce-tutorial_files/coresearch.js" type="text/javascript"></script></head><body>
+
+  <!-- Standard Page header, Breadcrumbs, and Sidebar -->
+  <div id="header">
+    <div id="logo"><a href="http://code.google.com/edu"><img src="mapreduce-tutorial_files/code_sm.png" alt="Google"></a></div>
+    <div id="title">Code for Educators</div>
+
+    <div id="breadcrumbs">
+      <span class="item"><a href="http://code.google.com/">Google Code Home</a></span> &gt;
+      <span class="item"><a href="http://code.google.com/edu/">Code for Educators</a></span> &gt;
+      <span class="item"><a href="http://code.google.com/edu/parallel/">Distributed Systems</a></span> &gt;
+      <span class="selected item"><a href="#">MapReduce Tutorial</a></span>
+    </div>
+  </div>
+
+
+  <!-- Standard, Per Page Sidebar Column -->
+  <div id="side">
+    <div id="menu">
+
+      <div class="group">
+        <div class="item header">Code for Educators</div>
+        <div class="group">
+          <div class="item"><a href="http://code.google.com/edu/">Home</a></div>
+          <div class="item"><a href="http://code.google.com/edu/curriculumsearch/index.html">CS Curriculum Search</a></div>
+        </div>
+      </div>
+
+      <!-- Courseware -->
+      <div class="group">
+        <div class="item header">Courseware</div>
+        <div class="group">
+          <div class="item"><a href="http://code.google.com/edu/client/index.html">AJAX Programming</a></div>
+          <div class="item not-yet"><a href="http://code.google.com/edu/server/index.html">Server Programming</a></div>
+          <div class="item not-yet"><a href="http://code.google.com/edu/search/index.html">Google Web Search</a></div>
+          <div class="item"><a href="http://code.google.com/edu/parallel/index.html">Distributed Systems</a></div>
+            <div class="group">
+              <div class="item"><a href="http://code.google.com/edu/parallel/dsd-tutorial.html">Intro to Design</a></div>
+              <div class="selected item"><a href="http://code.google.com/edu/parallel/mapreduce-tutorial.html">MapReduce Tutorial</a></div>
+              <div class="item not-yet"><a href="http://code.google.com/edu/parallel/additional-resources.html">Additional Resources</a></div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Community -->
+      <div class="group not-yet">
+        <div class="item header">Community</div>
+        <div class="group">
+          <div class="item"><a href="#">Code for Educators Blog</a></div>
+          <div class="item"><a href="#">Code for Educators Forum</a></div>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="group not-yet">
+        <div class="item header">Search</div>
+        <!-- Search Form -->
+        <div id="searchForm">Loading...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="body">
+    <!-- Search Results -->
+    <div id="searchResults"></div>
+
+<h1>Introduction to Parallel Programming and MapReduce </h1>
+
+<h3>Table of Contents</h3>
+
+<div class="toc">
+  <div class="column">
+    <dl>
+      <dt><a href="#Audience">Audience and Pre-Requisites</a></dt>
+    </dl>
+    <dl>
+      <dt><a href="#Serial">Serial vs. Parallel Programming</a></dt>
+        <dt><a href="#Basics">The Basics </a></dt>
+        <dt><a href="#MapReduce">What is MapReduce? </a></dt>
+        <dt><a href="#MRExec">MapReduce Execution Overview </a></dt>
+        <dt><a href="#MRExamples">MapReduce Examples </a></dt>
+        <dt><a href="#References">References</a></dt>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<h3><a name="Audience" id="Audience"></a>Audience and Pre-Requisites</h3>
+<p>
+This tutorial covers the basics of parallel programming and the MapReduce programming model.  
+The pre-requisites are significant programming experience
+with a language such as C++ or Java, and data structures &amp; algorithms.
+</p><p>
+
+</p><h3><a name="Serial" id="Serial"></a>Serial vs. Parallel Programming </h3>
+<p>
+In the early days of computing, programs were <i>serial</i>, that is, a program consisted of a 
+sequence of instructions, where each instruction executed one after the other.  It 
+ran from start to finish on a single processor.  
+</p><p>
+<i>Parallel programming</i> developed as a means of improving performance and
+efficiency.  In a parallel program, the processing is broken up into parts, each of which can
+be executed concurrently.  The instructions from each part run simultaneously on 
+different CPUs.  These CPUs can exist on a single machine, or they can be CPUs in a set of computers
+connected via a network.
+</p><p>
+Not only are parallel programs faster, they can also be used to solve problems on large
+datasets using non-local resources.  When you have a set of computers connected on a network, you have 
+a vast pool of CPUs, and you often have the ability to read and write very large files (assuming a distributed 
+file system is also in place).
+</p><p>
+
+</p><h3><a name="Basics" id="Basics"></a>The Basics </h3>
+<p>
+The first step in building a parallel program is identifying sets of tasks that can run concurrently
+and/or paritions of data that can be processed concurrently.  Sometimes it's just not possible.  
+Consider a Fibonacci function:
+</p><p>
+</p><pre class="code">F<sub>k+2</sub> = F<sub>k</sub> + F<sub>k+1</sub>
+</pre>
+<p>
+A function to compute this based on the form above, cannot be
+"parallelized" because each computed value is dependent on previously
+computed
+values.
+</p><p>
+A common situation is having a large amount of consistent data which must be processed.  If the data can
+be decomposed into equal-size partitions, we can devise a parallel solution.  Consider
+a huge array which can be broken up into sub-arrays.
+
+<img src="mapreduce-tutorial_files/subarray.png">
+</p><p>
+If the same processing is required for each array element, with no dependencies in the computations, and
+no communication required between tasks, we have an ideal parallel computing opportunity.  Here is a 
+common implementation technique called <i>master/worker</i>.
+</p><p>
+The MASTER:    
+</p><ul>
+ <li> initializes the array and splits it up according to the number of available WORKERS
+  </li><li>sends each WORKER its subarray
+   </li><li>receives the results from each WORKER 
+   </li></ul>
+   
+   <p>
+The WORKER:
+</p><ul>
+<li>receives the subarray from the MASTER 
+</li><li>performs processing on the subarray 
+</li><li>returns results to MASTER
+</li></ul>
+<p>
+This model implements <i>static load balancing</i> which is commonly used if all tasks are performing the 
+same amount of work on identical machines.  In general, <i>load balancing</i> refers to techniques which try to spread
+   tasks among the processors in a parallel system to avoid
+   some processors being idle while others have tasks queueing up
+   for execution.  
+   </p><p>
+   A static load balancer allocates processes to
+   processors at run time while taking no account of current
+   network load.  Dynamic algorithms are more flexible, though
+   more computationally expensive, and give some consideration to
+   the network load before allocating the new process to a
+   processor. 
+</p><p>
+As an example of the  MASTER/WORKER technique, consider one of the methods for approximating pi.  The
+first step is to inscribe a circle inside a square:
+</p><p>
+<img src="mapreduce-tutorial_files/inscribe.png">
+</p><p>
+The area of the square, denoted As = (2r)<sup>2</sup> or 4r<sup>2</sup>.  The area of the circle, denoted Ac, is 
+pi * r<sup>2</sup>.  So:
+</p><p>
+</p><pre class="code">pi = Ac / r<sup>2</sup>
+As = 4r<sup>2</sup>
+r<sup>2</sup> = As / 4
+pi = 4 * Ac / As
+</pre>
+<p>
+The reason we are doing all these algebraic manipulation is we can parallelize this method in the following
+way.
+
+</p><ol>
+<li>Randomly generate points in the square
+</li><li>Count the number of generated points that are both in the circle and in the square
+</li><li>r =  the number of points in the circle divided by the number of points in the square
+</li><li> PI = 4 * r
+</li></ol>
+And here is how we parallelize it:
+
+<p>
+</p><pre class="code">NUMPOINTS = 100000; // some large number - the bigger, the closer the approximation
+
+p = number of WORKERS;
+numPerWorker = NUMPOINTS / p;
+countCircle = 0;   // one of these for each WORKER
+
+// each WORKER does the following:
+for (i = 0; i &lt; numPerWorker; i++) {
+  generate 2 random numbers that lie inside the square;
+  xcoord = first random number; 
+  ycoord = second random number;
+  if (xcoord, ycoord) lies inside the circle
+  countCircle++;
+}
+
+MASTER:
+  receives from WORKERS their countCircle values
+  computes PI from these values: PI = 4.0 * countCircle / NUMPOINTS;
+</pre>
+
+<p>
+
+</p><h3><a name="MapReduce" id="MapReduce"></a>What is MapReduce? </h3>
+<p>
+Now that we have seen some basic examples of parallel programming, we can look at the MapReduce
+programming model.  This model derives from the <code>map</code> and <code>reduce</code>
+combinators from a functional language like Lisp.  
+</p><p>
+In Lisp, a <code>map</code> takes as input a function and a sequence of values.  It then applies the function to 
+each value in the sequence.  A <code>reduce</code> combines all the elements of a sequence using a binary operation.
+For example, it can use "+" to add up all the elements in the sequence.
+</p><p>
+MapReduce is inspired by these concepts.  It developed within Google as a mechanism for processing large amounts of
+raw data, for example, crawled documents or web request logs.  This data is so large, it must be distributed across 
+thousands of machines in order to be processed in a reasonable time. This distribution implies parallel computing since the
+same computations are performed on each CPU, but with a different dataset.  MapReduce is an abstraction that allows
+Google engineers to perform simple computations while hiding the details of parallelization, data distribution, load
+balancing and fault tolerance.
+</p><p>
+Map, written by a user of the MapReduce library, takes an input pair and produces a set of intermediate
+key/value pairs. The MapReduce library groups together all intermediate
+values associated with the same intermediate key <i>I</i> and passes
+them to the reduce function.
+</p><p>
+The reduce function, also written by the user, accepts an intermediate key
+I and a set of values for that key. It merges together these values to form
+a possibly smaller set of values.  [1]
+</p><p>
+Consider the problem of counting the number of occurrences of each
+word in a large collection of documents:
+
+</p><pre class="code">map(String key, String value): 
+// key: document name 
+// value: document contents 
+for each word w in value: 
+  EmitIntermediate(w, "1"); 
+
+reduce(String key, Iterator values):
+// key: a word
+// values: a list of counts
+int result = 0;
+for each v in values:
+  result += ParseInt(v);
+Emit(AsString(result));     [1]
+</pre>
+<p>
+The map function emits each word plus an associated count of occurrences ("1" in
+this example).  The reduce function sums together all the counts emitted for a 
+particular word.
+</p><p>
+</p><h3><a name="MRExec" id="MRExec"> MapReduce Execution Overview </a></h3>
+<p>
+<a name="MRExec" id="MRExec">The Map invocations are distributed across multiple machines by automatically partitioning 
+the input data into a set of M splits or <i>shards</i>. The input shards can be processed
+in parallel on different machines. 
+</a></p><p>
+<a name="MRExec" id="MRExec">Reduce invocations
+are distributed by partitioning the intermediate key
+space into R pieces using a partitioning function (e.g.,
+hash(key) mod R). The number of partitions (R) and
+the partitioning function are specifed by the user.
+</a></p><p>
+<a name="MRExec" id="MRExec">The illustration below shows the overall fow of a MapReduce operation. When the user program
+calls the MapReduce function, the following sequence
+of actions occurs (the numbered labels in the illustration correspond
+to the numbers in the list below).
+</a></p><p>
+<a name="MRExec" id="MRExec"><img src="mapreduce-tutorial_files/mrfigure.png">
+</a></p><p>
+</p><ol>
+<li><a name="MRExec" id="MRExec">The MapReduce library in the user program first
+shards the input files into M pieces of typically 16
+megabytes to 64 megabytes (MB) per piece. It
+then starts up many copies of the program on a cluster
+of machines.
+</a><p>
+</p></li><li><a name="MRExec" id="MRExec">One of the copies of the program is special: the
+master. The rest are workers that are assigned work
+by the master. There are M map tasks and R reduce
+tasks to assign. The master picks idle workers and
+assigns each one a map task or a reduce task.
+</a><p>
+</p></li><li><a name="MRExec" id="MRExec"> A worker who is assigned a map task reads the
+contents of the corresponding input shard. It parses
+key/value pairs out of the input data and passes each
+pair to the user-defined Map function. The intermediate
+key/value pairs produced by the Map function
+are buffered in memory.
+</a><p>
+</p></li><li><a name="MRExec" id="MRExec"> Periodically, the buffered pairs are written to local
+disk, partitioned into R regions by the partitioning
+function. The locations of these buffered pairs on
+the local disk are passed back to the master, who
+is responsible for forwarding these locations to the
+reduce workers.</a><p>
+</p></li><li><a name="MRExec" id="MRExec">When a reduce worker is notified by the master
+about these locations, it uses remote procedure calls
+to read the buffered data from the local disks of the
+map workers. When a reduce worker has read all intermediate
+data, it sorts it by the intermediate keys
+so that all occurrences of the same key are grouped
+together.  If
+the amount of intermediate data is too large to fit in
+memory, an external sort is used.</a><p>
+</p></li><li><a name="MRExec" id="MRExec">The reduce worker iterates over the sorted intermediate
+data and for each unique intermediate key encountered,
+it passes the key and the corresponding
+set of intermediate values to the user's Reduce function.
+The output of the Reduce function is appended
+to a final output file for this reduce partition.
+</a><p>
+</p></li><li><a name="MRExec" id="MRExec">When all map tasks and reduce tasks have been
+completed, the master wakes up the user program.
+At this point, the MapReduce call in the user program
+returns back to the user code.
+</a></li></ol>
+<p>
+<a name="MRExec" id="MRExec">After successful completion, the output of the MapReduce
+execution is available in the R output files. [1]
+</a></p><p>
+<a name="MRExec" id="MRExec">To detect failure, the master pings every worker periodically. 
+If no response
+is received from a worker in a certain amount of
+time, the master marks the worker as failed. Any map
+tasks completed by the worker are reset back to their initial
+idle state, and therefore become eligible for scheduling
+on other workers. Similarly, any map task or reduce
+task in progress on a failed worker is also reset to idle
+and becomes eligible for rescheduling.
+</a></p><p>
+<a name="MRExec" id="MRExec">Completed map tasks are re-executed when failure occurs because
+their output is stored on the local disk(s) of the
+failed machine and is therefore inaccessible. Completed
+reduce tasks do not need to be re-executed since their
+output is stored in a global fille system.
+</a></p><p>
+</p><h3><a name="MRExamples" id="MRExamples"> MapReduce Examples </a></h3>
+<p>
+<a name="MRExamples" id="MRExamples">Here are a few simple examples of interesting programs
+that can be easily expressed as MapReduce computations.
+</a></p><p>
+<a name="MRExamples" id="MRExamples"><b>Distributed Grep:</b> The map function emits a line if it
+matches a given pattern. The reduce function is an
+identity function that just copies the supplied intermediate
+data to the output.
+</a></p><p>
+<a name="MRExamples" id="MRExamples"><b>Count of URL Access Frequency</b>: The map function
+processes logs of web page requests and outputs
+&lt;URL, 1&gt;. The reduce function adds together all values
+for the same URL and emits a &lt;URL, total count&gt;
+pair.
+</a></p><p>
+<a name="MRExamples" id="MRExamples"><b>Reverse Web-Link Graph</b>: The map function outputs
+&lt;target, source&gt; pairs for each link to a target
+URL found in a page named "source". The reduce
+function concatenates the list of all source URLs associated
+with a given target URL and emits the pair:
+&lt;target, list(source)&gt;.
+</a></p><p>
+<a name="MRExamples" id="MRExamples"><b>Term-Vector per Host</b>: A term vector summarizes the
+most important words that occur in a document or a set
+of documents as a list of &lt;word, frequency&gt; pairs. The
+map function emits a &lt;hostname, term vector&gt;
+pair for each input document (where the hostname is
+extracted from the URL of the document). The reduce
+function is passed all per-document term vectors
+for a given host. It adds these term vectors together,
+throwing away infrequent terms, and then emits a final
+&lt;hostname, term vector&gt; pair.</a></p><p>
+<a name="MRExamples" id="MRExamples"><b>Inverted Index</b>: The map function parses each document,
+and emits a sequence of &lt;word, document ID&gt;
+pairs. The reduce function accepts all pairs for a given
+word, sorts the corresponding document IDs and emits a
+&lt;word, list(document ID)&gt; pair. The set of all output
+pairs forms a simple inverted index. It is easy to augment
+this computation to keep track of word positions. [1]
+</a></p><p>
+</p><h3><a name="References" id="References"> References </a></h3>
+<p>
+<a name="References" id="References">[1] Dean, Jeff and Ghemawat, Sanjay. <b>MapReduce: Simplified Data Processing on Large Clusters</b> 
+</a><a href="http://labs.google.com/papers/mapreduce-osdi04.pdf">http://labs.google.com/papers/mapreduce-osdi04.pdf</a>
+</p><p>
+[2] Lammal, Ralf. <b>Google's MapReduce Programming Model Revisited</b>. <a href="http://www.cs.vu.nl/%7Eralf/MapReduce/paper.pdf">http://www.cs.vu.nl/~ralf/MapReduce/paper.pdf</a>
+</p><p>
+[3] Open Source MapReduce: <a href="http://lucene.apache.org/hadoop/">http://lucene.apache.org/hadoop/</a>
+
+  <!-- end body text -->
+  </p></div>
+
+
+  <!-- Footer -->
+  <div id="footer">
+    ©2006 Google
+    <span class="noprint"> -
+      <a href="http://www.google.com/">Google Home</a> -
+      <a href="http://www.google.com/jobs/">We're Hiring</a> -
+      <a href="http://www.google.com/terms_of_service.html">Terms of Service</a>
+    </span>
+  </div>
+
+</body></html>

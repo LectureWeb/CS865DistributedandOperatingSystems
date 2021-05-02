@@ -1,0 +1,3486 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./se_l12new_files/filelist.xml">
+<link rel=Edit-Time-Data href="./se_l12new_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CS615 – Software Engineering I</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Frank Marchese</o:Author>
+  <o:LastAuthor>Francis Marchese</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>296</o:TotalTime>
+  <o:Created>2005-12-06T17:23:00Z</o:Created>
+  <o:LastSaved>2005-12-06T17:24:00Z</o:LastSaved>
+  <o:Pages>12</o:Pages>
+  <o:Words>4059</o:Words>
+  <o:Characters>23139</o:Characters>
+  <o:Company>Pace University</o:Company>
+  <o:Lines>192</o:Lines>
+  <o:Paragraphs>46</o:Paragraphs>
+  <o:CharactersWithSpaces>28416</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-font-kerning:0pt;}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	color:black;}
+h3
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:16.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;
+	text-transform:uppercase;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:99.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.b1, li.b1, div.b1
+	{mso-style-name:b1;
+	margin-top:1.2pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:0in;
+	text-indent:15.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b2, li.b2, div.b2
+	{mso-style-name:b2;
+	margin-top:1.2pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b24, li.b24, div.b24
+	{mso-style-name:b24;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b6, li.b6, div.b6
+	{mso-style-name:b6;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+p.b17, li.b17, div.b17
+	{mso-style-name:b17;
+	margin-top:1.2pt;
+	margin-right:0in;
+	margin-bottom:1.2pt;
+	margin-left:.5in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Arial Unicode MS";
+	color:black;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:63602467;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2094906424 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:72052562;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-653985666 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:113403785;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2020512318 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:183325337;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-552676852 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:197358931;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1799115820 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.55in;
+	mso-level-number-position:left;
+	margin-left:.55in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.05in;
+	mso-level-number-position:left;
+	margin-left:1.05in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.55in;
+	mso-level-number-position:left;
+	margin-left:1.55in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:2.05in;
+	mso-level-number-position:left;
+	margin-left:2.05in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:232744988;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1992306974 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:246575505;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1292551704 -1749881258 67698691 -1749881258 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7
+	{mso-list-id:373585472;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1889696166 67698703 2089426046 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l7:level1
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l7:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:429473348;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-326891724 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l8:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l9
+	{mso-list-id:567423176;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1751154906 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l9:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l10
+	{mso-list-id:569199414;
+	mso-list-type:hybrid;
+	mso-list-template-ids:868116230 2089426046 67698691 2089426046 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l10:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l10:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:610363127;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-498717442 67698703 2089426046 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l11:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l12
+	{mso-list-id:654795475;
+	mso-list-type:hybrid;
+	mso-list-template-ids:240836292 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13
+	{mso-list-id:723404953;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-860954430 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14
+	{mso-list-id:824443060;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1235668972 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l14:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l15
+	{mso-list-id:833300063;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1768351794 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l16
+	{mso-list-id:844975857;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1829803010 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17
+	{mso-list-id:885488545;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1698593810 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18
+	{mso-list-id:888034254;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1381311476 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l18:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l18:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l19
+	{mso-list-id:896093837;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1880747606 67698703 67698689 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l19:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l20
+	{mso-list-id:936868878;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-796210802 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l20:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l21
+	{mso-list-id:998575310;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1184971200 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l21:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l21:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l21:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l22
+	{mso-list-id:1007631466;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1889696166 2089426046 2089426046 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l22:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l22:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l23
+	{mso-list-id:1035815208;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1326800638 67698703 67698689 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l23:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l24
+	{mso-list-id:1142773416;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1716163066 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l25
+	{mso-list-id:1161577517;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1992306974 2089426046 2089426046 2089426046 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l25:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l25:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l25:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l26
+	{mso-list-id:1197234094;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-276552314 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l26:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l26:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l26:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l27
+	{mso-list-id:1215315208;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1104848328 2089426046 67698691 2089426046 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l27:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l27:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l27:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l28
+	{mso-list-id:1223326589;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1833271680 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l28:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l28:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l28:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l29
+	{mso-list-id:1243217926;
+	mso-list-type:hybrid;
+	mso-list-template-ids:480049782 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l29:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l30
+	{mso-list-id:1377000512;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1629074974 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l30:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l30:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l31
+	{mso-list-id:1380744574;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1582965676 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l31:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l32
+	{mso-list-id:1382166250;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-118445662 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l32:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l33
+	{mso-list-id:1390032757;
+	mso-list-type:hybrid;
+	mso-list-template-ids:236376642 2089426046 2089426046 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l33:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l33:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l34
+	{mso-list-id:1392732734;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1191347790 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l34:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l34:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l34:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l35
+	{mso-list-id:1398434714;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2070320810 67698703 2089426046 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l35:level1
+	{mso-level-tab-stop:135.0pt;
+	mso-level-number-position:left;
+	margin-left:135.0pt;
+	text-indent:-.25in;}
+@list l35:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:171.0pt;
+	mso-level-number-position:left;
+	margin-left:171.0pt;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l36
+	{mso-list-id:1445926243;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1213099994 67698703 2089426046 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l36:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l37
+	{mso-list-id:1544321419;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1143924230 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l37:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l37:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l37:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l38
+	{mso-list-id:1595748780;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1992306974 67698703 67698703 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l38:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l38:level2
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l39
+	{mso-list-id:1596746651;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-776945036 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l39:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l39:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l40
+	{mso-list-id:1630863992;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1205152100 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l41
+	{mso-list-id:1645116380;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-563172298 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l41:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l42
+	{mso-list-id:1648052044;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1715566532 67698689 67698689 81819356 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l42:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l42:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l42:level3
+	{mso-level-text:"\(%3\)";
+	mso-level-tab-stop:117.6pt;
+	mso-level-number-position:left;
+	margin-left:117.6pt;
+	text-indent:-18.6pt;}
+@list l43
+	{mso-list-id:1657953629;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-29952542 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l43:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l44
+	{mso-list-id:1753696874;
+	mso-list-type:hybrid;
+	mso-list-template-ids:393637524 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l44:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l44:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l45
+	{mso-list-id:1807241171;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1313228134 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l45:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l46
+	{mso-list-id:1855802332;
+	mso-list-type:hybrid;
+	mso-list-template-ids:236376642 67698703 2089426046 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l46:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l47
+	{mso-list-id:1869024142;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-429098020 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l47:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l48
+	{mso-list-id:1983582710;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2007723436 2089426046 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l48:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l49
+	{mso-list-id:2037998908;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1629074974 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l49:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l49:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l49:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l49:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l50
+	{mso-list-id:2041860035;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1715566532 67698703 67698689 81819356 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l50:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l50:level3
+	{mso-level-text:"\(%3\)";
+	mso-level-tab-stop:117.6pt;
+	mso-level-number-position:left;
+	margin-left:117.6pt;
+	text-indent:-18.6pt;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1041">
+  <o:colormru v:ext="edit" colors="#e4e4e4"/>
+  <o:colormenu v:ext="edit" fillcolor="#e4e4e4"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#e4e4e4" lang=EN-US link=blue vlink=purple style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<table border=0 cellpadding=0 width="91%" bgcolor="#ffcccc" style='width:91.0%;
+ mso-cellspacing:1.8pt;background:#FFCCCC;mso-padding-alt:1.8pt 1.8pt 1.8pt 1.8pt'>
+ <tr>
+  <td style='padding:1.8pt 1.8pt 1.8pt 1.8pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:#000099'>CS615 –
+  Software Engineering I</span></b><span style='color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:#FFCC33;padding:1.8pt 1.8pt 1.8pt 1.8pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:#000099'>Lecture
+  12</span></b><span style='color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<h2><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Chapter
+26: Quality Management</span><span style='font-size:14.0pt;mso-bidi-font-size:
+18.0pt'><o:p></o:p></span></h2>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Quality Concepts<o:p></o:p></span></h3>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Quality </span></i><span
+style='font-family:Arial'>– <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l34 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>characteristic or
+attribute of something<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l34 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>measurable
+characteristics — compare to known standards such as length, color, electrical properties,
+and malleability<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l34 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Two kinds of quality: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l34 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>quality of design</span></b><span
+style='font-family:Arial'> characteristics that designers specify for an item<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-family:Arial'>(e.g.
+grade of materials, tolerances, and performance specifications)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l34 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>quality of
+conformance</span></b><span style='font-family:Arial'> - degree to which the
+design specifications are followed during manufacturing<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.25in;text-indent:-.25in;mso-list:l34 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Software development – <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l34 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality of design -
+requirements, specifications, and the design of the system. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.75in;text-indent:-.25in;mso-list:l34 level2 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality of conformance
+- focused on implementation. <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.25in;text-indent:0in'><span style='font-family:
+Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><i><span style='font-family:Arial'><!p8>Quality control –<o:p></o:p></span></i></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l41 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>Series of inspections, reviews, and tests used
+     throughout the software process to ensure each work product meets the
+     requirements placed upon it. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l41 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>Includes a feedback loop to the process that
+     created the work product.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l41 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>Combination of measurement and feedback tunes the
+     process when the work products created fail to meet their specifications. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l41 level1 lfo5;tab-stops:list .5in'><span
+     style='font-family:Arial'>This approach views quality control as part of
+     the manufacturing process.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b2><i><span style='font-family:Arial'>Quality assurance – <o:p></o:p></span></i></p>
+
+<p class=b2 style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo7;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The auditing and
+reporting functions of management. <o:p></o:p></span></p>
+
+<p class=b2 style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo7;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Goal of quality
+assurance - provide management with the data necessary to be informed about
+product quality, thereby gaining insight and confidence that product quality is
+meeting its goals. <o:p></o:p></span></p>
+
+<p class=b2><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=b2><i><span style='font-family:Arial'>Cost of quality- <o:p></o:p></span></i></p>
+
+<p class=b2 style='margin-left:.55in;text-indent:-.25in;mso-list:l4 level1 lfo9;
+tab-stops:list .55in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>includes all costs
+incurred in the pursuit of quality or in performing quality-related activities.
+<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:.55in;text-indent:-.25in;mso-list:l4 level1 lfo9;
+tab-stops:list .55in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>divided into costs
+associated with prevention, appraisal, and failure.<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:1.05in;text-indent:-.25in;mso-list:l4 level2 lfo9;
+tab-stops:list 1.05in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Prevention costs </span></i><span
+style='font-family:Arial'>include <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality planning<o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>formal technical
+reviews <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>test equipment <o:p></o:p></span></p>
+
+<p class=b1 style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>training <o:p></o:p></span></p>
+
+<p class=b24 style='margin-left:1.05in;text-indent:-.25in;mso-list:l4 level2 lfo9;
+tab-stops:list 1.05in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Appraisal costs </span></i><span
+style='font-family:Arial'>include<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>in-process and
+interprocess inspection <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>equipment calibration
+and maintenance <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>testing <o:p></o:p></span></p>
+
+<p class=b24 style='margin-left:1.05in;text-indent:-.25in;mso-list:l4 level2 lfo9;
+tab-stops:list 1.05in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Failure costs -<span
+style="mso-spacerun: yes">  </span></span></i><span style='font-family:Arial'>those
+that would disappear if no defects appeared before shipping a product to
+customers. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Internal failure
+costs </span></i><span style='font-family:Arial'>- incurred when we detect a
+defect in our product prior to shipment. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.05in;text-indent:-.25in;mso-list:l4 level4 lfo9;
+tab-stops:list 2.05in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>rework <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.05in;text-indent:-.25in;mso-list:l4 level4 lfo9;
+tab-stops:list 2.05in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>repair <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.05in;text-indent:-.25in;mso-list:l4 level4 lfo9;
+tab-stops:list 2.05in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>failure mode analysis <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.55in;text-indent:-.25in;mso-list:l4 level3 lfo9;
+tab-stops:list 1.55in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial;
+color:black'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>External failure
+costs - </span></i><span style='font-family:Arial'>associated with defects
+found after the product has been shipped to the customer. </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.05in;text-indent:-.25in;mso-list:l4 level4 lfo9;
+tab-stops:list 2.05in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>complaint resolution <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.05in;text-indent:-.25in;mso-list:l4 level4 lfo9;
+tab-stops:list 2.05in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>product return and
+replacement <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.05in;text-indent:-.25in;mso-list:l4 level4 lfo9;
+tab-stops:list 2.05in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>help line support <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.05in;text-indent:-.25in;mso-list:l4 level4 lfo9;
+tab-stops:list 2.05in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>warranty work <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p8>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Software Quality
+Assurance<o:p></o:p></span></h3>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Software quality</span></b><span
+style='font-family:Arial'> - </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!p4>Conformance to: <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:Arial'>explicitly stated functional and performance
+     requirements<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:Arial'>explicitly documented development standards<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l12 level1 lfo12;tab-stops:list .5in'><span
+     style='font-family:Arial'>implicit characteristics that are expected of
+     all professionally developed software. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>SQA group - </span></b><span
+style='font-family:Arial'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:Arial'>SQA group that has responsibility for quality
+     assurance planning, oversight, record keeping, analysis, and reporting<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l20 level1 lfo15;tab-stops:list .5in'><span
+     style='font-family:Arial'>Asks questions like:<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l43 level1 lfo17;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Does the software
+adequately meet the quality factors?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l43 level1 lfo17;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Has software
+development been conducted according to pre-established standards? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l43 level1 lfo17;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Have technical
+disciplines properly performed their roles as part of the SQA activity? </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Activities performed by
+an independent SQA group:<o:p></o:p></span></b></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo20;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Prepares an SQA plan for a project. </span></b><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo20;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Developed during project planning and is
+      reviewed by all interested parties. </span><span style='font-family:Arial;
+      mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo20;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>The plan identifies </span><span
+      style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+  <ul style='margin-top:0in' type=square>
+   <li class=MsoNormal style='mso-list:l0 level3 lfo20;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>evaluations to be performed <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l0 level3 lfo20;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>audits and reviews to be performed <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l0 level3 lfo20;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>standards that are applicable to the project <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l0 level3 lfo20;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>procedures for error reporting and tracking <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l0 level3 lfo20;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>documents to be produced by the SQA group <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l0 level3 lfo20;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>amount of feedback provided to the software
+       project team <o:p></o:p></span></li>
+  </ul>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo20;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Participates in the development of the project's
+     software process description. </span></b><span style='font-family:Arial;
+     mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo20;tab-stops:list .5in'><b><span
+     style='font-family:Arial'><!p7>Reviews software engineering activities to
+     verify compliance with the defined software process. </span></b><span
+     style='font-family:Arial'><o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo20;tab-stops:list 1.0in'><span
+      style='font-family:Arial'><!p8>identifies, documents, and tracks
+      deviations from the process and verifies that corrections have been made.
+      <o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo20;tab-stops:list .5in'><b><span
+     style='font-family:Arial'><!p8>Audits designated software work products to
+     verify compliance with those defined as part of the software process. </span></b><span
+     style='font-family:Arial'><o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo20;tab-stops:list 1.0in'><span
+      style='font-family:Arial'><!p9>reviews selected work products; <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo20;tab-stops:list 1.0in'><span
+      style='font-family:Arial'><!p9>identifies, documents, and tracks
+      deviations; <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo20;tab-stops:list 1.0in'><span
+      style='font-family:Arial'><!p9>verifies that corrections have been made; <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo20;tab-stops:list 1.0in'><span
+      style='font-family:Arial'><!p9>periodically reports the results of its
+      work to the project manager. <o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo20;tab-stops:list .5in'><b><span
+     style='font-family:Arial'><!p9>Ensures that deviations in software work
+     and work products are documented and handled according to a documented
+     procedure. </span></b><span style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo20;tab-stops:list .5in'><b><span
+     style='font-family:Arial'><!p10>Records any noncompliance and reports to
+     senior management. </span></b><span style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo20;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Coordinates the control and management of change<o:p></o:p></span></b></li>
+</ul>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Software Reviews<o:p></o:p></span></h3>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Software reviews</span></b><span
+style='font-family:Arial'> - applied at various points during software development
+and serve to uncover errors and defects that can then be removed. <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>Reasons:<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l18 level2 lfo23;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>People make mistakes<i>. <o:p></o:p></i></span></li>
+  <li class=MsoNormal style='mso-list:l18 level2 lfo23;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Need technical reviews to catch a large classes
+      of errors that escape the originator more easily than they escape anyone
+      else. <o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo23;tab-stops:list .5in'><span
+     style='font-family:Arial'>A review is a way of using the diversity of a
+     group of people to: <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l18 level2 lfo23;tab-stops:list 1.0in'><!p5><![if !supportLists]><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>Point
+out needed improvements in the product of a single person or team; <o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l18 level2 lfo23;tab-stops:list 1.0in'><span
+      style='font-family:Arial'><!p6>Confirm those parts of a product in which
+      improvement is either not desired or not needed; <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l18 level2 lfo23;tab-stops:list 1.0in'><span
+      style='font-family:Arial'><!p7>Achieve technical work of more uniform, or
+      at least more predictable, quality than can be achieved without reviews,
+      in order to make technical work more manageable. <o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l18 level1 lfo23;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Technical review - walkthrough </span></i><span
+     style='font-family:Arial'>or <i>inspection</i><o:p></o:p></span></li>
+</ul>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l6 level2 lfo27;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Most effective filter from a quality assurance
+      standpoint. <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l6 level2 lfo27;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>Conducted by software engineers, effective
+      means for improving software quality.<o:p></o:p></span></li>
+ </ul>
+</ol>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Defect (IEEE Standard 610.12-1990)</h1>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>A defect in a hardware device or component; for
+     example, a short circuit or broken wire. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l19 level1 lfo30;tab-stops:list .5in'><span
+     style='font-family:Arial'>An incorrect step, process, or data definition
+     in a computer program. <b><o:p></o:p></b></span></li>
+</ol>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'>Primary objective of
+formal technical reviews</span></b><span style='font-family:Arial'> <o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l50 level1 lfo33;tab-stops:list .5in'><span
+     style='font-family:Arial'>Find errors during the process so that they do
+     not become defects after release of the software. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l50 level1 lfo33;tab-stops:list .5in'><span
+     style='font-family:Arial'>Benefit - the early discovery of errors so they
+     do not propagate to the next step in the software process. </span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><b><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h1>Defect Amplification and Removal</h1>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo36;tab-stops:list .5in'><span
+     style='font-family:Arial'>Defect amplification model:<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l14 level2 lfo36;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>used to illustrate the generation and detection
+      of errors during the preliminary design, detail design, and coding steps
+      of the software engineering process. </span><span style='font-family:
+      Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:431.25pt;
+ height:153pt'>
+ <v:imagedata src="./se_l12new_files/image001.gif" o:title="Image1"/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=204
+src="./se_l12new_files/image002.jpg" v:shapes="_x0000_i1025"><![endif]></span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l14 level2 lfo36;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>A box represents a software development step. </span><span
+      style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+  <ul style='margin-top:0in' type=square>
+   <li class=MsoNormal style='mso-list:l14 level3 lfo36;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>During the step, errors may be inadvertently
+       generated.</span><span style='font-family:Arial;mso-fareast-font-family:
+       "Arial Unicode MS"'><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l14 level3 lfo36;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>Review may fail to uncover newly generated
+       errors and errors from previous steps, resulting in some number of
+       errors that are passed through. </span><span style='font-family:Arial;
+       mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-list:l14 level3 lfo36;tab-stops:list 1.5in'><span
+       style='font-family:Arial'>In some cases, errors passed through from
+       previous steps are amplified (amplification factor, <i>x</i>) by current
+       work. </span><span style='font-family:Arial;mso-fareast-font-family:
+       "Arial Unicode MS"'><o:p></o:p></span></li>
+  </ul>
+  <li class=MsoNormal style='mso-list:l14 level2 lfo36;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>box subdivisions represent each of these
+      characteristics and the percent of efficiency for detecting errors, a
+      function of the thoroughness of the review. </span><span
+      style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:431.25pt;height:270.75pt'>
+ <v:imagedata src="./se_l12new_files/image003.gif" o:title="Image2"/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=361
+src="./se_l12new_files/image004.jpg" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo36;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Hypothetical example</span></b><span
+     style='font-family:Arial'> of defect amplification for a software
+     development process in which no reviews are conducted. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo36;tab-stops:list .5in'><span
+     style='font-family:Arial'>Each test step uncovers and corrects 50 percent
+     of all incoming errors without introducing any new errors. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo36;tab-stops:list .5in'><span
+     style='font-family:Arial'>Ten preliminary design defects are amplified to
+     94 errors before testing commences. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l14 level1 lfo36;tab-stops:list .5in'><span
+     style='font-family:Arial'>Twelve latent errors are released to the field. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:431.25pt;height:282pt'>
+ <v:imagedata src="./se_l12new_files/image005.gif" o:title="Image3"/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=376
+src="./se_l12new_files/image006.jpg" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo41;tab-stops:list .5in'><b><span
+     style='font-family:Arial'>Same conditions</span></b><span
+     style='font-family:Arial'> except that design and code reviews are
+     conducted as part of each development step. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo41;tab-stops:list .5in'><span
+     style='font-family:Arial'>Ten initial preliminary design errors are
+     amplified to 24 errors before testing commences. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo41;tab-stops:list .5in'><span
+     style='font-family:Arial'>Only three latent errors exist. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Formal Technical
+Reviews (FTR)<o:p></o:p></span></h3>
+
+<h1>Objectives of the FTR – </h1>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo44;tab-stops:list .5in'><span
+     style='font-family:Arial'>to uncover errors in function, logic, or
+     implementation for any representation of the software<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo44;tab-stops:list .5in'><span
+     style='font-family:Arial'>to verify that the software under review meets
+     its requirements</span><span style='font-family:Arial;mso-fareast-font-family:
+     "Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo44;tab-stops:list .5in'><span
+     style='font-family:Arial'>to ensure that the software has been represented
+     according to predefined standards</span><span style='font-family:Arial;
+     mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo44;tab-stops:list .5in'><span
+     style='font-family:Arial'>to achieve software that is developed in a
+     uniform manner;</span><span style='font-family:Arial;mso-fareast-font-family:
+     "Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l23 level1 lfo44;tab-stops:list .5in'><span
+     style='font-family:Arial'>to make projects more manageable. </span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:0in'><b>FTR <o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:.25in;text-indent:-.25in;
+mso-list:l9 level1 lfo46;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>serves as a training ground</p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:.25in;text-indent:-.25in;
+mso-list:l9 level1 lfo46;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS"'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>promotes backup and continuity because a number of
+people become familiar with parts of the software that they may not have
+otherwise seen. <span style='mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l9 level1 lfo46;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>class of reviews that
+includes:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo46;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'><span
+style="mso-spacerun: yes"> </span>walkthroughs<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo46;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>inspections<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo46;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>round-robin reviews <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l9 level2 lfo46;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>other small group technical
+assessments of software. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l9 level1 lfo46;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Each FTR is conducted
+as a meeting that is planned, controlled, and attended. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>The Review Meeting</h1>
+
+<p class=MsoNormal><span style='font-family:Arial'>Review meeting constraints: <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo49;tab-stops:list .5in'><span
+     style='font-family:Arial'>Between three and five people should be involved
+     in the review.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo49;tab-stops:list .5in'><span
+     style='font-family:Arial'>Advance preparation should require no more than
+     two hours of work for each person. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l17 level1 lfo49;tab-stops:list .5in'><span
+     style='font-family:Arial'>The duration of the review meeting should be
+     less than two hours. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>NOTE: FTR focuses on a
+specific (and small) part of the overall software. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Walkthroughs are
+conducted for each component or small group of components. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>FTR focuses on a work
+product (e.g., a portion of a requirements specification, a detailed component
+design, a source code listing for a component). <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Individual who has
+developed the work product informs the project leader that the work product is
+complete and that a review is required. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The project leader
+contacts a <i>review leader, </i>who evaluates the product for readiness,
+generates copies of product materials, and distributes them to two or three
+reviewers for advance preparation. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l13 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Each reviewer is
+expected to spend between one and two hours reviewing the product, making
+notes, and otherwise becoming familiar with the work. Concurrently, the review
+leader also reviews the product and establishes an agenda for the review
+meeting, which is typically scheduled for the next day. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l13 level1 lfo51;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Review meeting attended
+by <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l5 level1 lfo53;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>review leader<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l5 level1 lfo53;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>all reviewers<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l5 level1 lfo53;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>the producer. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l25 level1 lfo55;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>One reviewer takes on
+the role of the <i>recorder; </i>that is, the individual who records (in
+writing) all important issues raised during the review. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l38 level1 lfo57;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>The FTR begins with an introduction of the agenda and
+a brief introduction by the producer. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l38 level1 lfo57;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>The producer then proceeds to &quot;walk
+through&quot; the work product, explaining the material, while reviewers raise
+issues based on their advance preparation. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l38 level1 lfo57;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>When valid problems or
+errors are discovered, the recorder notes each. </span><span style='font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l38 level1 lfo57;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Arial'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>At the end of the review, all attendees of the FTR
+must decide whether to <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:135.0pt;text-indent:-.25in;mso-list:l35 level1 lfo59;
+tab-stops:list 135.0pt'><![if !supportLists]><span style='font-family:Arial'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>accept the product without further modification<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:135.0pt;text-indent:-.25in;mso-list:l35 level1 lfo59;
+tab-stops:list 135.0pt'><![if !supportLists]><b><span style='font-family:Arial'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><![endif]><span
+style='font-family:Arial'>reject the product due to severe errors (once
+corrected, another review must be performed)<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:135.0pt;text-indent:-.25in;mso-list:l35 level1 lfo59;
+tab-stops:list 135.0pt'><![if !supportLists]><b><span style='font-family:Arial'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><![endif]><span
+style='font-family:Arial'>accept the product provisionally (minor errors have
+been encountered and must be corrected, but no additional review will be
+required). <b><o:p></o:p></b></span></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:.25in;text-indent:-.25in;
+mso-list:l25 level1 lfo55;tab-stops:list .25in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-bidi-font-weight:bold'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The decision made, all FTR attendees complete a
+sign-off, indicating their participation in the review and their concurrence
+with the review team's findings<b><o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent2><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1>Review Reporting and Record Keeping</h1>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l25 level1 lfo55;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>All issues that have
+been raised are summarized at the end of the review meeting and a <b>review
+issues list</b> is produced. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l25 level1 lfo55;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>In addition, a formal
+technical<b> review summary report</b> is completed. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l25 level1 lfo55;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><i><span style='font-family:Arial'>Review summary
+report</span></i></b><i><span style='font-family:Arial'> </span></i><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l25 level2 lfo55;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>answers three
+questions: </span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l25 level3 lfo55;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>What was reviewed? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l25 level3 lfo55;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Who reviewed it? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l25 level3 lfo55;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>What were the findings
+and conclusions? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l25 level2 lfo55;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>single page form (with
+possible attachments). <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l25 level3 lfo55;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Becomes part of the
+project historical record and may be distributed to the project leader and
+other interested parties. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l25 level1 lfo55;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>R<i>eview issues
+list</i></span></b><i><span style='font-family:Arial'> </span></i><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l25 level2 lfo55;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>serves two purposes: </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l7 level1 lfo61;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>identify problem areas
+within the product </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l7 level1 lfo61;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>serve as an action item
+checklist that guides the producer as corrections are made. </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l22 level1 lfo63;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>attached to the summary
+report. </span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p5>
+
+<h1>Review Guidelines</h1>
+
+<p class=MsoNormal><span style='font-family:Arial'>Minimum set of guidelines
+for formal technical reviews: </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Review the product, not the producer</span></i></b><i><span
+     style='font-family:Arial'>. </span></i><span style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Set an agenda and maintain it</span></i></b><i><span
+     style='font-family:Arial'>. </span></i><span style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Limit debate and rebuttal.</span></i></b><i><span
+     style='font-family:Arial'> </span></i><span style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Enunciate problem areas, but don</span></i></b><b><span
+     style='font-family:Arial'>'<i>t attempt to solve every problem noted.</i></span></b><span
+     style='font-family:Arial'> <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Take written notes.</span></i></b><span
+     style='font-family:Arial'> <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Limit the number of participants and insist upon
+     advance preparation.</span></i></b><i><span style='font-family:Arial'> </span></i><span
+     style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Develop a checklist for each product that is
+     likely to be reviewed.</span></i></b><i><span style='font-family:Arial'> </span></i><span
+     style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Allocate resources and schedule time for FTRs.</span></i></b><i><span
+     style='font-family:Arial'> </span></i><span style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Conduct meaningful training for all reviewers.</span></i></b><i><span
+     style='font-family:Arial'> </span></i><span style='font-family:Arial'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l24 level1 lfo66;tab-stops:list .5in'><b><i><span
+     style='font-family:Arial'>Review your early reviews.</span></i></b><i><span
+     style='font-family:Arial'> </span></i><span style='font-family:Arial'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Statistical
+Software Quality Assurance<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Statistical quality
+assurance implies the following steps: </span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Information about software defects is collected
+     and categorized. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>An attempt is made to trace each defect to its
+     underlying cause (e.g., non-conformance to specifications, design error,
+     violation of standards, poor communication with the customer). <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Using the Pareto principle (80 percent of the
+     defects can be traced to 20 percent of all possible causes), isolate the
+     20 percent (the &quot;vital few&quot;). <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l46 level1 lfo69;tab-stops:list .5in'><span
+     style='font-family:Arial'>Once the vital few causes have been identified,
+     move to correct the problems that have caused the defects. <o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Example: <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l33 level1 lfo72;tab-stops:list .5in'><span
+     style='font-family:Arial'>Assume that a software engineering organization
+     collects information on defects for a period of one year. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l33 level1 lfo72;tab-stops:list .5in'><span
+     style='font-family:Arial'>Some of the defects are uncovered as software is
+     being developed. \</span><span style='font-family:Arial;mso-fareast-font-family:
+     "Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l33 level1 lfo72;tab-stops:list .5in'><span
+     style='font-family:Arial'>Others are encountered after the software has
+     been released to its end-users. </span><span style='font-family:Arial;
+     mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l33 level1 lfo72;tab-stops:list .5in'><span
+     style='font-family:Arial'>Although hundreds of different errors are
+     uncovered, all can be tracked to one (or more) of the following causes: </span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=disc>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>incomplete or erroneous specifications (IES) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>misinterpretation of customer communication
+      (MCC) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>intentional deviation from specifications (IDS)
+      <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>violation of programming standards (VPS) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>error in data representation (EDR) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>inconsistent component interface (ICI) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>error in design logic (EDL) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>incomplete or erroneous testing (IET) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>inaccurate or incomplete documentation (IID) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>error in programming language translation of
+      design (PLT) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>ambiguous or inconsistent human/computer
+      interface (HCI) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l33 level2 lfo72;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>miscellaneous (MIS) <o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75"
+ style='width:431.25pt;height:243pt'>
+ <v:imagedata src="./se_l12new_files/image007.gif" o:title="Image4"/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=324
+src="./se_l12new_files/image008.jpg" v:shapes="_x0000_i1028"><![endif]></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>To apply statistical SQA, a
+table is built. <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo75;tab-stops:list .5in'><span
+     style='font-family:Arial'>Table indicates that IES, MCC, and EDR are the <i>vital
+     few </i>causes that account for 53 percent of all errors. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo75;tab-stops:list .5in'><span
+     style='font-family:Arial'>Once the vital few causes are determined, the
+     software engineering organization can begin corrective action. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l16 level1 lfo75;tab-stops:list .5in'><span
+     style='font-family:Arial'>Statistical quality assurance techniques for
+     software have been shown to provide substantial quality improvement up to
+     50 percent reduction per year in defects after applying these techniques. <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'><!p13>Software
+Reliability<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l32 level1 lfo78;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Software reliability
+can be measured, directed and estimated using historical and developmental
+data. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l32 level1 lfo78;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Software reliability
+</span></i><span style='font-family:Arial'>is defined in statistical terms as –
+<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3>the probability of failure-free operation of a
+computer program in a specified environment for a specified time</p>
+
+<p class=MsoBodyTextIndent3><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1>Measures of Reliability and Availability</h1>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l10 level1 lfo80;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Simple measure of
+reliability - <i>meantime-between-failure </i>(MTBF) </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>MTBF
+= MTTF + MTTR <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l10 level2 lfo80;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>MTTF -
+mean-time-to-failure <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l10 level2 lfo80;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>MTTR -
+mean-time-to-repair <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p7>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l10 level1 lfo80;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Software availability
+</span></i><span style='font-family:Arial'>- the probability that a program is
+operating according to requirements at a given point in time and is defined as </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Availability = [MTTF/(MTTF +
+MTTR)] </span><b><span style='font-size:10.0pt;font-family:Arial'>x</span></b><span
+style='font-family:Arial'> 100% <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l48 level1 lfo82;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>MTBF reliability
+measure is equally sensitive to MTTF and MTTR. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l48 level1 lfo82;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Availability measure is
+more sensitive to MTTR, an indirect measure of the maintainability of software.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Software Safety </h1>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo84;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Software safety </span></i><span
+style='font-family:Arial'>- software quality assurance activity that focuses on
+the identification and assessment of potential hazards that may affect software
+negatively and cause an entire system to fail. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l26 level1 lfo84;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Modeling and analysis
+process is conducted as part of software safety.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l26 level2 lfo84;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Initially, hazards are
+identified and categorized by criticality and risk.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l26 level2 lfo84;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>E.g., some of the
+hazards associated with a computer-based cruise control for an automobile :<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l26 level3 lfo84;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>causes uncontrolled
+acceleration that cannot be stopped <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l26 level3 lfo84;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>does not respond to
+depression of brake pedal (by turning off) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l26 level3 lfo84;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>does not engage when
+switch is activated <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l26 level3 lfo84;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>slowly loses or gains
+speed <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l26 level2 lfo84;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Once identified,
+analysis techniques are used to assign severity and probability of occurrence <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l26 level2 lfo84;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Once hazards are identified and analyzed,
+safety-related requirements can be specified for the software. <b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l26 level3 lfo84;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial;mso-bidi-font-weight:bold'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Specification can
+contain a list of undesirable events and the desired system responses to these
+events. <b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l26 level2 lfo84;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>The role of software in managing undesirable events
+is then indicated<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>The ISO 9000
+Quality Standards<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Q<i>uality assurance
+system - </i>defined as the organizational structure, responsibilities,
+procedures, processes, and resources for implementing quality management.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Created to help
+organizations ensure their products and services satisfy customer expectations
+by meeting their specifications. </span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Cover wide variety of
+activities encompassing a product's entire life cycle including planning,
+controlling, measuring, testing and reporting, and improving quality levels
+throughout the development and manufacturing process. </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>ISO 9000 describes
+quality assurance elements in generic terms that can be applied to any business
+regardless of the products or services offered. </span><span style='font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The ISO 9000 standards
+adopted by many countries including all members of the European Community,
+Canada, Mexico, the United States, Australia, New Zealand, and the Pacific Rim.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>After adopting the
+standards, a country typically permits only ISO registered companies to supply
+goods and services to government agencies and public utilities. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>To become registered to
+one of the quality assurance system models contained in ISO 9000, a company's
+quality system and operations are scrutinized by third party auditors for
+compliance to the standard and for effective operation. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo86;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Upon successful
+registration, a company is issued a certificate from a registration body
+represented by the auditors. Semi-annual surveillance audits ensure continued
+compliance to the standard. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>The ISO Approach to Quality Assurance Systems</h1>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l37 level1 lfo88;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>ISO 9000 quality
+assurance models treat an enterprise as a network of interconnected processes. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l37 level1 lfo88;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>ISO 9000 describes the
+elements of a quality assurance system in general terms. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l37 level1 lfo88;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Elements needed to
+implement:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality planning<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality control<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality assurance<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality improvement<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>are<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>organizational
+structure<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>procedures<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>processes<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l37 level2 lfo88;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>resources <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l37 level1 lfo88;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>ISO 9000 does not
+describe how an organization should implement quality system elements. <o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h1>ISO 9001 Standard</h1>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l8 level1 lfo90;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>ISO 9001 is the quality
+assurance standard that applies to software engineering.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l8 level1 lfo90;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Contains 20
+requirements that must be present for an effective quality assurance system. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l8 level1 lfo90;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Because the ISO 9001
+standard is applicable to all engineering disciplines, a special set of ISO
+guidelines (ISO 9000-3) have been developed to help interpret the standard for
+use in the software process. </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l8 level1 lfo90;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Requirements delineated
+by ISO 9001 address topics such as:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'><span
+style="mso-spacerun: yes"> </span>management responsibility<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>quality system<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>contract review<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>design control<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>document and data
+control<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>product identification
+and traceability,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>process control<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>inspection and testing<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>corrective and
+preventive action<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>control of quality
+records<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>internal quality
+audits, training<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>servicing<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level2 lfo90;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>statistical techniques.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l8 level1 lfo90;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>For a software
+organization to become registered to ISO 9001, it must establish policies and
+procedures to address each of the requirements just noted (and others) and then
+be able to demonstrate that these policies and procedures are being followed. <o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>The SQA Plan<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l28 level1 lfo92;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><i><span style='font-family:Arial'>SQA Plan</span></i></b><i><span
+style='font-family:Arial'> </span></i><span style='font-family:Arial'>provides
+a road map for instituting software quality assurance.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l28 level1 lfo92;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-fareast-font-family:"Arial Unicode MS";mso-bidi-font-family:Arial'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Serves as a template
+for SQA activities that are instituted for each software project. </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l28 level1 lfo92;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Standard for SQA plans
+has been recommended by the IEEE<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l28 level1 lfo92;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Standards, practices,
+and conventions section <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>lists all applicable
+standards and practices that are applied during the software process (e.g.,
+document standards, coding standards, and review guidelines). <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>all project, process,
+and (in some instances) product metrics that are to be collected as part of
+software engineering work are listed. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l28 level1 lfo92;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Reviews and audits
+section <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>identifies the reviews
+and audits to be conducted by the software engineering team, the SQA group, and
+the customer. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>provides an overview of
+the approach for each review and audit. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l28 level1 lfo92;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Test section references
+the <i>Software Test Plan and Procedure </i><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>defines test
+record-keeping requirements.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>problem reporting and
+corrective action defines procedures for reporting, tracking, and resolving
+errors and defects, and identifies the organizational responsibilities for
+these activities. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l28 level1 lfo92;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Tools and methods
+section <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Tools that support SQA
+activities and tasks<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>software configuration
+management procedures for controlling change<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>contract management
+approach<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>establishes methods for
+assembling, safeguarding, and maintaining all records; identifies training
+required to meet the needs of the plan;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l28 level2 lfo92;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>defines methods for
+identifying, assessing, monitoring, and controlling risk<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>Chapter
+27: Change Management<o:p></o:p></span></h2>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Software
+Configuration Management<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l29 level1 lfo94;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Output of the software
+process:<span style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l36 level1 lfo97;tab-stops:list .5in'><span
+     style='font-family:Arial'>computer programs (both source level and
+     executable forms)<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l36 level1 lfo97;tab-stops:list .5in'><span
+     style='font-family:Arial'>documents that describe the computer programs
+     (targeted at both technical practitioners and users)</span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l36 level1 lfo97;tab-stops:list .5in'><span
+     style='font-family:Arial'><!p2>data (contained within the program or external
+     to it). The items that comprise all information produced as part of the
+     software process are collectively called a <i>software configuration.</i></span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l29 level1 lfo94;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'><!p2>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Number of <i>software
+configuration items</i> (SCIs) grows rapidly as software process progresses. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l29 level1 lfo94;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Change may occur at any
+time, for any reason. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l29 level1 lfo94;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>First Law of System
+Engineering: <o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3>&quot;No matter where you are in the system life
+cycle, the system will change, and the desire to change it will persist
+throughout the life cycle.&quot; </p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l27 level1 lfo99;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Four sources of change:
+</span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo102;tab-stops:list .5in'><span
+     style='font-family:Arial'>New business or market conditions dictate
+     changes in product requirements or business rules. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo102;tab-stops:list .5in'><span
+     style='font-family:Arial'>New customer needs demand modification of data
+     produced by information systems, functionality delivered by products, or
+     services delivered by a computer-based system. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo102;tab-stops:list .5in'><span
+     style='font-family:Arial'>Reorganization or business growth/downsizing
+     causes changes in project priorities or software engineering team
+     structure. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo102;tab-stops:list .5in'><span
+     style='font-family:Arial'>Budgetary or scheduling constraints cause a
+     redefinition of the system or product. <o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l27 level1 lfo99;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'><!p6>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>Software
+configuration management</span></b><span style='font-family:Arial'>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l27 level2 lfo99;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Set of activities that
+have been developed to manage change throughout the life cycle of computer
+software. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l27 level2 lfo99;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Viewed as a software
+quality assurance activity that is applied throughout the software process. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Baselines</h1>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l27 level1 lfo99;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Software configuration
+management concept that helps control change without seriously impeding
+justifiable change. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l27 level1 lfo99;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-fareast-font-family:"Arial Unicode MS";
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>IEEE Std. No.
+610.12-1990 defines a baseline as: </span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3><!p4>A specification or product that has been
+formally reviewed and agreed upon, that thereafter serves as the basis for
+further development, and that can be changed only through formal change control
+procedures. </p>
+
+<p class=MsoBodyTextIndent3><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo104;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Software engineering
+context:<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3>A baseline is a milestone in the development of
+software that is marked by the delivery of one or more software configuration items
+and the approval of these SCIs that is obtained through a formal technical
+review. </p>
+
+<p class=MsoBodyTextIndent3><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo104;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>After SCIs are reviewed
+and approved, they are placed in a <i>project database </i>(also called a <i>project
+library </i>or <i>software repository</i>).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l15 level1 lfo104;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Symbol;mso-bidi-font-family:Arial'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>When a member of a software
+engineering team wants to make a modification to a baselined SCI:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l15 level2 lfo104;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>it is copied from the
+project database into the engineer's private work space. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l15 level2 lfo104;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>this extracted SCI can
+be modified only if SCM controls are followed<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Software Configuration Items</h1>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l21 level1 lfo106;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>A SCI is a document, an entire suite of test cases,
+or a named program component (e.g., a C++ function or Java class).<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l21 level1 lfo106;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>SCIs are organized to form <i>configuration objects </i><b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l21 level2 lfo106;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>cataloged in the project database with a single name.
+<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l21 level2 lfo106;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Has a name, attributes, and is &quot;connected&quot;
+to other objects by relationships. <b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:299.25pt;height:294.75pt'>
+ <v:imagedata src="./se_l12new_files/image009.gif" o:title="Image5"/>
+</v:shape><![endif]--><![if !vml]><img width=399 height=393
+src="./se_l12new_files/image010.gif" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-family:Arial'>e.g.
+<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l21 level2 lfo106;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Configuration objects, <b>Design Specification, data
+model, component N, source code </b>and <b>Test Specification </b>are each
+defined separately. <b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l21 level2 lfo106;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-bidi-font-weight:bold'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Each of object is related to others by the arrows. <b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l21 level3 lfo106;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial;mso-bidi-font-weight:bold'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Curved arrow indicates
+a <i>compositional relation. </i><b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:1.75in;text-indent:-.25in;mso-list:l21 level4 lfo106;
+tab-stops:list 1.75in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial;mso-bidi-font-weight:bold'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span style='font-family:Arial'>data model </span></b><span
+style='font-family:Arial'>and <b>component N </b>are part of the object <b>Design
+Specification. <o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l21 level3 lfo106;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial;mso-bidi-font-weight:bold'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Double-headed straight
+arrow indicates an interrelationship.<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>The SCM Process<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>SCM introduces a set of
+complex questions: </span><span style='font-family:Arial;mso-fareast-font-family:
+"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo109;tab-stops:list .5in'><span
+     style='font-family:Arial'>How does an organization identify and manage the
+     many existing versions of a program (and its documentation) in a manner
+     that will enable change to be accommodated efficiently? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo109;tab-stops:list .5in'><span
+     style='font-family:Arial'>How does an organization control changes before
+     and after software is released to a customer? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo109;tab-stops:list .5in'><span
+     style='font-family:Arial'>Who has responsibility for approving and ranking
+     changes? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo109;tab-stops:list .5in'><span
+     style='font-family:Arial'>How can we ensure that changes have been made
+     properly? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l31 level1 lfo109;tab-stops:list .5in'><span
+     style='font-family:Arial'>What mechanism is used to appraise others of
+     changes that are made? <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Must define five SCM tasks: <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo112;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>Identification<o:p></o:p></span></i></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo112;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>version control<o:p></o:p></span></i></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo112;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>change control<o:p></o:p></span></i></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo112;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>configuration auditing<o:p></o:p></span></i></li>
+ <li class=MsoNormal style='mso-list:l47 level1 lfo112;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>reporting</span></i><span style='font-family:
+     Arial'><o:p></o:p></span></li>
+</ul>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Identification of
+Objects in the Software Configuration<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Two types of objects can be
+identified:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo115;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>basic objects<o:p></o:p></span></i></li>
+</ul>
+
+<p class=MsoBodyTextIndent>A &quot;unit of text&quot; that has been created by
+a software engineer during analysis, design, code, or test. </p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo115;tab-stops:list .5in'><i><span
+     style='font-family:Arial'>aggregate objects </span></i><span
+     style='font-family:Arial'><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoBodyTextIndent>A collection of basic objects and other aggregate
+objects. </p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Each object has a set of
+distinct features that identify it uniquely: <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo115;tab-stops:list .5in'><span
+     style='font-family:Arial'>Name<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Arial'>a
+character string that identifies the object unambiguously<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo115;tab-stops:list .5in'><span
+     style='font-family:Arial'>Description<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoBodyTextIndent style='margin-left:.75in'>list of data items that
+identify </p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l30 level2 lfo115;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>the
+SCI type (e.g., document, program, data) represented by the object</p>
+
+<ul style='margin-top:0in' type=disc>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l30 level2 lfo115;tab-stops:list 1.0in'><span
+      style='font-family:Arial'>project identifier <o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l30 level2 lfo115;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>change
+and/or version information</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo115;tab-stops:list .5in'><span
+     style='font-family:Arial'>list of resources<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Arial'>entities
+that are provided, processed, referenced or otherwise required by the object<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l30 level1 lfo115;tab-stops:list .5in'><span
+     style='font-family:Arial'>&quot;realization.&quot; <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Arial'>a
+pointer to the &quot;unit of text&quot; for a basic object and null for an
+aggregate object<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo123;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Identification scheme
+must recognize that objects evolve throughout the software process.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Before an object is
+baselined, it may change many times<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>After a baseline has
+been established, changes may be quite frequent. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Possible to create an <i>evolution
+graph</i>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Describes the change
+history of an object<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1030" type="#_x0000_t75" style='width:6in;height:249.75pt'>
+ <v:imagedata src="./se_l12new_files/image011.gif" o:title="Image6"/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=333
+src="./se_l12new_files/image012.gif" v:shapes="_x0000_i1030"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l49 level3 lfo123;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Configuration object
+1.0 undergoes revision and becomes object 1.1. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l49 level3 lfo123;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Minor corrections and
+changes result in versions 1.1.1 and 1.1.2<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l49 level3 lfo123;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Wingdings;
+mso-bidi-font-family:Arial'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>major update that is
+object 1.2.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Version Control<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo123;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Version control </span></i><span
+style='font-family:Arial'>combines procedures and tools to manage different
+versions of configuration objects that are created during the software process.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Change Control<o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo123;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Change control</span></i><span
+style='font-family:Arial'> combines human procedures and automated tools to
+provide a mechanism for the control of change.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l49 level1 lfo123;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Change Control
+Process:</span></i><span style='font-family:Arial'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>A <i>change request </i>is
+submitted and evaluated to assess technical merit, potential side effects,
+overall impact on other configuration objects and system functions, and the
+projected cost of the change. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The results of the
+evaluation are presented as a <i>change report, </i>which is used by a <i>change
+control authority </i>(CCA) — a person or group who makes a final decision on the
+status and priority of the change. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>An <i>engineering
+change order </i>(ECO) is generated for each approved change. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Arial'>The
+ECO describes the change to be made, the constraints that must be respected,
+and the criteria for review and audit. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The object to be changed
+is &quot;checked out&quot; of the project database, the change is made, and
+appropriate SQA activities are applied. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l49 level2 lfo123;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The object is then
+&quot;checked in&quot; to the database and appropriate version control
+mechanisms are used to create the next version of the software.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1031" type="#_x0000_t75" style='width:6in;height:523.5pt'>
+ <v:imagedata src="./se_l12new_files/image013.gif" o:title="Image7"/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=698
+src="./se_l12new_files/image014.jpg" v:shapes="_x0000_i1031"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>NOTE:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l44 level1 lfo125;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>&quot;check-in&quot;
+and &quot;check-out&quot; process implements two elements of change control<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l44 level2 lfo125;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Access control - </span></i><span
+style='font-family:Arial'>governs which software engineers have the authority
+to access and modify a particular configuration object. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l44 level2 lfo125;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><i><span style='font-family:Arial'>Synchronization
+control - </span></i><span style='font-family:Arial'>helps to ensure that
+parallel changes, performed by two different people, don't overwrite one
+another <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1032" type="#_x0000_t75" style='width:431.25pt;height:297.75pt'>
+ <v:imagedata src="./se_l12new_files/image015.gif" o:title="Image8"/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=397
+src="./se_l12new_files/image016.gif" v:shapes="_x0000_i1032"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Configuration
+Audit<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>How to ensure that the
+change has been properly implemented: <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l42 level1 lfo128;tab-stops:list .5in'><span
+     style='font-family:Arial'>formal technical reviews<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l42 level1 lfo128;tab-stops:list .5in'><span
+     style='font-family:Arial'>the software configuration audit. </span><span
+     style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p2>
+
+<p class=MsoNormal><span style='font-family:Arial'>The <i>formal technical review</i>
+focuses on the technical correctness of the configuration object that has been
+modified. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>A <i>software configuration
+audit </i>complements the formal technical review by assessing a configuration
+object for characteristics that are generally not considered during review. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l45 level1 lfo130;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>The audit asks and
+answers the following questions: <o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l40 level1 lfo133;tab-stops:list .5in'><span
+     style='font-family:Arial'>Has the change specified in the ECO been made?
+     Have any additional modifications been incorporated? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l40 level1 lfo133;tab-stops:list .5in'><span
+     style='font-family:Arial'>Has a formal technical review been conducted to
+     assess technical correctness? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l40 level1 lfo133;tab-stops:list .5in'><span
+     style='font-family:Arial'>Has the software process been followed and have
+     software engineering standards been properly applied? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l40 level1 lfo133;tab-stops:list .5in'><span
+     style='font-family:Arial'>Has the change been &quot;highlighted&quot; in
+     the SCI? Have the change date and change author been specified? Do the attributes
+     of the configuration object reflect the change? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l40 level1 lfo133;tab-stops:list .5in'><span
+     style='font-family:Arial'>Have SCM procedures for noting the change,
+     recording it, and reporting it been followed? <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l40 level1 lfo133;tab-stops:list .5in'><span
+     style='font-family:Arial'>Have all related SCIs been properly updated? <o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>Status Reporting<o:p></o:p></span></h3>
+
+<p class=MsoNormal><i><span style='font-family:Arial'>Configuration status
+reporting </span></i><span style='font-family:Arial'>is an SCM task that
+answers the following questions: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:117.6pt;text-indent:-18.6pt;mso-list:
+l50 level3 lfo33;tab-stops:list 117.6pt'><![if !supportLists]><span
+style='font-family:Arial'>(1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>What happened? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:117.6pt;text-indent:-18.6pt;mso-list:
+l50 level3 lfo33;tab-stops:list 117.6pt'><![if !supportLists]><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'>(2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>Who did it? </span><span style='font-family:Arial;
+mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:117.6pt;text-indent:-18.6pt;mso-list:
+l50 level3 lfo33;tab-stops:list 117.6pt'><![if !supportLists]><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><!p2>(3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>When did it happen?</span><span style='font-family:
+Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:117.6pt;text-indent:-18.6pt;mso-list:
+l50 level3 lfo33;tab-stops:list 117.6pt'><![if !supportLists]><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><!p2>(4)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Arial'>What else will be affected? </span><span
+style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p2>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l45 level1 lfo130;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Each time an SCI is
+assigned new or updated identification, a CSR entry is made. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l45 level1 lfo130;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Each time a change is
+approved by the CCA (i.e., an ECO is issued), a CSR entry is made. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l45 level1 lfo130;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Each time a
+configuration audit is conducted, the results are reported as part of the CSR
+task. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l45 level1 lfo130;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Output from CSR may be
+placed in an on-line database so that software developers or maintainers can
+access change information by keyword category. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l45 level1 lfo130;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>CSR report is generated
+on a regular basis and is intended to keep management and practitioners
+appraised of important changes. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<!p3>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt'>SCM Standards<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-family:Arial'>Number of software
+configuration management standards:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l39 level1 lfo135;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>Military:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l39 level2 lfo135;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>MIL-STD-483<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l39 level2 lfo135;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>DOD-STD-480A<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l39 level2 lfo135;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>MIL-STD-1521A<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l39 level1 lfo135;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-bidi-font-family:Arial'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>ANSI/IEEE standards
+(Non-Military)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l39 level2 lfo135;
+tab-stops:list .75in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Arial'>ANSI/IEEE Stds. No.
+828-1983, No. 1042-1987, Std. No. 1028-1988 <o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

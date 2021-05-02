@@ -1,0 +1,1088 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Microsoft Word 97">
+   <meta name="Base Target" content="_blank">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; U) [Netscape]">
+   <title>Multimedia</title>
+</head>
+<body text="#000000" bgcolor="#DDDDDD" link="#0000FF" vlink="#800080" alink="#FF0000">
+&nbsp;
+<table CELLSPACING=3 CELLPADDING=3 WIDTH="87%" BGCOLOR="#FFCCCC" >
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">CS396N - Web
+Programming</font></font></b></td>
+</tr>
+
+<tr BGCOLOR="#FFFF99">
+<td><b><font face="Arial,Helvetica"><font color="#000099">Spring 2002</font></font></b></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#FFCC33"><b><font face="Arial,Helvetica"><font color="#000099">Chapter
+16 - Concurrent Programming with Threads</font></font></b></td>
+</tr>
+</table>
+
+<p><b><font face="Arial"><font size=+1>Loading images - <i>Redux</i></font></font></b>
+<ul>
+<li>
+Can load gif and jpeg images from a Java applet.</li>
+
+<li>
+Steps:</li>
+
+<ul>
+<li>
+Find the directory name where the image file is located, relative to the
+path of the <b><i>HTML</i></b> document.</li>
+
+<li>
+The method <b><i>getDocumentBase</i></b>() returns the path of the <b><i>HTML</i></b>
+document.</li>
+
+<li>
+Type returned by <b><i>getDocumentBase</i></b>() is <b><i>URL</i></b>.</li>
+
+<ul>
+<li>
+<b>In practice do:</b></li>
+
+<ul><b><i>URL</i></b> <i>codebase</i> = <b><i>getDocumentBase</i></b>();</ul>
+
+<li>
+The object <i>codebase </i>holds the path of the <b><i>HTML</i></b> document.</li>
+</ul>
+
+<li>
+Get the image in an <b><i>Image</i></b> object, using the method</li>
+
+<ul>
+<ul><b><i>getImage</i></b>(<i>codebase</i>, <i>relative_path</i>);</ul>
+</ul>
+where <i>codebase</i> is the path to the HTML document, and <i>relative</i>_<i>path</i>
+is the relative path to the directory where the image file is located.
+<ul>
+<li>
+<b>In practice do:</b></li>
+
+<ul><b>Image</b> picture = <b>getImage</b>(codebase, relative_path);</ul>
+Use the method <b><i>drawImage</i></b>() to draw the image.</ul>
+</ul>
+</ul>
+
+<ul>
+<li>
+<b><i>drawImage can be used in the following 4 ways:</i></b></li>
+
+<br><b>In the following</b>
+<dir>
+<li>
+<b><i>drawImage</i></b>(<i>picture,x,y,</i><b>this</b>);</li>
+
+<li>
+<b><i>drawImage</i></b>(<i>picture,x,y,bgcolor</i>,<b>this</b>);</li>
+
+<li>
+<b><i>drawImage</i></b>(<i>picture,x,y,width,height</i>,<b>this</b>);</li>
+
+<li>
+<b><i>drawImage</i></b>(<i>picturge,x,y,width,height,bgcolor,</i><b>this</b>);</li>
+</dir>
+
+<li>
+<b><font face="Arial">Note</font></b></li>
+
+<ul>
+<li>
+Instead of <b><i>getDocumentBase</i></b>(), we can use <b><i>getCodeBase</i></b>()
+which returns the path of the Java code instead of the <b><i>HTML</i></b>
+code.</li>
+
+<li>
+The <b>URL</b> class is defined in java.net (so you will need to import
+<b><i>java.net.*</i></b>;).</li>
+</ul>
+</ul>
+<b><font face="Arial">Example</font></b>
+<br><applet HEIGHT="400" WIDTH="700" CODE="Image1">
+<br></applet>
+<ul>
+<li>
+<b><font face="Arial,Helvetica">The following program loads the above image:</font></b></li>
+</ul>
+
+<dir>
+<dir><b><font face="Courier New"><font size=-1>import java.awt.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.applet.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.net.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>public class Image1 extends
+Applet{</font></font></b>
+<dir>
+<dir><b><font face="Courier New"><font size=-1>URL codebase;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>Image picture;</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>public void init() {</font></font></b>
+<br><b><font face="Courier New"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+codebase = getDocumentBase();</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>picture = getImage(codebase,"ny1.jpg");</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b>
+<br><b><font face="Courier New"><font size=-1>public void paint(Graphics
+g) {</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>g.drawImage(picture,10,10,this);</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b></dir>
+</dir>
+<b><font face="Arial">Example</font></b>
+<p><applet HEIGHT="320" WIDTH="320" CODE="Image2">
+<br></applet>
+<p><b><font face="Arial,Helvetica">The following program loads an image
+from disk within a rectangular area:</font></b>
+<dir>
+<dir><b><font face="Courier New"><font size=-1>import java.awt.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.applet.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.net.*;</font></font></b>
+<p><b><font face="Courier New"><font size=-1>public class Image2 extends
+Applet{</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>URL codebase;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>Image picture;</font></font></b></dir>
+
+<dir><b><font face="Courier New"><font size=-1>public void init(){</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>codebase = getDocumentBase();</font></font></b>
+<p><b><font face="Courier New"><font size=-1>picture = getImage(codebase,"ny1.jpg");</font></font></b></dir>
+<b><font size=-1>}</font></b></dir>
+
+<dir><b><font face="Courier New"><font size=-1>public void paint(Graphics
+g){</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>g.drawImage(picture,10,10,300,300,this);</font></font></b></dir>
+<b><font size=-1>}</font></b></dir>
+<b><font size=-1>}</font></b></dir>
+</dir>
+
+<p><br><b><font face="Arial">Note</font></b>
+<ul>
+<li>
+When you display an image in smaller rectangle than the original size of
+the image, the image will be compressed (not cropped).</li>
+</ul>
+
+<p><br><b><font face="Arial"><font size=+1>Using off-screen buffering</font></font></b>
+<ul>
+<li>
+Image loading&nbsp; is done piece by piece</li>
+
+<li>
+Can appear "jerky" on the screen.</li>
+
+<li>
+Avoid clumsy loading&nbsp; by loading the image first to a buffer and then
+displaying it on the screen all at once.</li>
+
+<li>
+Steps:</li>
+
+<ol>
+<li>
+Prepare the proper size buffer:</li>
+
+<ol><b><i>Image offscreen = createImage(w,h);</i></b></ol>
+where w and h are the width and height of the image to be displayed
+<li>
+Create a Graphics object to draw the image in the buffer:</li>
+
+<ol><b><i>Graphics g1 = offscreen.getGraphics();</i></b></ol>
+
+<li>
+Load the image into the buffer:</li>
+
+<ol><i>g1.<b>drawImage</b>(picture,0,0,<b>this</b>);</i></ol>
+Where, <i>picture</i> is an <b><i>Image</i></b> object. The keyword
+<b>this</b>
+is required.
+<li>
+Finally, draw the image from the buffer, on the screen, in the</li>
+
+<ol><b><i>paint</i></b>(<b>Graphics</b><i>g</i>)() method, using the usual
+<b><i>drawImage</i></b>()
+method.</ol>
+In the first <b><i>drawImage</i></b>() method, the first argument is the
+buffer image name - <i>offscreen</i>.
+<ol>g.<b>drawImage</b>(offscreen, . . . . . . . . . . . . . . );</ol>
+</ol>
+</ul>
+
+<h4>
+<font face="Arial,Helvetica">Sample Sequence of&nbsp; Programs</font></h4>
+<b><font face="Arial,Helvetica">Example 1 - Circle Draw - Uses Paint to
+Draw</font></b>
+<p><applet HEIGHT="250" WIDTH="250" CODE="DrawCircles">
+<br></applet>
+<p><b><tt>import java.applet.Applet;</tt></b>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<br><b><tt>import java.util.Vector;</tt></b><b><tt></tt></b>
+<p><b><tt>// An applet that draws a small circle where you click.</tt></b>
+<br><b><tt>&nbsp;</tt></b><b><tt></tt></b>
+<p><b><tt>public class DrawCircles extends Applet {</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private Vector circles;</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** When you click the mouse, create a SimpleCircle,</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; put it in the Vector, and tell the system</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; to repaint (which calls update, which clears</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; the screen and calls paint).</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private class CircleDrawer extends MouseAdapter {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; public void mousePressed(MouseEvent event)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circles.addElement(</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new SimpleCircle(event.getX(),event.getY(),25));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void init() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; circles = new Vector();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; addMouseListener(new CircleDrawer());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setBackground(Color.white);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** This loops down the available SimpleCircle objects,</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; drawing each one.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void paint(Graphics g) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; SimpleCircle circle;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;circles.size(); i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle = (SimpleCircle)circles.elementAt(i);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle.draw(g);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b><tt></tt>
+<p><b><tt>import java.awt.*;</tt></b><b><tt></tt></b>
+<p><b><tt>/** A class to store an x, y, and radius, plus a draw method.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b><b><tt></tt></b>
+<p><b><tt>public class SimpleCircle {</tt></b>
+<br><b><tt>&nbsp; private int x, y, radius;</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public SimpleCircle(int x, int y, int radius) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setX(x);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setY(y);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setRadius(radius);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Given a Graphics, draw the SimpleCircle</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; centered around its current position.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void draw(Graphics g) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; g.fillOval(x - radius, y - radius,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+radius * 2, radius * 2);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public int getX() { return(x); }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void setX(int x) { this.x = x; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public int getY() { return(y); }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void setY(int y) { this.y = y; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public int getRadius() { return(radius); }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void setRadius(int radius) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; this.radius = radius;</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><font face="Arial,Helvetica">Example 2 - Bounce - Uses Paint to Draw
+- Shows Flicker</font></b>
+<p><applet HEIGHT="250" WIDTH="250" CODE="Bounce">
+<br></applet><b><tt></tt></b>
+<p><b><tt>import java.applet.Applet;</tt></b>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<br><b><tt>import java.util.Vector;</tt></b><b><tt></tt></b>
+<p><b><tt>/** Bounce circles around on the screen. Doesn't use double</tt></b>
+<br><b><tt>&nbsp;*&nbsp; buffering, so has problems with overlapping circles.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; Overrides update to avoid flicker problems.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b><b><tt></tt></b>
+<p><b><tt>public class Bounce extends Applet implements Runnable,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ActionListener {</tt></b>
+<br><b><tt>&nbsp; private Vector circles;</tt></b>
+<br><b><tt>&nbsp; private int width, height;</tt></b>
+<br><b><tt>&nbsp; private Button startButton, stopButton;</tt></b>
+<br><b><tt>&nbsp; private Thread animationThread = null;</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void init() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setBackground(Color.white);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; width = getSize().width;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; height = getSize().height;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; circles = new Vector();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; startButton = new Button("Start a circle");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; startButton.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(startButton);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; stopButton = new Button("Stop all circles");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; stopButton.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(stopButton);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** When the "start" button is pressed, start the animation</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; thread if it is not already started. Either
+way, add a</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; circle to the Vector of circles that are
+being bounced.</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; &lt;P></tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; When the "stop" button is pressed, stop
+the thread and</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; clear the Vector of circles.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void actionPerformed(ActionEvent event) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (event.getSource() == startButton) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (circles.size() == 0) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Erase any circles
+from previous run.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; getGraphics().clearRect(0,
+0, getSize().width,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+getSize().height);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; animationThread =
+new Thread(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; animationThread.start();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int radius = 25;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int x = radius + randomInt(width
+- 2 * radius);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int y = radius + randomInt(height
+- 2 * radius);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int deltaX = 1 + randomInt(10);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int deltaY = 1 + randomInt(10);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circles.addElement(new MovingCircle(x,
+y, radius, deltaX,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+deltaY));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } else if (event.getSource() == stopButton)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (animationThread != null)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; animationThread =
+null;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circles.removeAllElements();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Each time around the loop, call paint and then take
+a</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; short pause. The paint method will move
+the circles and</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; draw them.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void run() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Thread myThread = Thread.currentThread();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; // Really while animationThread not null</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; while(animationThread==myThread) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pause(100);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Skip the usual screen-clearing step of update so that</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; there is no flicker between each drawing
+step.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void update(Graphics g) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; paint(g);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Erase each circle's old position, move it, then draw
+it</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; in new location.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void paint(Graphics g) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; MovingCircle circle;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;circles.size(); i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle = (MovingCircle)circles.elementAt(i);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(getBackground());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle.draw(g);&nbsp; // Old
+position.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle.move(width, height);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.setColor(getForeground());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle.draw(g);&nbsp; // New
+position.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; // Returns an int from 0 to max (inclusive),</tt></b>
+<br><b><tt>&nbsp; // yielding max + 1 possible values.</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private int randomInt(int max) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; double x =</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Math.floor((double)(max + 1)
+* Math.random());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return((int)(Math.round(x)));</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt></tt></b>&nbsp;<b><tt></tt></b>
+<p><b><tt>&nbsp; // Sleep for the specified amount of time.</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private void pause(int milliseconds) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread.sleep((long)milliseconds);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(InterruptedException ie) {}</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<p><b><font face="Arial,Helvetica">Example 3 - Double Buffered Bounce</font></b>
+<p><applet HEIGHT="250" WIDTH="250" CODE="DoubleBufferBounce">
+<br></applet><b><tt></tt></b>
+<p><b><tt>import java.applet.Applet;</tt></b>
+<br><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.awt.event.*;</tt></b>
+<br><b><tt>import java.util.Vector;</tt></b><b><tt></tt></b>
+<p><b><tt>/** Bounce circles around on the screen, using double buffering</tt></b>
+<br><b><tt>&nbsp;*&nbsp; for speed and to avoid problems with overlapping
+circles.</tt></b>
+<br><b><tt>&nbsp;*&nbsp; Overrides update to avoid flicker problems.</tt></b>
+<br><b><tt>&nbsp;*/</tt></b><b><tt></tt></b>
+<p><b><tt>public class DoubleBufferBounce extends Applet implements Runnable,
+ActionListener {</tt></b>
+<br><b><tt>&nbsp; private Vector circles;</tt></b>
+<br><b><tt>&nbsp; private int width, height;</tt></b>
+<br><b><tt>&nbsp; private Image offScreenImage;</tt></b>
+<br><b><tt>&nbsp; private Graphics offScreenGraphics;</tt></b>
+<br><b><tt>&nbsp; private Button startButton, stopButton;</tt></b>
+<br><b><tt>&nbsp; private Thread animationThread = null;</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void init() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; setBackground(Color.white);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; width = getSize().width;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; height = getSize().height;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; offScreenImage = createImage(width, height);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; offScreenGraphics = offScreenImage.getGraphics();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; // Automatic in some systems, not in others.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; offScreenGraphics.setColor(Color.black);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; circles = new Vector();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; startButton = new Button("Start a circle");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; startButton.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(startButton);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; stopButton = new Button("Stop all circles");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; stopButton.addActionListener(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; add(stopButton);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** When the "start" button is pressed, start the animation</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; thread if it is not already started. Either
+way, add a</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; circle to the Vector of circles that are
+being bounced.</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; &lt;P></tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; When the "stop" button is pressed, stop
+the thread and</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; clear the Vector of circles.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void actionPerformed(ActionEvent event) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (event.getSource() == startButton) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (circles.size() == 0) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; animationThread =
+new Thread(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; animationThread.start();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int radius = 25;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int x = radius + randomInt(width
+- 2 * radius);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int y = radius + randomInt(height
+- 2 * radius);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int deltaX = 1 + randomInt(10);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int deltaY = 1 + randomInt(10);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circles.addElement(new MovingCircle(x,
+y, radius, deltaX,</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+deltaY));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } else if (event.getSource() == stopButton)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (animationThread != null)
+{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; animationThread =
+null;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circles.removeAllElements();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Each time around the loop, move each circle based
+on its</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; current position and deltaX/deltaY values.
+These values</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; reverse when the circles reach the edge
+of the window.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void run() {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; MovingCircle circle;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Thread myThread = Thread.currentThread();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; // Really while animationThread not null.</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; while(animationThread==myThread) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(int j=0; j&lt;circles.size();
+j++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle = (MovingCircle)circles.elementAt(j);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle.move(width,
+height);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pause(100);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; /** Skip the usual screen-clearing step of update so that</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; there is no flicker between each drawing
+step.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void update(Graphics g) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; paint(g);</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt></tt></b>&nbsp;<b><tt></tt></b>
+<p><b><tt>&nbsp; /** Clear the off-screen pixmap, draw each circle onto
+it, then</tt></b>
+<br><b><tt>&nbsp;&nbsp; *&nbsp; draw that pixmap onto the applet window.</tt></b>
+<br><b><tt>&nbsp;&nbsp; */</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; public void paint(Graphics g) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; offScreenGraphics.clearRect(0, 0, width,
+height);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; MovingCircle circle;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; for(int i=0; i&lt;circles.size(); i++) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle = (MovingCircle)circles.elementAt(i);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle.draw(offScreenGraphics);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; g.drawImage(offScreenImage, 0, 0, this);</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; // Returns an int from 0 to max (inclusive), yielding
+max + 1</tt></b>
+<br><b><tt>&nbsp; // possible values.</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private int randomInt(int max) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; double x = Math.floor((double)(max + 1) *
+Math.random());</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; return((int)(Math.round(x)));</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; // Sleep for the specified amount of time.</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp; private void pause(int milliseconds) {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; try {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread.sleep((long)milliseconds);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; } catch(InterruptedException ie) {}</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>}</tt></b>
+<br><b><tt></tt></b>&nbsp;
+<p><b><font face="Arial"><font size=+1>Animation</font></font></b>
+<ul>
+<li>
+Basic principle:&nbsp; keep a sequence of&nbsp; of images (describing some
+motion) ready and then display them one after the other with a small amount
+of time delay in between.</li>
+
+<li>
+Gives the illusion of continuous motion</li>
+
+<li>
+How smooth the motion is depends on the number of images in the sequence
+and the time delay.</li>
+</ul>
+
+<p><br><applet HEIGHT="250" WIDTH="250" CODE="Animation1">
+<br></applet>
+<ul><b><font face="Arial">Example</font></b>
+<p>The following program first loads ten gif images&nbsp; into an <b><i>Image</i></b>
+array. Then displays one after the other in an infinite loop, with a time
+delay.
+<p><b><font face="Courier New"><font size=-1>import java.awt.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.applet.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.net.*;</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public class Animation1 extends
+Applet {</font></font></b>
+<br><b></b>&nbsp;
+<ul><b><font face="Courier New"><font size=-1>Image mickeys[] = new Image[13];</font></font></b>
+<br><b><font face="Courier New"><font size=-1>int next;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>URL codebase;</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public void init() {</font></font></b>
+<br><b></b>&nbsp;
+<ul><b><font face="Courier New"><font size=-1>codebase = getDocumentBase();</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>for (int i=1; i &lt; 13; i++)
+{</font></font></b>
+<br><b><font face="Courier New"><font size=-1>mickeys[i]=getImage(codebase,"animation/mickey"+i+".gif");</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>next = 1;</font></font></b>
+<br><b></b>&nbsp;</ul>
+<b><font face="Courier New"><font size=-1>} //end of init()</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public void paint(Graphics
+g) {</font></font></b>
+<ul><b><font face="Courier New"><font size=-1>g.drawImage(mickeys[next],
+10,10,this);</font></font></b><b><font face="Courier New"><font size=-1></font></font></b>
+<p><b><font face="Courier New"><font size=-1>for (int i =0; i&lt;=20000000;i++){}</font></font></b>
+<br><b><font face="Courier New"><font size=-1>next++;</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>if (next > 10) next = 1;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>repaint();</font></font></b></ul>
+</ul>
+<b></b>
+<ul><b><font face="Courier New"><font size=-1>}// end of paint()</font></font></b></ul>
+<b></b>
+<p><br><b><font face="Courier New"><font size=-1>}</font></font></b>
+<br><b><font face="Courier New"><font size=-1></font></font></b>&nbsp;</ul>
+<b><font face="Arial"><font size=+1>Threads and animation</font></font></b><b></b>
+<p><b>What are threads?</b>
+<ul>
+<li>
+Normally - one sequential flow of execution</li>
+
+<li>
+Java suppports several independent tasks concurrently</li>
+
+<li>
+Each independent sequence of&nbsp; flow of execution is called a <b><i>thread</i></b></li>
+
+<li>
+The <b>Thread</b> class of Java provides the mechanism to create multiple
+independent tasks within one process.</li>
+
+<li>
+Threads require the implementation of the <b><i>Runnable</i></b> interface.</li>
+
+<li>
+The following&nbsp; steps are needed to implement threads in applets:</li>
+</ul>
+
+<ul>&nbsp;
+<center><table CELLPADDING=7 WIDTH="617" BGCOLOR="#66FF99" >
+<tr>
+<td VALIGN=TOP WIDTH="28%">implements interface</td>
+
+<td VALIGN=TOP WIDTH="72%">The main class in your applet is&nbsp;
+<p><b>public class <i>classname</i> extends <i>Applet</i> implements <i>Runnable</i>
+{</b>
+<p><b>}</b></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="28%">Define <b><i>run</i></b>() method</td>
+
+<td VALIGN=TOP WIDTH="72%"><b>public</b> <b>void</b> <b><i>run</i></b>(){&nbsp;
+<p>}&nbsp;
+<p>This method includes statements to be executed by the thread.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="28%">Create a thread</td>
+
+<td VALIGN=TOP WIDTH="72%">Create an object of <b><i>Thread</i></b> class.&nbsp;
+<p><b><i>Thread thread1 = new Thread(this);</i></b>
+<p>You normally do this in the <b><i>init</i></b>() method.</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="28%">Start thread</td>
+
+<td VALIGN=TOP WIDTH="72%">Start the thread that you&nbsp; have already
+created.&nbsp;
+<p><i>thread1.<b>start</b>();</i>
+<p>This will start the thread by executing the run() method.</td>
+</tr>
+</table></center>
+</ul>
+<b><font face="Arial"><font size=+1>Use of threads in animation</font></font></b>
+<ul>
+<li>
+Animation is generally done in a separate thread</li>
+
+<li>
+Allows other parts of the program to run independently</li>
+
+<li>
+All basic ideas of animation are the same, <b>except</b> that&nbsp; now
+an animation is a separate thread.</li>
+
+<li>
+&nbsp;<b><i>sleep</i></b>() statement produces a time delay.</li>
+
+<br>&nbsp;
+<p>&nbsp;
+<p><b><font face="Arial">Example</font></b>
+<p><applet HEIGHT="250" WIDTH="250" CODE="Animation2">
+<br></applet>
+<p>The following program is same as animation1.java, except that this uses
+threads.
+<p><font face="Courier New"><font size=-1>i<b>mport java.awt.*;</b></font></font>
+<br><b><font face="Courier New"><font size=-1>import java.applet.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.net.*;</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public class Animation2 extends
+Applet implements Runnable {</font></font></b>
+<br><b></b>&nbsp;
+<ul><b><font face="Courier New"><font size=-1>Image mickeys[] = new Image[11];</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>Thread thread1;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>int next;</font></font></b></ul>
+
+<ul><b><font face="Courier New"><font size=-1>URL codebase;</font></font></b><b><font face="Courier New"><font size=-1></font></font></b>
+<p><b><font face="Courier New"><font size=-1>public void init() {</font></font></b>
+<ul><b><font face="Courier New"><font size=-1>Codebase = getDocumentBase();</font></font></b><b><font face="Courier New"><font size=-1></font></font></b>
+<p><b><font face="Courier New"><font size=-1>for (inti=1; I&lt;11; I++)
+{</font></font></b>
+<ul><b><font face="Courier New"><font size=-1>Mickeys[I] = getimage (codebase,"animation/mickey"=I=.gif);</font></font></b></ul>
+<b><font face="Courier New"><font size=-1>}</font></font></b></ul>
+<b></b>
+<ul><b><font face="Courier New"><font size=-1>thread1 = new Thread(this);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>next = 1;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>thread1.start();</font></font></b>
+<br><b></b>&nbsp;</ul>
+<b><font face="Courier New"><font size=-1>} //end of init</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public void run() {</font></font></b>
+<br><b></b>&nbsp;
+<ul><b><font face="Courier New"><font size=-1>while (true) {</font></font></b>
+<ul><b><font face="Courier New"><font size=-1>try{</font></font></b>
+<br><b><font face="Courier New"><font size=-1>thread1.sleep(150);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>}</font></font></b></ul>
+</ul>
+<b></b>
+<ul>
+<ul><b><font face="Courier New"><font size=-1>catch(InterruptedException
+e) { }</font></font></b></ul>
+</ul>
+
+<ul>
+<ul><b><font face="Courier New"><font size=-1>repaint();</font></font></b></ul>
+</ul>
+
+<ul>
+<ul><b><font face="Courier New"><font size=-1>next ++;</font></font></b></ul>
+</ul>
+
+<ul>
+<ul><b><font face="Courier New"><font size=-1>if(next >10) next=1;</font></font></b></ul>
+<b><font face="Courier New"><font size=-1>}</font></font></b></ul>
+<b><font face="Courier New"><font size=-1>}</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public void paint(Graphics
+g) {</font></font></b>
+<ul><b><font face="Courier New"><font size=-1>g.drawImage(mickeys[next],100,100,this);</font></font></b></ul>
+<b><font face="Courier New"><font size=-1>}</font></font></b>
+<br><b></b>&nbsp;</ul>
+<b><font face="Courier New"><font size=-1>}</font></font></b>
+<br>&nbsp;</ul>
+<b><font face="Arial">Example - Two Clocks</font></b>
+<br><applet HEIGHT="100" WIDTH="300" CODE="DigitalClock">
+<ul></applet>
+<br>&nbsp;</ul>
+<b><tt>//Sample Digital Clock Program showing two threads</tt></b><b><tt></tt></b>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.util.Calendar;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b><b><tt></tt></b>
+<p><b><tt>public class DigitalClock extends Applet implements Runnable{</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;Thread clockThread1 = null, clockThread2 = null;</tt></b>
+<br><b><tt>&nbsp;Font font = new Font("Courier", Font.BOLD, 48);</tt></b>
+<br><b><tt>&nbsp;Color color = Color.green;</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void start(){</tt></b>
+<br><b><tt>&nbsp; if (clockThread1 == null){</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread1 = new Thread(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread1.start();</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>&nbsp; if (clockThread2 == null){</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread2 = new Thread(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread2.start();</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp;}</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void stop(){</tt></b>
+<br><b><tt>&nbsp; clockThread1 = null;</tt></b>
+<br><b><tt>&nbsp; clockThread2 = null;</tt></b>
+<br><b><tt>&nbsp;}</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void run(){</tt></b>
+<br><b><tt>&nbsp; while(Thread.currentThread() == clockThread1){</tt></b>
+<br><b><tt>&nbsp;&nbsp; color = Color.green;</tt></b>
+<br><b><tt>&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp;&nbsp; try{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Thread.currentThread().sleep(1000);</tt></b>
+<br><b><tt>&nbsp;&nbsp; } catch (InterruptedException e){}</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; while(Thread.currentThread() == clockThread2){</tt></b>
+<br><b><tt>&nbsp;&nbsp; color = Color.blue;</tt></b>
+<br><b><tt>&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp;&nbsp; try{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Thread.currentThread().sleep(1500);</tt></b>
+<br><b><tt>&nbsp;&nbsp; } catch (InterruptedException e){}</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp;}</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void paint(Graphics g){</tt></b>
+<br><b><tt>&nbsp; Calendar calendar = Calendar.getInstance();</tt></b>
+<br><b><tt>&nbsp; int hour = calendar.get(Calendar.HOUR_OF_DAY);</tt></b>
+<br><b><tt>&nbsp; int minute =calendar.get(Calendar.MINUTE);</tt></b>
+<br><b><tt>&nbsp; int second =calendar.get(Calendar.SECOND);</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; g.setFont(font);</tt></b>
+<br><b><tt>&nbsp; g.setColor(color);</tt></b>
+<br><b><tt>&nbsp; g.drawString(hour + ":"+minute/10+minute%10+</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+":"+second/10+second%10, 10,60);</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp;}</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br><b><font face="Arial">Example - Stock Ticker</font></b>
+<p><applet HEIGHT="100" WIDTH="300" CODE="Ticker">
+<br></applet>
+<p><b><tt>import java.awt.*;</tt></b>
+<br><b><tt>import java.util.*;</tt></b>
+<br><b><tt>import java.applet.*;</tt></b><b><tt></tt></b>
+<p><b><tt>public class Ticker extends Applet implements Runnable{</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;Thread clockThread1 = null, clockThread2 = null;</tt></b>
+<br><b><tt>&nbsp;Font font = new Font("Courier", Font.BOLD, 36);</tt></b>
+<br><b><tt>&nbsp;Color color = Color.green;</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp;String [] names = {"BBRC","RMBS","HON ","BOA ", "TNB ",
+"AT&amp;T"};</tt></b>
+<br><b><tt>&nbsp;int [] prices =&nbsp;&nbsp; {&nbsp;&nbsp; 94,&nbsp;&nbsp;
+115,&nbsp;&nbsp;&nbsp; 35,&nbsp;&nbsp; 43,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20,&nbsp;&nbsp;&nbsp; 34};</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;Dimension d;</tt></b>
+<br><b><tt>&nbsp;int x,y,decrement=2;</tt></b>
+<br><b><tt>&nbsp;Random num;</tt></b>
+<br><b><tt>&nbsp;boolean updated_prices = false;</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void init(){</tt></b>
+<br><b><tt>&nbsp; d = getSize();</tt></b>
+<br><b><tt>&nbsp; x = d.width;</tt></b>
+<br><b><tt>&nbsp; y = font.getSize();</tt></b>
+<br><b><tt>&nbsp; num = new Random();</tt></b>
+<br><b><tt>&nbsp;}</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void start(){</tt></b>
+<br><b><tt>&nbsp; if (clockThread1 == null){</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread1 = new Thread(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread1.start();</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>&nbsp; if (clockThread2 == null){</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread2 = new Thread(this);</tt></b>
+<br><b><tt>&nbsp;&nbsp; clockThread2.start();</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp;}</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void stop(){</tt></b>
+<br><b><tt>&nbsp; clockThread1 = null;</tt></b>
+<br><b><tt>&nbsp; clockThread2 = null;</tt></b>
+<br><b><tt>&nbsp;}</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void run(){</tt></b>
+<br><b><tt>&nbsp; // This thread calls the paint() method to display stocks</tt></b>
+<br><b><tt>&nbsp; while(Thread.currentThread() == clockThread1){</tt></b>
+<br><b><tt>&nbsp;&nbsp; repaint();</tt></b>
+<br><b><tt>&nbsp;&nbsp; try{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Thread.currentThread().sleep(100);</tt></b>
+<br><b><tt>&nbsp;&nbsp; } catch (InterruptedException e){}</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; //This thread updates the stock prices with a random</tt></b>
+<br><b><tt>&nbsp; // increment or decrement</tt></b>
+<br><b><tt>&nbsp; while(Thread.currentThread() == clockThread2){</tt></b>
+<br><b><tt>&nbsp;&nbsp; int change;</tt></b>
+<br><b><tt>&nbsp;&nbsp; int up_down;</tt></b>
+<br><b><tt>&nbsp;&nbsp; for(int i=0;i&lt;prices.length;i++){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; change = num.nextInt()%3;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; up_down = num.nextInt()%2;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if(up_down==0)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp; change = -change;</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; prices[i] += change;</tt></b>
+<br><b><tt>&nbsp;&nbsp; }</tt></b>
+<br><b><tt>&nbsp;&nbsp; updated_prices = true;</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;&nbsp; try{</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; Thread.currentThread().sleep(1000);</tt></b>
+<br><b><tt>&nbsp;&nbsp; } catch (InterruptedException e){}</tt></b>
+<br><b><tt>&nbsp; }</tt></b>
+<br><b><tt>&nbsp;}</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp;public void paint(Graphics g){</tt></b>
+<br><b><tt>&nbsp;//The following strings contain all the stock symbols</tt></b>
+<br><b><tt>&nbsp;// and stock totals for display by paint() method</tt></b>
+<br><b><tt>&nbsp;String symbols = new String();</tt></b>
+<br><b><tt>&nbsp;String tots = new String();</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; g.setFont(font);</tt></b>
+<br><b><tt>&nbsp; FontMetrics fm =g.getFontMetrics();</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; for(int i =0;i&lt;names.length;i++)</tt></b>
+<br><b><tt>&nbsp;&nbsp; symbols += names[i]+"&nbsp;&nbsp;&nbsp; ";</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; for(int i =0;i&lt;prices.length;i++){</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; tots += "&nbsp;&nbsp;&nbsp; "+ prices[i];</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; if (prices[i]&lt;100 &amp;&amp; prices[i]>0)</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp; tots += "&nbsp; ";</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; else</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp; tots += " ";</tt></b>
+<br><b><tt>&nbsp; }</tt></b><b><tt></tt></b>
+<p><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; // calculte total length of string</tt></b>
+<br><b><tt>&nbsp; int length = fm.stringWidth(symbols);</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; //draw region with symbols</tt></b>
+<br><b><tt>&nbsp; g.setColor(Color.black);</tt></b>
+<br><b><tt>&nbsp; g.fillRect(0,0,d.width,y);</tt></b>
+<br><b><tt>&nbsp; g.setColor(Color.white);</tt></b>
+<br><b><tt>&nbsp; g.drawString(symbols,x,y);</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; // draw region with prices</tt></b>
+<br><b><tt>&nbsp; g.setColor(Color.black);</tt></b>
+<br><b><tt>&nbsp; g.fillRect(0,y,d.width,y);</tt></b>
+<br><b><tt>&nbsp; if(updated_prices)</tt></b>
+<br><b><tt>&nbsp;&nbsp; g.setColor(Color.blue);</tt></b>
+<br><b><tt>&nbsp; else</tt></b>
+<br><b><tt>&nbsp;&nbsp; g.setColor(Color.green);</tt></b>
+<br><b><tt>&nbsp; g.drawString(tots,x,y+y-10);</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; updated_prices = false;</tt></b>
+<br><b><tt>&nbsp;</tt></b>
+<br><b><tt>&nbsp; //move text one unit to left for next frame</tt></b>
+<br><b><tt>&nbsp; x -= decrement;</tt></b>
+<br><b><tt>&nbsp; // if text is completely off to left</tt></b>
+<br><b><tt>&nbsp; // move position back to right</tt></b>
+<br><b><tt>&nbsp; if(x &lt; -length) x = d.width;</tt></b>
+<br><b><tt>&nbsp;}</tt></b>
+<br><b><tt>}</tt></b>
+<p>&nbsp;
+<br><b><font face="Arial"><font size=+1>Including sound files</font></font></b>
+<ul>
+<li>
+Including sound files is similar to including image files.</li>
+
+<li>
+You can load <b><i>au, wav, mid&nbsp;</i></b> files into a Java applet</li>
+
+<li>
+Steps :</li>
+
+<ul>
+<li>
+Find the directory name where the sound file is located, relative to the
+path of the <b><i>HTML</i></b> document.</li>
+
+<li>
+<b><i>getDocumentBase</i></b>() returns the path of the
+<b><i>HTML</i></b>
+document.</li>
+
+<ul>Type returned by <b><i>getDocumentBase</i></b>() is <b><i>URL</i></b>.</ul>
+
+<li>
+<b>In practice do:</b></li>
+
+<ul><b><i>URL</i></b> <i>codebase</i> = <b><i>getDocumentbase</i></b>();
+<br>The object <i>codebase</i> holds the path of the <b><i>HTML</i></b>
+document.</ul>
+
+<li>
+Use the method <b><i>play</i></b>() to play the sound file.</li>
+
+<ul><b><i>Play</i></b>(<i>codebase</i>, <i>relative_path</i>);
+<br><b><i>codebase</i></b> is the <b><i>URL</i></b> for the <b><i>HTML</i></b>
+document and <i>relative_path</i> is the relative path to the sound file.</ul>
+</ul>
+</ul>
+<b><font face="Arial">Example</font></b>
+<p><applet HEIGHT="250" WIDTH="250" CODE="Sound1">
+<br></applet>
+<p>The following program illustrates the basic way of playing sound files.
+<br>&nbsp;
+<ul>
+<dir><b><font face="Courier New"><font size=-1>import java.awt.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.applet.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.net.*;</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public class Sound1 extends
+Applet{</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>URL codebase;</font></font></b>
+<dir><b></b>&nbsp;</dir>
+<b><font face="Courier New"><font size=-1>public void init(){</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>codebase = getDocumentBase();</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b></dir>
+<b></b>
+<dir><b><font face="Courier New"><font size=-1>public void paint(Graphics
+g){</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>play(codebase,"hi.au");</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b>
+<br><font face="Courier New"><font size=-1></font></font>&nbsp;</dir>
+</ul>
+<b><font face="Arial"><font size=+1>Controlling sound playing</font></font></b>
+<ul>
+<li>
+The following steps give more control over sound files:</li>
+
+<ul>
+<li>
+Create an object of type <b><i>AudioClip</i></b> (included in java.applet).</li>
+
+<br><b><i>AudioClip </i>soundclip</b>;
+<li>
+Initialize the <i>soundclip</i> object.</li>
+
+<br><i>soundclip</i> = <b><i>getAudioClip</i></b>(<b><i>getDocumentBase</i></b>(),"<i>filename</i>");
+<li>
+Use the following methods:</li>
+</ul>
+</ul>
+
+<center><table CELLPADDING=7 WIDTH="481" BGCOLOR="#66FF99" >
+<tr>
+<td VALIGN=TOP WIDTH="47%">
+<dir>
+<dir><b><font face="Arial"><font size=-1>Method</font></font></b></dir>
+</dir>
+</td>
+
+<td VALIGN=TOP WIDTH="53%">
+<dir><b><font face="Arial"><font size=-1>Description</font></font></b></dir>
+</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="47%"><i>soundclip</i>.<b><i>play</i></b>()</td>
+
+<td VALIGN=TOP WIDTH="53%">Plays the sound clip</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="47%"><i>soundclip.<b>stop</b>()</i></td>
+
+<td VALIGN=TOP WIDTH="53%">Stops the sound clip</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP WIDTH="47%"><i>sound.<b>loop</b>()</i></td>
+
+<td VALIGN=TOP WIDTH="53%">Plays the sound clip repeatedly.</td>
+</tr>
+</table></center>
+
+<p><b><font face="Arial">Example</font></b>
+<p><applet HEIGHT="250" WIDTH="250" CODE="Sound2">
+<br></applet>
+<p>The following program displays two buttons - play, and stop. It plays
+music, and you can control playing or stopping music using buttons.
+<dir>
+<dir>
+<dir>&nbsp;</dir>
+</dir>
+<b><font face="Courier New"><font size=-1>import java.awt.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.applet.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.awt.event.*;</font></font></b>
+<br><b><font face="Courier New"><font size=-1>import java.net.*;</font></font></b><b></b>
+<p><b><font face="Courier New"><font size=-1>public class Sound2 extends
+Applet implements ActionListener{</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>Button play = new Button("play");</font></font></b>
+<br><b><font face="Courier New"><font size=-1>Button stop = new Button("stop");</font></font></b>
+<br><b><font face="Courier New"><font size=-1>Panel panel = new Panel();</font></font></b>
+<br><b><font face="Courier New"><font size=-1>TextField textbox = new TextField(20);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>AudioClip soundclip;</font></font></b><b><font face="Courier New"><font size=-1></font></font></b>
+<p><b><font face="Courier New"><font size=-1>public void init(){</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>play.addActionListener(this);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>stop.addActionListener(this);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>panel.setLayout(new GridLayout(1,2,20,20));</font></font></b>
+<br><b><font face="Courier New"><font size=-1>panel.add(play);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>panel.add(stop);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>add(panel);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>add(textbox);</font></font></b>
+<br><b><font face="Courier New"><font size=-1>soundclip = getAudioClip(getDocumentBase(),"mozart.mid");</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b><b><font face="Courier New"><font size=-1></font></font></b>
+<p><b><font face="Courier New"><font size=-1>public void actionPerformed(ActionEvent
+event){</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>if(event.getActionCommand().equals("stop"))
+{</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>soundclip.stop();</font></font></b>
+<br><b><font face="Courier New"><font size=-1>textbox.setText("soundclip
+stopped");</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b>
+<br><b><font face="Courier New"><font size=-1>if(event.getActionCommand().equals("play")){</font></font></b>
+<dir><b><font face="Courier New"><font size=-1>soundclip.play();</font></font></b>
+<br><b><font face="Courier New"><font size=-1>textbox.setText("soundclip
+playing");</font></font></b></dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b>
+<br><b><font face="Courier New"><font size=-1>}// end of actionPerformed()</font></font></b></dir>
+</dir>
+<b><font face="Courier New"><font size=-1>}</font></font></b>
+<br><b><font face="Courier New"><font size=-1></font></font></b>&nbsp;</dir>
+<b><font face="Courier New"><font size=-1></font></font></b>
+</body>
+</html>

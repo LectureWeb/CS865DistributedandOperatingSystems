@@ -1,0 +1,1024 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>CS835 - Data and Document Representation &amp; Processing</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20070123;8375142">
+	<META NAME="CHANGED" CONTENT="20070123;9074346">
+	<META NAME="ProgId" CONTENT="Word.Document">
+	<META NAME="Originator" CONTENT="Microsoft Word 9">
+	<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+	<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u1:DocumentProperties>
+  <u1:Author>Frank Marchese</u1:Author>
+  <u1:LastAuthor>Frank Marchese</u1:LastAuthor>
+  <u1:Revision>3</u1:Revision>
+  <u1:TotalTime>128</u1:TotalTime>
+  <u1:Created>2005-01-22T15:46:00Z</u1:Created>
+  <u1:LastSaved>2005-01-22T18:09:00Z</u1:LastSaved>
+  <u1:Pages>1</u1:Pages>
+  <u1:Company>Pace University</u1:Company>
+  <u1:Lines>1</u1:Lines>
+  <u1:Paragraphs>1</u1:Paragraphs>
+  <u1:Version>9.3821</u1:Version>
+ </u1:DocumentProperties>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u2:WordDocument>
+  <u2:Zoom>BestFit</u2:Zoom>
+ </u2:WordDocument>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u3:shapedefaults u4:ext="edit" spidmax="2050">
+  <u3:colormru u4:ext="edit" colors="#f8f8f8,#eaeaea"/>
+  <u3:colormenu u4:ext="edit" fillcolor="#eaeaea"/>
+ </u3:shapedefaults>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <u5:shapelayout u6:ext="edit">
+  <u5:idmap u6:ext="edit" data="1"/>
+ </u5:shapelayout>
+</xml><![endif]-->
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#eaeaea" DIR="LTR">
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 BGCOLOR="#ff99cc">
+	<TR>
+		<TD WIDTH=1185 VALIGN=TOP>
+			<H1><FONT FACE="Arial"><FONT SIZE=5><B>CS835 - Data and Document
+			Representation &amp; Processing</B></FONT></FONT></H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=1185 VALIGN=TOP BGCOLOR="#ffff99">
+			<P><FONT SIZE=5><B><FONT FACE="Arial">Lecture 1 - Convergence :
+			Data, Documents, Delivery</FONT></B></FONT></TD>
+	</TR>
+</TABLE>
+<H1><FONT COLOR="#0000ff">&nbsp;<FONT FACE="Arial">History of
+Printing </FONT></FONT>
+</H1>
+<H4><FONT FACE="Arial">1.<FONT SIZE=4>&nbsp;&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000ff">China:
+The Technological Roots</FONT></FONT></FONT></H4>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Paper - rag paper and silk paper
+	by 105AD</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Paper's migration to Europe -
+	passed onto through Middle East by 9<SUP>th</SUP> century AD and to
+	Europe via Crusades by 13<SUP>th</SUP> Century.</FONT> </FONT>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Large ideographic alphabet</FONT>
+	</FONT>
+	</P>
+</UL>
+<H4><FONT SIZE=4><FONT FACE="Arial">2.&nbsp;&nbsp;&nbsp;&nbsp;
+<FONT COLOR="#0000ff">Gutenberg and the Historical Moment in Western
+Europe</FONT></FONT></FONT></H4>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Scribal hand-copying on Velum
+	through 15<SUP>th</SUP> Century</FONT> </FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Rise of paper use - lowering of
+	cost </FONT></FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Increased use of paper for
+		business practices and government documentation</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Church indulgences written on
+	paper</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Growth of scholarship at
+	universities required textbooks</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Movable metal type invented
+	(1452)</FONT> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Gutenberg Bibles printed - 300
+		two-volume sets</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">The Protestant Reformation -
+	large-scale publishing of Martin Luther&rsquo;s Theses (~300K
+	copies)</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">William Caxton set up 1<SUP>st</SUP>
+	printing press in England and published popular works such as
+	Canterbury Tales</FONT> </FONT>
+</UL>
+<H4><FONT SIZE=4><FONT FACE="Arial">3.&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#0000ff">
+Print and Modern Thought</FONT></FONT></FONT></H4>
+<UL TYPE=DISC>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>scientific thinking - broad
+	dissemination of scientific insights and discoveries by print </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>rise of&nbsp; scientific
+	community - </FONT></FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">easy exchange of ideas gave
+		rise to a scientific community that functioned without geographical
+		constraints</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">systematization of methodologies
+	and development of rational thought.</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">expand the collective body of
+	knowledge</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">indexes and cross-referencing
+	emerged to&nbsp; manage volumes of information and make creative
+	associations between ideas.</FONT> </FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>the rise of an intellectual
+	class </FONT></FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Move toward standardization of
+		language</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Move toward editing and peer
+	review</FONT> </FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>transformations: oral, written
+	and print cultures </FONT></FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Writing facilitates
+		interpretation and reflection since memorization is no longer
+		required for the communication and processing of ideas</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Recorded history could persist
+	and be added to through the centuries.</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Written manuscripts sparked a
+	variation on the oral tradition of communal storytelling -- became
+	common for one person to read out loud to the group.</FONT> </FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>privacy </FONT></FONT>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Less expensive and more
+		portable books lent themselves to solitary and silent reading</FONT>
+		</FONT>
+		</P>
+	</UL>
+</UL>
+<H4><FONT SIZE=4><FONT FACE="Arial">4.&nbsp;&nbsp;&nbsp;&nbsp;
+<FONT COLOR="#0000ff">Advances in Print Technology </FONT></FONT></FONT>
+</H4>
+<UL TYPE=DISC>
+	<LI><FONT FACE="Arial"><A HREF="http://oncampus.richmond.edu/academics/journalism/lino.html%20"><FONT SIZE=4>Linotype
+	machine</FONT></A><FONT SIZE=4> (1884) - movable type created by
+	machine &ndash; poured lead into molds.</FONT></FONT><FONT SIZE=4> </FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Teletypewriter (1913) - could
+	be attached directly to a Linotype machines to control composition
+	by means of a perforated tape </FONT></FONT>
+	</P>
+</UL>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT FACE="Arial"><FONT SIZE=4>Tape was punched on a
+		separate keyboard unit </FONT></FONT>
+		</P>
+	</UL>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Tape-reader translated the
+	punched code into electrical signals that could be sent by wire to
+	tape-punching units in many cities simultaneously</FONT> </FONT>
+	</P>
+</UL>
+<UL TYPE=DISC>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Xerography (1938) &ndash;
+	uses photoconductivity
+	</FONT><A HREF="http://www.physics.udel.edu/wwwusers/watson/scen103/xerox/"><FONT SIZE=4>http://www.physics.udel.edu/wwwusers/watson/scen103/xerox/</FONT></A></FONT><FONT SIZE=4>
+	</FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Computer-based printer
+	technology</FONT> </FONT>
+	</P>
+</UL>
+<P>&nbsp;</P>
+<H1><FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Desktop
+Publishing (DTP)</FONT></FONT></FONT></H1>
+<P><FONT SIZE=4><B><FONT FACE="Arial">Definition:</FONT></B>
+<FONT FACE="Arial">Preparation of typeset or near typeset documents
+on desktop computers (personal computers). All text composition, page
+makeup, manipulation of digitized graphics and integration of text
+and graphics are performed on desktop computers.</FONT></FONT></P>
+<H1><FONT FACE="Arial"><FONT SIZE=4>Three activities of DTP</FONT></FONT></H1>
+<OL>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Pure text preparation </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>Creation and manipulation of
+	graphic images, where text plays only a minor role </FONT></FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Complex page makeup, in which
+	text and graphic elements are united in a harmonious way within the
+	confines of a single page </FONT></FONT>
+	</P>
+</OL>
+<DL>
+	<DT><FONT FACE="Arial"><FONT SIZE=4>Assumptions:</FONT></FONT></DL>
+<UL>
+	<LI>
+	<FONT SIZE=4><FONT FACE="Arial">Desktop publishing equipment fits on
+	a desktop </FONT></FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">DTP software will enable the
+	integration of multi-font text and graphics and its display in a
+	what-you-see-is-what-you-get (WYSIWYG) form</FONT></FONT></UL>
+<H3><FONT SIZE=4>Components of a DTP system</FONT></H3>
+<UL TYPE=DISC>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>a data input device </FONT></FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">data manipulation software (Page
+	Layout Software)</FONT> </FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>a cpu to run the software </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>a display device </FONT></FONT>
+	<LI><FONT FACE="Arial"><FONT SIZE=4>an output device </FONT></FONT>
+</UL>
+<H3><FONT SIZE=4>Key stages in the process of DTP</FONT></H3>
+<OL>
+	<LI><EM><FONT SIZE=4><FONT FACE="Arial">Need for publication</FONT></FONT></EM><FONT SIZE=4><FONT FACE="Arial">:
+	Conduct appropriate analysis to determine need for publication </FONT></FONT>
+	<LI><EM><FONT SIZE=4><FONT FACE="Arial">Purpose and audience</FONT></FONT></EM><FONT SIZE=4><FONT FACE="Arial">:
+	Consider the audience, content, style, language, purpose. </FONT></FONT>
+	<LI><EM><FONT SIZE=4><FONT FACE="Arial">Create text</FONT></FONT></EM><FONT SIZE=4><FONT FACE="Arial">:
+	Word processed, scanned or directly typed into program. Proof read
+	text to ensure content is OK. </FONT></FONT>
+	<LI><EM><FONT SIZE=4><FONT FACE="Arial">Create graphics</FONT></FONT></EM><FONT SIZE=4><FONT FACE="Arial">:
+	Graphics created with appropriate software,scanner, tablet or
+	digitiser. </FONT></FONT>
+	<LI><EM><FONT SIZE=4><FONT FACE="Arial">Design format</FONT></FONT></EM><FONT SIZE=4><FONT FACE="Arial">:
+	Determine grid, columns, headers and footers, page numbers, text
+	style, design final layout. </FONT></FONT>
+	<LI><EM><FONT SIZE=4><FONT FACE="Arial">Load files and lay out
+	publication</FONT></FONT></EM><FONT SIZE=4><FONT FACE="Arial">: Text
+	and graphics are combined, formatted, scaled and positioned. </FONT></FONT>
+	<LI><EM><FONT SIZE=4><FONT FACE="Arial">Print</FONT></FONT></EM><FONT SIZE=4><FONT FACE="Arial">:
+	Choice of a suitable high resolution printer, i.e. laser printer or
+	imagesetter </FONT></FONT>
+</OL>
+<H3><FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>History</FONT></FONT></FONT></H3>
+<P><FONT SIZE=4><B><FONT FACE="Arial"><FONT COLOR="#0000ff">1979</FONT>
+- <I>Alto</I> - Xerox PARC</FONT></B> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Local processing and memory</FONT>
+	</FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">High resolution bit-mapped
+	graphics</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Keyboard, mouse</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">LAN connection</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Graphical windows
+	interface(WYSIWYG) with integrated text editor, illustration
+	creation, and email</FONT> </FONT>
+</UL>
+<DL>
+	<DT><BR>
+</DL>
+<P><FONT SIZE=4><B><FONT FACE="Arial"><FONT COLOR="#0000ff">1981</FONT>
+- Model 8010 (<I>Star)</I> - Xerox PARC</FONT></B> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Designed for Offices</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Innovative HCI Interface</FONT> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Desktop Metaphor</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Direct manipulation</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Options or properties</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">WYSIWYG</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Generic Commands (e.g. Move,
+	Copy, Delete)</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">High Degree of Consistency</FONT>
+	</FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Not Success</FONT> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Too Expensive ($15K)</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Limited Functionality (e.g. no
+	spreadsheet)</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Closed architecture (difficult
+	for 3rd parties to write programs)</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Perceived by users as slow</FONT>
+	</FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Mouse overused</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Lessons Learned</FONT> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Design First, Then Code</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Use of Objects-and-Actions
+	design method</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Attention to Detail</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Participation of Designers</FONT>
+	</FONT>
+</UL>
+<DL>
+	<DT><BR>
+</DL>
+<P><A NAME="_x0000_i1027"></A><IMG SRC="../../631L1/Image59.jpg" NAME="graphics1" ALIGN=BOTTOM WIDTH=360 HEIGHT=451 BORDER=0></P>
+<P><A NAME="_x0000_i1028"></A><IMG SRC="../../631L1/Image60.jpg" NAME="graphics2" ALIGN=BOTTOM WIDTH=737 HEIGHT=535 BORDER=0></P>
+<P><A NAME="_x0000_i1029"></A><IMG SRC="../../631L1/Image61.jpg" NAME="graphics3" ALIGN=BOTTOM WIDTH=482 HEIGHT=307 BORDER=0></P>
+<P><A NAME="_x0000_i1030"></A><IMG SRC="../../631L1/Image62.jpg" NAME="graphics4" ALIGN=BOTTOM WIDTH=340 HEIGHT=410 BORDER=0><FONT SIZE=4><BR>&nbsp;
+</FONT>
+</P>
+<P><FONT SIZE=4><BR><B><FONT FACE="Arial"><FONT COLOR="#0000ff">1983</FONT>
+- Canon develops the 'engine' used in low cost laser printers </FONT></B></FONT>
+</P>
+<P><FONT SIZE=4><B><FONT FACE="Arial"><FONT COLOR="#0000ff">1983 </FONT>-
+<I>Lisa</I> - Apple</FONT></B> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Steve Jobs saw Star prototype at
+	PARC</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">$10K</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Not networked like <I>Star</I></FONT>
+	</FONT>
+</UL>
+<DL>
+	<DT><BR>
+</DL>
+<P><A NAME="_x0000_i1031"></A><IMG SRC="../../631L1/lisa.gif" NAME="graphics5" ALIGN=BOTTOM WIDTH=389 HEIGHT=391 BORDER=0></P>
+<P>&nbsp;</P>
+<DL>
+	<DT><A NAME="_x0000_i1032"></A><IMG SRC="../../631L1/lisadesk.gif" NAME="graphics6" ALIGN=BOTTOM WIDTH=640 HEIGHT=400 BORDER=0><FONT SIZE=4><BR>&nbsp;
+	</FONT>
+	<DT><FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#0000ff">1984</FONT>-
+	Hewlett-Packard produces the HP LaserJet </B></FONT></FONT>
+</DL>
+<P><FONT SIZE=4><B><FONT FACE="Arial"><FONT COLOR="#0000ff">1984</FONT>
+- <I>Macintosh</I> - Apple</FONT></B> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">$2500</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Mac succeeded but Star did not</FONT>
+	</FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Mac did not need to trailblaze</FONT>
+	</FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Apple learned from experience</FONT>
+	</FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Mac aggressively priced</FONT> </FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Mac had powerful developer
+	toolkit</FONT> </FONT>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Mac had excellent graphics &amp;
+	300dpi laser printer </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT><FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#0000ff">1984</FONT>
+	- Adobe introduce PostScript page description language (PDL) </B></FONT></FONT>
+	<DT>&nbsp;<DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#0000ff">1985 </FONT>-
+	Aldus develops PageMaker for Mac</B></FONT></FONT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#0000ff">1985 -
+	<FONT COLOR="#000000">Adobe builds PostScript hardware/software
+	interface to Apple LaserWriter (cost $5000) </FONT></FONT></B></FONT></FONT>
+	<DT><FONT FACE="Arial"><FONT SIZE=4><B><FONT COLOR="#0000ff">1986 </FONT>-
+	Microsoft release Windows 1.1</B></FONT></FONT></DL>
+<P>
+&nbsp;</P>
+<H3><FONT COLOR="#0000ff"><FONT FACE="Arial"><FONT SIZE=4>Mark-up
+Languages</FONT></FONT></FONT></H3>
+<P><FONT SIZE=4><B><FONT FACE="Arial">Definition:</FONT></B> <FONT FACE="Arial">A
+notation for identifying the components of a document to enable each
+component to be appropriately formatted, displayed, or used.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">1967</FONT>
+- William Tunnicliffe paper-&nbsp; titled <I>The Separation of
+Information Content of Documents from their Format </I>&ndash;
+separates content from formatting</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">1969</FONT>
+- Charles Goldfarb</FONT> - <FONT FACE="Arial">GenCode project at IBM
+expanded this work to develop the Generalized Markup Language (GML) &ndash;
+by </FONT></FONT>
+</P>
+<P><FONT FACE="Arial"><FONT SIZE=4>1980, 90% of IBM documents
+formatted in GML</FONT></FONT></P>
+<P><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">1973</FONT>
+&ndash; Joe Osanna - Unix operating System (PDP-11)</FONT></FONT></P>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">nroff produced text output
+	suitable for terminals and line printers</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">troff generated a graphical
+	output for a Wang typesetter</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">1979 &ndash; troff modified
+	to work with different output devices.</FONT> </FONT>
+	</P>
+</UL>
+<P><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">1977</FONT>
+- Donald Knuth &ndash; TeX &ndash; begun in 1977, evolved through
+early &lsquo;80s - detailed layout of text and font descriptions to
+typeset mathematical books in professional quality.</FONT></FONT></P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">1980</FONT>
+&ndash; Brian Reid &ndash; Scribe : </FONT></FONT><STRONG><FONT SIZE=4><FONT FACE="Arial">a
+document specification language and its compiler</FONT></FONT></STRONG></P>
+<UL TYPE=DISC>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Prepare a manuscript file
+	using a text editor. </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Process this manuscript file
+	through Scribe to generate a document file, which is then printed on
+	some convenient printing </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Scribe controls the words,
+	lines, pages, spacing, headings, footings, footnotes, numbering,
+	tables of contents, indexes and more. </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Scribe has a database of
+	document format definitions which tell it the rules for formatting a
+	document in a particular style. </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Under normal circumstances,
+	writers need not concern themselves with the details of formatting,
+	because Scribe does it for them. </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>The manuscript document an
+	author creates has markup statements throughout. </FONT></FONT>
+	</P>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Describe the various
+		components of the document to the Scribe processor. </FONT></FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">The descriptive markup the
+		author places in the document is interpreted and formatted by the
+		Scribe document processor.</FONT> </FONT>
+		</P>
+	</UL>
+</UL>
+<P><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">1986</FONT>
+- Standard Generalized Markup Language (SGML) extended GML and was
+accepted as an ISO standard</FONT></FONT></P>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">1<SUP>st</SUP> working
+	document by Charles Goldfarb in 1980</FONT> </FONT>
+	</P>
+</UL>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Influenced by Scribe</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">focused on the structural
+	aspects of a document and left the visual presentation of that
+	structure to the interpreter</FONT> </FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Specifies a syntax for
+	including the markup in documents and a &quot;metalanguage&quot; for
+	separately describing what the markup meant. </FONT></FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Allowed authors to create and
+	use any markup they wished, selecting tags that made the most sense
+	to them</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Issues:</FONT> </FONT>
+	</P>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Generally found to be
+		cumbersome, a side effect of attempting to do too much and be too
+		flexible</FONT> </FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Unknown to the masses</FONT>
+		</FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Too few tools to create
+		files</FONT> </FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Tools are expensive</FONT> </FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Companion norms for style or
+		hypertext are not ready</FONT> </FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Not well supported by the
+		major editors of the software market</FONT> </FONT>
+		</P>
+	</UL>
+</UL>
+<P><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">1991</FONT>
+- Tim Berners-Lee and Robert Caillau - HyperText Markup Language
+(HTML) - some SGML syntax, without the meta-language</FONT></FONT></P>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">HTML consists of a set of
+	&quot;known&quot; tags that handle common formatting tasks</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Originally created to markup
+	simple scientific papers and therefore need to be expanded in order
+	to offer the rich content the web has today</FONT> </FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>As a result additions often
+	follow no logical design, although recent efforts have attempted to
+	address this. </FONT></FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Advantages</FONT> </FONT>
+	</P>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><B><FONT FACE="Arial">Simple</FONT></B> <FONT FACE="Arial">to
+		learn and to use </FONT></FONT>
+		</P>
+	</UL>
+	<LI><P><FONT SIZE=4><B><FONT FACE="Arial">Easy</FONT></B> <FONT FACE="Arial">to
+	create from scratch or by converting legacy text files</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><B><FONT FACE="Arial">Easy</FONT></B> <FONT FACE="Arial">to
+	parse </FONT></FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Disadvantages</FONT> </FONT>
+	</P>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><I><FONT FACE="Arial">Syntaxless</FONT></I> </FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Much more a presentation
+		language than a structural language</FONT> </FONT>
+		</P>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Too limited</FONT> </FONT>
+		</P>
+	</UL>
+</UL>
+<P><FONT FACE="Arial"><FONT SIZE=4><FONT COLOR="#0000ff">1998</FONT>
+&ndash; XML &ndash; extended Markup Language</FONT></FONT></P>
+<UL TYPE=DISC>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>XML is a <U>strict subset</U>
+	of SGML </FONT></FONT>
+	</P>
+	<LI><P><FONT FACE="Arial"><FONT SIZE=4>Like SGML, XML is a grammar (
+	or a metalanguage ) and NOT a language </FONT></FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">XML extends SGML features</FONT>
+	</FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Out of date SGML features are
+	eliminated</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><B><FONT FACE="Arial">Well-formed</FONT></B>
+	<FONT FACE="Arial">document syntax </FONT></FONT>
+	</P>
+</UL>
+<DL>
+	<DT>&nbsp;<FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#0000ff">Other
+	Languages</FONT></FONT></FONT><DT>
+	<FONT FACE="Arial"><FONT SIZE=4>Adobe PostScript</FONT></FONT></DL>
+<UL>
+	<LI>
+	<FONT SIZE=4><FONT FACE="Arial">Interpreted programming language
+	used to control typesetting machines and laser printers</FONT></FONT><LI>
+	<FONT SIZE=4><FONT FACE="Arial">Used as a page description language</FONT></FONT><LI>
+	<FONT SIZE=4><FONT FACE="Arial">Can be used to create vector
+	graphics</FONT></FONT></UL>
+<DL>
+	<DT>&nbsp;<DT>
+	<FONT FACE="Arial"><FONT SIZE=4>Adobe PDF</FONT></FONT><DT>
+	<FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">Optimized
+	PostScript</FONT></FONT><DT>
+	<FONT SIZE=4><FONT FACE="Symbol">&middot; </FONT><FONT FACE="Arial">PDF
+	document attributes:</FONT></FONT></DL>
+<UL>
+	<LI><P>
+	<FONT SIZE=4><FONT FACE="Arial">external links</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">article threads</FONT> </FONT>
+	</P>
+</UL>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">security features</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">device independent colour</FONT>
+	</FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">notes</FONT> </FONT>
+	</P>
+</UL>
+<P>&nbsp;<FONT SIZE=4><B><FONT FACE="Arial"><FONT COLOR="#0000ff">Groupware
+and Computer-Supported Cooperative Work (CSCW) </FONT></FONT></B></FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Computer-assisted coordinated
+	activity carried out by groups of collaborating individuals</FONT> </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">e.g.</FONT> </FONT>
+	</P>
+</UL>
+<UL>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">communication</FONT></FONT></P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">problem solving</FONT></FONT></P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">co-authoring a document</FONT></FONT></P>
+</UL>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Groupware - information
+	technology used to help people work together more effectively.</FONT>
+	</FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Groupware makes user aware that
+		he is part of a group.</FONT> </FONT>
+	</UL>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Groupware defined by Peter and
+	Trudy Johnson-Lenz (1982) - their ideas included:</FONT> </FONT>
+	<UL TYPE=CIRCLE>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">messaging</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">conferencing</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">filtered exchanges</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">relational structures</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">voting</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">decision support tools</FONT> </FONT>
+		</UL>
+	</UL>
+</UL>
+<DL>
+	<DT><FONT SIZE=4><FONT FACE="Arial">Computer Supported Cooperative
+	Work (1984) coined by Gireif and Cashman</FONT> </FONT>
+</DL>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Today serves as a forum -
+		collaborative/cooperative a metaphor, it could support competition.</FONT>
+		</FONT>
+		</P>
+	</UL>
+</UL>
+<P><FONT SIZE=4><B><FONT FACE="Arial"><FONT COLOR="#000066">A
+Paradigm Shift for Computing</FONT></FONT> </B></FONT>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial">Transformation from human-machine
+to human-human interaction</FONT> </FONT>
+</P>
+<P><FONT SIZE=4><U><FONT FACE="Arial">Results from several convergent
+phenomena:</FONT></U> </FONT>
+</P>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Pervasive networking</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Growth of workgroup computing</FONT>
+		</FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Growth of technology supporting
+		executive and managerial group decision making</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Merging of telecommunications
+		and computing supporting applications such as video conferencing</FONT>
+		</FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Advancement in
+		work-at-a-distance</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">New technologies - ISDN, DSL,
+		cable modem</FONT> </FONT>
+	</UL>
+</UL>
+<P>&nbsp;<FONT SIZE=4><FONT FACE="Arial">Widespread groupware:</FONT>
+</FONT>
+</P>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Email</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Computer conferencing (aka
+		structured email)</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Teleconferencing (use of
+		audio/video)</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Joint problem solving:</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Collaborative writing or
+			drawing</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Group decision support systems
+			(with electronic meeting rooms)</FONT> </FONT>
+		</UL>
+	</UL>
+</UL>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">CSCW
+Taxonomy</FONT></FONT> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">DeSanctis and Gallup (1987) -
+	2x2 matrix differentiates groupware technologies into two groups -
+	bridge time and bridge space</FONT> </FONT>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Today systems are moving
+	toward anytime/anyplace</FONT> </FONT>
+	</P>
+</UL>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=3 BGCOLOR="#d9d9d9">
+	<TR>
+		<TD WIDTH=175 BGCOLOR="#f3f3f3">
+			<P>&nbsp;</TD>
+		<TD WIDTH=372 BGCOLOR="#f3f3f3">
+			<P><FONT SIZE=4><B><FONT FACE="Arial">One Meeting Site</FONT></B></FONT></TD>
+		<TD WIDTH=521 BGCOLOR="#f3f3f3">
+			<P><FONT FACE="Arial"><FONT SIZE=4><B>Multiple Meeting Sites</B></FONT></FONT></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=175 BGCOLOR="#f3f3f3">
+			<P><FONT FACE="Arial"><FONT SIZE=4><B>Synchronous Communications</B></FONT></FONT></TD>
+		<TD WIDTH=372 BGCOLOR="#f3f3f3">
+			<P><FONT SIZE=4><FONT FACE="Arial">Face-to-Face Interactions</FONT>
+			</FONT>
+			</P>
+			<UL TYPE=DISC>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Public Computer Displays</FONT></I>
+				</FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Electronic Meeting Rooms</FONT></I>
+				</FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial"><FONT COLOR="#000000">Group
+				Decision Support Systems</FONT></FONT></I> </FONT>
+			</UL>
+		</TD>
+		<TD WIDTH=521 BGCOLOR="#f3f3f3">
+			<P><FONT SIZE=4><FONT FACE="Arial">Remote Interactions</FONT> </FONT>
+			</P>
+			<UL TYPE=DISC>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Shared View Desktop
+				conference Systems</FONT></I> </FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Desktop Conferencing with
+				Collaborative Editors</FONT></I> </FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Video Conferencing</FONT></I>
+				</FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial"><FONT COLOR="#000000">Media
+				Spaces</FONT></FONT></I> </FONT>
+			</UL>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=175 BGCOLOR="#f3f3f3">
+			<P><FONT FACE="Arial"><FONT SIZE=4><B>Asynchronous Communications</B></FONT></FONT></TD>
+		<TD WIDTH=372 BGCOLOR="#f3f3f3">
+			<P><FONT SIZE=4><FONT FACE="Arial">Ongoing Tasks</FONT> </FONT>
+			</P>
+			<UL TYPE=DISC>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Team Rooms</FONT></I> </FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Group Displays</FONT></I> </FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial"><FONT COLOR="#000000">Project
+				Management</FONT></FONT></I> </FONT>
+			</UL>
+		</TD>
+		<TD WIDTH=521 BGCOLOR="#f3f3f3">
+			<P><FONT SIZE=4><FONT FACE="Arial">Communicationand Coordination</FONT>
+			</FONT>
+			</P>
+			<UL TYPE=DISC>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Vanilla email</FONT></I> </FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Async conferencing
+				bulletin boards</FONT></I> </FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Stuctured messaging
+				systems</FONT></I> </FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Workflow management</FONT></I>
+				</FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Version Control</FONT></I>
+				</FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial">Meeting Schedulers</FONT></I>
+				</FONT>
+				<LI><FONT SIZE=4><I><FONT FACE="Arial"><FONT COLOR="#000000">Cooperative
+				hypertext, organizational memory</FONT></FONT></I> </FONT>
+			</UL>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000099">Asynchronous
+Groupware</FONT></FONT> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial">Supports communication and
+	problem solving among groups of individuals who contribute at
+	different times</FONT> </FONT>
+	</P>
+</UL>
+<UL TYPE=DISC>
+	<OL>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Email and computer conferencing
+		systems</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Structures messaging systems</FONT>
+		</FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Cooperative hypertext or
+		hypermedia systems</FONT> </FONT>
+	</OL>
+</UL>
+<DL>
+	<DT><BR>
+</DL>
+<UL TYPE=DISC>
+	<LI><P><FONT SIZE=4><B><FONT FACE="Arial">Email and Computer
+	Conferencing</FONT></B> </FONT>
+	</P>
+</UL>
+<UL TYPE=DISC>
+	<OL>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Most successful: asynchronous,
+		fast, can be sent to multiple receivers, has built-in external
+		memory</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Can contain text, image, video,
+		sound</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Organized email:</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Computer conferencing system:</FONT>
+			<FONT FACE="Arial">Messages organized by topic, emphasizing
+			dialogue</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Electronic bulletin boards:
+			Messages organized by time, emphasizing broadcast of information</FONT>
+			</FONT>
+		</UL>
+	</OL>
+</UL>
+<P><BR><BR>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">Structured
+Messages, Agents and Workflow</FONT></FONT> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><B><FONT FACE="Arial">Structured messaging systems</FONT></B>
+	<FONT FACE="Arial">- better methods of organizing, classifying,
+	filtering, and managing messages</FONT> </FONT>
+	<LI><FONT SIZE=4><B><FONT FACE="Arial">Agent</FONT></B> <FONT FACE="Arial">-
+	create intelligent messaging system delegating tasks to computer
+	process</FONT> </FONT>
+	<LI><P><FONT SIZE=4><B><FONT FACE="Arial">Workflow</FONT></B> <FONT FACE="Arial">-
+	focus on messages that define processes - sets of rules which create
+	conversations</FONT> </FONT>
+	</P>
+</UL>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">Cooperative
+Hypertext and Organizational Memory</FONT></FONT> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Applications  focus on messages
+	or documents and their interrelationships - cooperative hypertext
+	systems</FONT> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Supports:</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">collaborative knowledge
+			building</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Asynchronous collaborative
+			writing</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Creating organizational memory</FONT>
+			</FONT>
+		</UL>
+		<LI><FONT SIZE=4><FONT FACE="Arial">e.g. Schatz (1991-1992)</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Community systems project -
+			build electronic scientific community by collecting all
+			community's scientific Knowledge and make available</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">The Telesophy System - 500
+			researchers studying the nematode worm</FONT> </FONT>
+		</UL>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Extend support beyond document
+		to include process. (Conklin 1992)</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Software integrates three
+			technologies:</FONT> </FONT>
+			<UL TYPE=SQUARE>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Hypertext, groupware, and a
+				rhetorical method (improves dialogue and conversational record
+				and Organizational memory</FONT> </FONT>
+			</UL>
+		</UL>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Most successful organizational
+		memory - Lotus Notes</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Integrated communications and
+			database network application</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Designed to gather, organize,
+			distribute information among workgroups</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Platform for developing
+			workgroup applications</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Used for message routing,
+			report distribution, idea discussion, and for tracking and
+			managing projects</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Biggest application -
+			Price-Waterhouse (tens of thousands of notes licenses) why?</FONT>
+			</FONT>
+			<UL TYPE=SQUARE>
+				<LI><FONT SIZE=4><FONT FACE="Arial">No on knew who had knowledge
+				to solve a particular problem</FONT> </FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Constantly reinventing wheel
+				worldwide</FONT> </FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Need for better communication</FONT>
+				</FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Results:</FONT> </FONT>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<OL>
+	<OL>
+		<OL>
+			<OL>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Retention of knowledge</FONT>
+				</FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Support for global
+				collaboration and global discussion</FONT> </FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Enhanced communication</FONT>
+				</FONT>
+			</OL>
+		</OL>
+	</OL>
+</OL>
+<P><BR><BR>
+</P>
+<P><FONT SIZE=4><FONT FACE="Arial"><FONT COLOR="#000066">Synchronous
+Groupware</FONT></FONT> </FONT>
+</P>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Software that assists a group of
+	individuals in working together simultaneously to carry out a task</FONT>
+	</FONT>
+	<LI><FONT SIZE=4><FONT FACE="Arial">Four classes:</FONT> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Desktop conference systems
+		(e.g. outlining, writing, sketching, spreadsheet)</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">System infrastructure for
+		desktop conferencing</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Electronic meeting and decision
+		rooms</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Media spaces that include
+		computer controlled AV networks and virtual meeting environments</FONT>
+		</FONT>
+	</UL>
+</UL>
+<DL>
+	<DT><BR>
+</DL>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><B><FONT FACE="Arial">Desktop Conferencing Systems</FONT></B>
+	</FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">NLS shared-screen conferencing
+		systems 1968 -augment face-to-face communication</FONT> </FONT>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Xerox Parc Colab Project 1987</FONT>
+		</FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Tools for collaborative
+			brainstorming, argument development, free style sketching</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Workstation-based with large
+			touch screen in front of room</FONT> </FONT>
+			<LI><FONT SIZE=4><FONT FACE="Arial">WYSIWIS (what you see is what
+			I see)</FONT> </FONT>
+		</UL>
+	</UL>
+</UL>
+<DL>
+	<DT><BR>
+</DL>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><B><FONT FACE="Arial">System Infrastructure for
+	Desktop Publishing</FONT></B> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">Two approaches to developing
+		groupware:</FONT> </FONT>
+		</P>
+	</UL>
+</UL>
+<OL>
+	<LI><P><FONT SIZE=4><B><FONT FACE="Arial">Collaboration transparency</FONT></B>
+	<FONT FACE="Arial">- single user software made available to group</FONT></FONT></P>
+	<LI><P><FONT SIZE=4><FONT FACE="Arial"><B>Collaboration aware </B>-
+	rewritten software for group use</FONT></FONT></P>
+</OL>
+<UL TYPE=DISC>
+	<UL TYPE=CIRCLE>
+		<LI><P><FONT SIZE=4><FONT FACE="Arial">#1 is simplest approach -
+		some software run on multiple workstations under control of screen
+		sharing software</FONT> </FONT>
+		</P>
+	</UL>
+</UL>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><B><FONT FACE="Arial">Electronic Meeting and
+	Decision Rooms</FONT></B> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Decision support systems - work
+		in electronic meeting room</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">Supports parallel or
+			sequential activity</FONT> </FONT>
+			<UL TYPE=SQUARE>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Idea generation</FONT> </FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Idea organization</FONT> </FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Voting</FONT> </FONT>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<DL>
+	<DT><BR>
+</DL>
+<UL TYPE=DISC>
+	<LI><FONT SIZE=4><B><FONT FACE="Arial">Media Spaces</FONT></B> </FONT>
+	<UL TYPE=CIRCLE>
+		<LI><FONT SIZE=4><FONT FACE="Arial">Computer controlled
+		teleconferencing system where A/V communication and shared digital
+		workspaces overcome physical separation</FONT> </FONT>
+		<UL TYPE=SQUARE>
+			<LI><FONT SIZE=4><FONT FACE="Arial">e.g. Hiroshi Ishii - Teamwork
+			system</FONT> </FONT>
+			<UL TYPE=SQUARE>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Display of shared digital
+				workspaces with displays of drawing surfaces and desktop
+				materials</FONT> </FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Implements seamlessness
+				between individual and workgroup by overlaying translucent
+				workgroup by overlaying translucent workspace images-live video
+				analog images of computer screens and desktop surfaces</FONT> </FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Computer screen overlay is a
+				shared screen combining windows from individual collaborators</FONT>
+				</FONT>
+				<LI><FONT SIZE=4><FONT FACE="Arial">Creates shared interpersonal
+				space using small windows displaying live video of one's
+				collaborator</FONT> </FONT>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</BODY>
+</HTML>
